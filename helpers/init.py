@@ -25,11 +25,11 @@ def worker_init_fn(wid):
 
 def spawn_get(seedseq, n_entropy, dtype):
     child = seedseq.spawn(1)[0]
-    state = child.generate_state(n_entropy, dtype=np.uint32)
+    state = child.generate_state(n_entropy, dtype=int)
 
     if dtype == np.ndarray:
         return state
-    elif dtype == int:
+    elif dtype == np.uint64:
         state_as_int = 0
         for shift, s in enumerate(state):
             state_as_int = state_as_int + int((2 ** (32 * shift) * s))
