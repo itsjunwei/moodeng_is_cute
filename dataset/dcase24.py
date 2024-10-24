@@ -7,7 +7,7 @@ import torchaudio
 from torch.hub import download_url_to_file
 import numpy as np
 
-dataset_dir = "C:\Users\fenel\Documents\6337421"
+dataset_dir = "C:/Users/fenel/Documents/6337421"
 assert dataset_dir is not None, "Specify 'TAU Urban Acoustic Scenes 2022 Mobile dataset' location in variable " \
                                 "'dataset_dir'. The dataset can be downloaded from this URL:" \
                                 " https://zenodo.org/record/6337421"
@@ -171,4 +171,3 @@ def get_eval_set():
 def get_base_eval_set(meta_csv, eval_dir):
     ds = BasicDCASE24EvalDataset(meta_csv, eval_dir)
     return ds
-
