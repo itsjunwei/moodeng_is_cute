@@ -1,0 +1,6 @@
+2024-10-25 14:15:43,489 INFO    StreamThr :14988 [internal.py:wandb_internal():85] W&B internal server running at pid: 14988, started at: 2024-10-25 14:15:43.488496
+2024-10-25 14:15:43,490 DEBUG   HandlerThread:14988 [handler.py:handle_request():158] handle_request: status
+2024-10-25 14:15:43,493 INFO    WriterThread:14988 [datastore.py:open_for_write():87] open: .\wandb\run-20241025_141543-xvx87pd3\run-xvx87pd3.wandb
+2024-10-25 14:15:43,493 DEBUG   SenderThread:14988 [sender.py:send():391] send: header
+2024-10-25 14:15:43,728 DEBUG   SenderThread:14988 [sender.py:send():391] send: run
+2024-10-25 14:15:43,738 INFO    SenderThread:14988 [sender.py:_setup_resume():761] checking resume status for None/DCASE24_Task1/xvx87pd3
