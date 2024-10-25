@@ -122,6 +122,7 @@ _wandb:
       - 55
       - 103
       3:
+      - 2
       - 7
       - 13
       - 15
@@ -425,6 +426,282 @@ _wandb:
       6:
       - 1
     - 1: train/loss
+      5: 1
+      6:
+      - 1
+    - 1: test/acc
+      5: 1
+      6:
+      - 1
+    - 1: test/loss
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.a
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.a
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.a
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.real
+      5: 1
+      6:
+      - 1
+    - 1: test/count\.real
+      5: 1
+      6:
+      - 1
+    - 1: test/lloss\.real
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.b
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.b
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.b
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.c
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.c
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.c
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.s1
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.s1
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.s1
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.seen
+      5: 1
+      6:
+      - 1
+    - 1: test/count\.seen
+      5: 1
+      6:
+      - 1
+    - 1: test/lloss\.seen
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.s2
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.s2
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.s2
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.s3
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.s3
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.s3
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.s4
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.s4
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.s4
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.unseen
+      5: 1
+      6:
+      - 1
+    - 1: test/count\.unseen
+      5: 1
+      6:
+      - 1
+    - 1: test/lloss\.unseen
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.s5
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.s5
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.s5
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.s6
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.s6
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.s6
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.airport
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.airport
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.airport
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.bus
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.bus
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.bus
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.metro
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.metro
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.metro
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.metro_station
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.metro_station
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.metro_station
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.park
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.park
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.park
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.public_square
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.public_square
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.public_square
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.shopping_mall
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.shopping_mall
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.shopping_mall
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.street_pedestrian
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.street_pedestrian
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.street_pedestrian
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.street_traffic
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.street_traffic
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.street_traffic
+      5: 1
+      6:
+      - 1
+    - 1: test/loss\.tram
+      5: 1
+      6:
+      - 1
+    - 1: test/acc\.tram
+      5: 1
+      6:
+      - 1
+    - 1: test/cnt\.tram
+      5: 1
+      6:
+      - 1
+    - 1: test/macro_avg_acc
       5: 1
       6:
       - 1
