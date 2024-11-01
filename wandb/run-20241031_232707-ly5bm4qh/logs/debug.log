@@ -1,0 +1,39 @@
+2024-10-31 23:27:07,777 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Current SDK version is 0.17.7
+2024-10-31 23:27:07,777 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Configure stats pid to 14548
+2024-10-31 23:27:07,777 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Loading settings from C:\Users\fenel\.config\wandb\settings
+2024-10-31 23:27:07,777 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Loading settings from C:\Users\fenel\Documents\dcase2024_task1_baseline\wandb\settings
+2024-10-31 23:27:07,777 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-10-31 23:27:07,777 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-10-31 23:27:07,778 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'run_training.py', 'program_abspath': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py', 'program': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py'}
+2024-10-31 23:27:07,778 INFO    MainThread:14548 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-10-31 23:27:07,778 INFO    MainThread:14548 [wandb_init.py:_log_setup():524] Logging user logs to .\wandb\run-20241031_232707-ly5bm4qh\logs\debug.log
+2024-10-31 23:27:07,779 INFO    MainThread:14548 [wandb_init.py:_log_setup():525] Logging internal logs to .\wandb\run-20241031_232707-ly5bm4qh\logs\debug-internal.log
+2024-10-31 23:27:07,779 INFO    MainThread:14548 [wandb_init.py:init():607] calling init triggers
+2024-10-31 23:27:07,779 INFO    MainThread:14548 [wandb_init.py:init():614] wandb.init called with sweep_config: {}
+config: {'project_name': 'DCASE24_Task1', 'experiment_name': 'Baseline', 'num_workers': 0, 'precision': '32', 'evaluate': False, 'ckpt_id': None, 'orig_sample_rate': 44100, 'subset': 5, 'n_classes': 10, 'in_channels': 1, 'base_channels': 32, 'channels_multiplier': 1.8, 'expansion_rate': 2.1, 'n_epochs': 1, 'batch_size': 256, 'mixstyle_p': 0.4, 'mixstyle_alpha': 0.3, 'weight_decay': 0.0001, 'roll_sec': 0.1, 'lr': 0.005, 'warmup_steps': 2000, 'sample_rate': 32000, 'window_length': 3072, 'hop_length': 500, 'n_fft': 4096, 'n_mels': 256, 'freqm': 48, 'timem': 0, 'f_min': 0, 'f_max': None}
+2024-10-31 23:27:07,779 INFO    MainThread:14548 [wandb_init.py:init():657] starting backend
+2024-10-31 23:27:07,779 INFO    MainThread:14548 [wandb_init.py:init():661] setting up manager
+2024-10-31 23:27:07,781 INFO    MainThread:14548 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-10-31 23:27:07,788 INFO    MainThread:14548 [wandb_init.py:init():669] backend started and connected
+2024-10-31 23:27:07,796 INFO    MainThread:14548 [wandb_init.py:init():764] updated telemetry
+2024-10-31 23:27:08,210 INFO    MainThread:14548 [wandb_init.py:init():797] communicating run to backend with 90.0 second timeout
+2024-10-31 23:27:09,259 INFO    MainThread:14548 [wandb_run.py:_on_init():2479] communicating current version
+2024-10-31 23:27:09,512 INFO    MainThread:14548 [wandb_run.py:_on_init():2488] got version response upgrade_message: "wandb version 0.18.5 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-10-31 23:27:09,512 INFO    MainThread:14548 [wandb_init.py:init():848] starting run threads in backend
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_run.py:_console_start():2457] atexit reg
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_run.py:_redirect():2303] redirect: wrap_raw
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_run.py:_redirect():2368] Wrapping output streams.
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_run.py:_redirect():2393] Redirects installed.
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_init.py:init():891] run started, returning control to user process
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_config.py:__setitem__():151] config set MACs = 29419156 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x00000216EA40D0F0>>
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_run.py:_config_callback():1386] config_cb MACs 29419156 None
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_config.py:__setitem__():151] config set Parameters = 61148 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x00000216EA40D0F0>>
+2024-10-31 23:27:16,422 INFO    MainThread:14548 [wandb_run.py:_config_callback():1386] config_cb Parameters 61148 None
+2024-10-31 23:36:50,908 INFO    MainThread:14548 [wandb_run.py:_finish():2154] finishing run akarifrites-nanyang-technological-university-singapore/DCASE24_Task1/ly5bm4qh
+2024-10-31 23:36:50,908 INFO    MainThread:14548 [wandb_run.py:_atexit_cleanup():2418] got exitcode: 0
+2024-10-31 23:36:50,908 INFO    MainThread:14548 [wandb_run.py:_restore():2400] restore
+2024-10-31 23:36:50,908 INFO    MainThread:14548 [wandb_run.py:_restore():2406] restore done
+2024-10-31 23:37:01,132 INFO    MainThread:14548 [wandb_run.py:_footer_history_summary_info():4076] rendering history
+2024-10-31 23:37:01,132 INFO    MainThread:14548 [wandb_run.py:_footer_history_summary_info():4108] rendering summary
+2024-10-31 23:37:01,238 INFO    MainThread:14548 [wandb_run.py:_footer_sync_info():4035] logging synced files

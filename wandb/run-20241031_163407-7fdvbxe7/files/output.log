@@ -1,0 +1,630 @@
+
+Sanity Checking DataLoader 0:  50%|████████████████████████████████████████████████████                                                    | 1/2 [00:01<00:01,  0.85it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name        | Type       | Params | Mode
+---------------------------------------------------
+0 | mel         | Sequential | 0      | train
+1 | mel_augment | Sequential | 0      | train
+2 | model       | Network    | 61.1 K | train
+---------------------------------------------------
+61.1 K    Trainable params
+0         Non-trainable params
+61.1 K    Total params
+0.245     Total estimated model params size (MB)
+116       Modules in train mode
+0         Modules in eval mode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:48<00:00,  0.58it/s, v_num=bxe7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:51<00:00,  0.54it/s, v_num=bxe7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 2: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:48<00:00,  0.57it/s, v_num=bxe7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Validation DataLoader 0:  99%|████████████████████████████████████████████████████████████████████████████████████████████████████████ | 115/116 [04:25<00:02,  0.43it/s]
+`Trainer.fit` stopped: `max_epochs=3` reached.
+Restoring states from the checkpoint path at C:\Users\fenel\Documents\dcase2024_task1_baseline\DCASE24_Task1\7fdvbxe7\checkpoints\last.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at C:\Users\fenel\Documents\dcase2024_task1_baseline\DCASE24_Task1\7fdvbxe7\checkpoints\last.ckpt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Testing DataLoader 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 116/116 [04:22<00:00,  0.44it/s]
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Test metric               DataLoader 0
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+         test/acc              0.15596361458301544
+        test/acc.a             0.1836363673210144
+     test/acc.airport                  0.0
+        test/acc.b             0.18814589083194733
+       test/acc.bus            0.03501683473587036
+        test/acc.c             0.19544072449207306
+      test/acc.metro          0.007070707157254219
+  test/acc.metro_station               0.0
+       test/acc.park            0.550841748714447
+  test/acc.public_square     0.00033670032280497253
+       test/acc.real           0.18906882405281067
+        test/acc.s1            0.17151515185832977
+        test/acc.s2            0.10848484933376312
+        test/acc.s3            0.15121212601661682
+        test/acc.s4            0.1324242353439331
+        test/acc.s5            0.14666666090488434
+        test/acc.s6            0.1263636350631714
+       test/acc.seen           0.14373737573623657
+  test/acc.shopping_mall       0.03670033812522888
+test/acc.street_pedestrian    0.011111111380159855
+  test/acc.street_traffic       0.901683509349823
+       test/acc.tram          0.015878377482295036
+      test/acc.unseen          0.13515152037143707
+        test/cnt.a                   3300.0
+     test/cnt.airport                2960.0
+        test/cnt.b                   3290.0
+       test/cnt.bus                  2970.0
+        test/cnt.c                   3290.0
+      test/cnt.metro                 2970.0
+  test/cnt.metro_station             2970.0
+       test/cnt.park                 2970.0
+  test/cnt.public_square             2970.0
+        test/cnt.s1                  3300.0
+        test/cnt.s2                  3300.0
+        test/cnt.s3                  3300.0
+        test/cnt.s4                  3300.0
+        test/cnt.s5                  3300.0
+        test/cnt.s6                  3300.0
+  test/cnt.shopping_mall             2970.0
+test/cnt.street_pedestrian           2970.0
+  test/cnt.street_traffic            2970.0
+       test/cnt.tram                 2960.0
+      test/count.real                9880.0
+      test/count.seen                9900.0
+     test/count.unseen               9900.0
+      test/lloss.real          2.2116992473602295
+      test/lloss.seen          2.2576029300689697
+     test/lloss.unseen          2.266176223754883
+         test/loss                 2.24609375
+        test/loss.a            2.2044336795806885
+     test/loss.airport          2.313880443572998
+        test/loss.b            2.2154810428619385
+       test/loss.bus            2.310683012008667
+        test/loss.c             2.215204954147339
+      test/loss.metro          2.2277255058288574
+  test/loss.metro_station      2.4951348304748535
+      test/loss.park           2.0452260971069336
+  test/loss.public_square       2.422513008117676
+       test/loss.s1            2.2525827884674072
+       test/loss.s2            2.2689714431762695
+       test/loss.s3            2.2512543201446533
+       test/loss.s4             2.264904022216797
+       test/loss.s5            2.2548468112945557
+       test/loss.s6             2.278777837753296
+  test/loss.shopping_mall       2.145759105682373
+test/loss.street_pedestrian    2.2356040477752686
+ test/loss.street_traffic      1.8873940706253052
+      test/loss.tram            2.368546485900879
+    test/macro_avg_acc         0.1558639258146286
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
