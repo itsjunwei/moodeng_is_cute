@@ -7,7 +7,7 @@ import torchaudio
 from torch.hub import download_url_to_file
 import numpy as np
 
-dataset_dir = "C:/Users/fenel/Documents/6337421"
+dataset_dir = r"C:\Users\fenel\Documents\6337421"
 assert dataset_dir is not None, "Specify 'TAU Urban Acoustic Scenes 2022 Mobile dataset' location in variable " \
                                 "'dataset_dir'. The dataset can be downloaded from this URL:" \
                                 " https://zenodo.org/record/6337421"
@@ -18,8 +18,8 @@ dataset_config = {
     "split_path": "split_setup",
     "split_url": "https://github.com/CPJKU/dcase2024_task1_baseline/releases/download/files/",
     "test_split_csv": "test.csv",
-    "eval_dir": os.path.join(dataset_dir, "..", "TAU-urban-acoustic-scenes-2024-mobile-evaluation"),
-    "eval_fold_csv": os.path.join(dataset_dir, "..", "TAU-urban-acoustic-scenes-2024-mobile-evaluation",
+    "eval_dir": os.path.join(dataset_dir, "TAU-urban-acoustic-scenes-2024-mobile-evaluation"),
+    "eval_fold_csv": os.path.join(dataset_dir, "TAU-urban-acoustic-scenes-2024-mobile-evaluation",
                                   "evaluation_setup", "fold1_test.csv")
 }
 
