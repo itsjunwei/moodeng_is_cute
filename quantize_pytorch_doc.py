@@ -3,7 +3,6 @@ import torch
 from models.baseline import get_model
 
 
-
 # define a floating point model where some layers could be statically quantized
 class M(torch.nn.Module):
     def __init__(self):
