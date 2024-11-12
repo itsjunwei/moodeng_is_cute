@@ -221,7 +221,8 @@ class Network_1(nn.Module):
 model_fp32 = get_model_1()
 model_fp32.load_state_dict(torch.load(r'.\predictions\0vl52i7d\model_state_dict.pt'), 'weights_only=True')
 model_fp32.eval()
-model_unquantized = get_model()
+model_unquantized = get_model_1()
+model_unquantized.load_state_dict(torch.load(r'.\predictions\0vl52i7d\model_state_dict.pt'), 'weights_only=True')
 print(model_unquantized)
 # print(model_fp32)
 
@@ -285,16 +286,19 @@ def evaluate(model, dataloader, mel_spec_transform):
 
             # Forward pass through the model
             outputs = model(mel_spec)
-            _, predicted = torch.max(outputs.data, 1)
+            _, predicted = torch.max(outputs.data, dim =1)
+            n_correct_per_sample = (predicted == labels)
+            n_correct = n_correct_per_sample.sum()
+            correct += n_correct
             total += labels.size(0)
-            correct += (predicted == labels).sum().item()
+            # correct += (predicted == labels).sum().item()
             
     accuracy = 100 * correct / total
     return accuracy
 
 
 # Evaluate quantized model on test data
-test_loader = DataLoader(get_test_set(), batch_size=32, shuffle=False)
+test_loader = DataLoader(get_test_set(), batch_size=32, shuffle=True)
 accuracy = evaluate(model_int8, test_loader, mel_spec_transform)
 print(f"Quantized model accuracy: {accuracy:.2f}%")
 accuracy = evaluate(model_unquantized, test_loader, mel_spec_transform)
@@ -307,7 +311,8 @@ def test_single_batch(model, dataloader, mel_spec_transform=None):
         # Get a single batch of data
         for batch in dataloader:
             labels = batch[2]
-            inputs = batch[0]   # Adjust this if needed
+            labels = labels.type(torch.LongTensor)
+            inputs = batch[0]   
             
             # Print shapes to verify correct input/output sizes
             print("Input shape:", inputs.shape)
@@ -335,6 +340,26 @@ def test_single_batch(model, dataloader, mel_spec_transform=None):
             print(f"Accuracy for this batch: {accuracy:.2f}%")
             
             break  # Only process one batch for testing
+
+# # 1. Check model parameters
+# for name, param in model_unquantized():
+#     if param.requires_grad:
+#         print(f"Layer: {name} | Weights mean: {param.data.mean()} | Stddev: {param.data.std()}")
+
+# model_unquantized.eval()# 2. Test model output on a single batch from test data
+# with torch.no_grad():
+    
+#     for batch in test_loader:
+#         inputs, labels = batch[:2]
+#         if mel_spec_transform:
+#             inputs = mel_spec_transform(inputs)
+#         outputs = model_unquantized(inputs)
+#         print("Raw Outputs (logits):", outputs)
+#         break
+
+# # 3. Run single batch evaluation on training data to check overfitting/generalization
+# accuracy_on_train = test_single_batch(model_unquantized, train_dataset(), mel_spec_transform=mel_spec_transform)
+# print(f"Accuracy on training data (single batch): {accuracy_on_train:.2f}%")
 
 # Run this function with your unquantized model and dataloader
 # Replace `unquantized_model` and `test_loader` with your actual model and dataloader
