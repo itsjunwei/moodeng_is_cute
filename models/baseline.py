@@ -17,7 +17,7 @@ def initialize_weights(m):
         nn.init.normal_(m.weight, 0, 0.01)
         if m.bias is not None:
             nn.init.zeros_(m.bias)
-
+    
 
 class Block(nn.Module):
     def __init__(
@@ -80,10 +80,12 @@ class Block(nn.Module):
             depth_conv,
             proj_conv
         )
+        self.ff = torch.nn.quantized.FloatFunctional()
 
     def forward(self, x):
         if self.use_shortcut:
-            x = self.block(x) + self.shortcut(x)
+            x = self.ff.add(self.block(x) , self.shortcut(x))
+            # x = self.block(x) + self.shortcut(x)
         else:
             x = self.block(x)
         x = self.after_block_activation(x)
@@ -206,7 +208,7 @@ class Network(nn.Module):
         return logits
 
 
-def get_model(n_classes=10, in_channels=1, base_channels=32, channels_multiplier=2.3, expansion_rate=3.0,
+def get_model(n_classes=10, in_channels=1, base_channels=32, channels_multiplier=1.8, expansion_rate=2.1,
               n_blocks=(3, 2, 1), strides=None):
     """
     @param n_classes: number of the classes to predict
