@@ -39,7 +39,7 @@ warnings.filterwarnings('ignore')
 
 # Load your pre-trained model
 model_fp32 = get_model()
-model_fp32.load_state_dict(torch.load('model_state_dict.pt'))
+model_fp32.load_state_dict(torch.load('model_state_dict.pt'), 'weights_only=True')
 model_fp32.eval()
 
 # Set the quantization configuration
