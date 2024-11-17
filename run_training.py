@@ -8,6 +8,7 @@ import torch.nn.functional as F
 import transformers
 import wandb
 import json
+import os
 
 from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
 from helpers.init import worker_init_fn
@@ -377,7 +378,55 @@ def train(config):
     trainer.test(ckpt_path='last', dataloaders=test_dl)
 
     wandb.finish()
-    
+
+
+def validate(config):
+
+    import os
+    from sklearn import preprocessing
+    import pandas as pd
+    import torch.nn.functional as F
+    from dataset.dcase24 import dataset_config
+    # logging is done using wandb
+    wandb_logger = WandbLogger(
+        project=config.project_name,
+        notes="Baseline System for DCASE'24 Task 1.",
+        tags=["DCASE24"],
+        config=config,  # this logs all hyperparameters for us
+        name=config.experiment_name
+    )
+
+    assert config.ckpt_id is not None, "A value for argument 'ckpt_id' must be provided."
+    ckpt_dir = os.path.join(config.project_name, config.ckpt_id, "checkpoints")
+    assert os.path.exists(ckpt_dir), f"No such folder: {ckpt_dir}"
+    ckpt_file = os.path.join(ckpt_dir, "last.ckpt")
+    assert os.path.exists(ckpt_file), f"No such file: {ckpt_file}. Implement your own mechanism to select" \
+                                      f"the desired checkpoint."
+
+    # train dataloader
+    assert config.subset in {100, 50, 25, 10, 5}, "Specify an integer value in: {100, 50, 25, 10, 5} to use one of " \
+                                                  "the given subsets."
+
+    val_dl = DataLoader(dataset=get_test_set(),
+                         worker_init_fn=worker_init_fn,
+                         num_workers=config.num_workers,
+                         batch_size=config.batch_size)
+
+    # create pytorch lightening module
+    pl_module = PLModule(config)
+    pl_module = PLModule.load_from_checkpoint(ckpt_file, config=config)
+
+
+    # create the pytorch lightening trainer by specifying the number of epochs to train, the logger,
+    # on which kind of device(s) to train and possible callbacks
+    trainer = pl.Trainer(max_epochs=config.n_epochs,
+                         logger=wandb_logger,
+                         accelerator='gpu',
+                         devices=1,
+                         precision=config.precision)
+
+    trainer.test(pl_module, dataloaders=val_dl)
+
 
 def evaluate(config):
     import os
@@ -514,6 +563,7 @@ if __name__ == '__main__':
     parser.add_argument('--f_max', type=int, default=None)
 
     args = parser.parse_args()
+    # validate(args)
     if args.evaluate:
         evaluate(args)
     else:

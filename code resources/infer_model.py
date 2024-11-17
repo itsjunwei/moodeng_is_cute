@@ -1,3 +1,11 @@
+import os
+# Ensure that script working directory is same directory as the script
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+print("Changing directory to : ", dname)
+os.chdir(dname)
+
+
 import torch
 import torch.nn as nn
 import torch.ao.quantization as quantization
@@ -8,7 +16,6 @@ from torchvision.ops.misc import Conv2dNormActivation
 import torchaudio.transforms
 import numpy as np
 import librosa
-import os
 
 from models.baseline import get_model, initialize_weights, Block
 from models.helpers.utils import make_divisible
@@ -16,25 +23,7 @@ from dataset.dcase24 import get_training_set, get_test_set
 
 import warnings
 
-warnings.filterwarnings('ignore')
-
-# model_path = 'model_state_dict.pt'
-# quantized_model_save_path = 'quant_model_state_dict.pt'
-# batch_size = 256
-# num_classes = 10
-
-# # module for resampling waveforms on the fly
-#         resample = torchaudio.transforms.Resample(
-#             orig_freq=44100, 
-#             new_freq=32000
-#         )
-
-# define mel spectrogram
-mel = torchaudio.transforms.MelSpectrogram(sample_rate=32000, 
-                                           n_fft=4096, 
-                                           win_length=3072,
-                                           hop_length=500, 
-                                           n_mels=256)
+# warnings.filterwarnings('ignore')
 
 
 def get_model_1(n_classes=10, in_channels=1, base_channels=32, channels_multiplier=1.8, expansion_rate=2.1,
@@ -72,21 +61,25 @@ def get_model_1(n_classes=10, in_channels=1, base_channels=32, channels_multipli
     m = Network_1(model_config, quantize=quantize, mel_forward=mel_forward)
     return m
 
+
 class MelSpec(nn.Module):
     def __init__(self):
         super(MelSpec, self).__init__()
+        
+        # Resample the audio clip from original frequency to a new determined sampling frequency
         resample = torchaudio.transforms.Resample(
             orig_freq=44100, 
             new_freq=32000
         )
 
-        # define mel spectrogram
+        # Generate the Mel Spectrogram with specified parameters
         mel = torchaudio.transforms.MelSpectrogram(sample_rate=32000, 
                                                     n_fft=4096, 
                                                     win_length=3072,
                                                     hop_length=500, 
                                                     n_mels=256)
         
+        # Sequentially perform resampling then the Mel Spec generation
         self.mel = torch.nn.Sequential(
             resample,
             mel
@@ -250,141 +243,100 @@ class Network_1(nn.Module):
         return logits
 
 
-# Load your pre-trained model
-model_fp32 = get_model_1(quantize=True, mel_forward=False)
-model_fp32.load_state_dict(torch.load(r'.\predictions\0vl52i7d\model_state_dict.pt'))
-model_fp32.eval()
-
-model_unquantized = get_model_1(quantize=False, mel_forward=False)
-model_unquantized.load_state_dict(torch.load(r'.\predictions\0vl52i7d\model_state_dict.pt'))
-model_unquantized.eval()
-
-
-# Set the quantization configuration
-model_fp32.qconfig = quantization.get_default_qconfig('fbgemm')  # or 'qnnpack' for mobile
-
-# # # Fuse the layers
-# # model_fp32_fused = quantization.fuse_modules(model_fp32, [['conv1', 'bn1', 'relu1']])
-
-# Prepare the model for static quantization
-model_fp32_prepared = quantization.prepare(model_fp32, inplace=True)
-
-MelSpecGenerator = MelSpec()
-
-# Calibration step (use a representative dataset)
-def calibrate(model, data_loader):
-    model.eval()
-    with torch.no_grad():
-        for idx, inputs in enumerate(data_loader):
-            raw_waveform = inputs[0]
-            mel_spec = MelSpecGenerator(raw_waveform)   
-            model(mel_spec)
-            print("{}/{}".format(idx, len(data_loader)), end='\r')
-            if idx == 0: break
-
-train_dataset = get_training_set()  # This accesses the original training dataset
-
-# Set the number of samples for calibration (5% of training data)
-num_calibration_samples = int(0.05 * len(train_dataset))
-calibration_indices = np.random.choice(len(train_dataset), num_calibration_samples, replace=False)
-
-# Create a subset of the training data for calibration
-calibration_data = Subset(train_dataset, calibration_indices)            
-
-# Create a DataLoader for calibration (replace with your dataset)
-calibration_data = DataLoader(dataset=calibration_data,
-                                batch_size=256,  # Use the same batch size as train_dl
-                                num_workers=0,
-                                shuffle=False  # No need to shuffle for calibration
-                                )
-calibrate(model_fp32_prepared, calibration_data)
-
-# Convert the model to a quantized version
-model_int8 = quantization.convert(model_fp32_prepared)
-print(model_int8)
-
-# Create the Mel spectrogram generator
-mel_spec_transform = MelSpec()
-
 # Evaluate the quantized model
-def evaluate(model, dataloader, mel_spec_transform):
+def evaluate(model, dataloader, device=torch.device("cpu"), mel_spec_transform=None):
+    """
+    Evaluates the model on the given dataloader.
+
+    Args:
+        model (torch.nn.Module): The PyTorch model to evaluate.
+        dataloader (torch.utils.data.DataLoader): The dataloader for evaluation data.
+        device (torch.device): The device to perform evaluation on.
+        mel_spec_transform (callable, optional): Transformation function to apply to raw_waveform.
+                                                If None, no transformation is applied.
+
+    Returns:
+        float: The accuracy percentage of the model on the evaluation data.
+    """
+
     model.eval()
+    model.to(device)  # Move model to the specified device
+
     correct = 0
     total = 0
+
     with torch.no_grad():
         for idx , batch in enumerate(dataloader):
-            labels = batch[2]
-            raw_waveform = batch[0] 
-            mel_spec = mel_spec_transform(raw_waveform)  # Convert to Mel spectrogram
-            model(mel_spec)
 
-            # Forward pass through the model
-            outputs = model(mel_spec)
-            _, predicted = torch.max(outputs.data, dim =1)
-            n_correct_per_sample = (predicted == labels)
-            n_correct = n_correct_per_sample.sum()
-            correct += n_correct
+            # Unpack the batch
+            # Assuming val_batch structure: x, files, labels, devices, cities
+            x, files, labels, devices, cities = batch
+            
+            # Move inputs and labels to the correct device
+            x = x.to(device)
+            labels = labels.to(device).long()  # Ensure labels are LongTensors
+            
+            # Apply transformation if provided
+            if mel_spec_transform is not None:
+                x = mel_spec_transform(x)
+
+            # Forward pass
+            outputs = model(x)
+            
+            # Predictions
+            _, preds = torch.max(outputs, dim=1)
+            
+            # Calculate correct predictions
+            n_correct = (preds == labels).sum().item()
+            correct += (preds == labels).sum().item()
+            
+            # Total number of labels
             total += labels.size(0)
+
             print("Batch: {}/{} -- Accuracy: {}/{}".format(idx, len(dataloader), n_correct, labels.size(0)))
-            # correct += (predicted == labels).sum().item()
             
     accuracy = 100 * correct / total
     return accuracy
 
 
+# Load your pre-trained model
+model_unquantized = get_model_1(quantize=False, mel_forward=True)
+chkpt = torch.load(r'.\predictions\0vl52i7d\model_state_dict.pt')
+model_unquantized.load_state_dict(chkpt, strict=False)
+# checkpoint_path = r"DCASE24_Task1\0vl52i7d\checkpoints\last.ckpt"
+
+# # Step 1: Load the checkpoint
+# checkpoint = torch.load(checkpoint_path, map_location='cpu')
+ 
+# # Step 2: Extract the state_dict
+# state_dict = checkpoint['state_dict'] # PyTorch Lightning typically stores the model's state_dict under the 'state_dict' key
+ 
+# # Step 3: Adjust the keys if necessary. Often, Lightning prefixes model parameters with 'model.', so we need to remove this
+# new_state_dict = {}
+# prefix = 'model.'  # Change this if your prefix is different or absent
+ 
+# for key, value in state_dict.items():
+#     # if "mel" not in key:
+#     if key.startswith(prefix):
+#         new_key = key[len(prefix):]  # Remove the prefix
+#     else:
+#         new_key = key
+#     new_state_dict[new_key] = value
+
+# # Load the adjusted state_dict into the model
+# missing_keys, unexpected_keys = model_unquantized.load_state_dict(new_state_dict, strict=False)
+
+# # Check what keys were not used or are missing
+# if missing_keys:
+#     print(f"Warning: Missing keys in state_dict: {missing_keys}")
+# if unexpected_keys:
+#     print(f"Warning: Unexpected keys in state_dict: {unexpected_keys}")
+
+# Create the Mel spectrogram generator
+mel_spec_transform = MelSpec()
+mel_spec_transform = None
+
 # Evaluate quantized model on test data
 test_loader = DataLoader(get_test_set(), batch_size=256, shuffle=True)
-accuracy = evaluate(model_int8, test_loader, mel_spec_transform)
-print(f"Quantized model accuracy: {accuracy:.2f}%")
-accuracy = evaluate(model_unquantized, test_loader, mel_spec_transform)
+accuracy = evaluate(model_unquantized, test_loader, mel_spec_transform=mel_spec_transform)
 print(f"Unquantized model accuracy: {accuracy:.2f}%")
-
-
-# def test_single_batch(model, dataloader, mel_spec_transform=None):
-#     model.eval()  # Set model to evaluation mode
-#     with torch.no_grad(): 
-#         # Get a single batch of data
-#         for batch in dataloader:
-#             labels = batch[2]
-#             labels = labels.type(torch.LongTensor)
-#             inputs = batch[0]   
-        
-#             # Print shapes to verify correct input/output sizes
-#             print("Input shape:", inputs.shape)
-#             print("Label shape:", labels.shape)
-        
-#             # Convert to Mel spectrogram if needed
-#             if mel_spec_transform:
-#                 inputs = mel_spec_transform(inputs)
-#                 print("Transformed input shape (Mel spectrogram):", inputs.shape)
-        
-#             # Forward pass through the model
-#             outputs = model(inputs)
-#             print("Output shape:", outputs.shape)
-#             print("Outputs:", outputs)
-#             print("Labels:", labels)
-        
-#             # Calculate predictions
-#             _, predicted = torch.max(outputs.data, 1)
-#             print("Predicted labels:", predicted)
-#             print("Actual labels:", labels)
-        
-#             # Calculate accuracy for this single batch
-#             correct = (predicted == labels).sum().item()
-#             accuracy = 100 * correct / labels.size(0)
-#             print(f"Accuracy for this batch: {accuracy:.2f}%")
-        
-#             break  # Only process one batch for testing
-
-# Run this function with your unquantized model and dataloader
-# Replace `unquantized_model` and `test_loader` with your actual model and dataloader
-# test_single_batch(model_unquantized, test_loader, mel_spec_transform=mel_spec_transform)
-
-# Save the quantized model
-torch.save(model_int8.state_dict(), 'quant_model_state_dict.pt')
-
-# To run inference with the quantized model
-model_int8.eval()
-input_tensor = torch.randn((1, 1, 64, 64))  # Example input shape
-output = model_int8(input_tensor)
-print(output)
