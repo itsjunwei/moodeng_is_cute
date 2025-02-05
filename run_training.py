@@ -39,8 +39,10 @@ class PLModule(pl.LightningModule):
             f_max=config.f_max
         )
 
-        freqm = torchaudio.transforms.FrequencyMasking(config.freqm, iid_masks=True)
-        timem = torchaudio.transforms.TimeMasking(config.timem, iid_masks=True)
+        freqm = torchaudio.transforms.FrequencyMasking(config.freqm, 
+                                                       iid_masks=True)
+        timem = torchaudio.transforms.TimeMasking(config.timem, 
+                                                  iid_masks=True)
 
         self.mel = torch.nn.Sequential(
             resample,
