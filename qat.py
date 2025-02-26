@@ -95,7 +95,7 @@ class Network_2(nn.Module):
             # Quantization stubs
             self.quant = torch.quantization.QuantStub()
             self.dequant = torch.quantization.DeQuantStub()
-            
+
         self.mel_forward = mel_forward
         if self.mel_forward:
             # Resample the audio clip from original frequency to a new determined sampling frequency
@@ -110,13 +110,13 @@ class Network_2(nn.Module):
                                                         win_length=3072,
                                                         hop_length=500, 
                                                         n_mels=256)
-            
+
             # Sequentially perform resampling then the Mel Spec generation
             self.mel = torch.nn.Sequential(
                 resample,
                 mel
             )
-        
+
         # Convolutional layers
         n_classes = config['n_classes']
         in_channels = config['in_channels']
@@ -178,7 +178,6 @@ class Network_2(nn.Module):
 
         self.apply(initialize_weights)
 
-
     def _make_stage(self,
                     in_channels,
                     out_channels,
@@ -238,6 +237,39 @@ class Network_2(nn.Module):
         logits = x.squeeze(2).squeeze(2)
         return logits
 
+    # def mel_forward(self, x):
+    #     """
+    #     @param x: a batch of raw signals (waveform)
+    #     return: a batch of log mel spectrograms
+    #     """
+    #     old_shape = x.size()
+    #     x = x.reshape(-1, old_shape[2])  # for calculating log mel spectrograms we remove the channel dimension
+    #     x = self.mel(x)
+    #     x = x.reshape(old_shape[0], old_shape[1], x.shape[1], x.shape[2])  # batch x channels x mels x time-frames
+    #     return x
+
+    # def forward(self, x):
+    #     """
+    #     :param x: batch of spectrograms
+    #     :return: final model predictions
+    #     """
+    #     x = self.mel_forward(x)
+    #     x = self.model(x)
+    #     return x
+
+    # def quantized_forward(self, x):
+    #     """
+    #     :param x: batch of spectrograms
+    #     :return: final model predictions
+    #     """
+    #     # quantized forward needs to be done on cpu
+    #     orig_device = x.device
+    #     x = x.cpu()
+    #     self.model_int8.cpu()
+    #     y = self.model_int8(x)
+    #     return y.to(orig_device)    
+
+
 # create a model instance
 model_fp32 = get_model_2(quantize=True, mel_forward=False)
 model_fp32.load_state_dict(torch.load(r'.\predictions\0vl52i7d\model_state_dict.pt'))
@@ -254,8 +286,8 @@ model_unquantized.eval()
 # can be specified here.
 # Note: the old 'fbgemm' is still available but 'x86' is the recommended default
 # for server inference.
-# model_fp32.qconfig = torch.ao.quantization.get_default_qconfig('fbgemm')
-model_fp32.qconfig = torch.ao.quantization.get_default_qat_qconfig('x86')
+model_fp32.qconfig = torch.ao.quantization.get_default_qconfig('fbgemm')
+# model_fp32.qconfig = torch.ao.quantization.get_default_qat_qconfig('x86')
 
 # fuse the activations to preceding layers, where applicable
 # this needs to be done manually depending on the model architecture
@@ -345,3 +377,12 @@ accuracy = evaluate(model_int8, test_loader, mel_spec_transform)
 print(f"Quantized model accuracy: {accuracy:.2f}%")
 accuracy = evaluate(model_unquantized, test_loader, mel_spec_transform)
 print(f"Unquantized model accuracy: {accuracy:.2f}%")
+
+# Save the quantized model
+torch.save(model_int8.state_dict(), 'qat_model_state_dict.pt')
+
+# To run inference with the quantized model
+model_int8.eval()
+input_tensor = torch.randn((1, 1, 64, 64))  # Example input shape
+output = model_int8(input_tensor)
+print(output)

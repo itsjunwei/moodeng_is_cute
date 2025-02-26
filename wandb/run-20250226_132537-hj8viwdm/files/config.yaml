@@ -1,0 +1,436 @@
+wandb_version: 1
+
+project_name:
+  desc: null
+  value: DCASE24_Task1
+experiment_name:
+  desc: null
+  value: Baseline
+num_workers:
+  desc: null
+  value: 0
+precision:
+  desc: null
+  value: '32'
+evaluate:
+  desc: null
+  value: false
+ckpt_id:
+  desc: null
+  value: null
+orig_sample_rate:
+  desc: null
+  value: 44100
+subset:
+  desc: null
+  value: 5
+n_classes:
+  desc: null
+  value: 10
+in_channels:
+  desc: null
+  value: 1
+base_channels:
+  desc: null
+  value: 32
+channels_multiplier:
+  desc: null
+  value: 1.8
+expansion_rate:
+  desc: null
+  value: 2.1
+n_epochs:
+  desc: null
+  value: 5
+batch_size:
+  desc: null
+  value: 256
+mixstyle_p:
+  desc: null
+  value: 0.4
+mixstyle_alpha:
+  desc: null
+  value: 0.3
+weight_decay:
+  desc: null
+  value: 0.0001
+roll_sec:
+  desc: null
+  value: 0.1
+lr:
+  desc: null
+  value: 0.005
+warmup_steps:
+  desc: null
+  value: 2000
+sample_rate:
+  desc: null
+  value: 32000
+window_length:
+  desc: null
+  value: 3072
+hop_length:
+  desc: null
+  value: 500
+n_fft:
+  desc: null
+  value: 4096
+n_mels:
+  desc: null
+  value: 256
+freqm:
+  desc: null
+  value: 48
+timem:
+  desc: null
+  value: 0
+f_min:
+  desc: null
+  value: 0
+f_max:
+  desc: null
+  value: null
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.14
+    cli_version: 0.17.7
+    framework: huggingface
+    huggingface_version: 4.44.0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1740547537
+    t:
+      1:
+      - 1
+      - 5
+      - 9
+      - 11
+      - 41
+      - 49
+      - 53
+      - 55
+      - 103
+      2:
+      - 1
+      - 5
+      - 9
+      - 11
+      - 41
+      - 49
+      - 53
+      - 55
+      - 103
+      3:
+      - 7
+      - 13
+      - 15
+      - 16
+      - 19
+      - 23
+      - 66
+      4: 3.10.14
+      5: 0.17.7
+      6: 4.44.0
+      8:
+      - 3
+      - 5
+      13: windows-amd64
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    - 1: val/acc
+      5: 1
+      6:
+      - 1
+    - 1: val/loss
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.a
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.a
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.a
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.real
+      5: 1
+      6:
+      - 1
+    - 1: val/count\.real
+      5: 1
+      6:
+      - 1
+    - 1: val/lloss\.real
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.b
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.b
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.b
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.c
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.c
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.c
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.s1
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.s1
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.s1
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.seen
+      5: 1
+      6:
+      - 1
+    - 1: val/count\.seen
+      5: 1
+      6:
+      - 1
+    - 1: val/lloss\.seen
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.s2
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.s2
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.s2
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.s3
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.s3
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.s3
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.s4
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.s4
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.s4
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.unseen
+      5: 1
+      6:
+      - 1
+    - 1: val/count\.unseen
+      5: 1
+      6:
+      - 1
+    - 1: val/lloss\.unseen
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.s5
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.s5
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.s5
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.s6
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.s6
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.s6
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.airport
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.airport
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.airport
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.bus
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.bus
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.bus
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.metro
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.metro
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.metro
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.metro_station
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.metro_station
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.metro_station
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.park
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.park
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.park
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.public_square
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.public_square
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.public_square
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.shopping_mall
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.shopping_mall
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.shopping_mall
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.street_pedestrian
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.street_pedestrian
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.street_pedestrian
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.street_traffic
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.street_traffic
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.street_traffic
+      5: 1
+      6:
+      - 1
+    - 1: val/loss\.tram
+      5: 1
+      6:
+      - 1
+    - 1: val/acc\.tram
+      5: 1
+      6:
+      - 1
+    - 1: val/cnt\.tram
+      5: 1
+      6:
+      - 1
+    - 1: val/macro_avg_acc
+      5: 1
+      6:
+      - 1
+    - 1: epoch
+      5: 1
+      6:
+      - 1
+    - 1: lr
+      5: 1
+      6:
+      - 1
+    - 1: train/loss
+      5: 1
+      6:
+      - 1
+MACs:
+  desc: null
+  value: 29419156
+Parameters:
+  desc: null
+  value: 61148

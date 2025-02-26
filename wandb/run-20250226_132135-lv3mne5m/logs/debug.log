@@ -1,0 +1,33 @@
+2025-02-26 13:21:35,410 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Current SDK version is 0.17.7
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Configure stats pid to 18928
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Loading settings from C:\Users\fenel\.config\wandb\settings
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Loading settings from C:\Users\fenel\Documents\dcase2024_task1_baseline\wandb\settings
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'run_training.py', 'program_abspath': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py', 'program': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py'}
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_setup.py:_flush():76] Applying login settings: {}
+2025-02-26 13:21:35,411 INFO    MainThread:18928 [wandb_init.py:_log_setup():524] Logging user logs to .\wandb\run-20250226_132135-lv3mne5m\logs\debug.log
+2025-02-26 13:21:35,412 INFO    MainThread:18928 [wandb_init.py:_log_setup():525] Logging internal logs to .\wandb\run-20250226_132135-lv3mne5m\logs\debug-internal.log
+2025-02-26 13:21:35,412 INFO    MainThread:18928 [wandb_init.py:init():607] calling init triggers
+2025-02-26 13:21:35,412 INFO    MainThread:18928 [wandb_init.py:init():614] wandb.init called with sweep_config: {}
+config: {'project_name': 'DCASE24_Task1', 'experiment_name': 'Baseline', 'num_workers': 0, 'precision': '32', 'evaluate': False, 'ckpt_id': None, 'orig_sample_rate': 44100, 'subset': 5, 'n_classes': 10, 'in_channels': 1, 'base_channels': 32, 'channels_multiplier': 1.8, 'expansion_rate': 2.1, 'n_epochs': 5, 'batch_size': 256, 'mixstyle_p': 0.4, 'mixstyle_alpha': 0.3, 'weight_decay': 0.0001, 'roll_sec': 0.1, 'lr': 0.005, 'warmup_steps': 2000, 'sample_rate': 32000, 'window_length': 3072, 'hop_length': 500, 'n_fft': 4096, 'n_mels': 256, 'freqm': 48, 'timem': 0, 'f_min': 0, 'f_max': None}
+2025-02-26 13:21:35,412 INFO    MainThread:18928 [wandb_init.py:init():657] starting backend
+2025-02-26 13:21:35,412 INFO    MainThread:18928 [wandb_init.py:init():661] setting up manager
+2025-02-26 13:21:35,413 INFO    MainThread:18928 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2025-02-26 13:21:35,418 INFO    MainThread:18928 [wandb_init.py:init():669] backend started and connected
+2025-02-26 13:21:35,423 INFO    MainThread:18928 [wandb_init.py:init():764] updated telemetry
+2025-02-26 13:21:35,456 INFO    MainThread:18928 [wandb_init.py:init():797] communicating run to backend with 90.0 second timeout
+2025-02-26 13:21:36,419 INFO    MainThread:18928 [wandb_run.py:_on_init():2479] communicating current version
+2025-02-26 13:21:36,451 INFO    MainThread:18928 [wandb_run.py:_on_init():2488] got version response upgrade_message: "wandb version 0.19.7 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-02-26 13:21:36,451 INFO    MainThread:18928 [wandb_init.py:init():848] starting run threads in backend
+2025-02-26 13:21:41,352 INFO    MainThread:18928 [wandb_run.py:_console_start():2457] atexit reg
+2025-02-26 13:21:41,352 INFO    MainThread:18928 [wandb_run.py:_redirect():2303] redirect: wrap_raw
+2025-02-26 13:21:41,352 INFO    MainThread:18928 [wandb_run.py:_redirect():2368] Wrapping output streams.
+2025-02-26 13:21:41,352 INFO    MainThread:18928 [wandb_run.py:_redirect():2393] Redirects installed.
+2025-02-26 13:21:41,356 INFO    MainThread:18928 [wandb_init.py:init():891] run started, returning control to user process
+2025-02-26 13:21:41,357 INFO    MainThread:18928 [wandb_config.py:__setitem__():151] config set MACs = 29419156 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x00000293969A2B00>>
+2025-02-26 13:21:41,357 INFO    MainThread:18928 [wandb_run.py:_config_callback():1386] config_cb MACs 29419156 None
+2025-02-26 13:21:41,357 INFO    MainThread:18928 [wandb_config.py:__setitem__():151] config set Parameters = 61148 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x00000293969A2B00>>
+2025-02-26 13:21:41,357 INFO    MainThread:18928 [wandb_run.py:_config_callback():1386] config_cb Parameters 61148 None
+2025-02-26 13:21:53,765 WARNING MsgRouterThr:18928 [router.py:message_loop():77] message_loop has been closed

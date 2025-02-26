@@ -2,9 +2,12 @@ import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 import torch
 import torchaudio
+import torch.nn as nn
 from torch.utils.data import DataLoader
 import argparse
 import torch.nn.functional as F
+import matplotlib.pyplot as plt
+import numpy as np
 import transformers
 import wandb
 import json
@@ -12,6 +15,7 @@ import os
 
 from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
 from helpers.init import worker_init_fn
+from helpers.output_dim import get_model_output_dim
 from models.baseline import get_model
 from helpers.utils import mixstyle
 from helpers import nessi
@@ -61,6 +65,10 @@ class PLModule(pl.LightningModule):
                                channels_multiplier=config.channels_multiplier,
                                expansion_rate=config.expansion_rate
                                )
+        
+        # For fusing device features, you need to know the output feature dimension of self.model.
+        # Call the function from output_dim.py
+        mel_feat_dim = get_model_output_dim(self.model)
 
         self.device_ids = ['a', 'b', 'c', 's1', 's2', 's3', 's4', 's5', 's6']
         self.label_ids = ['airport', 'bus', 'metro', 'metro_station', 'park', 'public_square', 'shopping_mall',
@@ -69,6 +77,21 @@ class PLModule(pl.LightningModule):
         self.device_groups = {'a': "real", 'b': "real", 'c': "real",
                               's1': "seen", 's2': "seen", 's3': "seen",
                               's4': "unseen", 's5': "unseen", 's6': "unseen"}
+        
+        # Create a mapping from device id string to index
+        self.device_id_to_idx = {d: i for i, d in enumerate(self.device_ids)}
+        # Device embedding layer
+        embed_dim = 32  # you can choose this dimension as needed
+        self.device_embedding = nn.Embedding(len(self.device_ids), embed_dim)
+        # print("Device Embedding Table Shape:", self.device_embedding.weight.shape)
+
+        # A fusion classifier that takes the concatenated mel features and device embedding
+        fusion_input_dim = mel_feat_dim + embed_dim
+        self.classifier = nn.Sequential(
+            nn.Linear(fusion_input_dim, 128),
+            nn.ReLU(),
+            nn.Linear(128, config.n_classes)
+        )
 
         # pl 2 containers:
         self.training_step_outputs = []
@@ -80,20 +103,44 @@ class PLModule(pl.LightningModule):
         :param x: batch of raw audio signals (waveforms)
         :return: log mel spectrogram
         """
+        x = x.contiguous()  # Ensure tensor is stored in a contiguous block of memory
         x = self.mel(x)
         if self.training:
             x = self.mel_augment(x)
         x = (x + 1e-5).log()
         return x
+    
+    def device_forward(self, device_id):
+        """
+        Convert device ID into embeddings.
+        """
+        idxs = torch.tensor([self.device_id_to_idx[self.device_ids[d.item()]] 
+                            if isinstance(d.item(), int) and d.item() < len(self.device_ids) 
+                            else self.device_id_to_idx[d]
+                            for d in device_id], device=self.device)
+        return self.device_embedding(idxs)
 
-    def forward(self, x):
+    def forward(self, x, device_id):
         """
         :param x: batch of raw audio signals (waveforms)
+        :param device_id: batch of device ids
         :return: final model predictions
         """
-        x = self.mel_forward(x)
-        x = self.model(x)
-        return x
+        # x = self.mel_forward(x)
+        # x = self.model(x)
+        # return x
+        
+        mel_spec = self.mel_forward(x) # Process the audio into log mel spectrograms
+        # print("mel_spec shape:", mel_spec.shape)
+        mel_features = self.model(mel_spec) # Get mel features from the baseline model
+        # print("mel_features shape:", mel_features.shape)
+        device_features = self.device_forward(device_id) # Process the device id input
+        # print("device_features shape:", device_features.shape)
+        combined_features = torch.cat((mel_features, device_features), dim=1) # Fuse the mel features and device embeddings
+        # print("combined_features shape:", combined_features.shape)
+        logits = self.classifier(combined_features) # Pass the concatenated features through the classifier to get logits
+        # print("logits shape:", logits.shape)
+        return logits   
 
     def configure_optimizers(self):
         """
@@ -116,6 +163,37 @@ class PLModule(pl.LightningModule):
         }
         return [optimizer], [lr_scheduler_config]
 
+    # def plot_accuracy_comparison(self, accuracy_no_device, accuracy_with_device):
+    #     """
+    #     Plots a comparison of model accuracy with and without device embeddings.
+    #     """
+    #     categories = ['Seen Devices', 'Unseen Devices']
+    #     x = np.arange(len(categories))  # Label locations
+    #     width = 0.35  # Width of the bars
+
+    #     fig, ax = plt.subplots(figsize=(8, 5))
+    #     rects1 = ax.bar(x - width/2, accuracy_no_device, width, label='Without Device Embeddings')
+    #     rects2 = ax.bar(x + width/2, accuracy_with_device, width, label='With Device Embeddings')
+
+    #     # Labels, title, and legend
+    #     ax.set_ylabel('Accuracy (%)')
+    #     ax.set_title('Model Accuracy Comparison: With vs Without Device Embeddings')
+    #     ax.set_xticks(x)
+    #     ax.set_xticklabels(categories)
+    #     ax.legend()
+
+    #     # Show values on bars
+    #     for rects in [rects1, rects2]:
+    #         for rect in rects:
+    #             height = rect.get_height()
+    #             ax.annotate(f'{height}%', 
+    #                         xy=(rect.get_x() + rect.get_width() / 2, height),
+    #                         xytext=(0, 3),  # Offset above bar
+    #                         textcoords="offset points",
+    #                         ha='center', va='bottom')
+
+    #     plt.show()    
+
     def training_step(self, train_batch, batch_idx):
         """
         :param train_batch: contains one batch from train dataloader
@@ -125,12 +203,13 @@ class PLModule(pl.LightningModule):
         x, files, labels, devices, cities = train_batch
         labels = labels.type(torch.LongTensor)
         labels = labels.to(self.device)
-        x = self.mel_forward(x)  # we convert the raw audio signals into log mel spectrograms
+        # x = self.mel_forward(x)  # we convert the raw audio signals into log mel spectrograms
 
-        if self.config.mixstyle_p > 0:
-            # frequency mixstyle
-            x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
-        y_hat = self.model(x)
+        # if self.config.mixstyle_p > 0:
+        #     # frequency mixstyle
+        #     x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
+        # y_hat = self.model(x, devices)
+        y_hat = self.forward(x, devices)  # Passing devices into forward method
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
         loss = samples_loss.mean()
 
@@ -145,7 +224,7 @@ class PLModule(pl.LightningModule):
     def validation_step(self, val_batch, batch_idx):
         x, files, labels, devices, cities = val_batch
 
-        y_hat = self.forward(x)
+        y_hat = self.forward(x, devices)
         labels = labels.type(torch.LongTensor)
         labels = labels.to(self.device)
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
@@ -234,11 +313,11 @@ class PLModule(pl.LightningModule):
         # baseline has 61148 parameters -> we can afford 16-bit precision
         # since 61148 * 16 bit ~ 122 kB
 
-        # assure fp16
+        # # assure fp16
         self.model.half()
         x = self.mel_forward(x)
         x = x.half()
-        y_hat = self.model(x)
+        y_hat = self.model(x, devices)
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
 
         # for computing accuracy
@@ -316,14 +395,14 @@ class PLModule(pl.LightningModule):
         self.test_step_outputs.clear()
 
     def predict_step(self, eval_batch, batch_idx, dataloader_idx=0):
-        x, files = eval_batch
+        x, files, devices = eval_batch
 
         # assure fp16
         self.model.half()
 
         x = self.mel_forward(x)
         x = x.half()
-        y_hat = self.model(x)
+        y_hat = self.model(x, devices)
 
         return files, y_hat
 
@@ -542,7 +621,7 @@ if __name__ == '__main__':
     parser.add_argument('--expansion_rate', type=float, default=2.1)
 
     # training
-    parser.add_argument('--n_epochs', type=int, default=1)
+    parser.add_argument('--n_epochs', type=int, default=5)
     parser.add_argument('--batch_size', type=int, default=256)
     parser.add_argument('--mixstyle_p', type=float, default=0.4)  # frequency mixstyle
     parser.add_argument('--mixstyle_alpha', type=float, default=0.3)
@@ -570,4 +649,3 @@ if __name__ == '__main__':
         evaluate(args)
     else:
         train(args)
-

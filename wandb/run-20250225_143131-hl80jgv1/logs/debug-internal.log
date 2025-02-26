@@ -1,0 +1,56 @@
+2025-02-25 14:31:31,440 INFO    StreamThr :17972 [internal.py:wandb_internal():85] W&B internal server running at pid: 17972, started at: 2025-02-25 14:31:31.438059
+2025-02-25 14:31:31,441 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: status
+2025-02-25 14:31:31,444 INFO    WriterThread:17972 [datastore.py:open_for_write():87] open: .\wandb\run-20250225_143131-hl80jgv1\run-hl80jgv1.wandb
+2025-02-25 14:31:31,448 DEBUG   SenderThread:17972 [sender.py:send():391] send: header
+2025-02-25 14:31:31,484 DEBUG   SenderThread:17972 [sender.py:send():391] send: run
+2025-02-25 14:31:31,494 INFO    SenderThread:17972 [sender.py:_setup_resume():761] checking resume status for None/DCASE24_Task1/hl80jgv1
+2025-02-25 14:31:32,498 INFO    SenderThread:17972 [dir_watcher.py:__init__():211] watching files in: .\wandb\run-20250225_143131-hl80jgv1\files
+2025-02-25 14:31:32,498 INFO    SenderThread:17972 [sender.py:_start_run_threads():1200] run started: hl80jgv1 with start time 1740465091.441772
+2025-02-25 14:31:32,508 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: check_version
+2025-02-25 14:31:32,508 DEBUG   SenderThread:17972 [sender.py:send_request():418] send_request: check_version
+2025-02-25 14:31:32,569 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: run_start
+2025-02-25 14:31:32,589 DEBUG   HandlerThread:17972 [system_info.py:__init__():26] System info init
+2025-02-25 14:31:32,589 DEBUG   HandlerThread:17972 [system_info.py:__init__():41] System info init done
+2025-02-25 14:31:32,589 INFO    HandlerThread:17972 [system_monitor.py:start():194] Starting system monitor
+2025-02-25 14:31:32,589 INFO    SystemMonitor:17972 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-02-25 14:31:32,589 INFO    HandlerThread:17972 [system_monitor.py:probe():214] Collecting system info
+2025-02-25 14:31:32,589 INFO    SystemMonitor:17972 [interfaces.py:start():188] Started cpu monitoring
+2025-02-25 14:31:32,589 INFO    SystemMonitor:17972 [interfaces.py:start():188] Started disk monitoring
+2025-02-25 14:31:32,589 INFO    SystemMonitor:17972 [interfaces.py:start():188] Started gpu monitoring
+2025-02-25 14:31:32,599 INFO    SystemMonitor:17972 [interfaces.py:start():188] Started memory monitoring
+2025-02-25 14:31:32,609 INFO    SystemMonitor:17972 [interfaces.py:start():188] Started network monitoring
+2025-02-25 14:31:32,619 DEBUG   HandlerThread:17972 [system_info.py:probe():152] Probing system
+2025-02-25 14:31:32,619 DEBUG   HandlerThread:17972 [system_info.py:_probe_git():137] Probing git
+2025-02-25 14:31:32,690 DEBUG   HandlerThread:17972 [system_info.py:_probe_git():145] Probing git done
+2025-02-25 14:31:32,690 DEBUG   HandlerThread:17972 [system_info.py:probe():200] Probing system done
+2025-02-25 14:31:32,690 DEBUG   HandlerThread:17972 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.10.14', 'heartbeatAt': '2025-02-25T06:31:32.619481', 'startedAt': '2025-02-25T06:31:31.428554', 'docker': None, 'cuda': None, 'args': ('--subset=5',), 'state': 'running', 'program': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py', 'codePathLocal': 'run_training.py', 'codePath': 'run_training.py', 'git': {'remote': 'https://github.com/akarifrites/moodeng_is_cute.git', 'commit': '99d4712f9d71725fced2607dca8dbf6028dbb19c'}, 'email': 'fenellachua@gmail.com', 'root': 'C:/Users/fenel/Documents/dcase2024_task1_baseline', 'host': 'Akari', 'username': 'fenel', 'executable': 'C:\\Users\\fenel\\anaconda3\\envs\\d24_t1\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'/': {'total': 475.83886337280273, 'used': 452.1735382080078}}, 'gpu': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'memory_total': 6442450944}], 'memory': {'total': 15.588001251220703}}
+2025-02-25 14:31:32,690 INFO    HandlerThread:17972 [system_monitor.py:probe():224] Finished collecting system info
+2025-02-25 14:31:32,690 INFO    HandlerThread:17972 [system_monitor.py:probe():227] Publishing system info
+2025-02-25 14:31:32,700 DEBUG   HandlerThread:17972 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-02-25 14:31:33,501 INFO    Thread-16 :17972 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250225_143131-hl80jgv1\files\conda-environment.yaml
+2025-02-25 14:31:36,655 DEBUG   HandlerThread:17972 [system_info.py:_save_conda():224] Saving conda packages done
+2025-02-25 14:31:36,665 INFO    HandlerThread:17972 [system_monitor.py:probe():229] Finished publishing system info
+2025-02-25 14:31:36,665 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: status_report
+2025-02-25 14:31:36,665 DEBUG   SenderThread:17972 [sender.py:send():391] send: files
+2025-02-25 14:31:36,665 INFO    SenderThread:17972 [sender.py:_save_file():1466] saving file wandb-metadata.json with policy now
+2025-02-25 14:31:36,867 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: python_packages
+2025-02-25 14:31:36,867 DEBUG   SenderThread:17972 [sender.py:send_request():418] send_request: python_packages
+2025-02-25 14:31:36,867 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-25 14:31:36,867 DEBUG   SenderThread:17972 [sender.py:send_request():418] send_request: stop_status
+2025-02-25 14:31:36,867 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: telemetry
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: telemetry
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: metric
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: telemetry
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: metric
+2025-02-25 14:31:37,221 WARNING SenderThread:17972 [sender.py:send_metric():1417] Seen metric with glob (shouldn't happen)
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: telemetry
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: config
+2025-02-25 14:31:37,221 DEBUG   SenderThread:17972 [sender.py:send():391] send: config
+2025-02-25 14:31:37,474 INFO    wandb-upload_0:17972 [upload_job.py:push():130] Uploaded file C:\Users\fenel\AppData\Local\Temp\tmpgamhfgjtwandb\tlwilepq-wandb-metadata.json
+2025-02-25 14:31:37,526 INFO    Thread-16 :17972 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250225_143131-hl80jgv1\files\conda-environment.yaml
+2025-02-25 14:31:37,526 INFO    Thread-16 :17972 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250225_143131-hl80jgv1\files\wandb-metadata.json
+2025-02-25 14:31:37,526 INFO    Thread-16 :17972 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250225_143131-hl80jgv1\files\requirements.txt
+2025-02-25 14:31:37,526 INFO    Thread-16 :17972 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250225_143131-hl80jgv1\files\output.log
+2025-02-25 14:31:37,877 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-25 14:31:38,884 DEBUG   HandlerThread:17972 [handler.py:handle_request():158] handle_request: internal_messages

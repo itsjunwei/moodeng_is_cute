@@ -1,0 +1,857 @@
+2025-02-17 01:36:16,536 INFO    StreamThr :2096 [internal.py:wandb_internal():85] W&B internal server running at pid: 2096, started at: 2025-02-17 01:36:16.535438
+2025-02-17 01:36:16,541 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status
+2025-02-17 01:36:16,552 INFO    WriterThread:2096 [datastore.py:open_for_write():87] open: .\wandb\run-20250217_013616-ztbyjcx3\run-ztbyjcx3.wandb
+2025-02-17 01:36:16,554 DEBUG   SenderThread:2096 [sender.py:send():391] send: header
+2025-02-17 01:36:16,636 DEBUG   SenderThread:2096 [sender.py:send():391] send: run
+2025-02-17 01:36:16,644 INFO    SenderThread:2096 [sender.py:_setup_resume():761] checking resume status for None/DCASE24_Task1/ztbyjcx3
+2025-02-17 01:36:17,604 INFO    SenderThread:2096 [dir_watcher.py:__init__():211] watching files in: .\wandb\run-20250217_013616-ztbyjcx3\files
+2025-02-17 01:36:17,604 INFO    SenderThread:2096 [sender.py:_start_run_threads():1200] run started: ztbyjcx3 with start time 1739727376.54154
+2025-02-17 01:36:17,624 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: check_version
+2025-02-17 01:36:17,624 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: check_version
+2025-02-17 01:36:17,856 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: run_start
+2025-02-17 01:36:17,898 DEBUG   HandlerThread:2096 [system_info.py:__init__():26] System info init
+2025-02-17 01:36:17,898 DEBUG   HandlerThread:2096 [system_info.py:__init__():41] System info init done
+2025-02-17 01:36:17,898 INFO    HandlerThread:2096 [system_monitor.py:start():194] Starting system monitor
+2025-02-17 01:36:17,903 INFO    SystemMonitor:2096 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-02-17 01:36:17,903 INFO    HandlerThread:2096 [system_monitor.py:probe():214] Collecting system info
+2025-02-17 01:36:17,903 INFO    SystemMonitor:2096 [interfaces.py:start():188] Started cpu monitoring
+2025-02-17 01:36:17,903 INFO    SystemMonitor:2096 [interfaces.py:start():188] Started disk monitoring
+2025-02-17 01:36:17,903 INFO    SystemMonitor:2096 [interfaces.py:start():188] Started gpu monitoring
+2025-02-17 01:36:17,919 INFO    SystemMonitor:2096 [interfaces.py:start():188] Started memory monitoring
+2025-02-17 01:36:17,938 INFO    SystemMonitor:2096 [interfaces.py:start():188] Started network monitoring
+2025-02-17 01:36:17,955 DEBUG   HandlerThread:2096 [system_info.py:probe():152] Probing system
+2025-02-17 01:36:17,955 DEBUG   HandlerThread:2096 [system_info.py:_probe_git():137] Probing git
+2025-02-17 01:36:18,113 DEBUG   HandlerThread:2096 [system_info.py:_probe_git():145] Probing git done
+2025-02-17 01:36:18,113 DEBUG   HandlerThread:2096 [system_info.py:probe():200] Probing system done
+2025-02-17 01:36:18,113 DEBUG   HandlerThread:2096 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.10.14', 'heartbeatAt': '2025-02-16T17:36:17.955749', 'startedAt': '2025-02-16T17:36:16.514561', 'docker': None, 'cuda': None, 'args': ('--subset=5',), 'state': 'running', 'program': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py', 'codePathLocal': 'run_training.py', 'codePath': 'run_training.py', 'git': {'remote': 'https://github.com/akarifrites/moodeng_is_cute.git', 'commit': '99d4712f9d71725fced2607dca8dbf6028dbb19c'}, 'email': 'fenellachua@gmail.com', 'root': 'C:/Users/fenel/Documents/dcase2024_task1_baseline', 'host': 'Akari', 'username': 'fenel', 'executable': 'C:\\Users\\fenel\\anaconda3\\envs\\d24_t1\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'/': {'total': 475.83886337280273, 'used': 441.10954666137695}}, 'gpu': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'memory_total': 6442450944}], 'memory': {'total': 15.588001251220703}}
+2025-02-17 01:36:18,113 INFO    HandlerThread:2096 [system_monitor.py:probe():224] Finished collecting system info
+2025-02-17 01:36:18,113 INFO    HandlerThread:2096 [system_monitor.py:probe():227] Publishing system info
+2025-02-17 01:36:18,113 DEBUG   HandlerThread:2096 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-02-17 01:36:18,615 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250217_013616-ztbyjcx3\files\conda-environment.yaml
+2025-02-17 01:36:22,639 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\conda-environment.yaml
+2025-02-17 01:36:22,702 DEBUG   HandlerThread:2096 [system_info.py:_save_conda():224] Saving conda packages done
+2025-02-17 01:36:22,702 INFO    HandlerThread:2096 [system_monitor.py:probe():229] Finished publishing system info
+2025-02-17 01:36:22,717 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:36:22,717 DEBUG   SenderThread:2096 [sender.py:send():391] send: files
+2025-02-17 01:36:22,717 INFO    SenderThread:2096 [sender.py:_save_file():1466] saving file wandb-metadata.json with policy now
+2025-02-17 01:36:23,062 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: python_packages
+2025-02-17 01:36:23,062 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: python_packages
+2025-02-17 01:36:23,062 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:36:23,062 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:36:23,077 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: telemetry
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: telemetry
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: telemetry
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:36:23,450 WARNING SenderThread:2096 [sender.py:send_metric():1417] Seen metric with glob (shouldn't happen)
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: telemetry
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: config
+2025-02-17 01:36:23,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: config
+2025-02-17 01:36:23,641 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:23,642 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250217_013616-ztbyjcx3\files\wandb-metadata.json
+2025-02-17 01:36:23,642 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250217_013616-ztbyjcx3\files\requirements.txt
+2025-02-17 01:36:24,076 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:24,522 INFO    wandb-upload_0:2096 [upload_job.py:push():130] Uploaded file C:\Users\fenel\AppData\Local\Temp\tmprjpkp8okwandb\teislez0-wandb-metadata.json
+2025-02-17 01:36:25,075 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:25,662 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:26,076 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:27,085 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:27,527 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:36:28,099 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:29,103 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:29,694 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:30,103 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:31,120 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:32,135 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:33,094 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:36:33,141 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:33,735 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:34,146 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:35,154 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:35,739 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:36,161 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:37,174 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:37,760 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:38,098 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:36:38,098 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:36:38,181 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:38,402 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:36:39,196 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:39,777 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:40,202 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:41,203 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:41,786 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:42,206 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:43,222 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:43,514 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:36:44,226 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:45,239 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:45,829 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:46,247 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:47,252 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:47,851 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:48,256 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:49,269 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:36:49,273 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:49,859 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:49,859 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\config.yaml
+2025-02-17 01:36:50,285 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:51,286 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:51,864 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:52,299 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:53,093 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:36:53,096 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:36:53,308 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:53,883 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:54,313 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:55,326 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:55,389 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:36:56,331 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:57,346 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:57,911 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:36:58,348 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:59,351 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:36:59,941 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:00,361 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:01,267 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:01,377 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:01,957 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:02,388 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:03,390 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:03,975 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:04,381 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:05,396 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:06,003 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:06,408 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:06,533 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:07,417 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:08,011 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:08,101 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:37:08,101 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:37:08,425 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:09,425 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:10,018 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:10,430 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:11,437 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:11,600 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:12,021 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:12,441 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:13,450 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:14,030 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:14,453 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:15,460 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:16,041 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:16,467 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:16,736 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:17,474 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:17,940 DEBUG   SystemMonitor:2096 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-02-17 01:37:17,940 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:37:18,052 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:18,476 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:19,489 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:20,062 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:20,492 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:21,498 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:21,929 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:22,080 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:22,503 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:23,099 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:37:23,099 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:37:23,510 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:24,095 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:24,512 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:25,513 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:26,099 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:26,520 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:27,525 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:27,792 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:28,113 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:28,526 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:29,530 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:30,128 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:30,535 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:31,546 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:32,137 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:32,550 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:33,095 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:33,559 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:34,146 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:34,562 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:35,570 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:36,155 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:36,576 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:37,581 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:38,106 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:37:38,106 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:37:38,167 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:38,408 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:38,591 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:39,592 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:40,175 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:40,593 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:41,599 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:42,181 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:42,607 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:43,530 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:43,616 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:44,193 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:44,618 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:45,625 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:46,209 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:46,633 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:47,641 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:47,943 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:37:48,218 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:48,643 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:48,676 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:49,660 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:50,238 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:50,661 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:51,667 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:52,253 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:52,677 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:53,113 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:37:53,113 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:37:53,681 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:54,265 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:54,679 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:37:54,691 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:55,699 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:56,274 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:56,818 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:57,697 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:58,279 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:37:58,705 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:37:59,707 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:00,034 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:00,287 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:00,723 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:01,730 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:02,304 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:02,740 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:03,747 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:04,316 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:04,755 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:05,443 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:05,758 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:06,329 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:06,760 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:07,764 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:08,127 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:38:08,127 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:38:08,339 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:08,773 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:09,781 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:10,345 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:10,466 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:10,789 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:11,797 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:12,358 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:12,798 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:13,805 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:14,371 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:14,808 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:15,814 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:16,037 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:16,387 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:16,822 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:17,831 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:17,951 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:38:18,398 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:18,839 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:19,842 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:20,414 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:20,844 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:21,224 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:21,851 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:22,423 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:22,857 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:23,139 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:38:23,139 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:38:23,858 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:24,434 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:24,861 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:25,867 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:26,450 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:26,872 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:27,082 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:27,873 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:28,462 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:28,890 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:29,895 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:30,472 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:30,897 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:31,907 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:32,485 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:32,627 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:32,914 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:33,924 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:34,494 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:34,933 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:35,936 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:36,497 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:36,938 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:37,948 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:38,146 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:38:38,146 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:38:38,491 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:38,503 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:38,957 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:39,962 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:40,518 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:40,962 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:41,970 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:42,526 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:42,981 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:43,988 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:44,289 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:44,532 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:44,991 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:45,998 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:46,549 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:47,006 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:47,955 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:38:48,010 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:48,552 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:49,011 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:49,296 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:50,015 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:50,564 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:51,023 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:52,030 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:52,574 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:53,040 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:53,160 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:38:53,160 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:38:54,044 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:54,378 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:38:54,589 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:55,052 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:56,058 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:56,594 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:57,068 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:58,074 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:38:58,606 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:38:59,076 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:00,079 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:00,180 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:00,607 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:01,085 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:02,089 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:02,622 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:03,091 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:04,095 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:04,630 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:05,099 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:05,442 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:06,104 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:06,644 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:07,112 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:08,121 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:08,161 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:39:08,161 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:39:08,665 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:09,129 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:10,137 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:10,682 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:10,954 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:11,145 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:12,148 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:12,688 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:13,154 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:14,161 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:14,696 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:15,166 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:16,174 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:16,702 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:16,783 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:17,184 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:17,959 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:39:18,185 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:18,709 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:19,186 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:20,186 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:20,719 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:21,196 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:22,204 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:22,473 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:22,731 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:23,160 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:39:23,161 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:39:23,212 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:24,217 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:24,735 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:25,227 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:26,231 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:26,746 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:27,237 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:28,243 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:28,314 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:28,757 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:29,254 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:30,254 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:30,774 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:31,257 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:32,259 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:32,785 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:33,264 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:33,314 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:34,271 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:34,797 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:35,274 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:36,282 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:36,806 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:37,283 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:38,176 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:39:38,176 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:39:38,285 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:38,505 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:38,822 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:39,295 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:40,304 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:40,832 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:41,310 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:42,319 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:42,841 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:43,327 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:44,332 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:44,342 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:44,849 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:45,339 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:46,346 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:46,862 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:47,349 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:47,968 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:39:48,357 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:48,869 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:49,354 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:49,364 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:50,365 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:50,874 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:51,368 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:52,374 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:52,883 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:53,192 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:39:53,192 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:39:53,386 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:54,390 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:54,479 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:39:54,897 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:55,393 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:56,397 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:56,913 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:57,407 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:58,408 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:39:58,917 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:39:59,413 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:00,077 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:00,423 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:00,933 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:01,425 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:02,436 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:02,945 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:03,437 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:04,438 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:04,958 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:05,351 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:05,439 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:06,447 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:06,966 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:07,448 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:08,201 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:40:08,201 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:40:08,458 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:08,974 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:09,467 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:10,472 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:10,494 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:10,988 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:11,480 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:12,489 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:13,002 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:13,496 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:14,506 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:15,007 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:15,510 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:15,646 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:16,514 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:17,014 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:17,517 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:17,978 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:40:18,526 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:19,019 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:19,534 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:20,541 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:20,801 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:21,031 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:21,544 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:22,549 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:23,035 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:23,205 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:40:23,205 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:40:23,550 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:24,551 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:25,052 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:25,557 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:26,157 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:26,558 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:27,066 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:27,566 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:28,567 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:29,075 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:29,576 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:30,584 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:31,088 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:31,420 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:31,589 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:32,602 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:33,097 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:33,610 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:34,612 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:35,111 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:35,615 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:36,584 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:36,618 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:37,116 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:37,625 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:38,129 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send():391] send: history
+2025-02-17 01:40:38,136 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: summary_record
+2025-02-17 01:40:38,136 INFO    SenderThread:2096 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-17 01:40:38,225 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:40:38,235 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:40:38,632 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:39,129 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:39,130 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250217_013616-ztbyjcx3\files\wandb-summary.json
+2025-02-17 01:40:39,650 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:40,654 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:41,142 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:41,614 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:41,663 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:42,675 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:43,150 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:43,681 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:44,683 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:45,158 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:45,687 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:46,689 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:46,739 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:47,162 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:47,697 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:47,980 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:40:48,708 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:49,184 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:49,712 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:50,717 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:51,194 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:51,721 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:51,871 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:52,723 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:53,205 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:53,224 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-17 01:40:53,224 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: stop_status
+2025-02-17 01:40:53,728 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:54,736 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:55,210 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:55,740 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:56,750 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:56,995 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:40:57,218 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:57,753 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:58,763 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:40:59,230 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:40:59,771 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:41:00,786 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:41:01,231 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:41:01,794 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:41:02,106 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:41:02,797 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:41:03,244 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:41:03,789 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:41:04,426 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,442 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,448 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,449 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: metric
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send():391] send: history
+2025-02-17 01:41:04,450 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: summary_record
+2025-02-17 01:41:04,451 INFO    SenderThread:2096 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-17 01:41:04,496 DEBUG   SenderThread:2096 [sender.py:send():391] send: telemetry
+2025-02-17 01:41:04,496 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: server_info
+2025-02-17 01:41:04,496 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: server_info
+2025-02-17 01:41:04,720 DEBUG   SenderThread:2096 [sender.py:send():391] send: exit
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:send_exit():598] handling exit code: 0
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:send_exit():600] handling runtime: 286
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:send_exit():606] send defer
+2025-02-17 01:41:04,720 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:04,720 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 0
+2025-02-17 01:41:04,720 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 0
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 1
+2025-02-17 01:41:04,720 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:04,720 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 1
+2025-02-17 01:41:04,720 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 1
+2025-02-17 01:41:04,720 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 2
+2025-02-17 01:41:04,720 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:04,720 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 2
+2025-02-17 01:41:04,720 INFO    HandlerThread:2096 [system_monitor.py:finish():203] Stopping system monitor
+2025-02-17 01:41:04,730 DEBUG   SystemMonitor:2096 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-02-17 01:41:04,730 DEBUG   SystemMonitor:2096 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-02-17 01:41:04,730 INFO    HandlerThread:2096 [interfaces.py:finish():200] Joined cpu monitor
+2025-02-17 01:41:04,730 INFO    HandlerThread:2096 [interfaces.py:finish():200] Joined disk monitor
+2025-02-17 01:41:04,751 INFO    HandlerThread:2096 [interfaces.py:finish():200] Joined gpu monitor
+2025-02-17 01:41:04,751 INFO    HandlerThread:2096 [interfaces.py:finish():200] Joined memory monitor
+2025-02-17 01:41:04,751 INFO    HandlerThread:2096 [interfaces.py:finish():200] Joined network monitor
+2025-02-17 01:41:04,751 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:04,751 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 2
+2025-02-17 01:41:04,751 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 3
+2025-02-17 01:41:04,751 DEBUG   SenderThread:2096 [sender.py:send():391] send: stats
+2025-02-17 01:41:04,751 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:04,751 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 3
+2025-02-17 01:41:04,751 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:04,751 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 3
+2025-02-17 01:41:04,751 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 4
+2025-02-17 01:41:04,751 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:04,751 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 4
+2025-02-17 01:41:04,761 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:04,761 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 4
+2025-02-17 01:41:04,761 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 5
+2025-02-17 01:41:04,761 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:04,761 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 5
+2025-02-17 01:41:04,762 DEBUG   SenderThread:2096 [sender.py:send():391] send: summary
+2025-02-17 01:41:04,764 INFO    SenderThread:2096 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-17 01:41:04,765 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:04,765 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 5
+2025-02-17 01:41:04,765 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 6
+2025-02-17 01:41:04,765 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:04,765 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 6
+2025-02-17 01:41:04,765 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:04,765 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 6
+2025-02-17 01:41:04,765 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:41:05,108 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 7
+2025-02-17 01:41:05,108 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:05,108 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 7
+2025-02-17 01:41:05,108 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:05,114 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 7
+2025-02-17 01:41:05,254 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:41:05,254 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\wandb-summary.json
+2025-02-17 01:41:05,254 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\config.yaml
+2025-02-17 01:41:05,727 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-17 01:41:06,524 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 8
+2025-02-17 01:41:06,524 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: poll_exit
+2025-02-17 01:41:06,524 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:06,524 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 8
+2025-02-17 01:41:06,524 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:06,524 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 8
+2025-02-17 01:41:06,524 INFO    SenderThread:2096 [job_builder.py:build():443] Attempting to build job artifact
+2025-02-17 01:41:06,524 INFO    SenderThread:2096 [job_builder.py:_get_source_type():572] is repo sourced job
+2025-02-17 01:41:06,566 INFO    SenderThread:2096 [job_builder.py:build():548] adding wandb-job metadata file
+2025-02-17 01:41:06,576 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 9
+2025-02-17 01:41:06,576 DEBUG   SenderThread:2096 [sender.py:send():391] send: artifact
+2025-02-17 01:41:06,576 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:06,576 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 9
+2025-02-17 01:41:06,736 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-17 01:41:07,257 INFO    Thread-16 :2096 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:41:08,301 INFO    wandb-upload_0:2096 [upload_job.py:push():85] Skipped uploading C:\Users\fenel\AppData\Local\wandb\wandb\artifacts\staging\tmpcmuhkqjy
+2025-02-17 01:41:09,896 INFO    wandb-upload_1:2096 [upload_job.py:push():88] Uploaded file C:\Users\fenel\AppData\Local\Temp\tmp7_sbnags\wandb-job.json
+2025-02-17 01:41:11,392 INFO    SenderThread:2096 [sender.py:send_artifact():1549] sent artifact job-https___github.com_akarifrites_moodeng_is_cute.git_run_training.py - {'id': 'QXJ0aWZhY3Q6MTUxMTg5OTY5MQ==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ4MTc2NzIxMA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTMzMjYzNzM3OA==', 'versionIndex': 6}}}
+2025-02-17 01:41:11,392 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:11,392 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 9
+2025-02-17 01:41:11,392 INFO    SenderThread:2096 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-02-17 01:41:11,392 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: status_report
+2025-02-17 01:41:11,785 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: keepalive
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [dir_watcher.py:finish():388] scan: .\wandb\run-20250217_013616-ztbyjcx3\files
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250217_013616-ztbyjcx3\files\conda-environment.yaml conda-environment.yaml
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250217_013616-ztbyjcx3\files\config.yaml config.yaml
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250217_013616-ztbyjcx3\files\output.log output.log
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250217_013616-ztbyjcx3\files\requirements.txt requirements.txt
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250217_013616-ztbyjcx3\files\wandb-metadata.json wandb-metadata.json
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250217_013616-ztbyjcx3\files\wandb-summary.json wandb-summary.json
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 10
+2025-02-17 01:41:12,301 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: poll_exit
+2025-02-17 01:41:12,301 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:12,301 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 10
+2025-02-17 01:41:12,301 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 10
+2025-02-17 01:41:12,301 INFO    SenderThread:2096 [file_pusher.py:finish():169] shutting down file pusher
+2025-02-17 01:41:12,799 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-17 01:41:12,799 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: poll_exit
+2025-02-17 01:41:12,855 INFO    wandb-upload_2:2096 [upload_job.py:push():130] Uploaded file .\wandb\run-20250217_013616-ztbyjcx3\files\output.log
+2025-02-17 01:41:12,877 INFO    wandb-upload_0:2096 [upload_job.py:push():130] Uploaded file .\wandb\run-20250217_013616-ztbyjcx3\files\conda-environment.yaml
+2025-02-17 01:41:13,058 INFO    wandb-upload_1:2096 [upload_job.py:push():130] Uploaded file .\wandb\run-20250217_013616-ztbyjcx3\files\config.yaml
+2025-02-17 01:41:13,066 INFO    wandb-upload_3:2096 [upload_job.py:push():130] Uploaded file .\wandb\run-20250217_013616-ztbyjcx3\files\requirements.txt
+2025-02-17 01:41:13,066 INFO    wandb-upload_4:2096 [upload_job.py:push():130] Uploaded file .\wandb\run-20250217_013616-ztbyjcx3\files\wandb-summary.json
+2025-02-17 01:41:13,288 INFO    Thread-15 (_thread_body):2096 [sender.py:transition_state():626] send defer: 11
+2025-02-17 01:41:13,288 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:13,288 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 11
+2025-02-17 01:41:13,288 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:13,288 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 11
+2025-02-17 01:41:13,288 INFO    SenderThread:2096 [file_pusher.py:join():175] waiting for file pusher
+2025-02-17 01:41:13,288 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 12
+2025-02-17 01:41:13,288 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:13,288 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 12
+2025-02-17 01:41:13,288 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:13,288 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 12
+2025-02-17 01:41:13,288 INFO    SenderThread:2096 [file_stream.py:finish():601] file stream finish called
+2025-02-17 01:41:13,509 INFO    SenderThread:2096 [file_stream.py:finish():605] file stream finish is done
+2025-02-17 01:41:13,509 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 13
+2025-02-17 01:41:13,509 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:13,509 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 13
+2025-02-17 01:41:13,509 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:13,509 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 13
+2025-02-17 01:41:13,509 INFO    SenderThread:2096 [sender.py:transition_state():626] send defer: 14
+2025-02-17 01:41:13,509 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: defer
+2025-02-17 01:41:13,509 INFO    HandlerThread:2096 [handler.py:handle_request_defer():184] handle defer: 14
+2025-02-17 01:41:13,509 DEBUG   SenderThread:2096 [sender.py:send():391] send: final
+2025-02-17 01:41:13,509 DEBUG   SenderThread:2096 [sender.py:send():391] send: footer
+2025-02-17 01:41:13,509 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: defer
+2025-02-17 01:41:13,509 INFO    SenderThread:2096 [sender.py:send_request_defer():622] handle sender defer: 14
+2025-02-17 01:41:13,509 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-17 01:41:13,509 DEBUG   SenderThread:2096 [sender.py:send_request():418] send_request: poll_exit
+2025-02-17 01:41:13,509 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-17 01:41:13,509 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: get_summary
+2025-02-17 01:41:13,509 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: sampled_history
+2025-02-17 01:41:13,524 DEBUG   HandlerThread:2096 [handler.py:handle_request():158] handle_request: shutdown
+2025-02-17 01:41:13,524 INFO    HandlerThread:2096 [handler.py:finish():880] shutting down handler
+2025-02-17 01:41:14,525 INFO    SenderThread:2096 [sender.py:finish():1631] shutting down sender
+2025-02-17 01:41:14,525 INFO    WriterThread:2096 [datastore.py:close():296] close: .\wandb\run-20250217_013616-ztbyjcx3\run-ztbyjcx3.wandb
+2025-02-17 01:41:14,525 INFO    SenderThread:2096 [file_pusher.py:finish():169] shutting down file pusher
+2025-02-17 01:41:14,525 INFO    SenderThread:2096 [file_pusher.py:join():175] waiting for file pusher
