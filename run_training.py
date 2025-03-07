@@ -399,6 +399,7 @@ def train(config):
     # create the pytorch lightening trainer by specifying the number of epochs to train, the logger,
     # on which kind of device(s) to train and possible callbacks
     trainer = pl.Trainer(max_epochs=config.n_epochs,
+                         check_val_every_n_epoch=5,
                          logger=wandb_logger,
                          accelerator='gpu',
                          devices=1,
