@@ -1,0 +1,811 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\logger_connector\logger_connector.py:75: Starting from v1.9.0, `tensorboardX` has been removed as a dependency of the `pytorch_lightning` package, due to potential conflicts with other packages in the ML ecosystem. For this reason, `logger=True` will use `CSVLogger` as the default logger, unless the `tensorboard` or `tensorboardX` packages are found. Please `pip install lightning[extra]` or one of them to enable TensorBoard support by default
+`Trainer(overfit_batches=1)` was configured so 1 batch will be used.
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:251: You requested to overfit but enabled train dataloader shuffling. We are turning off the train dataloader shuffling for you.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (1) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name        | Type       | Params | Mode
+---------------------------------------------------
+0 | mel         | Sequential | 0      | train
+1 | mel_augment | Sequential | 0      | train
+2 | model       | Network    | 185 K  | train
+3 | classifier  | Sequential | 2.7 K  | train
+---------------------------------------------------
+188 K     Trainable params
+0         Non-trainable params
+188 K     Total params
+0.754     Total estimated model params size (MB)
+137       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Sanity Checking DataLoader 0:   0%|                                                                                                                                  | 0/1 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=0.19636282324790955, mean=0.028357096016407013
+After feature_extractor: min=-0.07101421803236008, max=0.06838952004909515, mean=0.0018092684913426638
+Epoch 0:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=12.985424995422363, mean=0.3747459352016449
+After feature_extractor: min=-0.782701313495636, max=0.744489848613739, mean=1.8189894035458565e-10
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0007760198786854744
+model.in_c.0.1.weight: grad mean = 0.0001415760489180684
+model.in_c.0.1.bias: grad mean = 0.00013283186126500368
+model.in_c.1.0.weight: grad mean = 0.00011679473391268402
+model.in_c.1.1.weight: grad mean = 7.14206908014603e-05
+model.in_c.1.1.bias: grad mean = 6.849670899100602e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 4.651708513847552e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 7.345845176587318e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 3.241775993956253e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00022390816593542695
+model.stages.s1.b1.block.1.1.weight: grad mean = 3.1079864129424095e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.6759989850688726e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 2.22495618800167e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.4281871194252744e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 3.7376623367890716e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.792565464915242e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 3.127439640593366e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.5881527360761538e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.0001637041277717799
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.97826957446523e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.935570799105335e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.4883602489135228e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 2.562058944022283e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 2.2076897948863916e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 2.2001431716489606e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 2.396370035739892e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.162291482614819e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 0.00010016431042458862
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.823565980885178e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.7053842384484597e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 1.2660974789469037e-05
+model.stages.s1.b3.block.2.1.weight: grad mean = 2.3411350412061438e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 1.1675654604914598e-05
+model.stages.s2.b4.block.0.0.weight: grad mean = 2.0454899640753865e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.2306011260297964e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.0301792826794554e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 0.00011494587670313194
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.6563193639740348e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 1.4040443602425512e-05
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.2322179827606305e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 2.2009697204339318e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.6848003724589944e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 1.0787190149130765e-05
+model.stages.s2.b5.block.0.1.weight: grad mean = 2.7979357497542878e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 5.720600711356383e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 8.688528032507747e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 1.2083507499482948e-05
+model.stages.s2.b5.block.1.1.bias: grad mean = 8.21969751996221e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 7.473411642422434e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.5087530300661456e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 9.209022209688555e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.440679989173077e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 3.358769262717942e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 7.936107067507692e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 0.00010118914360646158
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.6062964277807623e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 1.1271508810750674e-05
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.1683436241582967e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.3312777557293884e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 1.5344481653301045e-05
+model.feature_extractor.0.weight: grad mean = 1.4380908396560699e-05
+model.feature_extractor.1.weight: grad mean = 9.190334822051227e-06
+model.feature_extractor.1.bias: grad mean = 0.0006077466532588005
+model.device_embedding.weight: grad mean = 6.08395021117758e-05
+model.classifier.0.weight: grad mean = 0.00022536506003234535
+model.classifier.0.bias: grad mean = 0.00397375226020813
+model.classifier.2.weight: grad mean = 0.004223841708153486
+model.classifier.2.bias: grad mean = 0.1800052970647812
+Epoch 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  0.54it/s, v_num=5]After _forward_conv: min=0.0, max=0.3606669008731842, mean=0.051945049315690994
+After feature_extractor: min=-0.13669835031032562, max=0.13161996006965637, mean=0.003418256528675556                                                                | 0/1 [00:00<?, ?it/s]
+Epoch 1:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=0.0, max=11.44115161895752, mean=0.3750632703304291
+After feature_extractor: min=-0.6878807544708252, max=0.8143805861473083, mean=-1.5425030142068863e-09
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0008766986429691315
+model.in_c.0.1.weight: grad mean = 0.00019764421449508518
+model.in_c.0.1.bias: grad mean = 0.0002004854177357629
+model.in_c.1.0.weight: grad mean = 0.00011218402505619451
+model.in_c.1.1.weight: grad mean = 6.537593435496092e-05
+model.in_c.1.1.bias: grad mean = 8.045051799854264e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 4.166140206507407e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 6.502088467641443e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.4657598260091618e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00022882968187332153
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.7851832783198915e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.5539355192449875e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.9931685528717935e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.362744610058144e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 3.288868174422532e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.5053235731320456e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.4253793640127697e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.3556234080169816e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00012303126277402043
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.6446465451736003e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.3063967344351113e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.2926620911457576e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 2.394588773313444e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.8374683349975385e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 2.070234222628642e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 2.1957996310106864e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.1588726920308545e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 0.00010599711822578683
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.648917532293126e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.2613305443665013e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 1.2171365597168915e-05
+model.stages.s1.b3.block.2.1.weight: grad mean = 2.1006959286751226e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 1.1420049304433633e-05
+model.stages.s2.b4.block.0.0.weight: grad mean = 2.0280287571949884e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.662292253319265e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.2153909665357787e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 0.00011265378998359665
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.7647826098254882e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 1.5046956832520664e-05
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.226294716616394e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 2.1593185010715388e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.6571184460190125e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 1.0347202987759374e-05
+model.stages.s2.b5.block.0.1.weight: grad mean = 2.7109233968758417e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 5.211900770518696e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 8.544392767362297e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 1.1386352525732946e-05
+model.stages.s2.b5.block.1.1.bias: grad mean = 7.664353688596748e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 6.853586910438025e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.358548161078943e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 9.203662557411008e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.2764452549163252e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.8678527996817138e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 6.7296937231731135e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 9.077843424165621e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.3598363693745341e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 1.0095450306835119e-05
+model.stages.s3.b6.block.2.0.weight: grad mean = 9.892961315927096e-06
+model.stages.s3.b6.block.2.1.weight: grad mean = 1.8895674656960182e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 1.2945630260219332e-05
+model.feature_extractor.0.weight: grad mean = 1.2179000805190299e-05
+model.feature_extractor.1.weight: grad mean = 7.783828550600447e-06
+model.feature_extractor.1.bias: grad mean = 0.0006110366666689515
+model.device_embedding.weight: grad mean = 6.108402885729447e-05
+model.classifier.0.weight: grad mean = 0.00021763576660305262
+model.classifier.0.bias: grad mean = 0.003979256376624107
+model.classifier.2.weight: grad mean = 0.004199626389890909
+model.classifier.2.bias: grad mean = 0.18000687658786774
+Epoch 1: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.37it/s, v_num=5]After _forward_conv: min=0.0, max=0.5086585283279419, mean=0.07319440692663193
+After feature_extractor: min=-0.20061004161834717, max=0.19288384914398193, mean=0.004972304217517376                                                                | 0/1 [00:00<?, ?it/s]
+Epoch 2:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]
+C:\Users\fenel\Documents\dcase2024_task1_baseline\helpers\utils.py:13: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\ReduceOps.cpp:1808.)
+Epoch 2:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=0.0, max=13.833426475524902, mean=0.3740125894546509
+After feature_extractor: min=-0.8218546509742737, max=0.7707608342170715, mean=-3.013701643794775e-08
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0006811523926444352
+model.in_c.0.1.weight: grad mean = 0.00017977578681893647
+model.in_c.0.1.bias: grad mean = 0.00032189826015383005
+model.in_c.1.0.weight: grad mean = 0.00010614461643854156
+model.in_c.1.1.weight: grad mean = 7.226641901070252e-05
+model.in_c.1.1.bias: grad mean = 6.531722465297207e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 4.0143080695997924e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 7.232432608361705e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.9984528737259097e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00023912452161312103
+model.stages.s1.b1.block.1.1.weight: grad mean = 3.089143137913197e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.667170156200882e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 2.127417792507913e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.412940714042634e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 3.709443990373984e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.698387652344536e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 3.675895499100079e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.8747032299870625e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00015572838310617954
+model.stages.s1.b2.block.1.1.weight: grad mean = 2.1734636902692728e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.801977850846015e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.4934132195776328e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 3.221080987714231e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 2.043479253188707e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 2.3527434677816927e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 2.473339755226789e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.1363705198164098e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 0.00011067679588450119
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.9324121240060776e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.5089490261743777e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 1.3133027096046135e-05
+model.stages.s1.b3.block.2.1.weight: grad mean = 2.6011566660599783e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 1.3353203030419536e-05
+model.stages.s2.b4.block.0.0.weight: grad mean = 2.3198090275400318e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.5202144371405666e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.0531980478845071e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 0.00011761536006815732
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.7997726899920963e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 1.5880001228651963e-05
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.3055262570560444e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 2.4215378289227374e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.8397384337731637e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 1.1521944543346763e-05
+model.stages.s2.b5.block.0.1.weight: grad mean = 3.073506249506863e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 5.938774393143831e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 9.308752487413585e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 1.2851134670199826e-05
+model.stages.s2.b5.block.1.1.bias: grad mean = 8.631451237306464e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 7.980761438375339e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.542810605315026e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 1.0728675079008099e-05
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.540543780720327e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 3.4320791542086226e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 8.056136721279472e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 0.00010712264338508248
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.673242513788864e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 1.1935297152376734e-05
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.2344012247922365e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.3261611204361543e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 1.5312019968405366e-05
+model.feature_extractor.0.weight: grad mean = 1.4825972357357386e-05
+model.feature_extractor.1.weight: grad mean = 9.408215191797353e-06
+model.feature_extractor.1.bias: grad mean = 0.0006053270772099495
+model.device_embedding.weight: grad mean = 6.140865298220888e-05
+model.classifier.0.weight: grad mean = 0.00022582331439480186
+model.classifier.0.bias: grad mean = 0.003955600783228874
+model.classifier.2.weight: grad mean = 0.004229895770549774
+model.classifier.2.bias: grad mean = 0.1800062507390976
+Epoch 2: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.50it/s, v_num=5]After _forward_conv: min=0.0, max=0.6414110064506531, mean=0.09216830879449844
+After feature_extractor: min=-0.2630077004432678, max=0.25208956003189087, mean=0.006472608540207148                                                                 | 0/1 [00:00<?, ?it/s]
+Epoch 3:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]NaN detected before log in mel_forward
+NaN detected after log in mel_forward
+After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Loss is NaN! Check inputs and model outputs.
+NaN detected before log in mel_forward
+NaN detected after log in mel_forward
+mel_spec stats: nan nan nan
+y_hat stats: nan nan nan
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = nan
+model.in_c.0.1.weight: grad mean = nan
+model.in_c.0.1.bias: grad mean = nan
+model.in_c.1.0.weight: grad mean = nan
+model.in_c.1.1.weight: grad mean = nan
+model.in_c.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.0.0.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.bias: grad mean = nan
+model.stages.s1.b1.block.1.0.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.2.0.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.bias: grad mean = nan
+model.stages.s1.b2.block.0.0.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.bias: grad mean = nan
+model.stages.s1.b2.block.1.0.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.bias: grad mean = nan
+model.stages.s1.b2.block.2.0.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.bias: grad mean = nan
+model.stages.s1.b3.block.0.0.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.bias: grad mean = nan
+model.stages.s1.b3.block.1.0.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.bias: grad mean = nan
+model.stages.s1.b3.block.2.0.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.bias: grad mean = nan
+model.stages.s2.b4.block.0.0.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.bias: grad mean = nan
+model.stages.s2.b4.block.1.0.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.bias: grad mean = nan
+model.stages.s2.b4.block.2.0.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.bias: grad mean = nan
+model.stages.s2.b5.block.0.0.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.bias: grad mean = nan
+model.stages.s2.b5.block.1.0.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.bias: grad mean = nan
+model.stages.s2.b5.block.2.0.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.bias: grad mean = nan
+model.stages.s3.b6.block.0.0.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.bias: grad mean = nan
+model.stages.s3.b6.block.1.0.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.bias: grad mean = nan
+model.stages.s3.b6.block.2.0.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.bias: grad mean = nan
+model.feature_extractor.0.weight: grad mean = nan
+model.feature_extractor.1.weight: grad mean = nan
+model.feature_extractor.1.bias: grad mean = nan
+model.device_embedding.weight: grad mean = nan
+model.classifier.0.weight: grad mean = nan
+model.classifier.0.bias: grad mean = nan
+model.classifier.2.weight: grad mean = nan
+model.classifier.2.bias: grad mean = nan
+Epoch 3: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.74it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan                                                                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 4:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Loss is NaN! Check inputs and model outputs.
+mel_spec stats: -11.512925148010254 10.66560173034668 -1.4262467622756958
+y_hat stats: nan nan nan
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = nan
+model.in_c.0.1.weight: grad mean = nan
+model.in_c.0.1.bias: grad mean = nan
+model.in_c.1.0.weight: grad mean = nan
+model.in_c.1.1.weight: grad mean = nan
+model.in_c.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.0.0.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.bias: grad mean = nan
+model.stages.s1.b1.block.1.0.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.2.0.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.bias: grad mean = nan
+model.stages.s1.b2.block.0.0.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.bias: grad mean = nan
+model.stages.s1.b2.block.1.0.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.bias: grad mean = nan
+model.stages.s1.b2.block.2.0.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.bias: grad mean = nan
+model.stages.s1.b3.block.0.0.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.bias: grad mean = nan
+model.stages.s1.b3.block.1.0.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.bias: grad mean = nan
+model.stages.s1.b3.block.2.0.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.bias: grad mean = nan
+model.stages.s2.b4.block.0.0.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.bias: grad mean = nan
+model.stages.s2.b4.block.1.0.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.bias: grad mean = nan
+model.stages.s2.b4.block.2.0.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.bias: grad mean = nan
+model.stages.s2.b5.block.0.0.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.bias: grad mean = nan
+model.stages.s2.b5.block.1.0.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.bias: grad mean = nan
+model.stages.s2.b5.block.2.0.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.bias: grad mean = nan
+model.stages.s3.b6.block.0.0.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.bias: grad mean = nan
+model.stages.s3.b6.block.1.0.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.bias: grad mean = nan
+model.stages.s3.b6.block.2.0.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.bias: grad mean = nan
+model.feature_extractor.0.weight: grad mean = nan
+model.feature_extractor.1.weight: grad mean = nan
+model.feature_extractor.1.bias: grad mean = nan
+model.device_embedding.weight: grad mean = nan
+model.classifier.0.weight: grad mean = nan
+model.classifier.0.bias: grad mean = nan
+model.classifier.2.weight: grad mean = nan
+model.classifier.2.bias: grad mean = nan
+Epoch 4: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.55it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan                                                                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 5:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Loss is NaN! Check inputs and model outputs.
+mel_spec stats: -11.512925148010254 10.66059684753418 -1.4329557418823242
+y_hat stats: nan nan nan
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = nan
+model.in_c.0.1.weight: grad mean = nan
+model.in_c.0.1.bias: grad mean = nan
+model.in_c.1.0.weight: grad mean = nan
+model.in_c.1.1.weight: grad mean = nan
+model.in_c.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.0.0.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.bias: grad mean = nan
+model.stages.s1.b1.block.1.0.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.2.0.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.bias: grad mean = nan
+model.stages.s1.b2.block.0.0.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.bias: grad mean = nan
+model.stages.s1.b2.block.1.0.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.bias: grad mean = nan
+model.stages.s1.b2.block.2.0.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.bias: grad mean = nan
+model.stages.s1.b3.block.0.0.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.bias: grad mean = nan
+model.stages.s1.b3.block.1.0.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.bias: grad mean = nan
+model.stages.s1.b3.block.2.0.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.bias: grad mean = nan
+model.stages.s2.b4.block.0.0.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.bias: grad mean = nan
+model.stages.s2.b4.block.1.0.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.bias: grad mean = nan
+model.stages.s2.b4.block.2.0.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.bias: grad mean = nan
+model.stages.s2.b5.block.0.0.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.bias: grad mean = nan
+model.stages.s2.b5.block.1.0.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.bias: grad mean = nan
+model.stages.s2.b5.block.2.0.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.bias: grad mean = nan
+model.stages.s3.b6.block.0.0.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.bias: grad mean = nan
+model.stages.s3.b6.block.1.0.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.bias: grad mean = nan
+model.stages.s3.b6.block.2.0.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.bias: grad mean = nan
+model.feature_extractor.0.weight: grad mean = nan
+model.feature_extractor.1.weight: grad mean = nan
+model.feature_extractor.1.bias: grad mean = nan
+model.device_embedding.weight: grad mean = nan
+model.classifier.0.weight: grad mean = nan
+model.classifier.0.bias: grad mean = nan
+model.classifier.2.weight: grad mean = nan
+model.classifier.2.bias: grad mean = nan
+Epoch 5: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.64it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan                                                                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 6:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Loss is NaN! Check inputs and model outputs.
+mel_spec stats: -11.512925148010254 10.665422439575195 -1.4519329071044922
+y_hat stats: nan nan nan
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = nan
+model.in_c.0.1.weight: grad mean = nan
+model.in_c.0.1.bias: grad mean = nan
+model.in_c.1.0.weight: grad mean = nan
+model.in_c.1.1.weight: grad mean = nan
+model.in_c.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.0.0.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.bias: grad mean = nan
+model.stages.s1.b1.block.1.0.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.2.0.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.bias: grad mean = nan
+model.stages.s1.b2.block.0.0.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.bias: grad mean = nan
+model.stages.s1.b2.block.1.0.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.bias: grad mean = nan
+model.stages.s1.b2.block.2.0.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.bias: grad mean = nan
+model.stages.s1.b3.block.0.0.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.bias: grad mean = nan
+model.stages.s1.b3.block.1.0.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.bias: grad mean = nan
+model.stages.s1.b3.block.2.0.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.bias: grad mean = nan
+model.stages.s2.b4.block.0.0.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.bias: grad mean = nan
+model.stages.s2.b4.block.1.0.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.bias: grad mean = nan
+model.stages.s2.b4.block.2.0.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.bias: grad mean = nan
+model.stages.s2.b5.block.0.0.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.bias: grad mean = nan
+model.stages.s2.b5.block.1.0.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.bias: grad mean = nan
+model.stages.s2.b5.block.2.0.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.bias: grad mean = nan
+model.stages.s3.b6.block.0.0.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.bias: grad mean = nan
+model.stages.s3.b6.block.1.0.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.bias: grad mean = nan
+model.stages.s3.b6.block.2.0.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.bias: grad mean = nan
+model.feature_extractor.0.weight: grad mean = nan
+model.feature_extractor.1.weight: grad mean = nan
+model.feature_extractor.1.bias: grad mean = nan
+model.device_embedding.weight: grad mean = nan
+model.classifier.0.weight: grad mean = nan
+model.classifier.0.bias: grad mean = nan
+model.classifier.2.weight: grad mean = nan
+model.classifier.2.bias: grad mean = nan
+Epoch 6: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.20it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan                                                                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 7:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Loss is NaN! Check inputs and model outputs.
+mel_spec stats: -11.512925148010254 10.628596305847168 -1.3985084295272827
+y_hat stats: nan nan nan
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = nan
+model.in_c.0.1.weight: grad mean = nan
+model.in_c.0.1.bias: grad mean = nan
+model.in_c.1.0.weight: grad mean = nan
+model.in_c.1.1.weight: grad mean = nan
+model.in_c.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.0.0.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.bias: grad mean = nan
+model.stages.s1.b1.block.1.0.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.2.0.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.bias: grad mean = nan
+model.stages.s1.b2.block.0.0.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.bias: grad mean = nan
+model.stages.s1.b2.block.1.0.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.bias: grad mean = nan
+model.stages.s1.b2.block.2.0.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.bias: grad mean = nan
+model.stages.s1.b3.block.0.0.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.bias: grad mean = nan
+model.stages.s1.b3.block.1.0.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.bias: grad mean = nan
+model.stages.s1.b3.block.2.0.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.bias: grad mean = nan
+model.stages.s2.b4.block.0.0.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.bias: grad mean = nan
+model.stages.s2.b4.block.1.0.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.bias: grad mean = nan
+model.stages.s2.b4.block.2.0.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.bias: grad mean = nan
+model.stages.s2.b5.block.0.0.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.bias: grad mean = nan
+model.stages.s2.b5.block.1.0.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.bias: grad mean = nan
+model.stages.s2.b5.block.2.0.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.bias: grad mean = nan
+model.stages.s3.b6.block.0.0.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.bias: grad mean = nan
+model.stages.s3.b6.block.1.0.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.bias: grad mean = nan
+model.stages.s3.b6.block.2.0.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.bias: grad mean = nan
+model.feature_extractor.0.weight: grad mean = nan
+model.feature_extractor.1.weight: grad mean = nan
+model.feature_extractor.1.bias: grad mean = nan
+model.device_embedding.weight: grad mean = nan
+model.classifier.0.weight: grad mean = nan
+model.classifier.0.bias: grad mean = nan
+model.classifier.2.weight: grad mean = nan
+model.classifier.2.bias: grad mean = nan
+Epoch 7: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.62it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan                                                                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 8:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Loss is NaN! Check inputs and model outputs.
+mel_spec stats: -11.512925148010254 10.667067527770996 -1.3619552850723267
+y_hat stats: nan nan nan
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = nan
+model.in_c.0.1.weight: grad mean = nan
+model.in_c.0.1.bias: grad mean = nan
+model.in_c.1.0.weight: grad mean = nan
+model.in_c.1.1.weight: grad mean = nan
+model.in_c.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.0.0.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.bias: grad mean = nan
+model.stages.s1.b1.block.1.0.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.2.0.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.bias: grad mean = nan
+model.stages.s1.b2.block.0.0.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.bias: grad mean = nan
+model.stages.s1.b2.block.1.0.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.bias: grad mean = nan
+model.stages.s1.b2.block.2.0.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.bias: grad mean = nan
+model.stages.s1.b3.block.0.0.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.bias: grad mean = nan
+model.stages.s1.b3.block.1.0.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.bias: grad mean = nan
+model.stages.s1.b3.block.2.0.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.bias: grad mean = nan
+model.stages.s2.b4.block.0.0.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.bias: grad mean = nan
+model.stages.s2.b4.block.1.0.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.bias: grad mean = nan
+model.stages.s2.b4.block.2.0.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.bias: grad mean = nan
+model.stages.s2.b5.block.0.0.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.bias: grad mean = nan
+model.stages.s2.b5.block.1.0.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.bias: grad mean = nan
+model.stages.s2.b5.block.2.0.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.bias: grad mean = nan
+model.stages.s3.b6.block.0.0.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.bias: grad mean = nan
+model.stages.s3.b6.block.1.0.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.bias: grad mean = nan
+model.stages.s3.b6.block.2.0.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.bias: grad mean = nan
+model.feature_extractor.0.weight: grad mean = nan
+model.feature_extractor.1.weight: grad mean = nan
+model.feature_extractor.1.bias: grad mean = nan
+model.device_embedding.weight: grad mean = nan
+model.classifier.0.weight: grad mean = nan
+model.classifier.0.bias: grad mean = nan
+model.classifier.2.weight: grad mean = nan
+model.classifier.2.bias: grad mean = nan
+Epoch 8: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.43it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan                                                                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 9:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=5]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Loss is NaN! Check inputs and model outputs.
+mel_spec stats: -11.512925148010254 10.612231254577637 -1.4524412155151367
+y_hat stats: nan nan nan
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = nan
+model.in_c.0.1.weight: grad mean = nan
+model.in_c.0.1.bias: grad mean = nan
+model.in_c.1.0.weight: grad mean = nan
+model.in_c.1.1.weight: grad mean = nan
+model.in_c.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.0.0.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.weight: grad mean = nan
+model.stages.s1.b1.block.0.1.bias: grad mean = nan
+model.stages.s1.b1.block.1.0.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.weight: grad mean = nan
+model.stages.s1.b1.block.1.1.bias: grad mean = nan
+model.stages.s1.b1.block.2.0.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.weight: grad mean = nan
+model.stages.s1.b1.block.2.1.bias: grad mean = nan
+model.stages.s1.b2.block.0.0.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.weight: grad mean = nan
+model.stages.s1.b2.block.0.1.bias: grad mean = nan
+model.stages.s1.b2.block.1.0.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.weight: grad mean = nan
+model.stages.s1.b2.block.1.1.bias: grad mean = nan
+model.stages.s1.b2.block.2.0.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.weight: grad mean = nan
+model.stages.s1.b2.block.2.1.bias: grad mean = nan
+model.stages.s1.b3.block.0.0.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.weight: grad mean = nan
+model.stages.s1.b3.block.0.1.bias: grad mean = nan
+model.stages.s1.b3.block.1.0.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.weight: grad mean = nan
+model.stages.s1.b3.block.1.1.bias: grad mean = nan
+model.stages.s1.b3.block.2.0.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.weight: grad mean = nan
+model.stages.s1.b3.block.2.1.bias: grad mean = nan
+model.stages.s2.b4.block.0.0.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.weight: grad mean = nan
+model.stages.s2.b4.block.0.1.bias: grad mean = nan
+model.stages.s2.b4.block.1.0.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.weight: grad mean = nan
+model.stages.s2.b4.block.1.1.bias: grad mean = nan
+model.stages.s2.b4.block.2.0.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.weight: grad mean = nan
+model.stages.s2.b4.block.2.1.bias: grad mean = nan
+model.stages.s2.b5.block.0.0.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.weight: grad mean = nan
+model.stages.s2.b5.block.0.1.bias: grad mean = nan
+model.stages.s2.b5.block.1.0.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.weight: grad mean = nan
+model.stages.s2.b5.block.1.1.bias: grad mean = nan
+model.stages.s2.b5.block.2.0.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.weight: grad mean = nan
+model.stages.s2.b5.block.2.1.bias: grad mean = nan
+model.stages.s3.b6.block.0.0.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.weight: grad mean = nan
+model.stages.s3.b6.block.0.1.bias: grad mean = nan
+model.stages.s3.b6.block.1.0.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.weight: grad mean = nan
+model.stages.s3.b6.block.1.1.bias: grad mean = nan
+model.stages.s3.b6.block.2.0.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.weight: grad mean = nan
+model.stages.s3.b6.block.2.1.bias: grad mean = nan
+model.feature_extractor.0.weight: grad mean = nan
+model.feature_extractor.1.weight: grad mean = nan
+model.feature_extractor.1.bias: grad mean = nan
+model.device_embedding.weight: grad mean = nan
+model.classifier.0.weight: grad mean = nan
+model.classifier.0.bias: grad mean = nan
+model.classifier.2.weight: grad mean = nan
+model.classifier.2.bias: grad mean = nan
+Epoch 9: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.61it/s, v_num=5]
+Validation: |                                                                                                                                                        | 0/? [00:00<?, ?it/s]
+`Trainer.fit` stopped: `max_epochs=10` reached.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\checkpoint_connector.py:186: .test(ckpt_path="last") is set, but there is no last checkpoint available. No checkpoint will be loaded. HINT: Set `ModelCheckpoint(..., save_last=True)`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+After feature_extractor: min=nan, max=nan, mean=nan                                                                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 9: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.80it/s, v_num=5]
+Testing DataLoader 0:   0%|                                                                                                                                        | 0/116 [00:00<?, ?it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   1%|█                                                                                                                               | 1/116 [00:00<00:12,  8.85it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   2%|██▏                                                                                                                             | 2/116 [00:01<01:34,  1.21it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   3%|███▎                                                                                                                            | 3/116 [00:03<02:03,  0.92it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   3%|████▍                                                                                                                           | 4/116 [00:04<02:17,  0.81it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   4%|█████▌                                                                                                                          | 5/116 [00:06<02:22,  0.78it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   5%|██████▌                                                                                                                         | 6/116 [00:07<02:26,  0.75it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   6%|███████▋                                                                                                                        | 7/116 [00:10<02:37,  0.69it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   7%|████████▊                                                                                                                       | 8/116 [00:11<02:37,  0.68it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   8%|█████████▉                                                                                                                      | 9/116 [00:13<02:40,  0.67it/s]
+Testing DataLoader 0:   8%|█████████▉                                                                                                                      | 9/116 [00:13<02:40,  0.67it/s]After _forward_conv: min=nan, max=nan, mean=nan
+After feature_extractor: min=nan, max=nan, mean=nan
+Testing DataLoader 0:   9%|██████████▉                                                                                                                    | 10/116 [00:14<02:38,  0.67it/s]

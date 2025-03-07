@@ -1,0 +1,54 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name        | Type       | Params | Mode
+---------------------------------------------------
+0 | mel         | Sequential | 0      | train
+1 | mel_augment | Sequential | 0      | train
+2 | model       | Network    | 185 K  | train
+3 | classifier  | Sequential | 2.7 K  | train
+---------------------------------------------------
+188 K     Trainable params
+0         Non-trainable params
+188 K     Total params
+0.754     Total estimated model params size (MB)
+137       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Sanity Checking DataLoader 0:   0%|                                                                                                                                  | 0/2 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=0.15448351204395294, mean=0.024930596351623535
+After feature_extractor: min=-0.06659343838691711, max=0.08041783422231674, mean=0.0018471409566700459
+Sanity Checking DataLoader 0:  50%|█████████████████████████████████████████████████████████████                                                             | 1/2 [00:00<00:00,  1.97it/s]After _forward_conv: min=0.0, max=0.155217245221138, mean=0.024883674457669258
+After feature_extractor: min=-0.06669066101312637, max=0.08045023679733276, mean=0.0018513856921344995
+Epoch 0:   0%|                                                                                                                                                      | 0/28 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=16.401325225830078, mean=0.36928117275238037
+After feature_extractor: min=-1.0515176057815552, max=1.0809990167617798, mean=-9.931682143360376e-10
+Epoch 0:   4%|████▋                                                                                                                             | 1/28 [00:00<00:15,  1.78it/s, v_num=jh4w]After _forward_conv: min=0.0, max=15.165289878845215, mean=0.3690124452114105
+After feature_extractor: min=-1.085193395614624, max=0.9800434112548828, mean=7.275957614183426e-11
+Epoch 0:   7%|█████████▎                                                                                                                        | 2/28 [00:00<00:12,  2.12it/s, v_num=jh4w]After _forward_conv: min=0.0, max=16.090133666992188, mean=0.3700553774833679
+After feature_extractor: min=-0.9049698710441589, max=0.9218475818634033, mean=-3.601599019020796e-09
+Epoch 0:  11%|█████████████▉                                                                                                                    | 3/28 [00:01<00:11,  2.22it/s, v_num=jh4w]After _forward_conv: min=0.0, max=16.992700576782227, mean=0.36978811025619507
+After feature_extractor: min=-0.9480425715446472, max=0.8832218647003174, mean=-3.0107912607491016e-08
+Epoch 0:  14%|██████████████████▌                                                                                                               | 4/28 [00:01<00:10,  2.26it/s, v_num=jh4w]After _forward_conv: min=0.0, max=13.38959789276123, mean=0.3700827658176422
+After feature_extractor: min=-0.72545325756073, max=0.7392630577087402, mean=-5.5675627663731575e-08
+Epoch 0:  18%|███████████████████████▏                                                                                                          | 5/28 [00:02<00:09,  2.34it/s, v_num=jh4w]After _forward_conv: min=0.0, max=16.054994583129883, mean=0.3696587383747101
+After feature_extractor: min=-0.9891461133956909, max=1.0098012685775757, mean=-7.867492968216538e-08
+Epoch 0:  21%|███████████████████████████▊                                                                                                      | 6/28 [00:02<00:09,  2.41it/s, v_num=jh4w]After _forward_conv: min=0.0, max=17.309659957885742, mean=0.3699602782726288
+After feature_extractor: min=-1.0485085248947144, max=1.0194443464279175, mean=-9.873474482446909e-08
+Epoch 0:  25%|████████████████████████████████▌                                                                                                 | 7/28 [00:02<00:08,  2.41it/s, v_num=jh4w]After _forward_conv: min=0.0, max=17.485084533691406, mean=0.3702121376991272
+After feature_extractor: min=-1.191516399383545, max=1.231080412864685, mean=-1.1741212802007794e-07
+Epoch 0:  29%|█████████████████████████████████████▏                                                                                            | 8/28 [00:03<00:08,  2.37it/s, v_num=jh4w]After _forward_conv: min=0.0, max=13.562100410461426, mean=0.37022891640663147
+After feature_extractor: min=-0.9592397809028625, max=1.0390979051589966, mean=-1.8361606635153294e-07
+Epoch 0:  32%|█████████████████████████████████████████▊                                                                                        | 9/28 [00:03<00:08,  2.37it/s, v_num=jh4w]After _forward_conv: min=0.0, max=18.840381622314453, mean=0.36962005496025085
+After feature_extractor: min=-1.0557399988174438, max=1.1089062690734863, mean=-2.5753251975402236e-07
+Epoch 0:  36%|██████████████████████████████████████████████                                                                                   | 10/28 [00:04<00:07,  2.38it/s, v_num=jh4w]
+Epoch 0:  36%|██████████████████████████████████████████████                                                                                   | 10/28 [00:04<00:07,  2.38it/s, v_num=jh4w]After _forward_conv: min=0.0, max=16.79925537109375, mean=0.36875173449516296
+After feature_extractor: min=-1.1032381057739258, max=1.0547341108322144, mean=-3.0643423087894917e-07
+Epoch 0:  39%|██████████████████████████████████████████████████▋                                                                              | 11/28 [00:04<00:07,  2.39it/s, v_num=jh4w]After _forward_conv: min=0.0, max=14.2597017288208, mean=0.36993518471717834
+After feature_extractor: min=-0.8716835379600525, max=0.9424103498458862, mean=-3.6654819268733263e-07
+Epoch 0:  43%|███████████████████████████████████████████████████████▎                                                                         | 12/28 [00:04<00:06,  2.40it/s, v_num=jh4w]After _forward_conv: min=0.0, max=14.056787490844727, mean=0.370394229888916
+After feature_extractor: min=-0.7280719876289368, max=0.7584735155105591, mean=-4.1903695091605186e-07
+Epoch 0:  46%|███████████████████████████████████████████████████████████▉                                                                     | 13/28 [00:05<00:06,  2.39it/s, v_num=jh4w]

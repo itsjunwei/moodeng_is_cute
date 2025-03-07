@@ -1,0 +1,163 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\logger_connector\logger_connector.py:75: Starting from v1.9.0, `tensorboardX` has been removed as a dependency of the `pytorch_lightning` package, due to potential conflicts with other packages in the ML ecosystem. For this reason, `logger=True` will use `CSVLogger` as the default logger, unless the `tensorboard` or `tensorboardX` packages are found. Please `pip install lightning[extra]` or one of them to enable TensorBoard support by default
+`Trainer(overfit_batches=1)` was configured so 1 batch will be used.
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:251: You requested to overfit but enabled train dataloader shuffling. We are turning off the train dataloader shuffling for you.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (1) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name             | Type       | Params | Mode
+--------------------------------------------------------
+0 | mel              | Sequential | 0      | train
+1 | mel_augment      | Sequential | 0      | train
+2 | model            | Network    | 185 K  | train
+3 | device_embedding | Embedding  | 288    | train
+4 | classifier       | Sequential | 6.8 K  | train
+--------------------------------------------------------
+192 K     Trainable params
+0         Non-trainable params
+192 K     Total params
+0.771     Total estimated model params size (MB)
+138       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Epoch 0:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "C:\Users\fenel\Documents\dcase2024_task1_baseline\run_training.py", line 675, in <module>
+  File "C:\Users\fenel\Documents\dcase2024_task1_baseline\run_training.py", line 479, in train
+    def validate(config):
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\call.py", line 47, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 981, in _run
+    results = self._run_stage()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 205, in run
+    self.advance()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\call.py", line 167, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\core\module.py", line 1306, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\core\optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\strategies\strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\plugins\precision\precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\lr_scheduler.py", line 130, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\optimizer.py", line 484, in wrapper
+    out = func(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\optimizer.py", line 89, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\adamw.py", line 204, in step
+    loss = closure()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\plugins\precision\precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 138, in closure
+    self._backward_fn(step_output.closure_loss)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 239, in backward_fn
+    call._call_strategy_hook(self.trainer, "backward", loss, optimizer)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\call.py", line 319, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\strategies\strategy.py", line 212, in backward
+    self.precision_plugin.backward(closure_loss, self.lightning_module, optimizer, *args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\plugins\precision\precision.py", line 72, in backward
+    model.backward(tensor, *args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\core\module.py", line 1101, in backward
+    loss.backward(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\autograd\__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\autograd\graph.py", line 768, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch 0:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]model.in_c.0.0.weight 0.00047044004895724356
+model.in_c.0.1.weight 0.00011274089047219604
+model.in_c.0.1.bias 0.00024269786081276834
+model.in_c.1.0.weight 9.288675937568769e-05
+model.in_c.1.1.weight 6.521663453895599e-05
+model.in_c.1.1.bias 5.960138514637947e-05
+model.stages.s1.b1.block.0.0.weight 3.3507902116980404e-05
+model.stages.s1.b1.block.0.1.weight 5.408330849832055e-08
+model.stages.s1.b1.block.0.1.bias 2.477744419593364e-05
+model.stages.s1.b1.block.1.0.weight 0.00018917210400104523
+model.stages.s1.b1.block.1.1.weight 2.7265336029813625e-05
+model.stages.s1.b1.block.1.1.bias 1.904139935504645e-05
+model.stages.s1.b1.block.2.0.weight 1.842354322434403e-05
+model.stages.s1.b1.block.2.1.weight 3.092310726060532e-05
+model.stages.s1.b1.block.2.1.bias 2.8299755285843275e-05
+model.stages.s1.b2.block.0.0.weight 2.1167204977246e-05
+model.stages.s1.b2.block.0.1.weight 2.2211343875255807e-08
+model.stages.s1.b2.block.0.1.bias 1.6383364709326997e-05
+model.stages.s1.b2.block.1.0.weight 0.00010191192268393934
+model.stages.s1.b2.block.1.1.weight 1.4733144780620933e-05
+model.stages.s1.b2.block.1.1.bias 1.3208433301770128e-05
+model.stages.s1.b2.block.2.0.weight 1.1390920917619951e-05
+model.stages.s1.b2.block.2.1.weight 1.9410204913583584e-05
+model.stages.s1.b2.block.2.1.bias 1.681075809756294e-05
+model.stages.s1.b3.block.0.0.weight 1.844324287958443e-05
+model.stages.s1.b3.block.0.1.weight 1.8902396092812523e-08
+model.stages.s1.b3.block.0.1.bias 1.1201111192349344e-05
+model.stages.s1.b3.block.1.0.weight 9.068369399756193e-05
+model.stages.s1.b3.block.1.1.weight 1.4261677279137075e-05
+model.stages.s1.b3.block.1.1.bias 9.642329132475425e-06
+model.stages.s1.b3.block.2.0.weight 9.610525012249127e-06
+model.stages.s1.b3.block.2.1.weight 1.3562852473114617e-05
+model.stages.s1.b3.block.2.1.bias 1.1631201232376043e-05
+model.stages.s2.b4.block.0.0.weight 1.6648471500957385e-05
+model.stages.s2.b4.block.0.1.weight 1.5313325718580018e-08
+model.stages.s2.b4.block.0.1.bias 8.67559174366761e-06
+model.stages.s2.b4.block.1.0.weight 8.223942859331146e-05
+model.stages.s2.b4.block.1.1.weight 1.3017928722547367e-05
+model.stages.s2.b4.block.1.1.bias 1.0147194188903086e-05
+model.stages.s2.b4.block.2.0.weight 9.999205758504104e-06
+model.stages.s2.b4.block.2.1.weight 1.573939334775787e-05
+model.stages.s2.b4.block.2.1.bias 1.0091051080962643e-05
+model.stages.s2.b5.block.0.0.weight 8.348546543857083e-06
+model.stages.s2.b5.block.0.1.weight 1.8608165675004784e-08
+model.stages.s2.b5.block.0.1.bias 4.4989155867369846e-06
+model.stages.s2.b5.block.1.0.weight 5.645296550937928e-05
+model.stages.s2.b5.block.1.1.weight 7.954846296343021e-06
+model.stages.s2.b5.block.1.1.bias 4.7536659621982835e-06
+model.stages.s2.b5.block.2.0.weight 5.41566760148271e-06
+model.stages.s2.b5.block.2.1.weight 1.3267293979879469e-05
+model.stages.s2.b5.block.2.1.bias 5.5900809456943534e-06
+model.stages.s3.b6.block.0.0.weight 1.2206636711198371e-05
+model.stages.s3.b6.block.0.1.weight 3.27804237088003e-08
+model.stages.s3.b6.block.0.1.bias 7.967657438712195e-06
+model.stages.s3.b6.block.1.0.weight 0.00010682347055990249
+model.stages.s3.b6.block.1.1.weight 1.5697398339398205e-05
+model.stages.s3.b6.block.1.1.bias 7.72314888308756e-06
+model.stages.s3.b6.block.2.0.weight 1.0310965080861934e-05
+model.stages.s3.b6.block.2.1.weight 2.4615135771455243e-05
+model.stages.s3.b6.block.2.1.bias 1.0755778021120932e-05
+model.feature_extractor.0.weight 1.8542437828727998e-05
+model.feature_extractor.1.weight 1.4281420590123162e-05
+model.feature_extractor.1.bias 0.0006155251758173108
+model.device_embedding.weight 7.247961184475571e-05
+model.classifier.0.weight 0.0003216734912712127
+model.classifier.0.bias 0.004196334630250931
+model.classifier.2.weight 0.005106757860630751
+model.classifier.2.bias 0.18004560470581055

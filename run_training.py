@@ -83,15 +83,10 @@ class PLModule(pl.LightningModule):
         
         # Create a mapping from device id string to index
         self.device_id_to_idx = {d: i for i, d in enumerate(self.device_ids)}
-        # Device embedding layer
-        embed_dim = 32  # you can choose this dimension as needed
-        self.device_embedding = nn.Embedding(len(self.device_ids), embed_dim)
-        # print("Device Embedding Table Shape:", self.device_embedding.weight.shape)
 
-        # A fusion classifier that takes the concatenated mel features and device embedding
-        fusion_input_dim = mel_feat_dim + embed_dim
+        # A classifier that takes the concatenated mel features and device embedding
         self.classifier = nn.Sequential(
-            nn.Linear(fusion_input_dim, 128),
+            nn.Linear(mel_feat_dim, 128),
             nn.ReLU(),
             nn.Linear(128, config.n_classes)
         )
@@ -116,18 +111,25 @@ class PLModule(pl.LightningModule):
         x = self.mel(x)
         if self.training:
             x = self.mel_augment(x)
+        # # Debug: check stats before taking log
+        # if torch.isnan(x).any():
+        #     print("NaN detected before log in mel_forward")
+        # x = (x + 1e-5).log()
+        # if torch.isnan(x).any():
+        #     print("NaN detected after log in mel_forward")
+        # return x
         x = (x + 1e-5).log()
         # print(f"Log Mel Spectrogram Shape: {x.shape}")
         return x
     
     
-    def device_forward(self, device_id):
-        """
-        Convert device ID into embeddings.
-        """
-        # Ensure device_id is a tensor of type torch.long on the same device as the model
-        device_id = device_id.to(dtype=torch.long, device=self.device)
-        return self.device_embedding(device_id)
+    # def device_forward(self, device_id):
+    #     """
+    #     Convert device ID into embeddings.
+    #     """
+    #     # Ensure device_id is a tensor of type torch.long on the same device as the model
+    #     device_id = device_id.to(dtype=torch.long, device=self.device)
+    #     return self.device_embedding(device_id)
 
     def forward(self, x, device_id):
         # # Forward pass through the baseline model
@@ -146,15 +148,7 @@ class PLModule(pl.LightningModule):
         :return: final model predictions
         """
         mel_spec = self.mel_forward(x) # Process the audio into log mel spectrograms
-        # print("mel_spec shape:", mel_spec.shape)
-        mel_features = self.model(mel_spec, device_id) # Get mel features from the baseline model
-        # print("mel_features shape:", mel_features.shape)
-        device_features = self.device_forward(device_id) # Process the device id input
-        # print("device_features shape:", device_features.shape)
-        combined_features = torch.cat((mel_features, device_features), dim=1) # Fuse the mel features and device embeddings
-        # print("combined_features shape:", combined_features.shape)
-        logits = self.classifier(combined_features) # Pass the concatenated features through the classifier to get logits
-        # print("logits shape:", logits.shape)
+        logits = self.model(mel_spec, device_id)
         return logits   
     
         # # Forward pass through testmodel_1 with device embeddings    
@@ -216,10 +210,26 @@ class PLModule(pl.LightningModule):
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
         loss = samples_loss.mean()
 
+        # # Debug: Check loss value
+        # if torch.isnan(loss):
+        #     print("Loss is NaN! Check inputs and model outputs.")
+        #     # Optionally, print out stats of mel_spec, y_hat, etc.
+        #     mel_spec = self.mel_forward(x)
+        #     print("mel_spec stats:", mel_spec.min().item(), mel_spec.max().item(), mel_spec.mean().item())
+        #     print("y_hat stats:", y_hat.min().item(), y_hat.max().item(), y_hat.mean().item())
+
+
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
         self.log("train/loss", loss.detach().cpu())
         return loss
+    
+    # def on_after_backward(self):
+    #     # This hook is called automatically after the backward pass.
+    #     print("Gradients after backward pass:")
+    #     for name, param in self.named_parameters():
+    #         if param.grad is not None:
+    #             print(f"{name}: grad mean = {param.grad.abs().mean().item()}")
 
     def on_train_epoch_end(self):
         pass
@@ -441,8 +451,8 @@ def train(config):
     first_batch = next(iter(train_dl))
     x, files, labels, devices, cities = first_batch
 
-    print("Devices in the first batch:")
-    print(devices)
+    # print("Devices in the first batch:")
+    # print(devices)
 
     test_dl = DataLoader(dataset=get_test_set(),
                          worker_init_fn=worker_init_fn,
@@ -460,8 +470,10 @@ def train(config):
     wandb_logger.experiment.config['MACs'] = macs
     wandb_logger.experiment.config['Parameters'] = params
 
-    # create the pytorch lightening trainer by specifying the number of epochs to train, the logger,
-    # on which kind of device(s) to train and possible callbacks
+    # # create the pytorch lightening trainer by specifying the number of epochs to train, the logger,
+    # # on which kind of device(s) to train and possible callbacks
+    # trainer = pl.Trainer(overfit_batches=1, max_epochs=10, accelerator='gpu', devices=1)
+
     trainer = pl.Trainer(max_epochs=config.n_epochs,
                          logger=wandb_logger,
                          accelerator='gpu',
@@ -638,15 +650,15 @@ if __name__ == '__main__':
     parser.add_argument('--expansion_rate', type=float, default=2.1)
 
     # training
-    parser.add_argument('--n_epochs', type=int, default=2)
+    parser.add_argument('--n_epochs', type=int, default=20)
     parser.add_argument('--batch_size', type=int, default=256)
-    parser.add_argument('--mixstyle_p', type=float, default=0.4)  # frequency mixstyle
+    parser.add_argument('--mixstyle_p', type=float, default=0)  # frequency mixstyle
     parser.add_argument('--mixstyle_alpha', type=float, default=0.3)
     parser.add_argument('--weight_decay', type=float, default=0.0001)
     parser.add_argument('--roll_sec', type=int, default=0.1)  # roll waveform over time
 
     # peak learning rate (in cosinge schedule)
-    parser.add_argument('--lr', type=float, default=0.005)
+    parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--warmup_steps', type=int, default=2000)
 
     # preprocessing

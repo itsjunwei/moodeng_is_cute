@@ -1,0 +1,55 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.10.14",
+    "heartbeatAt": "2025-03-07T13:05:20.681437",
+    "startedAt": "2025-03-07T13:05:18.435856",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--subset=5"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py",
+    "codePathLocal": "run_training.py",
+    "codePath": "run_training.py",
+    "git": {
+        "remote": "https://github.com/akarifrites/moodeng_is_cute.git",
+        "commit": "314e1554df74cb72958469cad91735a37386111c"
+    },
+    "email": "fenellachua@gmail.com",
+    "root": "C:/Users/fenel/Documents/dcase2024_task1_baseline",
+    "host": "Akari",
+    "username": "fenel",
+    "executable": "C:\\Users\\fenel\\anaconda3\\envs\\d24_t1\\python.exe",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 2304.0,
+        "min": 0.0,
+        "max": 2304.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2304.0,
+            "min": 0.0,
+            "max": 2304.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 475.83886337280273,
+            "used": 456.0780029296875
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 15.588001251220703
+    }
+}

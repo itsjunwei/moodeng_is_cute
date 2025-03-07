@@ -1,0 +1,38 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name        | Type       | Params | Mode
+---------------------------------------------------
+0 | mel         | Sequential | 0      | train
+1 | mel_augment | Sequential | 0      | train
+2 | model       | Network    | 185 K  | train
+3 | classifier  | Sequential | 2.7 K  | train
+---------------------------------------------------
+188 K     Trainable params
+0         Non-trainable params
+188 K     Total params
+0.754     Total estimated model params size (MB)
+137       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Sanity Checking DataLoader 0:   0%|                                                                                                                                  | 0/2 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=0.1319740116596222, mean=0.01910383626818657
+After feature_extractor: min=-0.06764532625675201, max=0.08030018955469131, mean=-0.0003217970079276711
+Sanity Checking DataLoader 0:  50%|█████████████████████████████████████████████████████████████                                                             | 1/2 [00:00<00:00,  2.17it/s]After _forward_conv: min=0.0, max=0.13194362819194794, mean=0.019084792584180832
+After feature_extractor: min=-0.06782548874616623, max=0.08064963668584824, mean=-0.0003245566913392395
+Epoch 0:   0%|                                                                                                                                                      | 0/28 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=16.504762649536133, mean=0.3771228790283203
+After feature_extractor: min=-0.8246028423309326, max=0.881154477596283, mean=1.1641532182693481e-10
+Epoch 0:   4%|████▋                                                                                                                             | 1/28 [00:01<00:48,  0.56it/s, v_num=6stc]After _forward_conv: min=0.0, max=16.54328727722168, mean=0.37584084272384644
+After feature_extractor: min=-0.9710301160812378, max=1.0084396600723267, mean=1.6443664208054543e-09
+Epoch 0:   7%|█████████▎                                                                                                                        | 2/28 [00:03<00:44,  0.59it/s, v_num=6stc]After _forward_conv: min=0.0, max=14.018860816955566, mean=0.3759100139141083
+After feature_extractor: min=-1.1985210180282593, max=1.0794740915298462, mean=-1.0273652151226997e-08
+Epoch 0:  11%|█████████████▉                                                                                                                    | 3/28 [00:04<00:41,  0.61it/s, v_num=6stc]After _forward_conv: min=0.0, max=14.910526275634766, mean=0.37550947070121765
+After feature_extractor: min=-0.9936562776565552, max=1.1069589853286743, mean=-2.510205376893282e-08
+Epoch 0:  14%|██████████████████▌                                                                                                               | 4/28 [00:06<00:39,  0.61it/s, v_num=6stc]After _forward_conv: min=0.0, max=13.422892570495605, mean=0.3765953481197357
+After feature_extractor: min=-0.768779456615448, max=0.7560432553291321, mean=-5.5355485528707504e-08
+Epoch 0:  18%|███████████████████████▏                                                                                                          | 5/28 [00:08<00:37,  0.61it/s, v_num=6stc]
+Detected KeyboardInterrupt, attempting graceful shutdown ...

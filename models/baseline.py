@@ -143,7 +143,7 @@ class Network(nn.Module):
             nn.AdaptiveAvgPool2d((1, 1))
         )
 
-        
+
         # **Device Embedding Layer**
         self.device_embedding = nn.Embedding(9, embed_dim)  # Assuming 9 device IDs
 
@@ -154,6 +154,7 @@ class Network(nn.Module):
             nn.ReLU(),
             nn.Linear(128, n_classes)
         )
+
 
         # ff_list = []
         # ff_list += [nn.Conv2d(
@@ -222,8 +223,10 @@ class Network(nn.Module):
 
     def forward(self, x, device_id):
         x = self._forward_conv(x)
+        # print("After _forward_conv: min={}, max={}, mean={}".format(x.min().item(), x.max().item(), x.mean().item()))
         # x = self.feed_forward(x)
         x = self.feature_extractor(x)
+        # print("After feature_extractor: min={}, max={}, mean={}".format(x.min().item(), x.max().item(), x.mean().item()))
         features = x.squeeze(2).squeeze(2)  # Flatten
         # print(f"Features shape: {features.shape}")  # Debugging
 
@@ -233,11 +236,13 @@ class Network(nn.Module):
         else:
             device_id = device_id.to(torch.long).to(features.device)
         # print(f"Device ID shape: {device_id.shape}, dtype: {device_id.dtype}")  # Debugging
-        assert device_id.dtype == torch.long, "device_id must be a long tensor"
+        # assert device_id.dtype == torch.long, "device_id must be a long tensor"
         
         # Get device embeddings
         device_features = self.device_embedding(device_id)
         # print(f"Device features shape: {device_features.shape}")  # Debugging
+
+        assert device_id.max() < self.device_embedding.num_embeddings, "Device index out of range!"
 
         # Concatenate extracted features with device embeddings
         combined_features = torch.cat((features, device_features), dim=1)

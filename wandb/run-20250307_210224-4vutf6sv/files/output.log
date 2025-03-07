@@ -1,0 +1,162 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name        | Type       | Params | Mode
+---------------------------------------------------
+0 | mel         | Sequential | 0      | train
+1 | mel_augment | Sequential | 0      | train
+2 | model       | Network    | 185 K  | train
+3 | classifier  | Sequential | 2.7 K  | train
+---------------------------------------------------
+188 K     Trainable params
+0         Non-trainable params
+188 K     Total params
+0.754     Total estimated model params size (MB)
+137       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Sanity Checking DataLoader 0:   0%|                                                                                                                                  | 0/2 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=0.13137498497962952, mean=0.017601853236556053
+After feature_extractor: min=-0.06314006447792053, max=0.08399096131324768, mean=-0.0003922863397747278
+Sanity Checking DataLoader 0:  50%|█████████████████████████████████████████████████████████████                                                             | 1/2 [00:00<00:00,  1.67it/s]After _forward_conv: min=0.0, max=0.13250674307346344, mean=0.01757952757179737
+After feature_extractor: min=-0.06306721270084381, max=0.08442679047584534, mean=-0.00039203057531267405
+Epoch 0:   0%|                                                                                                                                                      | 0/28 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=10.798667907714844, mean=0.38054656982421875
+After feature_extractor: min=-0.6217049360275269, max=0.6494231820106506, mean=-1.0186340659856796e-10
+Epoch 0:   4%|████▋                                                                                                                             | 1/28 [00:01<00:46,  0.58it/s, v_num=f6sv]After _forward_conv: min=0.0, max=14.311091423034668, mean=0.3789951801300049
+After feature_extractor: min=-0.6064692735671997, max=0.582366943359375, mean=4.802132025361061e-10
+Epoch 0:   7%|█████████▎                                                                                                                        | 2/28 [00:03<00:42,  0.61it/s, v_num=f6sv]After _forward_conv: min=0.0, max=13.279964447021484, mean=0.3800613582134247
+After feature_extractor: min=-0.6996660232543945, max=0.7020437121391296, mean=-4.3211912270635366e-08
+Epoch 0:  11%|█████████████▉                                                                                                                    | 3/28 [00:04<00:39,  0.63it/s, v_num=f6sv]After _forward_conv: min=0.0, max=10.51466178894043, mean=0.3813386559486389
+After feature_extractor: min=-0.6125333309173584, max=0.5751737952232361, mean=-1.0841176845133305e-07
+Epoch 0:  14%|██████████████████▌                                                                                                               | 4/28 [00:06<00:37,  0.65it/s, v_num=f6sv]After _forward_conv: min=0.0, max=16.652572631835938, mean=0.37892016768455505
+After feature_extractor: min=-0.9922805428504944, max=1.0136991739273071, mean=-2.066371962428093e-07
+Epoch 0:  18%|███████████████████████▏                                                                                                          | 5/28 [00:07<00:35,  0.65it/s, v_num=f6sv]After _forward_conv: min=0.0, max=10.388978004455566, mean=0.3801877498626709
+After feature_extractor: min=-0.7396546006202698, max=0.6523902416229248, mean=-3.0718729249201715e-07
+Epoch 0:  21%|███████████████████████████▊                                                                                                      | 6/28 [00:09<00:33,  0.66it/s, v_num=f6sv]After _forward_conv: min=0.0, max=14.483036994934082, mean=0.38070523738861084
+After feature_extractor: min=-0.8686424493789673, max=0.780562162399292, mean=-4.363682819530368e-07
+Epoch 0:  25%|████████████████████████████████▌                                                                                                 | 7/28 [00:10<00:31,  0.67it/s, v_num=f6sv]After _forward_conv: min=0.0, max=10.887083053588867, mean=0.380337655544281
+After feature_extractor: min=-0.5854657888412476, max=0.5560018420219421, mean=-6.058253347873688e-07
+Epoch 0:  29%|█████████████████████████████████████▏                                                                                            | 8/28 [00:11<00:29,  0.68it/s, v_num=f6sv]After _forward_conv: min=0.0, max=15.679101943969727, mean=0.3805772066116333
+After feature_extractor: min=-0.9556499123573303, max=0.8130277991294861, mean=-7.178023224696517e-07
+Epoch 0:  32%|█████████████████████████████████████████▊                                                                                        | 9/28 [00:13<00:27,  0.68it/s, v_num=f6sv]After _forward_conv: min=0.0, max=13.568799018859863, mean=0.3801578879356384
+After feature_extractor: min=-0.6481020450592041, max=0.6792811155319214, mean=-8.167116902768612e-07
+Epoch 0:  36%|██████████████████████████████████████████████                                                                                   | 10/28 [00:14<00:26,  0.69it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.233919143676758, mean=0.3805163502693176
+After feature_extractor: min=-0.6387889981269836, max=0.5731242895126343, mean=-8.907663868740201e-07
+Epoch 0:  39%|██████████████████████████████████████████████████▋                                                                              | 11/28 [00:15<00:24,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=10.633940696716309, mean=0.3804229497909546
+After feature_extractor: min=-0.6196092963218689, max=0.5927295684814453, mean=-1.0026778909377754e-06
+Epoch 0:  43%|███████████████████████████████████████████████████████▎                                                                         | 12/28 [00:17<00:23,  0.69it/s, v_num=f6sv]After _forward_conv: min=0.0, max=12.35747241973877, mean=0.3811902105808258
+After feature_extractor: min=-0.6655131578445435, max=0.558175265789032, mean=-1.121348759625107e-06
+Epoch 0:  46%|███████████████████████████████████████████████████████████▉                                                                     | 13/28 [00:18<00:21,  0.69it/s, v_num=f6sv]After _forward_conv: min=0.0, max=13.255562782287598, mean=0.38057205080986023
+After feature_extractor: min=-0.9726219177246094, max=0.8376572132110596, mean=-1.2024102034047246e-06
+Epoch 0:  50%|████████████████████████████████████████████████████████████████▌                                                                | 14/28 [00:20<00:20,  0.69it/s, v_num=f6sv]After _forward_conv: min=0.0, max=12.820544242858887, mean=0.37942758202552795
+After feature_extractor: min=-0.7499757409095764, max=0.8245990872383118, mean=-1.3311218935996294e-06
+Epoch 0:  54%|█████████████████████████████████████████████████████████████████████                                                            | 15/28 [00:21<00:18,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.253154754638672, mean=0.3797791302204132
+After feature_extractor: min=-0.8013648390769958, max=0.7491678595542908, mean=-1.4440156519412994e-06
+Epoch 0:  57%|█████████████████████████████████████████████████████████████████████████▋                                                       | 16/28 [00:22<00:17,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=10.783984184265137, mean=0.3810252845287323
+After feature_extractor: min=-0.653001606464386, max=0.6729481220245361, mean=-1.548956788610667e-06
+Epoch 0:  61%|██████████████████████████████████████████████████████████████████████████████▎                                                  | 17/28 [00:24<00:15,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.756654739379883, mean=0.3799307644367218
+After feature_extractor: min=-0.7486279606819153, max=0.6780411601066589, mean=-1.6880076145753264e-06
+Epoch 0:  64%|██████████████████████████████████████████████████████████████████████████████████▉                                              | 18/28 [00:25<00:14,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.391945838928223, mean=0.3800654113292694
+After feature_extractor: min=-0.6827378869056702, max=0.6816768646240234, mean=-1.7823476810008287e-06
+Epoch 0:  68%|███████████████████████████████████████████████████████████████████████████████████████▌                                         | 19/28 [00:27<00:12,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.533456802368164, mean=0.38086268305778503
+After feature_extractor: min=-0.6127280592918396, max=0.5465841889381409, mean=-1.8635837477631867e-06
+Epoch 0:  71%|████████████████████████████████████████████████████████████████████████████████████████████▏                                    | 20/28 [00:28<00:11,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.152105331420898, mean=0.3804810643196106
+After feature_extractor: min=-0.721293568611145, max=0.6452006101608276, mean=-1.927246557897888e-06
+Epoch 0:  75%|████████████████████████████████████████████████████████████████████████████████████████████████▊                                | 21/28 [00:30<00:10,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=12.319433212280273, mean=0.3792320489883423
+After feature_extractor: min=-0.6834599375724792, max=0.6320714354515076, mean=-2.023421984631568e-06
+Epoch 0:  79%|█████████████████████████████████████████████████████████████████████████████████████████████████████▎                           | 22/28 [00:31<00:08,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.244168281555176, mean=0.3797137439250946
+After feature_extractor: min=-0.6442923545837402, max=0.6268637776374817, mean=-2.1591258700937033e-06
+Epoch 0:  82%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▉                       | 23/28 [00:32<00:07,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.440694808959961, mean=0.38131245970726013
+After feature_extractor: min=-0.7998124957084656, max=0.8260433673858643, mean=-2.3134052753448486e-06
+Epoch 0:  86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                  | 24/28 [00:34<00:05,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=13.39294719696045, mean=0.3812423050403595
+After feature_extractor: min=-0.6907116174697876, max=0.6149875521659851, mean=-2.4863275029929355e-06
+Epoch 0:  89%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏             | 25/28 [00:35<00:04,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.461050033569336, mean=0.38106226921081543
+After feature_extractor: min=-0.7104665040969849, max=0.6945582628250122, mean=-2.6829802663996816e-06
+Epoch 0:  93%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊         | 26/28 [00:37<00:02,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=11.939453125, mean=0.3815075755119324
+After feature_extractor: min=-0.9036321640014648, max=0.7084177732467651, mean=-2.9533111955970526e-06
+Epoch 0:  96%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍    | 27/28 [00:38<00:01,  0.70it/s, v_num=f6sv]After _forward_conv: min=0.0, max=10.730030059814453, mean=0.378801167011261
+After feature_extractor: min=-0.5448221564292908, max=0.5768285989761353, mean=-3.125996272501652e-06
+Epoch 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:39<00:00,  0.72it/s, v_num=f6sv]After _forward_conv: min=0.0, max=1.2832021713256836, mean=0.15697823464870453
+After feature_extractor: min=-1.3186899423599243, max=1.4206486940383911, mean=-0.0073782168328762054                                                              | 0/116 [00:00<?, ?it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2976927757263184, mean=0.1571585237979889
+After feature_extractor: min=-1.3153332471847534, max=1.4258044958114624, mean=-0.007497292011976242                                                       | 1/116 [00:00<00:15,  7.60it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2908926010131836, mean=0.15706482529640198
+After feature_extractor: min=-1.3163881301879883, max=1.4248929023742676, mean=-0.007479168474674225                                                       | 2/116 [00:00<00:19,  5.85it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2784876823425293, mean=0.15692448616027832
+After feature_extractor: min=-1.3195065259933472, max=1.4196604490280151, mean=-0.007389474660158157                                                       | 3/116 [00:00<00:21,  5.37it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.297366976737976, mean=0.15680918097496033
+After feature_extractor: min=-1.3138788938522339, max=1.4200975894927979, mean=-0.0076069096103310585                                                      | 4/116 [00:00<00:21,  5.18it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2990204095840454, mean=0.15691226720809937
+After feature_extractor: min=-1.319279670715332, max=1.4271925687789917, mean=-0.00739923445507884                                                         | 5/116 [00:01<00:22,  4.96it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.3186835050582886, mean=0.15692591667175293
+After feature_extractor: min=-1.3154616355895996, max=1.4272774457931519, mean=-0.0074783433228731155                                                      | 6/116 [00:01<00:22,  4.81it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2888481616973877, mean=0.15694843232631683
+After feature_extractor: min=-1.3155782222747803, max=1.4277540445327759, mean=-0.007529528811573982                                                       | 7/116 [00:01<00:23,  4.72it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.286612868309021, mean=0.15683101117610931
+After feature_extractor: min=-1.3107506036758423, max=1.426755666732788, mean=-0.007555152755230665                                                        | 8/116 [00:01<00:22,  4.70it/s]
+After feature_extractor: min=-1.31657874584198, max=1.4220044612884521, mean=-0.00745973689481616                                                          | 9/116 [00:01<00:22,  4.69it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.3003289699554443, mean=0.15694616734981537
+After feature_extractor: min=-1.3147188425064087, max=1.4184943437576294, mean=-0.007496158126741648                                                      | 10/116 [00:02<00:22,  4.67it/s]
+After feature_extractor: min=-1.312764048576355, max=1.4143564701080322, mean=-0.007732491474598646                                                       | 11/116 [00:03<00:33,  3.18it/s]
+After feature_extractor: min=-1.323455572128296, max=1.4179025888442993, mean=-0.007806684356182814                                                       | 12/116 [00:05<00:44,  2.33it/s]
+After feature_extractor: min=-1.3204996585845947, max=1.4266678094863892, mean=-0.007686596363782883                                                      | 13/116 [00:07<00:56,  1.81it/s]
+After feature_extractor: min=-1.3238283395767212, max=1.4395948648452759, mean=-0.007485630922019482                                                      | 14/116 [00:08<01:04,  1.58it/s]
+After feature_extractor: min=-1.3208404779434204, max=1.4195085763931274, mean=-0.007686748169362545                                                      | 15/116 [00:10<01:11,  1.42it/s]
+After feature_extractor: min=-1.313601016998291, max=1.4323855638504028, mean=-0.007753725163638592                                                       | 16/116 [00:12<01:18,  1.27it/s]
+After feature_extractor: min=-1.315531849861145, max=1.4346784353256226, mean=-0.007654866203665733                                                       | 17/116 [00:14<01:22,  1.20it/s]
+After feature_extractor: min=-1.3150147199630737, max=1.4311167001724243, mean=-0.0076308222487568855                                                     | 18/116 [00:15<01:25,  1.14it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2939343452453613, mean=0.1575862318277359
+After feature_extractor: min=-1.3167314529418945, max=1.4325134754180908, mean=-0.007697633467614651                                                      | 19/116 [00:17<01:30,  1.07it/s]
+Validation DataLoader 0:  18%|██████████████████████▍                                                                                                     | 21/116 [00:21<01:37,  0.97it/s]
+Validation DataLoader 0:  19%|███████████████████████▌                                                                                                    | 22/116 [00:23<01:39,  0.95it/s]
+Validation DataLoader 0:  20%|████████████████████████▌                                                                                                   | 23/116 [00:25<01:41,  0.91it/s]
+Validation DataLoader 0:  21%|█████████████████████████▋                                                                                                  | 24/116 [00:27<01:44,  0.88it/s]
+Validation DataLoader 0:  22%|██████████████████████████▋                                                                                                 | 25/116 [00:28<01:45,  0.86it/s]
+Validation DataLoader 0:  22%|███████████████████████████▊                                                                                                | 26/116 [00:30<01:45,  0.85it/s]
+Validation DataLoader 0:  23%|████████████████████████████▊                                                                                               | 27/116 [00:32<01:47,  0.83it/s]
+Validation DataLoader 0:  24%|█████████████████████████████▉                                                                                              | 28/116 [00:34<01:47,  0.82it/s]
+After feature_extractor: min=-1.3171716928482056, max=1.43075430393219, mean=-0.007725909352302551                                                        | 29/116 [00:36<01:48,  0.80it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2964506149291992, mean=0.1574886441230774
+After feature_extractor: min=-1.3171716928482056, max=1.43075430393219, mean=-0.007725909352302551                                                        | 29/116 [00:36<01:48,  0.80it/s]
+                                                                                                                                                                                           After _forward_conv: min=0.0, max=1.2894935607910156, mean=0.15780740976333618
+After feature_extractor: min=-1.3117125034332275, max=1.4351664781570435, mean=-0.007777909282594919                                                      | 30/116 [00:37<01:48,  0.79it/s]
+After feature_extractor: min=-1.3139934539794922, max=1.4312574863433838, mean=-0.007836933247745037                                                      | 31/116 [00:39<01:48,  0.78it/s]
+Validation DataLoader 0:  28%|██████████████████████████████████▏                                                                                         | 32/116 [00:41<01:49,  0.77it/s]
+Validation DataLoader 0:  28%|███████████████████████████████████▎                                                                                        | 33/116 [00:43<01:48,  0.76it/s]
+After feature_extractor: min=-1.3154008388519287, max=1.4354487657546997, mean=-0.007796482183039188                                                      | 33/116 [00:43<01:48,  0.76it/s]
+Validation DataLoader 0:  30%|█████████████████████████████████████▍                                                                                      | 35/116 [00:47<01:48,  0.74it/s]
+After feature_extractor: min=-1.315106749534607, max=1.4343971014022827, mean=-0.007593473885208368                                                       | 35/116 [00:47<01:48,  0.74it/s]
+Validation DataLoader 0:  32%|███████████████████████████████████████▌                                                                                    | 37/116 [00:50<01:48,  0.73it/s]
+After feature_extractor: min=-1.3173162937164307, max=1.4388891458511353, mean=-0.007636912167072296                                                      | 37/116 [00:50<01:48,  0.73it/s]
+After feature_extractor: min=-1.3056560754776, max=1.4301300048828125, mean=-0.007739238906651735                                                         | 39/116 [00:54<01:47,  0.72it/s]
+Validation DataLoader 0:  35%|███████████████████████████████████████████▊                                                                                | 41/116 [00:57<01:45,  0.71it/s]
+After feature_extractor: min=-1.314225673675537, max=1.4372912645339966, mean=-0.007668608799576759                                                       | 41/116 [00:57<01:45,  0.71it/s]
+Validation DataLoader 0:  37%|█████████████████████████████████████████████▉                                                                              | 43/116 [01:00<01:43,  0.71it/s]
+Validation DataLoader 0:  39%|████████████████████████████████████████████████                                                                            | 45/116 [01:03<01:40,  0.70it/s]
+After feature_extractor: min=-1.3171526193618774, max=1.4340989589691162, mean=-0.00761741679161787                                                       | 45/116 [01:03<01:40,  0.70it/s]
+Validation DataLoader 0:  41%|██████████████████████████████████████████████████▏                                                                         | 47/116 [01:07<01:38,  0.70it/s]
+After feature_extractor: min=-1.3106533288955688, max=1.4102730751037598, mean=-0.00796767883002758                                                       | 47/116 [01:07<01:38,  0.70it/s]
+Validation DataLoader 0:  42%|████████████████████████████████████████████████████▍                                                                       | 49/116 [01:11<01:37,  0.69it/s]
+After feature_extractor: min=-1.3233686685562134, max=1.403377652168274, mean=-0.007809417322278023                                                       | 49/116 [01:11<01:37,  0.69it/s]
+Validation DataLoader 0:  44%|██████████████████████████████████████████████████████▌                                                                     | 51/116 [01:14<01:34,  0.69it/s]
+Validation DataLoader 0:  46%|████████████████████████████████████████████████████████▋                                                                   | 53/116 [01:17<01:32,  0.68it/s]
+After feature_extractor: min=-1.3141647577285767, max=1.4216829538345337, mean=-0.007568658329546452                                                      | 53/116 [01:17<01:32,  0.68it/s]
+Validation DataLoader 0:  47%|██████████████████████████████████████████████████████████▊                                                                 | 55/116 [01:21<01:30,  0.67it/s]
+After feature_extractor: min=-1.3203182220458984, max=1.4227696657180786, mean=-0.007549085654318333                                                      | 55/116 [01:21<01:30,  0.67it/s]
+Validation DataLoader 0:  49%|████████████████████████████████████████████████████████████▉                                                               | 57/116 [01:25<01:28,  0.67it/s]
+After feature_extractor: min=-1.324414849281311, max=1.4247299432754517, mean=-0.0074906423687934875                                                      | 57/116 [01:25<01:28,  0.67it/s]
+Validation DataLoader 0:  51%|███████████████████████████████████████████████████████████████                                                             | 59/116 [01:28<01:25,  0.67it/s]
+After feature_extractor: min=-1.317400574684143, max=1.4196856021881104, mean=-0.007533635012805462                                                       | 59/116 [01:28<01:25,  0.67it/s]
+After feature_extractor: min=-1.3248566389083862, max=1.4312940835952759, mean=-0.007474435027688742                                                      | 61/116 [01:32<01:23,  0.66it/s]
+Validation DataLoader 0:  54%|███████████████████████████████████████████████████████████████████▎                                                        | 63/116 [01:35<01:20,  0.66it/s]
+After feature_extractor: min=-1.3169394731521606, max=1.4413166046142578, mean=-0.0076394896022975445                                                     | 63/116 [01:35<01:20,  0.66it/s]
+Validation DataLoader 0:  56%|█████████████████████████████████████████████████████████████████████▍                                                      | 65/116 [01:39<01:17,  0.65it/s]
+After feature_extractor: min=-1.3194650411605835, max=1.439881443977356, mean=-0.007624827325344086▍                                                      | 65/116 [01:39<01:17,  0.65it/s]
+Validation DataLoader 0:  58%|███████████████████████████████████████████████████████████████████████▌                                                    | 67/116 [01:42<01:15,  0.65it/s]
+Validation DataLoader 0:  58%|███████████████████████████████████████████████████████████████████████▌                                                    | 67/116 [01:42<01:15,  0.65it/s]
+After feature_extractor: min=-1.3100018501281738, max=1.4395110607147217, mean=-0.007656043395400047█▌                                                    | 67/116 [01:42<01:15,  0.65it/s]
+After feature_extractor: min=-1.3100018501281738, max=1.4395110607147217, mean=-0.007656043395400047█▌                                                    | 67/116 [01:42<01:15,  0.65it/s]

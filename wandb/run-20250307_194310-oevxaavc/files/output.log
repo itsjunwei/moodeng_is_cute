@@ -1,0 +1,1070 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\logger_connector\logger_connector.py:75: Starting from v1.9.0, `tensorboardX` has been removed as a dependency of the `pytorch_lightning` package, due to potential conflicts with other packages in the ML ecosystem. For this reason, `logger=True` will use `CSVLogger` as the default logger, unless the `tensorboard` or `tensorboardX` packages are found. Please `pip install lightning[extra]` or one of them to enable TensorBoard support by default
+`Trainer(overfit_batches=1)` was configured so 1 batch will be used.
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:251: You requested to overfit but enabled train dataloader shuffling. We are turning off the train dataloader shuffling for you.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (1) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name             | Type       | Params | Mode
+--------------------------------------------------------
+0 | mel              | Sequential | 0      | train
+1 | mel_augment      | Sequential | 0      | train
+2 | model            | Network    | 185 K  | train
+3 | device_embedding | Embedding  | 288    | train
+4 | classifier       | Sequential | 6.8 K  | train
+--------------------------------------------------------
+192 K     Trainable params
+0         Non-trainable params
+192 K     Total params
+0.771     Total estimated model params size (MB)
+138       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Sanity Checking DataLoader 0:   0%|                                                                                                                                  | 0/1 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=0.17732885479927063, mean=0.020128348842263222
+After feature_extractor: min=-0.09632901102304459, max=0.06844399124383926, mean=2.077125827781856e-06
+Epoch 0:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=17.69951057434082, mean=0.36241817474365234
+After feature_extractor: min=-0.9523165225982666, max=0.9294580817222595, mean=6.693881005048752e-10
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0008212734246626496
+model.in_c.0.1.weight: grad mean = 0.0001535393384983763
+model.in_c.0.1.bias: grad mean = 0.000168047976330854
+model.in_c.1.0.weight: grad mean = 0.00012043396418448538
+model.in_c.1.1.weight: grad mean = 6.404206214938313e-05
+model.in_c.1.1.bias: grad mean = 5.952214996796101e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.6486606404650956e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 4.369340089738216e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.3846718249842525e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00016593416512478143
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.3427692212862894e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.322647924302146e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.7860566003946587e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.429750358918682e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 1.6920839698286727e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.387479253229685e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 3.042585916546159e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.4962643035687506e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00010775504779303446
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.734571560518816e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.5134668501559645e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.1705520591931418e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 2.6649147912394255e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.8076774722430855e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.9810289813904092e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.5476260273317166e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.3217181731306482e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 9.153282007900998e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.4971805285313167e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.3104167919664178e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 1.05842173070414e-05
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.62609157996485e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 9.712552127894014e-06
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.8129423551727086e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.2607340000035947e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.0273006409988739e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 9.653354209149256e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.6547972336411476e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 1.206039269163739e-05
+model.stages.s2.b4.block.2.0.weight: grad mean = 9.938589755620342e-06
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.8390746845398098e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.0286838005413301e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 7.963974894664716e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.9230364856070992e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.755893769470276e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.7386871048947796e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 9.404573575011455e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.306760158418911e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.6809772104315925e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.3813304576615337e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 6.205486897670198e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.2363881978671998e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.9385830657702172e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 8.138853445416316e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.306858944706619e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.5186224118224345e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.2623529376869556e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.1264680324529763e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.7045331080444157e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 8.371970579901244e-06
+model.feature_extractor.0.weight: grad mean = 1.5498408174607903e-05
+model.feature_extractor.1.weight: grad mean = 1.1071295375586487e-05
+model.feature_extractor.1.bias: grad mean = 0.0006361966370604932
+model.device_embedding.weight: grad mean = 7.100914808688685e-05
+model.classifier.0.weight: grad mean = 0.0002635250857565552
+model.classifier.0.bias: grad mean = 0.004490904975682497
+model.classifier.2.weight: grad mean = 0.005008987616747618
+model.classifier.2.bias: grad mean = 0.18001419305801392
+Epoch 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:01<00:00,  0.56it/s, v_num=3]After _forward_conv: min=0.0, max=0.30793705582618713, mean=0.036996956914663315
+After feature_extractor: min=-0.17693768441677094, max=0.1303979903459549, mean=0.0002486476150806993                                                                | 0/1 [00:00<?, ?it/s]
+Epoch 1:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=14.09721851348877, mean=0.36383968591690063
+After feature_extractor: min=-0.9483734965324402, max=1.0105230808258057, mean=-3.7834979593753815e-10
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0005329588893800974
+model.in_c.0.1.weight: grad mean = 7.076819019857794e-05
+model.in_c.0.1.bias: grad mean = 7.97313405200839e-05
+model.in_c.1.0.weight: grad mean = 0.0001121685272664763
+model.in_c.1.1.weight: grad mean = 4.8872952902456746e-05
+model.in_c.1.1.bias: grad mean = 7.280944555532187e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.4780718124238774e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 5.333716757149887e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.6090481696883217e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00016646977746859193
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.737104478001129e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.4067565391305834e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.7506677977507934e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.6999575968366116e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.546233190514613e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.2256484953686595e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.1172276376546506e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.4357810869114473e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.0001101084053516388
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.3310110261954833e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.242177404492395e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.072197119356133e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 1.789754423953127e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.747266469465103e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.8569167878013104e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.3852154978621911e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.0670003575796727e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 7.923780503915623e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.2901936315756757e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.2559999959194101e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.345761100121308e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.7046617358573712e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 1.0033727448899299e-05
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.7718148228595965e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.638650897779371e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.078062086889986e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 8.887214789865538e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.7976599337998778e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 8.532864740118384e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.0264514457958285e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.8321814422961324e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.1653702131297905e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.266499207820743e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.8731794781956523e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.185925263300305e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.624477853416465e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 9.386789315612987e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.186605903872987e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.6330854931729846e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.2973343473277055e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 5.728923952119658e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.221471029566601e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.7826601467495493e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 8.454691851511598e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.537869871361181e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.4798439224250615e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.657926289539319e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.1452840226411354e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.700591903703753e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 8.923481800593436e-06
+model.feature_extractor.0.weight: grad mean = 1.5701249139965512e-05
+model.feature_extractor.1.weight: grad mean = 1.107931439037202e-05
+model.feature_extractor.1.bias: grad mean = 0.0006373205687850714
+model.device_embedding.weight: grad mean = 7.128436118364334e-05
+model.classifier.0.weight: grad mean = 0.0002654960844665766
+model.classifier.0.bias: grad mean = 0.004523059353232384
+model.classifier.2.weight: grad mean = 0.005019736010581255
+model.classifier.2.bias: grad mean = 0.18001292645931244
+Epoch 1: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.96it/s, v_num=3]After _forward_conv: min=0.0, max=0.428597092628479, mean=0.05221958085894585
+After feature_extractor: min=-0.25546616315841675, max=0.19292129576206207, mean=0.00046548136742785573                                                              | 0/1 [00:00<?, ?it/s]
+Epoch 2:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=14.58601188659668, mean=0.362970232963562
+After feature_extractor: min=-0.8020970821380615, max=0.8278130888938904, mean=-2.1100277081131935e-09
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0002859452215489
+model.in_c.0.1.weight: grad mean = 0.00015025181346572936
+model.in_c.0.1.bias: grad mean = 0.00022324343444779515
+model.in_c.1.0.weight: grad mean = 0.00010966957052005455
+model.in_c.1.1.weight: grad mean = 6.149143155198544e-05
+model.in_c.1.1.bias: grad mean = 7.111876766430214e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.51950220647268e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 3.787146241052142e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.2494798031402752e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00018081182497553527
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.2572019588551484e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 1.9647919543785974e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.6602451069047675e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.4099288313882425e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.523391231079586e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.2377349523594603e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.2675536115457362e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.5298441212507896e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 9.970579412765801e-05
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.335499564447673e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.4485495739791077e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.0784346159198321e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 2.171130654460285e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.2717894605884794e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.912029620143585e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.3844125845707822e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.2099468222004361e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 7.734185055596754e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.328389498667093e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.195772347273305e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.474802936892956e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.7050928363460116e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 9.077128197532147e-06
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.7394242604495957e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.129660359173613e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.0738847777247429e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 8.612147212261334e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.578218325448688e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 9.718734872876666e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.0094160643348005e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.8612694475450553e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.134451031248318e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.035932296479587e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.8485954100810886e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.560544766718522e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.537261313293129e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 9.074972695088945e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.408021479524905e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.4128931878949516e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.2219462405482773e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 7.158780590543756e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.2010677892249078e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.7166233707021092e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 7.5153411671635695e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.361086656805128e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.3738504094362725e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.235862995003117e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.1308433386147954e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.635909004311543e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 9.36674314289121e-06
+model.feature_extractor.0.weight: grad mean = 1.5225314200506546e-05
+model.feature_extractor.1.weight: grad mean = 1.0938517334579956e-05
+model.feature_extractor.1.bias: grad mean = 0.0006401946302503347
+model.device_embedding.weight: grad mean = 7.203718269011006e-05
+model.classifier.0.weight: grad mean = 0.0002640564343892038
+model.classifier.0.bias: grad mean = 0.004536548163741827
+model.classifier.2.weight: grad mean = 0.004998067859560251
+model.classifier.2.bias: grad mean = 0.18001218140125275
+Epoch 2: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.42it/s, v_num=3]After _forward_conv: min=0.0, max=0.5363212823867798, mean=0.06593938916921616
+After feature_extractor: min=-0.33063748478889465, max=0.2545453608036041, mean=0.0006993611459620297                                                                | 0/1 [00:00<?, ?it/s]
+Epoch 3:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=16.780759811401367, mean=0.3627921938896179
+After feature_extractor: min=-0.9243441820144653, max=0.9337512254714966, mean=-8.294591680169106e-10
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0007161717512644827
+model.in_c.0.1.weight: grad mean = 0.00010302905866410583
+model.in_c.0.1.bias: grad mean = 9.779492393136024e-05
+model.in_c.1.0.weight: grad mean = 9.302708349423483e-05
+model.in_c.1.1.weight: grad mean = 6.092785042710602e-05
+model.in_c.1.1.bias: grad mean = 5.2905532356817275e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.263850885559805e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 4.3494324586390576e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.2649526727036573e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00017376343021169305
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.5088329493883066e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 1.908944614115171e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.7447900972911157e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.26051922456827e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.772433617792558e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.2842328689876013e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 3.030272921478172e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.6473379218950868e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00011227418144699186
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.6863472410477698e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.2413425793056376e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.1132340659969486e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 1.998027255467605e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.3652552297571674e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.884309676825069e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.4009085447241887e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.1471900506876409e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 7.834315329091623e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.2147193956479896e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.1882479157065973e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.672860869613942e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.5863439330132678e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 8.708352652320173e-06
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.7032050891430117e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.272713928164194e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 9.664017852628604e-06
+model.stages.s2.b4.block.1.0.weight: grad mean = 9.507628419669345e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.540615085104946e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 9.540777682559565e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.0377815669926349e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.6085414245026186e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.116588191507617e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.384555258089676e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.9306108711703018e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 5.497500296769431e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.817833880428225e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 9.361217053083237e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.558182692766422e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.8203104345011525e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.4505169929179829e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 5.785439498140477e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.2432590665412135e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.9197304129979784e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 8.424101906712167e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.625542250229046e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.5413979781442322e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.616769380547339e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.1925462786166463e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.789702921290882e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 9.20166803553002e-06
+model.feature_extractor.0.weight: grad mean = 1.6348463759641163e-05
+model.feature_extractor.1.weight: grad mean = 1.1478725355118513e-05
+model.feature_extractor.1.bias: grad mean = 0.0006372947245836258
+model.device_embedding.weight: grad mean = 7.108751742634922e-05
+model.classifier.0.weight: grad mean = 0.00026605091989040375
+model.classifier.0.bias: grad mean = 0.004524555057287216
+model.classifier.2.weight: grad mean = 0.005012741778045893
+model.classifier.2.bias: grad mean = 0.18001298606395721
+Epoch 3: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.63it/s, v_num=3]After _forward_conv: min=0.0, max=0.6327657699584961, mean=0.07830875366926193
+After feature_extractor: min=-0.4027220904827118, max=0.3155026435852051, mean=0.0009506113128736615                                                                 | 0/1 [00:00<?, ?it/s]
+Epoch 4:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=17.310792922973633, mean=0.36341214179992676
+After feature_extractor: min=-0.678449273109436, max=0.7463927865028381, mean=-4.685716703534126e-09
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0004125596606172621
+model.in_c.0.1.weight: grad mean = 0.0001004823570838198
+model.in_c.0.1.bias: grad mean = 0.00012359721586108208
+model.in_c.1.0.weight: grad mean = 0.00010019582987297326
+model.in_c.1.1.weight: grad mean = 5.7750221458263695e-05
+model.in_c.1.1.bias: grad mean = 6.572072743438184e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.553267742972821e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 6.156711407356852e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.529371158743743e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00016760369180701673
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.7953316021012142e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.5111476134043187e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.6712148863007315e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 4.198249371256679e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.862759356503375e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.306751412106678e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.6897524207925017e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.4560651834472083e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00010783220204757527
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.5891835573711433e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.4428573194891214e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.1373174856998958e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 2.302570646861568e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.810458707041107e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.9500052076182328e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.68497962249603e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.2918388165417127e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 8.102611172944307e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.504634929005988e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.1864196494570933e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 1.0077321348944679e-05
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.8188633475801907e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 1.064676143869292e-05
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.769484151736833e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.108536811817885e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 9.123913514486048e-06
+model.stages.s2.b4.block.1.0.weight: grad mean = 8.995606185635552e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.5996763977454975e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 9.87613202596549e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.0003013812820427e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.6976304323179647e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.1518843166413717e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.002298272913322e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.8130812406980112e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 5.019708623876795e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 6.111940456321463e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 9.098925147554837e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.358092039386975e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.528570000024047e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.2278081158001442e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 6.322959052340593e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.1711253137036692e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.9012420910135006e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 7.4832023528870195e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.585943578509614e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.519141278549796e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.658942195121199e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.0547134479566012e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.4857401513145305e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 8.913350939110387e-06
+model.feature_extractor.0.weight: grad mean = 1.4298895621323027e-05
+model.feature_extractor.1.weight: grad mean = 1.0196401490247808e-05
+model.feature_extractor.1.bias: grad mean = 0.0006408453918993473
+model.device_embedding.weight: grad mean = 7.17265356797725e-05
+model.classifier.0.weight: grad mean = 0.00025914981961250305
+model.classifier.0.bias: grad mean = 0.004522243514657021
+model.classifier.2.weight: grad mean = 0.004993857350200415
+model.classifier.2.bias: grad mean = 0.18001225590705872
+Epoch 4: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.62it/s, v_num=3]After _forward_conv: min=0.0, max=0.7187483906745911, mean=0.08943308889865875
+After feature_extractor: min=-0.47203800082206726, max=0.375530868768692, mean=0.001200795522890985                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 5:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=16.93543815612793, mean=0.363252729177475
+After feature_extractor: min=-0.7986845374107361, max=0.8819414973258972, mean=-7.523340173065662e-09
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0007142924005165696
+model.in_c.0.1.weight: grad mean = 0.00015066223568283021
+model.in_c.0.1.bias: grad mean = 0.00017308711539953947
+model.in_c.1.0.weight: grad mean = 0.00010389857925474644
+model.in_c.1.1.weight: grad mean = 5.557159602176398e-05
+model.in_c.1.1.bias: grad mean = 7.489850395359099e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.460787775111385e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 5.151231974309667e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.3928827431518584e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00017545082664582878
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.5670218747109175e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.3060059902491048e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.7205533367814496e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.2296917197527364e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.4348726583411917e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.400057746854145e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.989180103440958e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.621768024051562e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00011984178854618222
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.7677366486168467e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.5847257600398734e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.1207364877918735e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 1.710481046757195e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.4050159734324552e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 2.013141056522727e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.4687272731350731e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.0212255801889114e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 8.185192564269528e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.3083092198939994e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 9.639593372412492e-06
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.774548743735068e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.5174699001363479e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 1.073798648576485e-05
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.745868576108478e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.0762767505289048e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.007468017633073e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 8.81976739037782e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.5068025277287234e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 8.877434083842672e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 9.617295290809125e-06
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.6581714589847252e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.131585486291442e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.291906851809472e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 2.073874583174984e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.456084752746392e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 6.068409493309446e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 1.0225609912595246e-05
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.617114311462501e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.913836503168568e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.4390123396879062e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 6.992857834120514e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.2603551112988498e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 3.117490976478621e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 8.462183359370101e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 9.065040649147704e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.6127734852489084e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.902266588644125e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.2117161531932652e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.8533513614092954e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 9.080894415092189e-06
+model.feature_extractor.0.weight: grad mean = 1.6789457731647417e-05
+model.feature_extractor.1.weight: grad mean = 1.1911766705452465e-05
+model.feature_extractor.1.bias: grad mean = 0.0006365948356688023
+model.device_embedding.weight: grad mean = 7.171845936682075e-05
+model.classifier.0.weight: grad mean = 0.0002701470803003758
+model.classifier.0.bias: grad mean = 0.004530969075858593
+model.classifier.2.weight: grad mean = 0.005036246497184038
+model.classifier.2.bias: grad mean = 0.18001140654087067
+Epoch 5: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.50it/s, v_num=3]After _forward_conv: min=0.0, max=0.7952148914337158, mean=0.09943253546953201
+After feature_extractor: min=-0.5378840565681458, max=0.4347931444644928, mean=0.001465743174776435                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 6:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=15.038006782531738, mean=0.36272311210632324
+After feature_extractor: min=-0.8384508490562439, max=0.8607715964317322, mean=-8.68749339133501e-09
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.00047239448758773506
+model.in_c.0.1.weight: grad mean = 0.0001919417700264603
+model.in_c.0.1.bias: grad mean = 5.962298018857837e-05
+model.in_c.1.0.weight: grad mean = 0.00012075073027517647
+model.in_c.1.1.weight: grad mean = 7.869205001043156e-05
+model.in_c.1.1.bias: grad mean = 6.046656199032441e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.452841701800935e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 5.3198178306956834e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.4906617909437045e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00018110043311025947
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.6827741749002598e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.1406864107120782e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.728684947011061e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 2.8139224014012143e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.448843588354066e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.3042139218887314e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.7513319622585186e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.5119562704057898e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00010543579264776781
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.4856016605335753e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.3914168448536657e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.040493771142792e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 1.9691107809194364e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.5904255633358844e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.8944640032714233e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.3628343786820096e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.1609309694904368e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 7.375545101240277e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.285036159970332e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.0715788448578678e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.580839105183259e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.514944051450584e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 1.0236890375381336e-05
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.7006739653879777e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 1.999602972091452e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.0155910786124878e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 9.203732042806223e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.4014201042300556e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 8.526019882992841e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.005858212010935e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.7212436432600953e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.1298953722871374e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.143910235958174e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.7950787523091094e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.589113359543262e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.491433694260195e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 8.734341463423334e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.3110138651391026e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.641988991555991e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.3877668607165106e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 6.607663181057433e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.2473366950871423e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.8912435112715684e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 8.59873580338899e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 9.120463073486462e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.5106486898730509e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.684834599785972e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.2144894753873814e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.8871865652035922e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 9.407473953615408e-06
+model.feature_extractor.0.weight: grad mean = 1.657395660004113e-05
+model.feature_extractor.1.weight: grad mean = 1.1615980838541873e-05
+model.feature_extractor.1.bias: grad mean = 0.0006373469368554652
+model.device_embedding.weight: grad mean = 7.114123582141474e-05
+model.classifier.0.weight: grad mean = 0.00026874110335484147
+model.classifier.0.bias: grad mean = 0.0045244405046105385
+model.classifier.2.weight: grad mean = 0.005024972837418318
+model.classifier.2.bias: grad mean = 0.1800108402967453
+Epoch 6: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.29it/s, v_num=3]After _forward_conv: min=0.0, max=0.8632131218910217, mean=0.1083923801779747
+After feature_extractor: min=-0.6002964377403259, max=0.4928806722164154, mean=0.0017358590848743916                                                                 | 0/1 [00:00<?, ?it/s]
+Epoch 7:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=14.34736156463623, mean=0.361462265253067
+After feature_extractor: min=-0.9675478339195251, max=0.8559905290603638, mean=-1.2958480510860682e-08
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.000673428294248879
+model.in_c.0.1.weight: grad mean = 0.0001876568712759763
+model.in_c.0.1.bias: grad mean = 0.00016854808200150728
+model.in_c.1.0.weight: grad mean = 0.00011051225010305643
+model.in_c.1.1.weight: grad mean = 5.452922050608322e-05
+model.in_c.1.1.bias: grad mean = 7.124729745555669e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.5094079066766426e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 4.6144130294578645e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.331543328182306e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00018104964692611247
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.276249506394379e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 1.7771513739717193e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.6179679732886143e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 2.5731413188623264e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 1.8462005755282007e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.1473055312526412e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.6604993763612583e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.4537052265950479e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00010010716505348682
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.5582616470055655e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.264984985027695e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.0147315151698422e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 2.1272640879033133e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.4514134818455204e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.8649918274604715e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.2311308417167766e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.166174843092449e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 7.640641706530005e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.2185199011582881e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 9.196772225550376e-06
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.555167707731016e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.637376772123389e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 8.95941866474459e-06
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.625852019060403e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.438839885599009e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 9.384234544995707e-06
+model.stages.s2.b4.block.1.0.weight: grad mean = 8.285458170576021e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.4412054952117614e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 9.811421477934346e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 1.0158382792724296e-05
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.5790874385857023e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.0736168405856006e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.124183295876719e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.710542996136155e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.450481355888769e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.535380114451982e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 9.123031304625329e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 4.531285412667785e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.6596973081468605e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.2252932720002718e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 6.385816050169524e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.2073886864527594e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.913452767927538e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 7.833879863028415e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.665800851304084e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.5019019883766305e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.773283869028091e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.1183485185028985e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.6580386474961415e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 8.839916517899837e-06
+model.feature_extractor.0.weight: grad mean = 1.5216643078019843e-05
+model.feature_extractor.1.weight: grad mean = 1.098280063160928e-05
+model.feature_extractor.1.bias: grad mean = 0.000636208220385015
+model.device_embedding.weight: grad mean = 7.12759283487685e-05
+model.classifier.0.weight: grad mean = 0.0002623282198328525
+model.classifier.0.bias: grad mean = 0.004510640166699886
+model.classifier.2.weight: grad mean = 0.0050019691698253155
+model.classifier.2.bias: grad mean = 0.18000763654708862
+Epoch 7: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.56it/s, v_num=3]After _forward_conv: min=0.0, max=0.922714114189148, mean=0.1164158433675766
+After feature_extractor: min=-0.6582356691360474, max=0.5496816039085388, mean=0.0020283511839807034                                                                 | 0/1 [00:00<?, ?it/s]
+Epoch 8:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=14.706209182739258, mean=0.36306801438331604
+After feature_extractor: min=-0.9987873435020447, max=0.8707530498504639, mean=-1.2962118489667773e-08
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.00046608111006207764
+model.in_c.0.1.weight: grad mean = 0.00016577955102548003
+model.in_c.0.1.bias: grad mean = 9.225228859577328e-05
+model.in_c.1.0.weight: grad mean = 0.00010423211642773822
+model.in_c.1.1.weight: grad mean = 6.661968654952943e-05
+model.in_c.1.1.bias: grad mean = 4.8560126742813736e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.3697673643473536e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 4.681609055978697e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.5132478185696527e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.00016969212447293103
+model.stages.s1.b1.block.1.1.weight: grad mean = 2.198377114837058e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.3274858904187568e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.6718377082725056e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 3.984294744441286e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.5468567400821485e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.197005414927844e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.6005963604802673e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.5804111171746626e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00011502196139190346
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.3684838449989911e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.3351816960494034e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.0915482562268153e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 1.634936052141711e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.3592305549536832e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.83074898814084e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.4844889761889135e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.0810093954205513e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 7.440354238497093e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.2765534847858362e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 9.569816938892473e-06
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.579440302331932e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.76399353222223e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 9.772747034730855e-06
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.7235339328181e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.175402968873641e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 1.1407927559048403e-05
+model.stages.s2.b4.block.1.0.weight: grad mean = 8.096593955997378e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.542872269055806e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 9.649596904637292e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 9.767514711711556e-06
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.6033442079788074e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 9.450435754843056e-06
+model.stages.s2.b5.block.0.0.weight: grad mean = 8.339233318110928e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.725020482012951e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.814462045032997e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.703330316464417e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 8.998837984108832e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.252815753920004e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.519095338968327e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.2941708519065287e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 5.295450137055013e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.163168690254679e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.7539273972365663e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 7.749627911834978e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.32720979815349e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.441536642232677e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.572466074634576e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.1412616004236042e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.671188303793315e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 8.677242476551328e-06
+model.feature_extractor.0.weight: grad mean = 1.5555977370240726e-05
+model.feature_extractor.1.weight: grad mean = 1.108952346839942e-05
+model.feature_extractor.1.bias: grad mean = 0.0006376383826136589
+model.device_embedding.weight: grad mean = 7.119989459170029e-05
+model.classifier.0.weight: grad mean = 0.0002651024842634797
+model.classifier.0.bias: grad mean = 0.004514917265623808
+model.classifier.2.weight: grad mean = 0.005000273697078228
+model.classifier.2.bias: grad mean = 0.1800062656402588
+Epoch 8: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.69it/s, v_num=3]After _forward_conv: min=0.0, max=0.9767361283302307, mean=0.1236603856086731
+After feature_extractor: min=-0.7135880589485168, max=0.605429470539093, mean=0.002328271744772792                                                                   | 0/1 [00:00<?, ?it/s]
+Epoch 9:   0%|                                                                                                                                              | 0/1 [00:00<?, ?it/s, v_num=3]After _forward_conv: min=0.0, max=14.576986312866211, mean=0.3651646673679352
+After feature_extractor: min=-0.6958166360855103, max=0.7061342597007751, mean=-1.7171259969472885e-08
+Gradients after backward pass:
+model.in_c.0.0.weight: grad mean = 0.0003578150935936719
+model.in_c.0.1.weight: grad mean = 0.00020707849762402475
+model.in_c.0.1.bias: grad mean = 0.00011635784903774038
+model.in_c.1.0.weight: grad mean = 0.00010161833051824942
+model.in_c.1.1.weight: grad mean = 5.0052414735546336e-05
+model.in_c.1.1.bias: grad mean = 5.4531577916350216e-05
+model.stages.s1.b1.block.0.0.weight: grad mean = 3.417609696043655e-05
+model.stages.s1.b1.block.0.1.weight: grad mean = 6.231327631667227e-08
+model.stages.s1.b1.block.0.1.bias: grad mean = 2.3882879759185016e-05
+model.stages.s1.b1.block.1.0.weight: grad mean = 0.0001917691988637671
+model.stages.s1.b1.block.1.1.weight: grad mean = 3.072738763876259e-05
+model.stages.s1.b1.block.1.1.bias: grad mean = 2.3091895855031908e-05
+model.stages.s1.b1.block.2.0.weight: grad mean = 1.799978781491518e-05
+model.stages.s1.b1.block.2.1.weight: grad mean = 4.5224787754705176e-05
+model.stages.s1.b1.block.2.1.bias: grad mean = 2.6371626518084668e-05
+model.stages.s1.b2.block.0.0.weight: grad mean = 2.4505876353941858e-05
+model.stages.s1.b2.block.0.1.weight: grad mean = 2.5470455966569716e-08
+model.stages.s1.b2.block.0.1.bias: grad mean = 1.4991582247603219e-05
+model.stages.s1.b2.block.1.0.weight: grad mean = 0.00010328068310627714
+model.stages.s1.b2.block.1.1.weight: grad mean = 1.3346463674679399e-05
+model.stages.s1.b2.block.1.1.bias: grad mean = 1.6196398064494133e-05
+model.stages.s1.b2.block.2.0.weight: grad mean = 1.1086628546763677e-05
+model.stages.s1.b2.block.2.1.weight: grad mean = 1.7547219613334164e-05
+model.stages.s1.b2.block.2.1.bias: grad mean = 1.7008904251269996e-05
+model.stages.s1.b3.block.0.0.weight: grad mean = 1.870662163128145e-05
+model.stages.s1.b3.block.0.1.weight: grad mean = 1.480056788238926e-08
+model.stages.s1.b3.block.0.1.bias: grad mean = 1.1856553101097234e-05
+model.stages.s1.b3.block.1.0.weight: grad mean = 7.475078018615022e-05
+model.stages.s1.b3.block.1.1.weight: grad mean = 1.2558058188005816e-05
+model.stages.s1.b3.block.1.1.bias: grad mean = 1.1588092093006708e-05
+model.stages.s1.b3.block.2.0.weight: grad mean = 9.13700569071807e-06
+model.stages.s1.b3.block.2.1.weight: grad mean = 1.4414016732189339e-05
+model.stages.s1.b3.block.2.1.bias: grad mean = 9.590877198206726e-06
+model.stages.s2.b4.block.0.0.weight: grad mean = 1.6167226931429468e-05
+model.stages.s2.b4.block.0.1.weight: grad mean = 2.430078538395719e-08
+model.stages.s2.b4.block.0.1.bias: grad mean = 9.942331416823436e-06
+model.stages.s2.b4.block.1.0.weight: grad mean = 8.564833842683583e-05
+model.stages.s2.b4.block.1.1.weight: grad mean = 1.5847903341636993e-05
+model.stages.s2.b4.block.1.1.bias: grad mean = 9.25467520573875e-06
+model.stages.s2.b4.block.2.0.weight: grad mean = 9.681670235295314e-06
+model.stages.s2.b4.block.2.1.weight: grad mean = 1.6201924154302105e-05
+model.stages.s2.b4.block.2.1.bias: grad mean = 1.1476878171379212e-05
+model.stages.s2.b5.block.0.0.weight: grad mean = 7.7949880505912e-06
+model.stages.s2.b5.block.0.1.weight: grad mean = 1.7795462881053936e-08
+model.stages.s2.b5.block.0.1.bias: grad mean = 4.9794621190812904e-06
+model.stages.s2.b5.block.1.0.weight: grad mean = 5.75445155845955e-05
+model.stages.s2.b5.block.1.1.weight: grad mean = 8.822918971418403e-06
+model.stages.s2.b5.block.1.1.bias: grad mean = 5.39948268851731e-06
+model.stages.s2.b5.block.2.0.weight: grad mean = 5.271845111565199e-06
+model.stages.s2.b5.block.2.1.weight: grad mean = 1.3541834050556645e-05
+model.stages.s2.b5.block.2.1.bias: grad mean = 6.688968824164476e-06
+model.stages.s3.b6.block.0.0.weight: grad mean = 1.1374911991879344e-05
+model.stages.s3.b6.block.0.1.weight: grad mean = 2.9164251458269064e-08
+model.stages.s3.b6.block.0.1.bias: grad mean = 7.396317869279301e-06
+model.stages.s3.b6.block.1.0.weight: grad mean = 8.407126006204635e-05
+model.stages.s3.b6.block.1.1.weight: grad mean = 1.4610950529458933e-05
+model.stages.s3.b6.block.1.1.bias: grad mean = 7.930141691758763e-06
+model.stages.s3.b6.block.2.0.weight: grad mean = 1.116472776629962e-05
+model.stages.s3.b6.block.2.1.weight: grad mean = 2.5573017410351895e-05
+model.stages.s3.b6.block.2.1.bias: grad mean = 9.328628948424011e-06
+model.feature_extractor.0.weight: grad mean = 1.5004339729784988e-05
+model.feature_extractor.1.weight: grad mean = 1.0584379197098315e-05
+model.feature_extractor.1.bias: grad mean = 0.0006372181233018637
+model.device_embedding.weight: grad mean = 7.122776878532022e-05
+model.classifier.0.weight: grad mean = 0.0002595656260382384
+model.classifier.0.bias: grad mean = 0.004499992821365595
+model.classifier.2.weight: grad mean = 0.004982381593436003
+model.classifier.2.bias: grad mean = 0.1800031065940857
+Epoch 9: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.69it/s, v_num=3]
+Validation: |                                                                                                                                                        | 0/? [00:00<?, ?it/s]
+`Trainer.fit` stopped: `max_epochs=10` reached.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\checkpoint_connector.py:186: .test(ckpt_path="last") is set, but there is no last checkpoint available. No checkpoint will be loaded. HINT: Set `ModelCheckpoint(..., save_last=True)`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+After feature_extractor: min=-0.766551673412323, max=0.6608997583389282, mean=0.0026190599892288446                                                                  | 0/1 [00:00<?, ?it/s]
+Epoch 9: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.60it/s, v_num=3]
+Testing DataLoader 0:   0%|                                                                                                                                        | 0/116 [00:00<?, ?it/s]After _forward_conv: min=0.0, max=1.0260283946990967, mean=0.13023042678833008
+After feature_extractor: min=-0.766551673412323, max=0.6608997583389282, mean=0.0026190599892288446
+Testing DataLoader 0:   1%|█                                                                                                                               | 1/116 [00:00<00:13,  8.69it/s]After _forward_conv: min=0.0, max=1.025562047958374, mean=0.1302223950624466
+After feature_extractor: min=-0.7663223147392273, max=0.6616939902305603, mean=0.0026276521384716034
+Testing DataLoader 0:   2%|██▏                                                                                                                             | 2/116 [00:01<01:35,  1.19it/s]After _forward_conv: min=0.0, max=1.0250381231307983, mean=0.13022302091121674
+After feature_extractor: min=-0.7663113474845886, max=0.6617331504821777, mean=0.0026271273382008076
+Testing DataLoader 0:   3%|███▎                                                                                                                            | 3/116 [00:03<02:06,  0.89it/s]After _forward_conv: min=0.0, max=1.0277992486953735, mean=0.13022229075431824
+After feature_extractor: min=-0.7663334012031555, max=0.6615976095199585, mean=0.0026304114144295454
+Testing DataLoader 0:   3%|████▍                                                                                                                           | 4/116 [00:05<02:24,  0.78it/s]After _forward_conv: min=0.0, max=1.0235731601715088, mean=0.13018834590911865
+After feature_extractor: min=-0.7657409310340881, max=0.6618660092353821, mean=0.0026621180586516857
+Testing DataLoader 0:   4%|█████▌                                                                                                                          | 5/116 [00:06<02:28,  0.75it/s]After _forward_conv: min=0.0, max=1.0230406522750854, mean=0.13021445274353027
+After feature_extractor: min=-0.7657446265220642, max=0.6616360545158386, mean=0.0026402417570352554
+Testing DataLoader 0:   5%|██████▌                                                                                                                         | 6/116 [00:08<02:36,  0.70it/s]After _forward_conv: min=0.0, max=1.02287757396698, mean=0.13021205365657806
+After feature_extractor: min=-0.7657877802848816, max=0.6616672873497009, mean=0.0026429130230098963
+Testing DataLoader 0:   6%|███████▋                                                                                                                        | 7/116 [00:10<02:39,  0.68it/s]After _forward_conv: min=0.0, max=1.0236763954162598, mean=0.13020475208759308
+After feature_extractor: min=-0.7658239006996155, max=0.6618931889533997, mean=0.002650271635502577
+Testing DataLoader 0:   7%|████████▊                                                                                                                       | 8/116 [00:12<02:42,  0.67it/s]After _forward_conv: min=0.0, max=1.023480772972107, mean=0.13019470870494843
+After feature_extractor: min=-0.765731930732727, max=0.6617896556854248, mean=0.002659030258655548
+Testing DataLoader 0:   8%|█████████▉                                                                                                                      | 9/116 [00:13<02:43,  0.65it/s]After _forward_conv: min=0.0, max=1.023385763168335, mean=0.13021013140678406
+After feature_extractor: min=-0.7658854722976685, max=0.6615327000617981, mean=0.002643411047756672
+Testing DataLoader 0:   9%|██████████▉                                                                                                                    | 10/116 [00:15<02:40,  0.66it/s]After _forward_conv: min=0.0, max=1.0231176614761353, mean=0.1302131563425064
+After feature_extractor: min=-0.7658821940422058, max=0.662552535533905, mean=0.002646401524543762
+Testing DataLoader 0:   9%|████████████                                                                                                                   | 11/116 [00:16<02:41,  0.65it/s]After _forward_conv: min=0.0, max=1.031097650527954, mean=0.13018706440925598
+After feature_extractor: min=-0.765961766242981, max=0.6625511050224304, mean=0.002669698093086481
+Testing DataLoader 0:  10%|█████████████▏                                                                                                                 | 12/116 [00:18<02:40,  0.65it/s]After _forward_conv: min=0.0, max=1.0297586917877197, mean=0.13017715513706207
+After feature_extractor: min=-0.7665517926216125, max=0.6620514392852783, mean=0.002676431555300951
+Testing DataLoader 0:  11%|██████████████▏                                                                                                                | 13/116 [00:20<02:38,  0.65it/s]After _forward_conv: min=0.0, max=1.0287636518478394, mean=0.13022133708000183
+After feature_extractor: min=-0.7661252617835999, max=0.6617653369903564, mean=0.0026435351464897394
+Testing DataLoader 0:  12%|███████████████▎                                                                                                               | 14/116 [00:21<02:37,  0.65it/s]After _forward_conv: min=0.0, max=1.029701828956604, mean=0.1302267163991928
+After feature_extractor: min=-0.7663801908493042, max=0.6614412665367126, mean=0.002630840055644512
+Testing DataLoader 0:  13%|████████████████▍                                                                                                              | 15/116 [00:23<02:35,  0.65it/s]After _forward_conv: min=0.0, max=1.029110312461853, mean=0.130191832780838
+After feature_extractor: min=-0.7661658525466919, max=0.6618282794952393, mean=0.0026570046320557594
+Testing DataLoader 0:  14%|█████████████████▌                                                                                                             | 16/116 [00:24<02:34,  0.65it/s]After _forward_conv: min=0.0, max=1.0286329984664917, mean=0.13019300997257233
+After feature_extractor: min=-0.765470564365387, max=0.6618836522102356, mean=0.002663904335349798
+Testing DataLoader 0:  15%|██████████████████▌                                                                                                            | 17/116 [00:26<02:33,  0.65it/s]After _forward_conv: min=0.0, max=1.0283594131469727, mean=0.130225270986557
+After feature_extractor: min=-0.7655598521232605, max=0.661918044090271, mean=0.0026446087285876274
+Testing DataLoader 0:  16%|███████████████████▋                                                                                                           | 18/116 [00:27<02:31,  0.65it/s]After _forward_conv: min=0.0, max=1.0280174016952515, mean=0.13020429015159607
+After feature_extractor: min=-0.7658441662788391, max=0.6616533994674683, mean=0.0026494699995964766
+Testing DataLoader 0:  16%|████████████████████▊                                                                                                          | 19/116 [00:30<02:33,  0.63it/s]After _forward_conv: min=0.0, max=1.0273144245147705, mean=0.13020510971546173
+After feature_extractor: min=-0.7656499147415161, max=0.6616628766059875, mean=0.0026570544578135014
+Testing DataLoader 0:  17%|█████████████████████▉                                                                                                         | 20/116 [00:32<02:34,  0.62it/s]After _forward_conv: min=0.0, max=1.0280790328979492, mean=0.13019561767578125
+After feature_extractor: min=-0.7652409076690674, max=0.6616682410240173, mean=0.00266189849935472
+Testing DataLoader 0:  18%|██████████████████████▉                                                                                                        | 21/116 [00:34<02:34,  0.62it/s]After _forward_conv: min=0.0, max=1.0287867784500122, mean=0.13021016120910645
+After feature_extractor: min=-0.7655391693115234, max=0.6620447635650635, mean=0.0026531785260885954
+Testing DataLoader 0:  19%|████████████████████████                                                                                                       | 22/116 [00:36<02:34,  0.61it/s]After _forward_conv: min=0.0, max=1.0282542705535889, mean=0.13021902740001678
+After feature_extractor: min=-0.7662785053253174, max=0.6624887585639954, mean=0.0026447991840541363
+Testing DataLoader 0:  20%|█████████████████████████▏                                                                                                     | 23/116 [00:37<02:33,  0.61it/s]After _forward_conv: min=0.0, max=1.0300326347351074, mean=0.13021479547023773
+After feature_extractor: min=-0.7666054964065552, max=0.6621587872505188, mean=0.002648769412189722
+Testing DataLoader 0:  21%|██████████████████████████▎                                                                                                    | 24/116 [00:39<02:31,  0.61it/s]After _forward_conv: min=0.0, max=1.0293315649032593, mean=0.1302240788936615
+After feature_extractor: min=-0.7663370966911316, max=0.6621311902999878, mean=0.0026467794086784124
+Testing DataLoader 0:  22%|███████████████████████████▎                                                                                                   | 25/116 [00:41<02:29,  0.61it/s]After _forward_conv: min=0.0, max=1.0293163061141968, mean=0.13023114204406738
+After feature_extractor: min=-0.7661744952201843, max=0.6619057655334473, mean=0.0026427856646478176
+Testing DataLoader 0:  22%|████████████████████████████▍                                                                                                  | 26/116 [00:42<02:27,  0.61it/s]After _forward_conv: min=0.0, max=1.0293556451797485, mean=0.13023942708969116
+After feature_extractor: min=-0.7665022015571594, max=0.6621589660644531, mean=0.0026289275847375393
+Testing DataLoader 0:  23%|█████████████████████████████▌                                                                                                 | 27/116 [00:44<02:25,  0.61it/s]After _forward_conv: min=0.0, max=1.0275800228118896, mean=0.13018816709518433
+After feature_extractor: min=-0.7658461332321167, max=0.6619069576263428, mean=0.002667861757799983
+Testing DataLoader 0:  24%|██████████████████████████████▋                                                                                                | 28/116 [00:45<02:24,  0.61it/s]After _forward_conv: min=0.0, max=1.0254749059677124, mean=0.1301960051059723
+After feature_extractor: min=-0.7655274271965027, max=0.6622593998908997, mean=0.002665968146175146
+Testing DataLoader 0:  25%|███████████████████████████████▊                                                                                               | 29/116 [00:47<02:22,  0.61it/s]After _forward_conv: min=0.0, max=1.026772141456604, mean=0.13019950687885284
+After feature_extractor: min=-0.7659638524055481, max=0.6623658537864685, mean=0.0026649353094398975
+Testing DataLoader 0:  26%|████████████████████████████████▊                                                                                              | 30/116 [00:49<02:22,  0.60it/s]After _forward_conv: min=0.0, max=1.027339220046997, mean=0.1302083432674408
+After feature_extractor: min=-0.7654628157615662, max=0.6619641184806824, mean=0.00265876785852015
+Testing DataLoader 0:  27%|█████████████████████████████████▉                                                                                             | 31/116 [00:51<02:21,  0.60it/s]After _forward_conv: min=0.0, max=1.0268712043762207, mean=0.13019420206546783
+After feature_extractor: min=-0.7659096121788025, max=0.6620572209358215, mean=0.0026699616573750973
+Testing DataLoader 0:  28%|███████████████████████████████████                                                                                            | 32/116 [00:53<02:19,  0.60it/s]After _forward_conv: min=0.0, max=1.026793360710144, mean=0.1302012801170349
+After feature_extractor: min=-0.7653823494911194, max=0.6616609692573547, mean=0.0026628682389855385
+Testing DataLoader 0:  28%|████████████████████████████████████▏                                                                                          | 33/116 [00:54<02:18,  0.60it/s]After _forward_conv: min=0.0, max=1.0267136096954346, mean=0.13019908964633942
+After feature_extractor: min=-0.7656630277633667, max=0.6623929142951965, mean=0.00266454741358757
+Testing DataLoader 0:  29%|█████████████████████████████████████▏                                                                                         | 34/116 [00:56<02:16,  0.60it/s]After _forward_conv: min=0.0, max=1.028232216835022, mean=0.13020801544189453
+After feature_extractor: min=-0.7654951810836792, max=0.6627440452575684, mean=0.002664963249117136
+Testing DataLoader 0:  30%|██████████████████████████████████████▎                                                                                        | 35/116 [00:58<02:14,  0.60it/s]After _forward_conv: min=0.0, max=1.0286725759506226, mean=0.13020828366279602
+After feature_extractor: min=-0.7661579251289368, max=0.661797285079956, mean=0.0026494618505239487
+Testing DataLoader 0:  31%|███████████████████████████████████████▍                                                                                       | 36/116 [00:59<02:12,  0.60it/s]After _forward_conv: min=0.0, max=1.0279152393341064, mean=0.13022124767303467
+After feature_extractor: min=-0.7660394906997681, max=0.6619758605957031, mean=0.002645589876919985
+Testing DataLoader 0:  32%|████████████████████████████████████████▌                                                                                      | 37/116 [01:01<02:10,  0.60it/s]After _forward_conv: min=0.0, max=1.0289688110351562, mean=0.13022421300411224
+After feature_extractor: min=-0.7660778164863586, max=0.6618527173995972, mean=0.0026455982588231564
+Testing DataLoader 0:  33%|█████████████████████████████████████████▌                                                                                     | 38/116 [01:02<02:09,  0.60it/s]After _forward_conv: min=0.0, max=1.0278340578079224, mean=0.13021084666252136
+After feature_extractor: min=-0.7664340138435364, max=0.6622061133384705, mean=0.0026484543923288584
+Testing DataLoader 0:  34%|██████████████████████████████████████████▋                                                                                    | 39/116 [01:04<02:07,  0.60it/s]After _forward_conv: min=0.0, max=1.026650071144104, mean=0.13018561899662018
+After feature_extractor: min=-0.7652409672737122, max=0.6624594330787659, mean=0.0026659397408366203
+Testing DataLoader 0:  34%|███████████████████████████████████████████▊                                                                                   | 40/116 [01:06<02:06,  0.60it/s]After _forward_conv: min=0.0, max=1.025092601776123, mean=0.1302204728126526
+After feature_extractor: min=-0.7658212184906006, max=0.6620581746101379, mean=0.0026539938990026712
+Testing DataLoader 0:  35%|████████████████████████████████████████████▉                                                                                  | 41/116 [01:08<02:04,  0.60it/s]After _forward_conv: min=0.0, max=1.0266361236572266, mean=0.13020338118076324
+After feature_extractor: min=-0.7657600045204163, max=0.6619065403938293, mean=0.0026581380516290665
+Testing DataLoader 0:  36%|█████████████████████████████████████████████▉                                                                                 | 42/116 [01:09<02:03,  0.60it/s]After _forward_conv: min=0.0, max=1.0280953645706177, mean=0.1302085667848587
+After feature_extractor: min=-0.7655187249183655, max=0.6618693470954895, mean=0.0026611550711095333
+Testing DataLoader 0:  37%|███████████████████████████████████████████████                                                                                | 43/116 [01:11<02:01,  0.60it/s]After _forward_conv: min=0.0, max=1.0270382165908813, mean=0.1301894187927246
+After feature_extractor: min=-0.7655839920043945, max=0.6621272563934326, mean=0.0026699525769799948
+Testing DataLoader 0:  38%|████████████████████████████████████████████████▏                                                                              | 44/116 [01:13<01:59,  0.60it/s]After _forward_conv: min=0.0, max=1.0254459381103516, mean=0.1302078515291214
+After feature_extractor: min=-0.765857994556427, max=0.6623611450195312, mean=0.0026586572639644146
+Testing DataLoader 0:  39%|█████████████████████████████████████████████████▎                                                                             | 45/116 [01:14<01:57,  0.60it/s]After _forward_conv: min=0.0, max=1.0260319709777832, mean=0.13021662831306458
+After feature_extractor: min=-0.7658658623695374, max=0.6623396873474121, mean=0.00265158386901021
+Testing DataLoader 0:  40%|██████████████████████████████████████████████████▎                                                                            | 46/116 [01:16<01:56,  0.60it/s]After _forward_conv: min=0.0, max=1.0277308225631714, mean=0.1301777958869934
+After feature_extractor: min=-0.7661922574043274, max=0.6621058583259583, mean=0.002679094672203064
+Testing DataLoader 0:  41%|███████████████████████████████████████████████████▍                                                                           | 47/116 [01:18<01:54,  0.60it/s]After _forward_conv: min=0.0, max=1.02877938747406, mean=0.1301449090242386
+After feature_extractor: min=-0.7663732767105103, max=0.6629069447517395, mean=0.0027125480119138956
+Testing DataLoader 0:  41%|████████████████████████████████████████████████████▌                                                                          | 48/116 [01:20<01:53,  0.60it/s]After _forward_conv: min=0.0, max=1.025835633277893, mean=0.13014835119247437
+After feature_extractor: min=-0.7664730548858643, max=0.662484884262085, mean=0.0027141605969518423
+Testing DataLoader 0:  42%|█████████████████████████████████████████████████████▋                                                                         | 49/116 [01:22<01:52,  0.60it/s]After _forward_conv: min=0.0, max=1.0276190042495728, mean=0.13016745448112488
+After feature_extractor: min=-0.7665491104125977, max=0.6621574759483337, mean=0.0026928118895739317
+Testing DataLoader 0:  43%|██████████████████████████████████████████████████████▋                                                                        | 50/116 [01:24<01:51,  0.59it/s]After _forward_conv: min=0.0, max=1.0262819528579712, mean=0.13014858961105347
+After feature_extractor: min=-0.76579350233078, max=0.6624764204025269, mean=0.002699139527976513
+Testing DataLoader 0:  44%|███████████████████████████████████████████████████████▊                                                                       | 51/116 [01:26<01:50,  0.59it/s]After _forward_conv: min=0.0, max=1.0262293815612793, mean=0.13017204403877258
+After feature_extractor: min=-0.765909731388092, max=0.6623827815055847, mean=0.002673956099897623
+Testing DataLoader 0:  45%|████████████████████████████████████████████████████████▉                                                                      | 52/116 [01:28<01:48,  0.59it/s]After _forward_conv: min=0.0, max=1.0259952545166016, mean=0.13020235300064087
+After feature_extractor: min=-0.7658737897872925, max=0.6619982719421387, mean=0.0026508751325309277
+Testing DataLoader 0:  46%|██████████████████████████████████████████████████████████                                                                     | 53/116 [01:29<01:46,  0.59it/s]After _forward_conv: min=0.0, max=1.0256905555725098, mean=0.13017740845680237
+After feature_extractor: min=-0.7658150792121887, max=0.6618994474411011, mean=0.0026695893611758947
+Testing DataLoader 0:  47%|███████████████████████████████████████████████████████████                                                                    | 54/116 [01:31<01:45,  0.59it/s]After _forward_conv: min=0.0, max=1.026606559753418, mean=0.13017307221889496
+After feature_extractor: min=-0.765552818775177, max=0.6623152494430542, mean=0.002672513946890831
+Testing DataLoader 0:  47%|████████████████████████████████████████████████████████████▏                                                                  | 55/116 [01:33<01:44,  0.59it/s]After _forward_conv: min=0.0, max=1.0271652936935425, mean=0.13017725944519043
+After feature_extractor: min=-0.7656834721565247, max=0.6619915962219238, mean=0.0026727369986474514
+Testing DataLoader 0:  48%|█████████████████████████████████████████████████████████████▎                                                                 | 56/116 [01:36<01:42,  0.58it/s]After _forward_conv: min=0.0, max=1.0258818864822388, mean=0.13018010556697845
+After feature_extractor: min=-0.765856921672821, max=0.6628884077072144, mean=0.0026725728530436754
+Testing DataLoader 0:  49%|██████████████████████████████████████████████████████████████▍                                                                | 57/116 [01:37<01:41,  0.58it/s]After _forward_conv: min=0.0, max=1.0292761325836182, mean=0.13020393252372742
+After feature_extractor: min=-0.766553521156311, max=0.6629217267036438, mean=0.002649522852152586
+Testing DataLoader 0:  50%|███████████████████████████████████████████████████████████████▌                                                               | 58/116 [01:39<01:39,  0.58it/s]After _forward_conv: min=0.0, max=1.0287599563598633, mean=0.13021008670330048
+After feature_extractor: min=-0.7662650942802429, max=0.661763072013855, mean=0.002645770087838173
+Testing DataLoader 0:  51%|████████████████████████████████████████████████████████████████▌                                                              | 59/116 [01:41<01:38,  0.58it/s]After _forward_conv: min=0.0, max=1.0283766984939575, mean=0.130203977227211
+After feature_extractor: min=-0.7658735513687134, max=0.661855936050415, mean=0.002646638546139002
+Testing DataLoader 0:  52%|█████████████████████████████████████████████████████████████████▋                                                             | 60/116 [01:43<01:36,  0.58it/s]After _forward_conv: min=0.0, max=1.0288640260696411, mean=0.13019302487373352
+After feature_extractor: min=-0.7662174701690674, max=0.6618776321411133, mean=0.002661696868017316
+Testing DataLoader 0:  53%|██████████████████████████████████████████████████████████████████▊                                                            | 61/116 [01:45<01:34,  0.58it/s]After _forward_conv: min=0.0, max=1.0283501148223877, mean=0.13021133840084076
+After feature_extractor: min=-0.766383945941925, max=0.6619704365730286, mean=0.002640256192535162
+Testing DataLoader 0:  53%|███████████████████████████████████████████████████████████████████▉                                                           | 62/116 [01:46<01:33,  0.58it/s]After _forward_conv: min=0.0, max=1.0273690223693848, mean=0.13019080460071564
+After feature_extractor: min=-0.7653613686561584, max=0.6620824933052063, mean=0.0026611085049808025
+Testing DataLoader 0:  54%|████████████████████████████████████████████████████████████████████▉                                                          | 63/116 [01:48<01:31,  0.58it/s]After _forward_conv: min=0.0, max=1.0261213779449463, mean=0.13022549450397491
+After feature_extractor: min=-0.765532374382019, max=0.6622000932693481, mean=0.0026505272835493088
+Testing DataLoader 0:  55%|██████████████████████████████████████████████████████████████████████                                                         | 64/116 [01:50<01:29,  0.58it/s]After _forward_conv: min=0.0, max=1.0279018878936768, mean=0.13022281229496002
+After feature_extractor: min=-0.7655707597732544, max=0.6619055867195129, mean=0.00264901015907526
+Testing DataLoader 0:  56%|███████████████████████████████████████████████████████████████████████▏                                                       | 65/116 [01:52<01:28,  0.58it/s]After _forward_conv: min=0.0, max=1.0266249179840088, mean=0.13021142780780792
+After feature_extractor: min=-0.76529461145401, max=0.6619885563850403, mean=0.0026497147046029568
+Testing DataLoader 0:  57%|████████████████████████████████████████████████████████████████████████▎                                                      | 66/116 [01:54<01:26,  0.58it/s]After _forward_conv: min=0.0, max=1.026916265487671, mean=0.13020923733711243
+After feature_extractor: min=-0.76512211561203, max=0.6621641516685486, mean=0.0026536399964243174
+Testing DataLoader 0:  58%|█████████████████████████████████████████████████████████████████████████▎                                                     | 67/116 [01:55<01:24,  0.58it/s]After _forward_conv: min=0.0, max=1.0284712314605713, mean=0.13020837306976318
+After feature_extractor: min=-0.7655086517333984, max=0.6621742248535156, mean=0.0026631637010723352
+Testing DataLoader 0:  59%|██████████████████████████████████████████████████████████████████████████▍                                                    | 68/116 [01:57<01:22,  0.58it/s]After _forward_conv: min=0.0, max=1.0257015228271484, mean=0.13021361827850342
+After feature_extractor: min=-0.7654660940170288, max=0.662479817867279, mean=0.0026541100814938545
+Testing DataLoader 0:  59%|███████████████████████████████████████████████████████████████████████████▌                                                   | 69/116 [01:59<01:21,  0.58it/s]After _forward_conv: min=0.0, max=1.0262106657028198, mean=0.13021016120910645
+After feature_extractor: min=-0.7665224075317383, max=0.6619832515716553, mean=0.0026541203260421753
+Testing DataLoader 0:  60%|████████████████████████████████████████████████████████████████████████████▋                                                  | 70/116 [02:00<01:19,  0.58it/s]After _forward_conv: min=0.0, max=1.0265061855316162, mean=0.1302320659160614
+After feature_extractor: min=-0.7662867307662964, max=0.6613123416900635, mean=0.0026213256642222404
+Testing DataLoader 0:  61%|█████████████████████████████████████████████████████████████████████████████▋                                                 | 71/116 [02:02<01:17,  0.58it/s]After _forward_conv: min=0.0, max=1.0239918231964111, mean=0.13022464513778687
+After feature_extractor: min=-0.7659584283828735, max=0.661668062210083, mean=0.0026275855489075184
+Testing DataLoader 0:  62%|██████████████████████████████████████████████████████████████████████████████▊                                                | 72/116 [02:04<01:15,  0.58it/s]After _forward_conv: min=0.0, max=1.0262361764907837, mean=0.130235493183136
+After feature_extractor: min=-0.7661861777305603, max=0.661448061466217, mean=0.0026186853647232056
+Testing DataLoader 0:  63%|███████████████████████████████████████████████████████████████████████████████▉                                               | 73/116 [02:05<01:13,  0.58it/s]After _forward_conv: min=0.0, max=1.0254780054092407, mean=0.1302015334367752
+After feature_extractor: min=-0.7659996151924133, max=0.661841630935669, mean=0.002648766851052642
+Testing DataLoader 0:  64%|█████████████████████████████████████████████████████████████████████████████████                                              | 74/116 [02:07<01:12,  0.58it/s]After _forward_conv: min=0.0, max=1.0235915184020996, mean=0.13019505143165588
+After feature_extractor: min=-0.765647828578949, max=0.6615809202194214, mean=0.002651660703122616
+Testing DataLoader 0:  65%|██████████████████████████████████████████████████████████████████████████████████                                             | 75/116 [02:08<01:10,  0.58it/s]After _forward_conv: min=0.0, max=1.0228641033172607, mean=0.13021910190582275
+After feature_extractor: min=-0.7654101848602295, max=0.6617335677146912, mean=0.0026427716948091984
+Testing DataLoader 0:  66%|███████████████████████████████████████████████████████████████████████████████████▏                                           | 76/116 [02:10<01:08,  0.58it/s]After _forward_conv: min=0.0, max=1.0233087539672852, mean=0.13020600378513336
+After feature_extractor: min=-0.7657174468040466, max=0.661633312702179, mean=0.0026468979194760323
+Testing DataLoader 0:  66%|████████████████████████████████████████████████████████████████████████████████████▎                                          | 77/116 [02:12<01:07,  0.58it/s]After _forward_conv: min=0.0, max=1.0236234664916992, mean=0.13020315766334534
+After feature_extractor: min=-0.7658674716949463, max=0.661640465259552, mean=0.0026505321729928255
+Testing DataLoader 0:  67%|█████████████████████████████████████████████████████████████████████████████████████▍                                         | 78/116 [02:14<01:05,  0.58it/s]After _forward_conv: min=0.0, max=1.024067997932434, mean=0.13022102415561676
+After feature_extractor: min=-0.7660918831825256, max=0.661973237991333, mean=0.002635106910020113
+Testing DataLoader 0:  68%|██████████████████████████████████████████████████████████████████████████████████████▍                                        | 79/116 [02:15<01:03,  0.58it/s]After _forward_conv: min=0.0, max=1.0234425067901611, mean=0.13022801280021667
+After feature_extractor: min=-0.7657814621925354, max=0.661645770072937, mean=0.002625461434945464
+Testing DataLoader 0:  69%|███████████████████████████████████████████████████████████████████████████████████████▌                                       | 80/116 [02:17<01:01,  0.58it/s]After _forward_conv: min=0.0, max=1.02390718460083, mean=0.1302151083946228
+After feature_extractor: min=-0.765292227268219, max=0.6626445055007935, mean=0.0026567168533802032
+Testing DataLoader 0:  70%|████████████████████████████████████████████████████████████████████████████████████████▋                                      | 81/116 [02:18<01:00,  0.58it/s]After _forward_conv: min=0.0, max=1.027297854423523, mean=0.13021551072597504
+After feature_extractor: min=-0.7667874693870544, max=0.6623164415359497, mean=0.002639442216604948
+Testing DataLoader 0:  71%|█████████████████████████████████████████████████████████████████████████████████████████▊                                     | 82/116 [02:20<00:58,  0.58it/s]After _forward_conv: min=0.0, max=1.0285911560058594, mean=0.13020500540733337
+After feature_extractor: min=-0.766089141368866, max=0.6618329286575317, mean=0.0026478045620024204
+Testing DataLoader 0:  72%|██████████████████████████████████████████████████████████████████████████████████████████▊                                    | 83/116 [02:22<00:56,  0.58it/s]After _forward_conv: min=0.0, max=1.0261417627334595, mean=0.1301993876695633
+After feature_extractor: min=-0.7661820650100708, max=0.6617462635040283, mean=0.0026503661647439003
+Testing DataLoader 0:  72%|███████████████████████████████████████████████████████████████████████████████████████████▉                                   | 84/116 [02:24<00:55,  0.58it/s]After _forward_conv: min=0.0, max=1.0283650159835815, mean=0.13022133708000183
+After feature_extractor: min=-0.7666256427764893, max=0.6614624857902527, mean=0.002630321541801095
+Testing DataLoader 0:  73%|█████████████████████████████████████████████████████████████████████████████████████████████                                  | 85/116 [02:27<00:53,  0.58it/s]After _forward_conv: min=0.0, max=1.0255125761032104, mean=0.13018199801445007
+After feature_extractor: min=-0.7659197449684143, max=0.6618465185165405, mean=0.0026629469357430935
+Testing DataLoader 0:  74%|██████████████████████████████████████████████████████████████████████████████████████████████▏                                | 86/116 [02:28<00:51,  0.58it/s]After _forward_conv: min=0.0, max=1.0271905660629272, mean=0.13020023703575134
+After feature_extractor: min=-0.7654810547828674, max=0.6618983149528503, mean=0.0026532369665801525
+Testing DataLoader 0:  75%|███████████████████████████████████████████████████████████████████████████████████████████████▎                               | 87/116 [02:30<00:50,  0.58it/s]After _forward_conv: min=0.0, max=1.0255593061447144, mean=0.13020269572734833
+After feature_extractor: min=-0.7655977606773376, max=0.6617529988288879, mean=0.0026488807052373886
+Testing DataLoader 0:  76%|████████████████████████████████████████████████████████████████████████████████████████████████▎                              | 88/116 [02:32<00:48,  0.58it/s]After _forward_conv: min=0.0, max=1.027877926826477, mean=0.13019846379756927
+After feature_extractor: min=-0.765745222568512, max=0.6620091199874878, mean=0.0026581059210002422
+Testing DataLoader 0:  77%|█████████████████████████████████████████████████████████████████████████████████████████████████▍                             | 89/116 [02:34<00:46,  0.58it/s]After _forward_conv: min=0.0, max=1.0247613191604614, mean=0.13018997013568878
+After feature_extractor: min=-0.7659814953804016, max=0.6616355776786804, mean=0.0026650759391486645
+Testing DataLoader 0:  78%|██████████████████████████████████████████████████████████████████████████████████████████████████▌                            | 90/116 [02:35<00:44,  0.58it/s]After _forward_conv: min=0.0, max=1.025233268737793, mean=0.13019122183322906
+After feature_extractor: min=-0.7659794688224792, max=0.6616509556770325, mean=0.002657062839716673
+Testing DataLoader 0:  78%|███████████████████████████████████████████████████████████████████████████████████████████████████▋                           | 91/116 [02:38<00:43,  0.58it/s]After _forward_conv: min=0.0, max=1.0279688835144043, mean=0.13020522892475128
+After feature_extractor: min=-0.7658191919326782, max=0.6628997921943665, mean=0.0026549422182142735
+Testing DataLoader 0:  79%|████████████████████████████████████████████████████████████████████████████████████████████████████▋                          | 92/116 [02:39<00:41,  0.58it/s]After _forward_conv: min=0.0, max=1.0268537998199463, mean=0.13020841777324677
+After feature_extractor: min=-0.7662790417671204, max=0.662523627281189, mean=0.0026509156450629234
+Testing DataLoader 0:  80%|█████████████████████████████████████████████████████████████████████████████████████████████████████▊                         | 93/116 [02:42<00:40,  0.57it/s]After _forward_conv: min=0.0, max=1.0290393829345703, mean=0.1302376687526703
+After feature_extractor: min=-0.7663930058479309, max=0.6617062091827393, mean=0.002623951295390725
+Testing DataLoader 0:  81%|██████████████████████████████████████████████████████████████████████████████████████████████████████▉                        | 94/116 [02:43<00:38,  0.57it/s]After _forward_conv: min=0.0, max=1.0272984504699707, mean=0.1302303671836853
+After feature_extractor: min=-0.7659395933151245, max=0.661958634853363, mean=0.0026441810186952353
+Testing DataLoader 0:  82%|████████████████████████████████████████████████████████████████████████████████████████████████████████                       | 95/116 [02:45<00:36,  0.57it/s]After _forward_conv: min=0.0, max=1.0283536911010742, mean=0.13025006651878357
+After feature_extractor: min=-0.7664697766304016, max=0.6617316007614136, mean=0.0026267142966389656
+Testing DataLoader 0:  83%|█████████████████████████████████████████████████████████████████████████████████████████████████████████                      | 96/116 [02:47<00:34,  0.57it/s]After _forward_conv: min=0.0, max=1.0270893573760986, mean=0.1302279531955719
+After feature_extractor: min=-0.7663505673408508, max=0.6619709134101868, mean=0.002636989112943411
+Testing DataLoader 0:  84%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▏                    | 97/116 [02:49<00:33,  0.57it/s]After _forward_conv: min=0.0, max=1.025437355041504, mean=0.13021399080753326
+After feature_extractor: min=-0.7651463150978088, max=0.6617476940155029, mean=0.002656722441315651
+Testing DataLoader 0:  84%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▎                   | 98/116 [02:51<00:31,  0.57it/s]After _forward_conv: min=0.0, max=1.0250043869018555, mean=0.13023622334003448
+After feature_extractor: min=-0.765412449836731, max=0.6624151468276978, mean=0.0026474392507225275
+Testing DataLoader 0:  85%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                  | 99/116 [02:53<00:29,  0.57it/s]After _forward_conv: min=0.0, max=1.02675199508667, mean=0.1302412897348404
+After feature_extractor: min=-0.7649053931236267, max=0.6621373295783997, mean=0.0026527661830186844
+Testing DataLoader 0:  86%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                 | 100/116 [02:54<00:27,  0.57it/s]After _forward_conv: min=0.0, max=1.0272942781448364, mean=0.13022586703300476
+After feature_extractor: min=-0.7650642395019531, max=0.6619847416877747, mean=0.0026521533727645874
+Testing DataLoader 0:  87%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                | 101/116 [02:56<00:26,  0.57it/s]After _forward_conv: min=0.0, max=1.0262526273727417, mean=0.13023178279399872
+After feature_extractor: min=-0.7656923532485962, max=0.6619167327880859, mean=0.002651241607964039
+Testing DataLoader 0:  88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▊               | 102/116 [02:58<00:24,  0.57it/s]After _forward_conv: min=0.0, max=1.0260745286941528, mean=0.13023561239242554
+After feature_extractor: min=-0.7655364274978638, max=0.6619900465011597, mean=0.002648866968229413
+Testing DataLoader 0:  89%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▉              | 103/116 [02:59<00:22,  0.57it/s]After _forward_conv: min=0.0, max=1.025982141494751, mean=0.1302124410867691
+After feature_extractor: min=-0.7654989957809448, max=0.6623690724372864, mean=0.0026622526347637177
+Testing DataLoader 0:  90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉             | 104/116 [03:01<00:20,  0.57it/s]After _forward_conv: min=0.0, max=1.02871572971344, mean=0.13020148873329163
+After feature_extractor: min=-0.7661049962043762, max=0.6625323295593262, mean=0.0026588616892695427
+Testing DataLoader 0:  91%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████            | 105/116 [03:03<00:19,  0.57it/s]After _forward_conv: min=0.0, max=1.0297449827194214, mean=0.1301967352628708
+After feature_extractor: min=-0.7663137912750244, max=0.6623902916908264, mean=0.0026621129363775253
+Testing DataLoader 0:  91%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 106/116 [03:04<00:17,  0.57it/s]After _forward_conv: min=0.0, max=1.028222918510437, mean=0.13021013140678406
+After feature_extractor: min=-0.7664282917976379, max=0.6620213389396667, mean=0.0026568700559437275
+Testing DataLoader 0:  92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏         | 107/116 [03:07<00:15,  0.57it/s]After _forward_conv: min=0.0, max=1.0290570259094238, mean=0.13022096455097198
+After feature_extractor: min=-0.7660883665084839, max=0.6617783308029175, mean=0.0026355120353400707
+Testing DataLoader 0:  93%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎        | 108/116 [03:10<00:14,  0.57it/s]After _forward_conv: min=0.0, max=1.0277600288391113, mean=0.13018424808979034
+After feature_extractor: min=-0.7660753130912781, max=0.6619559526443481, mean=0.0026665686164051294
+Testing DataLoader 0:  94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍       | 109/116 [03:12<00:12,  0.57it/s]After _forward_conv: min=0.0, max=1.0276907682418823, mean=0.13018468022346497
+After feature_extractor: min=-0.7651641964912415, max=0.6621078252792358, mean=0.002669551642611623
+Testing DataLoader 0:  95%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍      | 110/116 [03:14<00:10,  0.57it/s]After _forward_conv: min=0.0, max=1.027299165725708, mean=0.13021139800548553
+After feature_extractor: min=-0.7657329440116882, max=0.6619141101837158, mean=0.002660161117091775
+Testing DataLoader 0:  96%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 111/116 [03:16<00:08,  0.56it/s]After _forward_conv: min=0.0, max=1.027169942855835, mean=0.13020092248916626
+After feature_extractor: min=-0.7652904987335205, max=0.6618641018867493, mean=0.0026572132483124733
+Testing DataLoader 0:  97%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋    | 112/116 [03:18<00:07,  0.56it/s]After _forward_conv: min=0.0, max=1.0273343324661255, mean=0.13020211458206177
+After feature_extractor: min=-0.7656991481781006, max=0.661777675151825, mean=0.002659374615177512
+Testing DataLoader 0:  97%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋   | 113/116 [03:20<00:05,  0.56it/s]After _forward_conv: min=0.0, max=1.027640461921692, mean=0.1302030086517334
+After feature_extractor: min=-0.765931248664856, max=0.6618258357048035, mean=0.0026539082173258066
+Testing DataLoader 0:  98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊  | 114/116 [03:23<00:03,  0.56it/s]After _forward_conv: min=0.0, max=1.027522325515747, mean=0.13019245862960815
+After feature_extractor: min=-0.765720546245575, max=0.6624348759651184, mean=0.0026654149405658245
+Testing DataLoader 0:  99%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉ | 115/116 [03:25<00:01,  0.56it/s]After _forward_conv: min=0.0, max=1.0271062850952148, mean=0.13019602000713348
+After feature_extractor: min=-0.7657333016395569, max=0.6627709269523621, mean=0.002668500877916813
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 116/116 [03:27<00:00,  0.56it/s]Test epoch ended; computing metrics...
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 116/116 [03:27<00:00,  0.56it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Test metric               DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+         test/acc              0.1000673845410347
+        test/acc.a             0.10000000149011612
+     test/acc.airport          0.33445945382118225
+        test/acc.b             0.10030394792556763
+       test/acc.bus            0.3333333432674408
+        test/acc.c             0.10030394792556763
+      test/acc.metro                   0.0
+  test/acc.metro_station       0.1111111119389534
+       test/acc.park                   0.0
+  test/acc.public_square               0.0
+       test/acc.real           0.10020242631435394
+        test/acc.s1            0.10000000149011612
+        test/acc.s2            0.10000000149011612
+        test/acc.s3            0.10000000149011612
+        test/acc.s4            0.10000000149011612
+        test/acc.s5            0.10000000149011612
+        test/acc.s6            0.10000000149011612
+       test/acc.seen           0.10000000149011612
+  test/acc.shopping_mall               0.0
+test/acc.street_pedestrian     0.1111111119389534
+  test/acc.street_traffic      0.1111111119389534
+       test/acc.tram                   0.0
+      test/acc.unseen          0.10000000149011612
+        test/cnt.a                   3300.0
+     test/cnt.airport                2960.0
+        test/cnt.b                   3290.0
+       test/cnt.bus                  2970.0
+        test/cnt.c                   3290.0
+      test/cnt.metro                 2970.0
+  test/cnt.metro_station             2970.0
+       test/cnt.park                 2970.0
+  test/cnt.public_square             2970.0
+        test/cnt.s1                  3300.0
+        test/cnt.s2                  3300.0
+        test/cnt.s3                  3300.0
+        test/cnt.s4                  3300.0
+        test/cnt.s5                  3300.0
+        test/cnt.s6                  3300.0
+  test/cnt.shopping_mall             2970.0
+test/cnt.street_pedestrian           2970.0
+  test/cnt.street_traffic            2970.0
+       test/cnt.tram                 2960.0
+      test/count.real                9880.0
+      test/count.seen                9900.0
+     test/count.unseen               9900.0
+      test/lloss.real            2.3025963306427
+      test/lloss.seen           2.302597999572754
+     test/lloss.unseen         2.3025989532470703
+         test/loss              2.302603244781494
+        test/loss.a            2.3025991916656494
+     test/loss.airport         2.2986419200897217
+        test/loss.b            2.3026084899902344
+       test/loss.bus           2.2994351387023926
+        test/loss.c            2.3025810718536377
+      test/loss.metro           2.300743341445923
+  test/loss.metro_station       2.298994541168213
+      test/loss.park           2.3083925247192383
+  test/loss.public_square      2.3069498538970947
+       test/loss.s1             2.302596092224121
+       test/loss.s2             2.302598237991333
+       test/loss.s3            2.3025996685028076
+       test/loss.s4            2.3025972843170166
+       test/loss.s5             2.302593231201172
+       test/loss.s6            2.3026058673858643
+  test/loss.shopping_mall       2.301650047302246
+test/loss.street_pedestrian    2.3004376888275146
+ test/loss.street_traffic      2.3010036945343018
+      test/loss.tram            2.30973744392395
+    test/macro_avg_acc         0.10011261701583862
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
