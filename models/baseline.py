@@ -84,8 +84,8 @@ class Block(nn.Module):
 
     def forward(self, x):
         if self.use_shortcut:
-            x = self.ff.add(self.block(x) , self.shortcut(x))
-            # x = self.block(x) + self.shortcut(x)
+            # x = self.ff.add(self.block(x) , self.shortcut(x))
+            x = self.block(x) + self.shortcut(x)
         else:
             x = self.block(x)
         x = self.after_block_activation(x)
@@ -93,7 +93,7 @@ class Block(nn.Module):
 
 
 class Network(nn.Module):
-    def __init__(self, config):
+    def __init__(self, config, embed_dim=32):
         super(Network, self).__init__()
         n_classes = config['n_classes']
         in_channels = config['in_channels']
@@ -136,22 +136,41 @@ class Network(nn.Module):
                                      )
             self.stages.add_module(f"s{stage_id + 1}", stage)
 
-        ff_list = []
-        ff_list += [nn.Conv2d(
-            channels_per_stage[-1],
-            n_classes,
-            kernel_size=(1, 1),
-            stride=(1, 1),
-            padding=0,
-            bias=False),
-            nn.BatchNorm2d(n_classes),
-        ]
-
-        ff_list.append(nn.AdaptiveAvgPool2d((1, 1)))
-
-        self.feed_forward = nn.Sequential(
-            *ff_list
+        # Final feature extraction layers
+        self.feature_extractor = nn.Sequential(
+            nn.Conv2d(channels_per_stage[-1], 512, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.BatchNorm2d(512),
+            nn.AdaptiveAvgPool2d((1, 1))
         )
+
+        
+        # **Device Embedding Layer**
+        self.device_embedding = nn.Embedding(9, embed_dim)  # Assuming 9 device IDs
+
+        # **Classifier that fuses extracted features with device embeddings**
+        self.classifier = nn.Sequential(
+            # nn.Linear(544, 128),
+            nn.Linear(512 + embed_dim, 128),  # Concatenate features and device embeddings
+            nn.ReLU(),
+            nn.Linear(128, n_classes)
+        )
+
+        # ff_list = []
+        # ff_list += [nn.Conv2d(
+        #     channels_per_stage[-1],
+        #     n_classes,
+        #     kernel_size=(1, 1),
+        #     stride=(1, 1),
+        #     padding=0,
+        #     bias=False),
+        #     nn.BatchNorm2d(n_classes),
+        # ]
+
+        # ff_list.append(nn.AdaptiveAvgPool2d((1, 1)))
+
+        # self.feed_forward = nn.Sequential(
+        #     *ff_list
+        # )
 
         self.apply(initialize_weights)
 
@@ -201,10 +220,33 @@ class Network(nn.Module):
         x = self.stages(x)
         return x
 
-    def forward(self, x):
+    def forward(self, x, device_id):
         x = self._forward_conv(x)
-        x = self.feed_forward(x)
-        logits = x.squeeze(2).squeeze(2)
+        # x = self.feed_forward(x)
+        x = self.feature_extractor(x)
+        features = x.squeeze(2).squeeze(2)  # Flatten
+        # print(f"Features shape: {features.shape}")  # Debugging
+
+        # Ensure device_id is a tensor and has correct dtype
+        if isinstance(device_id, list):
+            device_id = torch.tensor(device_id, dtype=torch.long, device=features.device)
+        else:
+            device_id = device_id.to(torch.long).to(features.device)
+        # print(f"Device ID shape: {device_id.shape}, dtype: {device_id.dtype}")  # Debugging
+        assert device_id.dtype == torch.long, "device_id must be a long tensor"
+        
+        # Get device embeddings
+        device_features = self.device_embedding(device_id)
+        # print(f"Device features shape: {device_features.shape}")  # Debugging
+
+        # Concatenate extracted features with device embeddings
+        combined_features = torch.cat((features, device_features), dim=1)
+        # print(f"Combined features shape: {combined_features.shape}")  # Debugging
+
+        # Final classification
+        # print(f"Classifier Input Shape: {combined_features.shape}")
+        logits = self.classifier(combined_features)
+        # logits = x.squeeze(2).squeeze(2)
         return logits
 
 

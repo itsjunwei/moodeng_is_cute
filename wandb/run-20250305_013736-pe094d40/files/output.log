@@ -1,0 +1,107 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name             | Type       | Params | Mode
+--------------------------------------------------------
+0 | mel              | Sequential | 0      | train
+1 | mel_augment      | Sequential | 0      | train
+2 | model            | Network    | 185 K  | train
+3 | device_embedding | Embedding  | 288    | train
+4 | classifier       | Sequential | 6.8 K  | train
+--------------------------------------------------------
+192 K     Trainable params
+0         Non-trainable params
+192 K     Total params
+0.771     Total estimated model params size (MB)
+138       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+
+Epoch 0:   0%|                                                                                                                                                      | 0/28 [00:00<?, ?it/s]x shape before mixstyle: torch.Size([256, 1, 44100])
+Traceback (most recent call last):
+  File "C:\Users\fenel\Documents\dcase2024_task1_baseline\run_training.py", line 677, in <module>
+    train(args)
+  File "C:\Users\fenel\Documents\dcase2024_task1_baseline\run_training.py", line 481, in train
+    trainer.fit(pl_module, train_dl, test_dl)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\call.py", line 47, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 981, in _run
+    results = self._run_stage()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 205, in run
+    self.advance()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\call.py", line 167, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\core\module.py", line 1306, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\core\optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\strategies\strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\plugins\precision\precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\lr_scheduler.py", line 130, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\optimizer.py", line 484, in wrapper
+    out = func(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\optimizer.py", line 89, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\optim\adamw.py", line 204, in step
+    loss = closure()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\plugins\precision\precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 129, in closure
+    step_output = self._step_fn()
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\optimization\automatic.py", line 317, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\call.py", line 319, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\strategies\strategy.py", line 390, in training_step
+    return self.lightning_module.training_step(*args, **kwargs)
+  File "C:\Users\fenel\Documents\dcase2024_task1_baseline\run_training.py", line 238, in training_step
+    y_hat = self.forward(x, devices)  # Passing devices into forward method
+  File "C:\Users\fenel\Documents\dcase2024_task1_baseline\run_training.py", line 144, in forward
+    mel_spec = self.mel_forward(x) # Process the audio into log mel spectrograms
+  File "C:\Users\fenel\Documents\dcase2024_task1_baseline\run_training.py", line 110, in mel_forward
+    x = self.mel(x)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\nn\modules\container.py", line 219, in forward
+    input = module(input)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\nn\modules\module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\nn\modules\module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torchaudio\transforms\_transforms.py", line 979, in forward
+    return _apply_sinc_resample_kernel(waveform, self.orig_freq, self.new_freq, self.gcd, self.kernel, self.width)
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torchaudio\functional\functional.py", line 1465, in _apply_sinc_resample_kernel
+    waveform = torch.nn.functional.pad(waveform, (width, width + orig_freq))
+  File "C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\torch\nn\functional.py", line 4552, in pad
+    return torch._C._nn.pad(input, pad, mode, value)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 19.35 GiB. GPU 0 has a total capacity of 6.00 GiB of which 4.88 GiB is free. Of the allocated memory 55.49 MiB is allocated by PyTorch, and 42.51 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

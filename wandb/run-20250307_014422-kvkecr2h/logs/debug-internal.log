@@ -1,0 +1,723 @@
+2025-03-07 01:44:22,501 INFO    StreamThr :12484 [internal.py:wandb_internal():85] W&B internal server running at pid: 12484, started at: 2025-03-07 01:44:22.499602
+2025-03-07 01:44:22,503 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status
+2025-03-07 01:44:22,505 INFO    WriterThread:12484 [datastore.py:open_for_write():87] open: .\wandb\run-20250307_014422-kvkecr2h\run-kvkecr2h.wandb
+2025-03-07 01:44:22,505 DEBUG   SenderThread:12484 [sender.py:send():391] send: header
+2025-03-07 01:44:22,737 DEBUG   SenderThread:12484 [sender.py:send():391] send: run
+2025-03-07 01:44:22,745 INFO    SenderThread:12484 [sender.py:_setup_resume():761] checking resume status for None/DCASE24_Task1/kvkecr2h
+2025-03-07 01:44:23,724 INFO    SenderThread:12484 [dir_watcher.py:__init__():211] watching files in: .\wandb\run-20250307_014422-kvkecr2h\files
+2025-03-07 01:44:23,724 INFO    SenderThread:12484 [sender.py:_start_run_threads():1200] run started: kvkecr2h with start time 1741283062.503661
+2025-03-07 01:44:23,735 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: check_version
+2025-03-07 01:44:23,735 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: check_version
+2025-03-07 01:44:23,790 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: run_start
+2025-03-07 01:44:23,813 DEBUG   HandlerThread:12484 [system_info.py:__init__():26] System info init
+2025-03-07 01:44:23,813 DEBUG   HandlerThread:12484 [system_info.py:__init__():41] System info init done
+2025-03-07 01:44:23,814 INFO    HandlerThread:12484 [system_monitor.py:start():194] Starting system monitor
+2025-03-07 01:44:23,814 INFO    SystemMonitor:12484 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-03-07 01:44:23,814 INFO    HandlerThread:12484 [system_monitor.py:probe():214] Collecting system info
+2025-03-07 01:44:23,814 INFO    SystemMonitor:12484 [interfaces.py:start():188] Started cpu monitoring
+2025-03-07 01:44:23,820 INFO    SystemMonitor:12484 [interfaces.py:start():188] Started disk monitoring
+2025-03-07 01:44:23,820 INFO    SystemMonitor:12484 [interfaces.py:start():188] Started gpu monitoring
+2025-03-07 01:44:23,826 INFO    SystemMonitor:12484 [interfaces.py:start():188] Started memory monitoring
+2025-03-07 01:44:23,832 INFO    SystemMonitor:12484 [interfaces.py:start():188] Started network monitoring
+2025-03-07 01:44:23,838 DEBUG   HandlerThread:12484 [system_info.py:probe():152] Probing system
+2025-03-07 01:44:23,838 DEBUG   HandlerThread:12484 [system_info.py:_probe_git():137] Probing git
+2025-03-07 01:44:23,901 DEBUG   HandlerThread:12484 [system_info.py:_probe_git():145] Probing git done
+2025-03-07 01:44:23,901 DEBUG   HandlerThread:12484 [system_info.py:probe():200] Probing system done
+2025-03-07 01:44:23,901 DEBUG   HandlerThread:12484 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.10.14', 'heartbeatAt': '2025-03-06T17:44:23.838747', 'startedAt': '2025-03-06T17:44:22.492098', 'docker': None, 'cuda': None, 'args': ('--subset=5',), 'state': 'running', 'program': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training_old.py', 'codePathLocal': 'run_training_old.py', 'codePath': 'run_training_old.py', 'git': {'remote': 'https://github.com/akarifrites/moodeng_is_cute.git', 'commit': '2380d6353be06aa698985b0793bd738a16166cd6'}, 'email': 'fenellachua@gmail.com', 'root': 'C:/Users/fenel/Documents/dcase2024_task1_baseline', 'host': 'Akari', 'username': 'fenel', 'executable': 'C:\\Users\\fenel\\anaconda3\\envs\\d24_t1\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'/': {'total': 475.83886337280273, 'used': 454.152099609375}}, 'gpu': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'memory_total': 6442450944}], 'memory': {'total': 15.588001251220703}}
+2025-03-07 01:44:23,901 INFO    HandlerThread:12484 [system_monitor.py:probe():224] Finished collecting system info
+2025-03-07 01:44:23,901 INFO    HandlerThread:12484 [system_monitor.py:probe():227] Publishing system info
+2025-03-07 01:44:23,901 DEBUG   HandlerThread:12484 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-03-07 01:44:24,729 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250307_014422-kvkecr2h\files\conda-environment.yaml
+2025-03-07 01:44:28,620 DEBUG   HandlerThread:12484 [system_info.py:_save_conda():224] Saving conda packages done
+2025-03-07 01:44:28,621 INFO    HandlerThread:12484 [system_monitor.py:probe():229] Finished publishing system info
+2025-03-07 01:44:28,626 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:44:28,626 DEBUG   SenderThread:12484 [sender.py:send():391] send: files
+2025-03-07 01:44:28,627 INFO    SenderThread:12484 [sender.py:_save_file():1466] saving file wandb-metadata.json with policy now
+2025-03-07 01:44:28,752 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\conda-environment.yaml
+2025-03-07 01:44:28,753 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250307_014422-kvkecr2h\files\wandb-metadata.json
+2025-03-07 01:44:28,898 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: python_packages
+2025-03-07 01:44:28,898 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: python_packages
+2025-03-07 01:44:28,899 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:44:28,899 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:44:28,900 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: telemetry
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: telemetry
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: telemetry
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:44:29,197 WARNING SenderThread:12484 [sender.py:send_metric():1417] Seen metric with glob (shouldn't happen)
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: telemetry
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: config
+2025-03-07 01:44:29,197 DEBUG   SenderThread:12484 [sender.py:send():391] send: config
+2025-03-07 01:44:29,753 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:29,753 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250307_014422-kvkecr2h\files\requirements.txt
+2025-03-07 01:44:29,886 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:30,364 INFO    wandb-upload_0:12484 [upload_job.py:push():130] Uploaded file C:\Users\fenel\AppData\Local\Temp\tmpjv6zk4s6wandb\bv6nv1yo-wandb-metadata.json
+2025-03-07 01:44:30,894 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:31,769 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:31,901 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:32,864 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:44:32,904 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:33,778 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:33,918 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:34,912 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:35,912 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:36,913 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:37,785 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:37,926 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:38,156 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:44:38,919 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:39,792 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:39,923 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:40,928 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:41,801 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:41,931 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:42,934 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:43,545 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:44:43,807 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:43,912 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:44:43,912 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:44:43,942 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:44,945 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:45,819 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:45,949 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:46,954 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:47,839 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:47,967 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:48,942 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:44:48,972 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:49,851 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:49,972 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:50,975 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:51,864 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:51,985 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:52,987 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:53,873 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:53,943 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:44:53,993 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:54,883 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\config.yaml
+2025-03-07 01:44:55,004 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:55,894 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:56,013 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:57,023 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:57,917 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:44:58,031 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:58,921 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:44:58,921 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:44:59,041 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:44:59,922 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:00,046 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:00,199 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:01,053 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:01,936 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:02,056 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:03,066 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:03,947 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:04,067 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:05,076 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:05,217 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:05,957 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:06,077 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:07,080 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:07,961 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:08,081 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:09,093 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:09,972 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:10,103 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:11,071 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:11,091 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:11,986 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:12,097 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:13,104 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:13,943 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:45:13,943 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:45:14,003 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:14,113 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:15,118 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:16,016 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:16,127 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:16,588 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:17,128 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:18,028 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:18,138 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:19,140 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:20,037 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:20,148 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:21,157 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:21,870 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:22,050 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:22,161 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:23,165 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:23,835 DEBUG   SystemMonitor:12484 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-03-07 01:45:23,835 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:45:24,056 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:24,167 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:25,168 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:26,060 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:26,179 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:27,030 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:27,188 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:28,068 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:28,199 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:28,952 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:45:28,952 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:45:29,202 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:30,073 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:30,212 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:31,218 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:32,082 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:32,173 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:32,223 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:33,230 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:34,100 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:34,232 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:35,237 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:36,113 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:36,244 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:37,252 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:37,766 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:38,126 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:38,257 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:39,263 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:40,133 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:40,264 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:41,268 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:42,145 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:42,276 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:43,232 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:43,287 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:43,958 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:45:43,958 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:45:44,154 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:44,294 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:45,296 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:46,165 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:46,296 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:47,303 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:48,170 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:48,307 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:48,773 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:49,316 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:50,185 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:50,325 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:51,329 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:52,190 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:52,341 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:53,350 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:53,842 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:53,842 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:45:54,205 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:54,355 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:55,358 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:56,212 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:56,362 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:57,366 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:58,222 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:45:58,373 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:45:58,976 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:45:58,976 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:45:59,276 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:45:59,377 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:00,233 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:00,383 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:01,391 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:02,247 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:02,393 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:03,401 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:04,256 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:04,409 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:05,053 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:05,413 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:06,272 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:06,425 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:07,435 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:08,297 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:08,438 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:09,440 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:10,303 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:10,442 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:10,715 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:11,446 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:12,313 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:12,454 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:13,464 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:13,968 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:46:13,968 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:46:14,325 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:14,468 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:15,472 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:15,751 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:16,340 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:16,480 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:17,485 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:18,357 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:18,488 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:19,496 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:20,369 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:20,503 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:21,165 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:21,505 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:22,379 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:22,510 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:23,517 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:23,849 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:46:24,395 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:24,524 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:25,533 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:26,224 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:26,411 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:26,541 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:27,533 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:28,419 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:28,538 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:28,976 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:46:28,976 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:46:29,546 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:30,429 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:30,548 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:31,549 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:31,879 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:32,443 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:32,554 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:33,560 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:34,451 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:34,564 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:35,566 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:36,463 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:36,573 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:37,561 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:37,764 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:38,479 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:38,570 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:39,579 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:40,482 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:40,582 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:41,587 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:42,488 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:42,588 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:43,593 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:43,723 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:43,965 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:46:43,965 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:46:44,497 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:44,596 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:45,602 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:46,509 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:46,609 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:47,614 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:48,521 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:48,624 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:49,088 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:49,633 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:50,533 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:50,633 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:51,639 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:52,544 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:52,645 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:53,645 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:53,856 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:46:54,097 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:54,564 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:54,658 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:55,664 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:56,580 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:56,670 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:57,672 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:58,584 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:46:58,674 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:46:58,978 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:46:58,978 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:46:59,299 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:46:59,678 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:00,594 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:00,684 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:01,692 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:02,604 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:02,694 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:03,702 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:04,619 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:04,712 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:05,110 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:05,701 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:06,627 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:06,707 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:07,711 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:08,640 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:08,721 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:09,721 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:10,638 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:10,658 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:10,728 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:11,739 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:12,670 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:12,739 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:13,749 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:13,980 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:47:13,980 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:47:14,680 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:14,750 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:15,751 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:16,534 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:16,682 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:16,761 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:17,765 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:18,690 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:18,770 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:19,776 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:20,699 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:20,779 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:21,544 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:21,783 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:22,709 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:22,791 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:23,800 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:23,863 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:47:24,714 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:24,807 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:25,815 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:26,728 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:26,819 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:27,112 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:27,823 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:28,741 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:28,832 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:28,993 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:47:28,993 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:47:29,841 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:30,757 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:30,847 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:31,854 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:32,289 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:32,771 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:32,864 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:33,872 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:34,789 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:34,880 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:35,881 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:36,796 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:36,887 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:37,731 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:37,892 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:38,807 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:38,897 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:39,903 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:40,823 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:40,913 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:41,918 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:42,837 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:42,925 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:43,575 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:43,926 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:43,990 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:47:43,990 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:47:44,846 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:44,936 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:45,946 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:46,856 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:46,947 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:47,954 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:48,871 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:48,961 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:49,162 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:49,880 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:49,970 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:50,972 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:51,886 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:51,976 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:52,976 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:53,864 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:47:53,904 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:53,985 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:54,168 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:54,993 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:55,919 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:56,000 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:57,003 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:57,930 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:47:58,010 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:58,985 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:47:58,986 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:47:59,005 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:47:59,266 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:47:59,941 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:00,011 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:01,012 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:01,956 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:02,019 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:03,022 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:03,965 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:04,026 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:05,029 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:05,188 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:48:05,968 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:06,039 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:07,044 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:07,983 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:08,047 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:09,053 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:09,993 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:10,054 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:10,672 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:48:11,055 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:12,003 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:12,064 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:13,073 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:13,997 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:48:13,997 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:48:14,017 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:14,077 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:15,088 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:15,818 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:48:16,025 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:16,076 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:17,083 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:18,034 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:18,088 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:19,095 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:20,044 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:20,104 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:21,108 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:21,128 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:48:21,712 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: partial_history
+2025-03-07 01:48:21,721 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,722 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,723 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,724 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,725 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: metric
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send():391] send: history
+2025-03-07 01:48:21,726 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: summary_record
+2025-03-07 01:48:21,728 INFO    SenderThread:12484 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-03-07 01:48:22,055 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:22,055 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250307_014422-kvkecr2h\files\wandb-summary.json
+2025-03-07 01:48:22,117 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:23,118 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:23,867 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:48:24,067 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:24,127 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:25,134 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:26,083 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:26,143 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:26,284 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:48:27,153 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:28,094 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:28,154 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:29,016 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: stop_status
+2025-03-07 01:48:29,016 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: stop_status
+2025-03-07 01:48:29,162 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:30,108 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:30,167 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:30,233 DEBUG   SenderThread:12484 [sender.py:send():391] send: exit
+2025-03-07 01:48:30,233 INFO    SenderThread:12484 [sender.py:send_exit():598] handling exit code: 0
+2025-03-07 01:48:30,233 INFO    SenderThread:12484 [sender.py:send_exit():600] handling runtime: 246
+2025-03-07 01:48:30,233 INFO    SenderThread:12484 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-03-07 01:48:30,243 INFO    SenderThread:12484 [sender.py:send_exit():606] send defer
+2025-03-07 01:48:30,243 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,243 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 0
+2025-03-07 01:48:30,243 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,243 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 0
+2025-03-07 01:48:30,243 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 1
+2025-03-07 01:48:30,243 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,243 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 1
+2025-03-07 01:48:30,243 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,243 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 1
+2025-03-07 01:48:30,243 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 2
+2025-03-07 01:48:30,243 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,243 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 2
+2025-03-07 01:48:30,243 INFO    HandlerThread:12484 [system_monitor.py:finish():203] Stopping system monitor
+2025-03-07 01:48:30,243 DEBUG   SystemMonitor:12484 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-03-07 01:48:30,243 INFO    HandlerThread:12484 [interfaces.py:finish():200] Joined cpu monitor
+2025-03-07 01:48:30,243 DEBUG   SystemMonitor:12484 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-03-07 01:48:30,243 INFO    HandlerThread:12484 [interfaces.py:finish():200] Joined disk monitor
+2025-03-07 01:48:30,283 INFO    HandlerThread:12484 [interfaces.py:finish():200] Joined gpu monitor
+2025-03-07 01:48:30,283 INFO    HandlerThread:12484 [interfaces.py:finish():200] Joined memory monitor
+2025-03-07 01:48:30,283 INFO    HandlerThread:12484 [interfaces.py:finish():200] Joined network monitor
+2025-03-07 01:48:30,283 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 2
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 3
+2025-03-07 01:48:30,283 DEBUG   SenderThread:12484 [sender.py:send():391] send: stats
+2025-03-07 01:48:30,283 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,283 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 3
+2025-03-07 01:48:30,283 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 3
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 4
+2025-03-07 01:48:30,283 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,283 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 4
+2025-03-07 01:48:30,283 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 4
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 5
+2025-03-07 01:48:30,283 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,283 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 5
+2025-03-07 01:48:30,283 DEBUG   SenderThread:12484 [sender.py:send():391] send: summary
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-03-07 01:48:30,283 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 5
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 6
+2025-03-07 01:48:30,283 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,283 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 6
+2025-03-07 01:48:30,283 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,283 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 6
+2025-03-07 01:48:30,293 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:48:30,616 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 7
+2025-03-07 01:48:30,616 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:30,616 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 7
+2025-03-07 01:48:30,617 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:30,617 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 7
+2025-03-07 01:48:31,110 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\wandb-summary.json
+2025-03-07 01:48:31,110 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\config.yaml
+2025-03-07 01:48:31,246 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: poll_exit
+2025-03-07 01:48:32,111 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:32,162 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 8
+2025-03-07 01:48:32,163 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: poll_exit
+2025-03-07 01:48:32,163 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:32,163 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 8
+2025-03-07 01:48:32,163 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:32,163 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 8
+2025-03-07 01:48:32,163 INFO    SenderThread:12484 [job_builder.py:build():443] Attempting to build job artifact
+2025-03-07 01:48:32,163 INFO    SenderThread:12484 [job_builder.py:_get_source_type():572] is repo sourced job
+2025-03-07 01:48:32,251 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: poll_exit
+2025-03-07 01:48:32,257 INFO    SenderThread:12484 [job_builder.py:build():548] adding wandb-job metadata file
+2025-03-07 01:48:32,276 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 9
+2025-03-07 01:48:32,276 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: poll_exit
+2025-03-07 01:48:32,276 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:32,276 DEBUG   SenderThread:12484 [sender.py:send():391] send: artifact
+2025-03-07 01:48:32,277 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 9
+2025-03-07 01:48:33,119 INFO    Thread-16 :12484 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:33,270 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: poll_exit
+2025-03-07 01:48:33,952 INFO    wandb-upload_0:12484 [upload_job.py:push():88] Uploaded file C:\Users\fenel\AppData\Local\wandb\wandb\artifacts\staging\tmp52zgp_dy
+2025-03-07 01:48:35,153 INFO    wandb-upload_1:12484 [upload_job.py:push():88] Uploaded file C:\Users\fenel\AppData\Local\Temp\tmpjm4t8t3r\wandb-job.json
+2025-03-07 01:48:36,707 INFO    SenderThread:12484 [sender.py:send_artifact():1549] sent artifact job-https___github.com_akarifrites_moodeng_is_cute.git_run_training_old.py - {'id': 'QXJ0aWZhY3Q6MTU1MTkzNzU2Mw==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU3NjA0NjE4Ng==', 'latestArtifact': None}}
+2025-03-07 01:48:36,707 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:36,707 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 9
+2025-03-07 01:48:36,707 INFO    SenderThread:12484 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-03-07 01:48:37,128 INFO    SenderThread:12484 [dir_watcher.py:finish():388] scan: .\wandb\run-20250307_014422-kvkecr2h\files
+2025-03-07 01:48:37,128 INFO    SenderThread:12484 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250307_014422-kvkecr2h\files\conda-environment.yaml conda-environment.yaml
+2025-03-07 01:48:37,128 INFO    SenderThread:12484 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250307_014422-kvkecr2h\files\config.yaml config.yaml
+2025-03-07 01:48:37,128 INFO    SenderThread:12484 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250307_014422-kvkecr2h\files\output.log output.log
+2025-03-07 01:48:37,128 INFO    SenderThread:12484 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250307_014422-kvkecr2h\files\requirements.txt requirements.txt
+2025-03-07 01:48:37,135 INFO    SenderThread:12484 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250307_014422-kvkecr2h\files\wandb-metadata.json wandb-metadata.json
+2025-03-07 01:48:37,135 INFO    SenderThread:12484 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250307_014422-kvkecr2h\files\wandb-summary.json wandb-summary.json
+2025-03-07 01:48:37,135 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 10
+2025-03-07 01:48:37,135 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: poll_exit
+2025-03-07 01:48:37,135 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:37,135 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 10
+2025-03-07 01:48:37,135 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:37,135 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 10
+2025-03-07 01:48:37,135 INFO    SenderThread:12484 [file_pusher.py:finish():169] shutting down file pusher
+2025-03-07 01:48:37,290 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: poll_exit
+2025-03-07 01:48:37,290 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: poll_exit
+2025-03-07 01:48:37,291 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: status_report
+2025-03-07 01:48:37,691 INFO    wandb-upload_0:12484 [upload_job.py:push():130] Uploaded file .\wandb\run-20250307_014422-kvkecr2h\files\conda-environment.yaml
+2025-03-07 01:48:37,691 INFO    wandb-upload_2:12484 [upload_job.py:push():130] Uploaded file .\wandb\run-20250307_014422-kvkecr2h\files\output.log
+2025-03-07 01:48:37,710 INFO    wandb-upload_4:12484 [upload_job.py:push():130] Uploaded file .\wandb\run-20250307_014422-kvkecr2h\files\wandb-summary.json
+2025-03-07 01:48:37,713 INFO    wandb-upload_3:12484 [upload_job.py:push():130] Uploaded file .\wandb\run-20250307_014422-kvkecr2h\files\requirements.txt
+2025-03-07 01:48:38,292 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: poll_exit
+2025-03-07 01:48:38,292 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: poll_exit
+2025-03-07 01:48:38,751 INFO    wandb-upload_1:12484 [upload_job.py:push():130] Uploaded file .\wandb\run-20250307_014422-kvkecr2h\files\config.yaml
+2025-03-07 01:48:38,956 INFO    Thread-15 (_thread_body):12484 [sender.py:transition_state():626] send defer: 11
+2025-03-07 01:48:38,956 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:38,956 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 11
+2025-03-07 01:48:38,956 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:38,956 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 11
+2025-03-07 01:48:38,956 INFO    SenderThread:12484 [file_pusher.py:join():175] waiting for file pusher
+2025-03-07 01:48:38,956 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 12
+2025-03-07 01:48:38,956 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:38,956 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 12
+2025-03-07 01:48:38,956 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:38,956 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 12
+2025-03-07 01:48:38,956 INFO    SenderThread:12484 [file_stream.py:finish():601] file stream finish called
+2025-03-07 01:48:39,215 INFO    SenderThread:12484 [file_stream.py:finish():605] file stream finish is done
+2025-03-07 01:48:39,215 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 13
+2025-03-07 01:48:39,216 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:39,216 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 13
+2025-03-07 01:48:39,216 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:39,216 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 13
+2025-03-07 01:48:39,216 INFO    SenderThread:12484 [sender.py:transition_state():626] send defer: 14
+2025-03-07 01:48:39,216 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: defer
+2025-03-07 01:48:39,217 INFO    HandlerThread:12484 [handler.py:handle_request_defer():184] handle defer: 14
+2025-03-07 01:48:39,217 DEBUG   SenderThread:12484 [sender.py:send():391] send: final
+2025-03-07 01:48:39,217 DEBUG   SenderThread:12484 [sender.py:send():391] send: footer
+2025-03-07 01:48:39,217 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: defer
+2025-03-07 01:48:39,217 INFO    SenderThread:12484 [sender.py:send_request_defer():622] handle sender defer: 14
+2025-03-07 01:48:39,219 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: poll_exit
+2025-03-07 01:48:39,219 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: server_info
+2025-03-07 01:48:39,219 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: poll_exit
+2025-03-07 01:48:39,219 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: poll_exit
+2025-03-07 01:48:39,220 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: get_summary
+2025-03-07 01:48:39,220 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: server_info
+2025-03-07 01:48:39,221 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: sampled_history
+2025-03-07 01:48:39,224 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: internal_messages
+2025-03-07 01:48:39,452 DEBUG   SenderThread:12484 [sender.py:send_request():418] send_request: poll_exit
+2025-03-07 01:48:39,452 INFO    MainThread:12484 [wandb_run.py:_footer_history_summary_info():4076] rendering history
+2025-03-07 01:48:39,453 INFO    MainThread:12484 [wandb_run.py:_footer_history_summary_info():4108] rendering summary
+2025-03-07 01:48:39,460 INFO    MainThread:12484 [wandb_run.py:_footer_sync_info():4035] logging synced files
+2025-03-07 01:48:39,460 DEBUG   HandlerThread:12484 [handler.py:handle_request():158] handle_request: shutdown
+2025-03-07 01:48:39,460 INFO    HandlerThread:12484 [handler.py:finish():880] shutting down handler
+2025-03-07 01:48:40,225 INFO    WriterThread:12484 [datastore.py:close():296] close: .\wandb\run-20250307_014422-kvkecr2h\run-kvkecr2h.wandb
+2025-03-07 01:48:40,455 INFO    SenderThread:12484 [sender.py:finish():1631] shutting down sender
+2025-03-07 01:48:40,455 INFO    SenderThread:12484 [file_pusher.py:finish():169] shutting down file pusher
+2025-03-07 01:48:40,455 INFO    SenderThread:12484 [file_pusher.py:join():175] waiting for file pusher

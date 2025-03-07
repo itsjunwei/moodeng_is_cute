@@ -1,0 +1,1152 @@
+2025-02-27 14:26:26,576 INFO    StreamThr :16404 [internal.py:wandb_internal():85] W&B internal server running at pid: 16404, started at: 2025-02-27 14:26:26.573369
+2025-02-27 14:26:26,580 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status
+2025-02-27 14:26:26,587 INFO    WriterThread:16404 [datastore.py:open_for_write():87] open: .\wandb\run-20250227_142626-garz2dcr\run-garz2dcr.wandb
+2025-02-27 14:26:26,590 DEBUG   SenderThread:16404 [sender.py:send():391] send: header
+2025-02-27 14:26:26,688 DEBUG   SenderThread:16404 [sender.py:send():391] send: run
+2025-02-27 14:26:26,698 INFO    SenderThread:16404 [sender.py:_setup_resume():761] checking resume status for None/DCASE24_Task1/garz2dcr
+2025-02-27 14:26:27,696 INFO    SenderThread:16404 [dir_watcher.py:__init__():211] watching files in: .\wandb\run-20250227_142626-garz2dcr\files
+2025-02-27 14:26:27,697 INFO    SenderThread:16404 [sender.py:_start_run_threads():1200] run started: garz2dcr with start time 1740637586.580254
+2025-02-27 14:26:27,721 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: check_version
+2025-02-27 14:26:27,721 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: check_version
+2025-02-27 14:26:27,761 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: run_start
+2025-02-27 14:26:27,803 DEBUG   HandlerThread:16404 [system_info.py:__init__():26] System info init
+2025-02-27 14:26:27,803 DEBUG   HandlerThread:16404 [system_info.py:__init__():41] System info init done
+2025-02-27 14:26:27,803 INFO    HandlerThread:16404 [system_monitor.py:start():194] Starting system monitor
+2025-02-27 14:26:27,803 INFO    SystemMonitor:16404 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-02-27 14:26:27,803 INFO    HandlerThread:16404 [system_monitor.py:probe():214] Collecting system info
+2025-02-27 14:26:27,803 INFO    SystemMonitor:16404 [interfaces.py:start():188] Started cpu monitoring
+2025-02-27 14:26:27,803 INFO    SystemMonitor:16404 [interfaces.py:start():188] Started disk monitoring
+2025-02-27 14:26:27,803 INFO    SystemMonitor:16404 [interfaces.py:start():188] Started gpu monitoring
+2025-02-27 14:26:27,822 INFO    SystemMonitor:16404 [interfaces.py:start():188] Started memory monitoring
+2025-02-27 14:26:27,828 DEBUG   HandlerThread:16404 [system_info.py:probe():152] Probing system
+2025-02-27 14:26:27,840 INFO    SystemMonitor:16404 [interfaces.py:start():188] Started network monitoring
+2025-02-27 14:26:27,842 DEBUG   HandlerThread:16404 [system_info.py:_probe_git():137] Probing git
+2025-02-27 14:26:27,977 DEBUG   HandlerThread:16404 [system_info.py:_probe_git():145] Probing git done
+2025-02-27 14:26:27,977 DEBUG   HandlerThread:16404 [system_info.py:probe():200] Probing system done
+2025-02-27 14:26:27,977 DEBUG   HandlerThread:16404 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.10.14', 'heartbeatAt': '2025-02-27T06:26:27.828013', 'startedAt': '2025-02-27T06:26:26.560825', 'docker': None, 'cuda': None, 'args': ('--subset=5',), 'state': 'running', 'program': 'C:\\Users\\fenel\\Documents\\dcase2024_task1_baseline\\run_training.py', 'codePathLocal': 'run_training.py', 'codePath': 'run_training.py', 'git': {'remote': 'https://github.com/akarifrites/moodeng_is_cute.git', 'commit': '2380d6353be06aa698985b0793bd738a16166cd6'}, 'email': 'fenellachua@gmail.com', 'root': 'C:/Users/fenel/Documents/dcase2024_task1_baseline', 'host': 'Akari', 'username': 'fenel', 'executable': 'C:\\Users\\fenel\\anaconda3\\envs\\d24_t1\\python.exe', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 2304.0, 'min': 0.0, 'max': 2304.0}, 'cpu_freq_per_core': [{'current': 2304.0, 'min': 0.0, 'max': 2304.0}], 'disk': {'/': {'total': 475.83886337280273, 'used': 452.7014579772949}}, 'gpu': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060 Laptop GPU', 'memory_total': 6442450944}], 'memory': {'total': 15.588001251220703}}
+2025-02-27 14:26:27,977 INFO    HandlerThread:16404 [system_monitor.py:probe():224] Finished collecting system info
+2025-02-27 14:26:27,977 INFO    HandlerThread:16404 [system_monitor.py:probe():227] Publishing system info
+2025-02-27 14:26:27,977 DEBUG   HandlerThread:16404 [system_info.py:_save_conda():209] Saving list of conda packages installed into the current environment
+2025-02-27 14:26:28,699 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250227_142626-garz2dcr\files\conda-environment.yaml
+2025-02-27 14:26:34,543 DEBUG   HandlerThread:16404 [system_info.py:_save_conda():224] Saving conda packages done
+2025-02-27 14:26:34,543 INFO    HandlerThread:16404 [system_monitor.py:probe():229] Finished publishing system info
+2025-02-27 14:26:34,555 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:26:34,555 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: keepalive
+2025-02-27 14:26:34,555 DEBUG   SenderThread:16404 [sender.py:send():391] send: files
+2025-02-27 14:26:34,555 INFO    SenderThread:16404 [sender.py:_save_file():1466] saving file wandb-metadata.json with policy now
+2025-02-27 14:26:34,742 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\conda-environment.yaml
+2025-02-27 14:26:34,742 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250227_142626-garz2dcr\files\wandb-metadata.json
+2025-02-27 14:26:34,991 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: python_packages
+2025-02-27 14:26:34,991 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: python_packages
+2025-02-27 14:26:34,992 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:26:34,993 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:26:34,996 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: telemetry
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: telemetry
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: telemetry
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:26:35,307 WARNING SenderThread:16404 [sender.py:send_metric():1417] Seen metric with glob (shouldn't happen)
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: telemetry
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: config
+2025-02-27 14:26:35,307 DEBUG   SenderThread:16404 [sender.py:send():391] send: config
+2025-02-27 14:26:35,356 INFO    wandb-upload_0:16404 [upload_job.py:push():130] Uploaded file C:\Users\fenel\AppData\Local\Temp\tmpc75ilgx0wandb\rvi8u9nz-wandb-metadata.json
+2025-02-27 14:26:35,747 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250227_142626-garz2dcr\files\requirements.txt
+2025-02-27 14:26:35,749 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:36,000 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:36,884 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:26:37,017 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:37,765 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:38,020 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:39,024 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:39,789 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:40,040 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:41,048 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:42,072 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:42,182 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:26:43,081 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:43,819 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:44,096 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:45,099 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:45,836 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:46,102 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:47,117 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:47,857 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:48,128 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:26:48,128 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:49,130 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:49,872 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:49,982 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:26:49,982 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:26:50,140 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:51,141 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:52,146 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:53,151 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:53,167 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:26:53,896 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:54,156 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:55,172 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:55,918 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:56,189 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:57,192 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:57,920 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:26:58,200 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:58,370 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:26:58,927 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\config.yaml
+2025-02-27 14:26:59,215 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:26:59,936 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:00,215 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:01,223 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:01,941 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:02,226 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:03,230 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:04,243 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:04,524 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:04,995 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:27:04,995 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:27:05,259 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:05,960 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:06,264 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:07,266 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:07,970 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:08,272 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:09,277 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:09,940 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:09,984 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:10,280 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:11,288 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:11,998 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:12,300 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:13,304 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:14,013 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:14,311 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:15,066 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:15,313 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:16,028 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:16,323 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:17,337 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:18,048 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:18,341 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:19,345 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:20,017 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:27:20,017 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:27:20,347 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:20,363 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:21,354 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:22,075 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:22,354 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:23,360 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:24,078 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:24,373 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:25,391 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:26,088 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:26,103 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:26,398 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:27,405 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:27,840 DEBUG   SystemMonitor:16404 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-02-27 14:27:27,840 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:27:28,103 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:28,410 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:29,411 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:30,421 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:31,131 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:31,430 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:32,147 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:32,440 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:33,449 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:34,161 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:34,451 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:35,036 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:27:35,036 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:27:35,458 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:36,169 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:36,326 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:36,468 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:37,473 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:38,183 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:38,480 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:39,491 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:40,208 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:40,503 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:41,479 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:41,510 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:42,521 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:43,531 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:44,244 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:44,536 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:45,553 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:46,267 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:46,487 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:46,566 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:47,577 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:48,286 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:48,589 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:49,597 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:50,054 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:27:50,054 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:27:50,300 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:50,611 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:51,617 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:51,900 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:52,314 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:52,607 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:53,617 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:54,328 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:54,619 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:55,644 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:56,660 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:57,186 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:27:57,669 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:57,842 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:27:58,368 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:27:58,673 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:27:59,676 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:00,383 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:00,680 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:01,695 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:02,398 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:02,711 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:02,960 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:03,716 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:04,418 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:04,727 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:05,055 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:28:05,055 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:28:05,729 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:06,745 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:07,749 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:08,325 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:08,438 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:08,756 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:09,766 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:10,465 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:10,776 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:11,777 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:12,480 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:12,783 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:13,807 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:14,331 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:14,503 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:14,814 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:15,820 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:16,822 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:17,832 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:18,544 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:18,847 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:19,533 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:19,853 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:20,065 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:28:20,065 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:28:20,550 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:20,865 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:21,875 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:22,569 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:22,885 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:23,895 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:24,568 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:24,898 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:25,909 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:26,613 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:26,924 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:27,846 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:28:27,940 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:28,623 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:28,956 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:29,975 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:30,240 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:30,626 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:30,972 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:31,993 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:32,648 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:33,005 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:34,018 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:34,667 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:35,030 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:35,078 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:28:35,078 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:28:35,490 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:36,043 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:37,051 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:38,053 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:38,697 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:39,061 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:40,079 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:40,720 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:41,091 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:41,273 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:42,103 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:42,736 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:43,109 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:44,121 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:44,749 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:45,127 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:46,138 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:47,000 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:47,141 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:48,147 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:48,771 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:49,159 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:50,086 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:28:50,086 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:28:50,165 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:50,793 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:51,180 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:52,190 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:52,730 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:52,825 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:53,197 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:54,211 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:54,850 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:55,227 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:56,236 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:56,864 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:28:57,238 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:57,857 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:28:57,857 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:28:58,255 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:28:59,261 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:00,270 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:00,903 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:01,272 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:02,280 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:02,918 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:03,292 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:03,680 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:04,298 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:04,929 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:05,098 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:29:05,098 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:29:05,303 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:06,305 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:06,947 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:07,318 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:08,321 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:08,958 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:09,338 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:10,342 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:10,976 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:11,347 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:12,354 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:12,998 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:13,361 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:14,369 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:14,401 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:15,022 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:15,384 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:16,393 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:17,408 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:18,421 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:19,052 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:19,434 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:19,571 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:20,101 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:29:20,101 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:29:20,442 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:21,067 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:21,455 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:22,461 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:23,089 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:23,450 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:24,461 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:24,967 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:25,101 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:25,464 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:26,470 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:27,473 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:27,869 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:29:28,134 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:28,498 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:29,506 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:30,151 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:30,151 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:30,508 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:31,524 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:32,531 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:33,546 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:34,168 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:34,559 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:35,110 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:29:35,110 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:29:35,422 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:35,569 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:36,188 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:36,584 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:37,591 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:38,203 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:38,596 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:39,605 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:40,234 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:40,425 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:40,615 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:41,630 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:42,639 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:43,646 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:44,255 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:44,663 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:45,432 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:45,653 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:46,266 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:46,660 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:47,666 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:48,293 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:48,667 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:49,682 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:50,132 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:29:50,132 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:29:50,447 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:50,687 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:51,695 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:52,315 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:52,702 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:53,717 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:54,337 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:54,729 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:55,457 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:29:55,735 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:56,353 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:29:56,746 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:57,755 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:57,882 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:29:58,772 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:29:59,777 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:00,367 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:00,464 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:00,787 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:01,789 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:02,378 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:02,795 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:03,802 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:04,399 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:04,826 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:05,152 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:30:05,152 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:30:05,513 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:05,828 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:06,840 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:07,854 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:08,429 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:08,865 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:09,876 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:10,444 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:10,881 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:11,491 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:11,885 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:12,450 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:12,894 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:13,904 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:14,924 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:15,937 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:16,489 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:16,947 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:17,139 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:17,950 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:18,508 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:18,954 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:19,967 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:20,165 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:30:20,165 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:30:20,527 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:20,971 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:21,983 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:22,549 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:22,985 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:24,004 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:24,557 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:25,007 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:26,020 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:26,572 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:27,037 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:27,895 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:30:27,895 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:28,049 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:28,593 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:29,056 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:30,064 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:30,609 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:31,070 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:32,073 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:33,088 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:33,464 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:34,099 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:34,637 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:35,107 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:35,186 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:30:35,186 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:30:36,118 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:36,653 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:37,121 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:38,129 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:38,678 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:39,143 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:39,362 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:40,154 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:40,687 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:41,157 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:42,173 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:43,186 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:44,191 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:44,703 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:44,856 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:45,209 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:46,219 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:46,708 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:47,233 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:48,241 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:48,735 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:49,255 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:50,195 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:30:50,195 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:30:50,258 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:50,474 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:50,742 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:51,272 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:52,281 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:52,757 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:53,287 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:54,295 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:55,302 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:55,551 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:30:56,309 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:56,788 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:57,313 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:57,910 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:30:58,326 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:30:58,803 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:30:59,334 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:00,340 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:00,591 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:00,822 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:01,355 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:02,369 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:02,838 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:03,375 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:04,387 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:05,225 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:31:05,226 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:31:05,396 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:05,605 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:06,406 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:06,859 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:07,420 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:08,432 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:08,875 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:09,438 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:10,453 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:10,618 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:10,883 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:11,463 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:12,472 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:13,483 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:14,492 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:14,917 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:15,508 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:15,634 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:16,517 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:16,940 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:17,520 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:18,535 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:18,945 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:19,539 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:20,234 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:31:20,234 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:31:20,535 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:20,643 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:20,971 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:21,541 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:22,546 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:23,551 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:24,567 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:25,018 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:25,575 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:25,654 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:26,581 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:27,023 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:27,595 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:27,919 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:31:28,599 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:29,037 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:29,602 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:30,596 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:30,670 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:31,048 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:31,614 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:32,622 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:33,625 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:34,630 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:35,072 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:35,260 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:31:35,260 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:31:35,645 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:35,676 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:36,666 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:37,085 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:37,666 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:38,670 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:39,676 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:40,684 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:40,684 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:41,117 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:41,693 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:42,701 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:43,127 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:43,703 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:44,707 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:45,136 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:45,698 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:45,713 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:46,727 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:47,738 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:48,741 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:49,149 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:49,749 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:50,279 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:31:50,279 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:31:50,713 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:50,761 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:51,160 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:51,767 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:52,783 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:53,176 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:53,791 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:54,794 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:55,204 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:55,723 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:31:55,802 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:56,819 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:57,834 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:57,931 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:31:58,845 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:31:59,237 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:31:59,851 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:00,729 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:00,857 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:01,245 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:01,862 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:02,872 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:03,269 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:03,880 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:04,888 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:05,276 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:05,291 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:32:05,291 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:32:05,740 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:05,899 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:06,905 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:07,907 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:08,922 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:09,295 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:09,925 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:10,755 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:10,927 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:11,302 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:11,934 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:12,950 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:13,323 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:13,953 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:14,962 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:15,772 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:15,975 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:16,972 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:17,354 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:17,978 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:18,992 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:19,370 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:19,993 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:20,308 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:32:20,308 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:32:20,774 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:21,004 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:21,384 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:22,017 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:23,024 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:23,399 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:24,038 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:25,053 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:25,412 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:25,792 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:26,067 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:27,067 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:27,444 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:27,940 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:32:28,077 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:29,083 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:30,097 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:30,794 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:31,103 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:31,463 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:32,114 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:33,123 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:33,479 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:34,124 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:35,127 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:35,316 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:32:35,316 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:32:35,498 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:35,798 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:35,931 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,945 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,946 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send():391] send: history
+2025-02-27 14:32:35,947 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: summary_record
+2025-02-27 14:32:35,947 INFO    SenderThread:16404 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-27 14:32:36,140 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:36,527 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_created():271] file/dir created: .\wandb\run-20250227_142626-garz2dcr\files\wandb-summary.json
+2025-02-27 14:32:37,153 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:37,528 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:38,158 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:39,165 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:39,548 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:40,181 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:40,810 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:41,184 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:41,570 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:42,188 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:43,203 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:43,582 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:44,214 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:45,217 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:45,592 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:45,812 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:46,229 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:46,606 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\config.yaml
+2025-02-27 14:32:47,240 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:47,614 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:48,252 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:49,253 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:49,624 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:50,268 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:50,315 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:32:50,315 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:32:51,271 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:51,629 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:51,692 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:52,287 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:53,298 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:53,650 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:54,310 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:55,320 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:55,678 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:56,324 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:57,332 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:57,332 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:32:57,697 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:32:57,949 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:32:58,335 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:59,360 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:32:59,722 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:00,365 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:01,379 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:01,739 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:02,395 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:02,769 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:03,407 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:03,767 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:04,415 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:05,322 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:33:05,322 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:33:05,417 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:05,794 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:06,429 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:07,443 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:07,812 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:08,168 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:08,452 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:09,479 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:09,825 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:10,491 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:11,493 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:11,839 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:12,503 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:13,527 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:13,800 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:13,852 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:14,543 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:15,546 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:15,873 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:16,558 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:17,570 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:17,898 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:18,573 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:18,968 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:19,584 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:19,904 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:20,345 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:33:20,345 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:33:20,591 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:21,599 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:21,926 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:22,613 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:23,620 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:23,935 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:24,140 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:24,625 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:25,632 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:25,969 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:26,641 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:27,653 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:27,964 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:33:27,975 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:28,661 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:29,149 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:29,669 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:30,004 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:30,675 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:31,687 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:32,027 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:32,703 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:33,716 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:34,047 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:34,299 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:34,719 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:35,361 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:33:35,361 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:33:35,722 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:36,073 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:36,734 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:37,739 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:38,095 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:38,752 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:39,524 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:39,755 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:40,106 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:40,764 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:41,780 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:42,121 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:42,785 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:43,789 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:44,130 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:44,796 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:44,938 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:45,801 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:46,136 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:46,804 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:47,816 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:48,150 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:48,826 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:49,828 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:50,015 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:50,168 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:50,372 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:33:50,372 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:33:50,840 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:51,844 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:52,185 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:52,853 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:53,865 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:54,210 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:54,863 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:55,130 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:33:55,887 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:56,228 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:56,900 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:57,913 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:57,975 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:33:58,248 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:33:58,920 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:33:59,930 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:00,163 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:34:00,285 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:00,932 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:01,936 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:02,300 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:02,945 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:03,952 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:04,311 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:04,960 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:05,377 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-27 14:34:05,377 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: stop_status
+2025-02-27 14:34:05,750 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:34:05,955 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:06,325 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:06,964 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:07,975 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:08,354 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:08,969 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:09,975 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:10,379 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:10,946 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:34:10,964 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:11,967 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:12,394 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:12,700 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,723 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,727 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,728 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,729 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,730 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,730 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,730 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,730 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,730 DEBUG   SenderThread:16404 [sender.py:send():391] send: metric
+2025-02-27 14:34:12,730 DEBUG   SenderThread:16404 [sender.py:send():391] send: history
+2025-02-27 14:34:12,732 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: summary_record
+2025-02-27 14:34:12,734 INFO    SenderThread:16404 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-27 14:34:12,801 DEBUG   SenderThread:16404 [sender.py:send():391] send: telemetry
+2025-02-27 14:34:12,801 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: server_info
+2025-02-27 14:34:12,801 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: server_info
+2025-02-27 14:34:13,036 DEBUG   SenderThread:16404 [sender.py:send():391] send: exit
+2025-02-27 14:34:13,036 INFO    SenderThread:16404 [sender.py:send_exit():598] handling exit code: 0
+2025-02-27 14:34:13,036 INFO    SenderThread:16404 [sender.py:send_exit():600] handling runtime: 465
+2025-02-27 14:34:13,036 INFO    SenderThread:16404 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-27 14:34:13,036 INFO    SenderThread:16404 [sender.py:send_exit():606] send defer
+2025-02-27 14:34:13,036 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,036 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 0
+2025-02-27 14:34:13,051 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,051 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 0
+2025-02-27 14:34:13,051 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 1
+2025-02-27 14:34:13,051 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,051 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 1
+2025-02-27 14:34:13,051 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,051 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 1
+2025-02-27 14:34:13,054 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 2
+2025-02-27 14:34:13,054 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,055 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 2
+2025-02-27 14:34:13,055 INFO    HandlerThread:16404 [system_monitor.py:finish():203] Stopping system monitor
+2025-02-27 14:34:13,055 DEBUG   SystemMonitor:16404 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-02-27 14:34:13,055 DEBUG   SystemMonitor:16404 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-02-27 14:34:13,067 INFO    HandlerThread:16404 [interfaces.py:finish():200] Joined cpu monitor
+2025-02-27 14:34:13,067 INFO    HandlerThread:16404 [interfaces.py:finish():200] Joined disk monitor
+2025-02-27 14:34:13,114 INFO    HandlerThread:16404 [interfaces.py:finish():200] Joined gpu monitor
+2025-02-27 14:34:13,114 INFO    HandlerThread:16404 [interfaces.py:finish():200] Joined memory monitor
+2025-02-27 14:34:13,114 INFO    HandlerThread:16404 [interfaces.py:finish():200] Joined network monitor
+2025-02-27 14:34:13,114 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 2
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 3
+2025-02-27 14:34:13,114 DEBUG   SenderThread:16404 [sender.py:send():391] send: stats
+2025-02-27 14:34:13,114 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,114 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 3
+2025-02-27 14:34:13,114 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 3
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 4
+2025-02-27 14:34:13,114 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,114 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 4
+2025-02-27 14:34:13,114 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 4
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 5
+2025-02-27 14:34:13,114 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,114 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 5
+2025-02-27 14:34:13,114 DEBUG   SenderThread:16404 [sender.py:send():391] send: summary
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:_save_file():1466] saving file wandb-summary.json with policy end
+2025-02-27 14:34:13,114 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 5
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 6
+2025-02-27 14:34:13,114 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,114 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 6
+2025-02-27 14:34:13,114 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,114 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 6
+2025-02-27 14:34:13,129 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: status_report
+2025-02-27 14:34:13,397 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\wandb-summary.json
+2025-02-27 14:34:13,494 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 7
+2025-02-27 14:34:13,494 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:13,494 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 7
+2025-02-27 14:34:13,494 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:13,494 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 7
+2025-02-27 14:34:14,050 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-27 14:34:14,398 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:14,398 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\config.yaml
+2025-02-27 14:34:15,585 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 8
+2025-02-27 14:34:15,585 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: poll_exit
+2025-02-27 14:34:15,585 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:15,585 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 8
+2025-02-27 14:34:15,585 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:15,585 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 8
+2025-02-27 14:34:15,585 INFO    SenderThread:16404 [job_builder.py:build():443] Attempting to build job artifact
+2025-02-27 14:34:15,585 INFO    SenderThread:16404 [job_builder.py:_get_source_type():572] is repo sourced job
+2025-02-27 14:34:15,727 INFO    SenderThread:16404 [job_builder.py:build():548] adding wandb-job metadata file
+2025-02-27 14:34:15,759 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 9
+2025-02-27 14:34:15,759 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:15,759 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 9
+2025-02-27 14:34:15,759 DEBUG   SenderThread:16404 [sender.py:send():391] send: artifact
+2025-02-27 14:34:16,060 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-27 14:34:16,418 INFO    Thread-16 :16404 [dir_watcher.py:_on_file_modified():288] file/dir modified: .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:16,998 INFO    SenderThread:16404 [sender.py:send_artifact():1549] sent artifact job-https___github.com_akarifrites_moodeng_is_cute.git_run_training.py - {'id': 'QXJ0aWZhY3Q6MTUyODc0NDE2MQ==', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjQ4MTc2NzIxMA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6MTUzMDgyODE3MA==', 'versionIndex': 15}}}
+2025-02-27 14:34:16,998 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:16,998 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 9
+2025-02-27 14:34:16,998 INFO    SenderThread:16404 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-02-27 14:34:17,425 INFO    SenderThread:16404 [dir_watcher.py:finish():388] scan: .\wandb\run-20250227_142626-garz2dcr\files
+2025-02-27 14:34:17,425 INFO    SenderThread:16404 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250227_142626-garz2dcr\files\conda-environment.yaml conda-environment.yaml
+2025-02-27 14:34:17,425 INFO    SenderThread:16404 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250227_142626-garz2dcr\files\config.yaml config.yaml
+2025-02-27 14:34:17,425 INFO    SenderThread:16404 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250227_142626-garz2dcr\files\output.log output.log
+2025-02-27 14:34:17,425 INFO    SenderThread:16404 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250227_142626-garz2dcr\files\requirements.txt requirements.txt
+2025-02-27 14:34:17,440 INFO    SenderThread:16404 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250227_142626-garz2dcr\files\wandb-metadata.json wandb-metadata.json
+2025-02-27 14:34:17,440 INFO    SenderThread:16404 [dir_watcher.py:finish():402] scan save: .\wandb\run-20250227_142626-garz2dcr\files\wandb-summary.json wandb-summary.json
+2025-02-27 14:34:17,446 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 10
+2025-02-27 14:34:17,446 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: poll_exit
+2025-02-27 14:34:17,446 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:17,446 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 10
+2025-02-27 14:34:17,456 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:17,456 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 10
+2025-02-27 14:34:17,456 INFO    SenderThread:16404 [file_pusher.py:finish():169] shutting down file pusher
+2025-02-27 14:34:17,993 INFO    wandb-upload_1:16404 [upload_job.py:push():130] Uploaded file .\wandb\run-20250227_142626-garz2dcr\files\config.yaml
+2025-02-27 14:34:17,993 INFO    wandb-upload_0:16404 [upload_job.py:push():130] Uploaded file .\wandb\run-20250227_142626-garz2dcr\files\conda-environment.yaml
+2025-02-27 14:34:18,024 INFO    wandb-upload_3:16404 [upload_job.py:push():130] Uploaded file .\wandb\run-20250227_142626-garz2dcr\files\requirements.txt
+2025-02-27 14:34:18,040 INFO    wandb-upload_4:16404 [upload_job.py:push():130] Uploaded file .\wandb\run-20250227_142626-garz2dcr\files\wandb-summary.json
+2025-02-27 14:34:18,044 INFO    wandb-upload_2:16404 [upload_job.py:push():130] Uploaded file .\wandb\run-20250227_142626-garz2dcr\files\output.log
+2025-02-27 14:34:18,087 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-27 14:34:18,087 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: poll_exit
+2025-02-27 14:34:18,245 INFO    Thread-15 (_thread_body):16404 [sender.py:transition_state():626] send defer: 11
+2025-02-27 14:34:18,246 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:18,246 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 11
+2025-02-27 14:34:18,248 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:18,248 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 11
+2025-02-27 14:34:18,249 INFO    SenderThread:16404 [file_pusher.py:join():175] waiting for file pusher
+2025-02-27 14:34:18,250 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 12
+2025-02-27 14:34:18,250 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:18,250 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 12
+2025-02-27 14:34:18,250 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:18,250 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 12
+2025-02-27 14:34:18,250 INFO    SenderThread:16404 [file_stream.py:finish():601] file stream finish called
+2025-02-27 14:34:19,089 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-27 14:34:19,419 INFO    SenderThread:16404 [file_stream.py:finish():605] file stream finish is done
+2025-02-27 14:34:19,419 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 13
+2025-02-27 14:34:19,419 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: poll_exit
+2025-02-27 14:34:19,419 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:19,419 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 13
+2025-02-27 14:34:19,419 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:19,419 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 13
+2025-02-27 14:34:19,419 INFO    SenderThread:16404 [sender.py:transition_state():626] send defer: 14
+2025-02-27 14:34:19,419 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: defer
+2025-02-27 14:34:19,419 INFO    HandlerThread:16404 [handler.py:handle_request_defer():184] handle defer: 14
+2025-02-27 14:34:19,419 DEBUG   SenderThread:16404 [sender.py:send():391] send: final
+2025-02-27 14:34:19,419 DEBUG   SenderThread:16404 [sender.py:send():391] send: footer
+2025-02-27 14:34:19,419 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: defer
+2025-02-27 14:34:19,419 INFO    SenderThread:16404 [sender.py:send_request_defer():622] handle sender defer: 14
+2025-02-27 14:34:19,436 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-27 14:34:19,436 DEBUG   SenderThread:16404 [sender.py:send_request():418] send_request: poll_exit
+2025-02-27 14:34:19,438 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-27 14:34:19,438 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: get_summary
+2025-02-27 14:34:19,438 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: sampled_history
+2025-02-27 14:34:19,438 DEBUG   HandlerThread:16404 [handler.py:handle_request():158] handle_request: shutdown
+2025-02-27 14:34:19,438 INFO    HandlerThread:16404 [handler.py:finish():880] shutting down handler
+2025-02-27 14:34:20,451 INFO    WriterThread:16404 [datastore.py:close():296] close: .\wandb\run-20250227_142626-garz2dcr\run-garz2dcr.wandb
+2025-02-27 14:34:20,451 INFO    SenderThread:16404 [sender.py:finish():1631] shutting down sender
+2025-02-27 14:34:20,451 INFO    SenderThread:16404 [file_pusher.py:finish():169] shutting down file pusher
+2025-02-27 14:34:20,451 INFO    SenderThread:16404 [file_pusher.py:join():175] waiting for file pusher

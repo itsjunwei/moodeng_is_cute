@@ -1,0 +1,341 @@
+
+Epoch 0:   4%|████▋                                                                                                                             | 1/28 [00:00<00:24,  1.11it/s, v_num=fbcw]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name             | Type       | Params | Mode
+--------------------------------------------------------
+0 | mel              | Sequential | 0      | train
+1 | mel_augment      | Sequential | 0      | train
+2 | model            | Network    | 185 K  | train
+3 | device_embedding | Embedding  | 288    | train
+4 | classifier       | Sequential | 6.8 K  | train
+--------------------------------------------------------
+192 K     Trainable params
+0         Non-trainable params
+192 K     Total params
+0.771     Total estimated model params size (MB)
+138       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\Documents\dcase2024_task1_baseline\helpers\utils.py:13: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\ReduceOps.cpp:1808.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:33<00:00,  0.84it/s, v_num=fbcw]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:54<00:00,  0.52it/s, v_num=fbcw]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Testing DataLoader 0:   1%|█                                                                                                                               | 1/116 [00:00<00:17,  6.41it/s]
+`Trainer.fit` stopped: `max_epochs=2` reached.
+Restoring states from the checkpoint path at C:\Users\fenel\Documents\dcase2024_task1_baseline\DCASE24_Task1\1hm3fbcw\checkpoints\last.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at C:\Users\fenel\Documents\dcase2024_task1_baseline\DCASE24_Task1\1hm3fbcw\checkpoints\last.ckpt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 116/116 [00:40<00:00,  2.86it/s]Test epoch ended; computing metrics...
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 116/116 [00:40<00:00,  2.86it/s]
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        Test metric               DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+         test/acc              0.0997304618358612
+        test/acc.a             0.10000000149011612
+     test/acc.airport                  1.0
+        test/acc.b             0.09726443886756897
+       test/acc.bus                    0.0
+        test/acc.c             0.10030394792556763
+      test/acc.metro                   0.0
+  test/acc.metro_station               0.0
+       test/acc.park                   0.0
+  test/acc.public_square               0.0
+       test/acc.real           0.09919027984142303
+        test/acc.s1            0.10000000149011612
+        test/acc.s2            0.10000000149011612
+        test/acc.s3            0.10000000149011612
+        test/acc.s4            0.10000000149011612
+        test/acc.s5            0.10000000149011612
+        test/acc.s6            0.10000000149011612
+       test/acc.seen           0.10000000149011612
+  test/acc.shopping_mall               0.0
+test/acc.street_pedestrian             0.0
+  test/acc.street_traffic              0.0
+       test/acc.tram                   0.0
+      test/acc.unseen          0.10000000149011612
+        test/cnt.a                   3300.0
+     test/cnt.airport                2960.0
+        test/cnt.b                   3290.0
+       test/cnt.bus                  2970.0
+        test/cnt.c                   3290.0
+      test/cnt.metro                 2970.0
+  test/cnt.metro_station             2970.0
+       test/cnt.park                 2970.0
+  test/cnt.public_square             2970.0
+        test/cnt.s1                  3300.0
+        test/cnt.s2                  3300.0
+        test/cnt.s3                  3300.0
+        test/cnt.s4                  3300.0
+        test/cnt.s5                  3300.0
+        test/cnt.s6                  3300.0
+  test/cnt.shopping_mall             2970.0
+test/cnt.street_pedestrian           2970.0
+  test/cnt.street_traffic            2970.0
+       test/cnt.tram                 2960.0
+      test/count.real                9880.0
+      test/count.seen                9900.0
+     test/count.unseen               9900.0
+      test/lloss.real                  nan
+      test/lloss.seen                  nan
+     test/lloss.unseen                 nan
+         test/loss                     nan
+        test/loss.a                    nan
+     test/loss.airport                 nan
+        test/loss.b                    nan
+       test/loss.bus                   nan
+        test/loss.c                    nan
+      test/loss.metro                  nan
+  test/loss.metro_station              nan
+      test/loss.park                   nan
+  test/loss.public_square              nan
+       test/loss.s1                    nan
+       test/loss.s2                    nan
+       test/loss.s3                    nan
+       test/loss.s4                    nan
+       test/loss.s5                    nan
+       test/loss.s6                    nan
+  test/loss.shopping_mall              nan
+test/loss.street_pedestrian            nan
+ test/loss.street_traffic              nan
+      test/loss.tram                   nan
+    test/macro_avg_acc         0.10000000149011612
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

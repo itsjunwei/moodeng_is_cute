@@ -1,0 +1,29 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name             | Type       | Params | Mode
+--------------------------------------------------------
+0 | mel              | Sequential | 0      | train
+1 | mel_augment      | Sequential | 0      | train
+2 | model            | Network    | 185 K  | train
+3 | device_embedding | Embedding  | 288    | train
+4 | classifier       | Sequential | 6.8 K  | train
+--------------------------------------------------------
+192 K     Trainable params
+0         Non-trainable params
+192 K     Total params
+0.771     Total estimated model params size (MB)
+138       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+
+
+
+Epoch 0:   4%|████▋                                                                                                                             | 1/28 [00:04<01:55,  0.23it/s, v_num=hzyx]
+
+Epoch 0:   7%|█████████▎                                                                                                                        | 2/28 [00:07<01:39,  0.26it/s, v_num=hzyx]

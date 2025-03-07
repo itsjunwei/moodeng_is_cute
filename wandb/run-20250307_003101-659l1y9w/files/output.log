@@ -1,0 +1,109 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3060 Laptop GPU') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loading `train_dataloader` to estimate number of stepping batches.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\loops\fit_loop.py:298: The number of training batches (28) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  | Name             | Type       | Params | Mode
+--------------------------------------------------------
+0 | mel              | Sequential | 0      | train
+1 | mel_augment      | Sequential | 0      | train
+2 | model            | Network    | 185 K  | train
+3 | device_embedding | Embedding  | 288    | train
+4 | classifier       | Sequential | 6.8 K  | train
+--------------------------------------------------------
+192 K     Trainable params
+0         Non-trainable params
+192 K     Total params
+0.771     Total estimated model params size (MB)
+138       Modules in train mode
+0         Modules in eval mode
+C:\Users\fenel\anaconda3\envs\d24_t1\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:424: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+Sanity Checking DataLoader 0:   0%|                                                                                                                                  | 0/2 [00:00<?, ?it/s]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Sanity Checking DataLoader 0:  50%|█████████████████████████████████████████████████████████████                                                             | 1/2 [00:00<00:00,  1.36it/s]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:   0%|                                                                                                                                                      | 0/28 [00:00<?, ?it/s]
+C:\Users\fenel\Documents\dcase2024_task1_baseline\helpers\utils.py:13: UserWarning: var(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\ReduceOps.cpp:1808.)
+Epoch 0:   0%|                                                                                                                                                      | 0/28 [00:00<?, ?it/s]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:   4%|████▋                                                                                                                             | 1/28 [00:02<01:16,  0.35it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:   7%|█████████▎                                                                                                                        | 2/28 [00:04<01:02,  0.42it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  11%|█████████████▉                                                                                                                    | 3/28 [00:06<00:55,  0.45it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  14%|██████████████████▌                                                                                                               | 4/28 [00:08<00:50,  0.48it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  18%|███████████████████████▏                                                                                                          | 5/28 [00:10<00:46,  0.49it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  21%|███████████████████████████▊                                                                                                      | 6/28 [00:11<00:43,  0.51it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  25%|████████████████████████████████▌                                                                                                 | 7/28 [00:13<00:40,  0.51it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  29%|█████████████████████████████████████▏                                                                                            | 8/28 [00:15<00:38,  0.52it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  32%|█████████████████████████████████████████▊                                                                                        | 9/28 [00:17<00:36,  0.53it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  36%|██████████████████████████████████████████████                                                                                   | 10/28 [00:18<00:34,  0.53it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  39%|██████████████████████████████████████████████████▋                                                                              | 11/28 [00:20<00:32,  0.53it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  43%|███████████████████████████████████████████████████████▎                                                                         | 12/28 [00:22<00:30,  0.52it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  46%|███████████████████████████████████████████████████████████▉                                                                     | 13/28 [00:25<00:29,  0.52it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  50%|████████████████████████████████████████████████████████████████▌                                                                | 14/28 [00:27<00:27,  0.50it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  54%|█████████████████████████████████████████████████████████████████████                                                            | 15/28 [00:30<00:26,  0.50it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  57%|█████████████████████████████████████████████████████████████████████████▋                                                       | 16/28 [00:32<00:24,  0.50it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  61%|██████████████████████████████████████████████████████████████████████████████▎                                                  | 17/28 [00:34<00:22,  0.49it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  64%|██████████████████████████████████████████████████████████████████████████████████▉                                              | 18/28 [00:37<00:20,  0.48it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  68%|███████████████████████████████████████████████████████████████████████████████████████▌                                         | 19/28 [00:39<00:18,  0.48it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  71%|████████████████████████████████████████████████████████████████████████████████████████████▏                                    | 20/28 [00:42<00:17,  0.47it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  75%|████████████████████████████████████████████████████████████████████████████████████████████████▊                                | 21/28 [00:45<00:15,  0.46it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  79%|█████████████████████████████████████████████████████████████████████████████████████████████████████▎                           | 22/28 [00:47<00:12,  0.47it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  82%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▉                       | 23/28 [00:48<00:10,  0.47it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                  | 24/28 [00:50<00:08,  0.48it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  89%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏             | 25/28 [00:52<00:06,  0.48it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  93%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊         | 26/28 [00:54<00:04,  0.48it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0:  96%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍    | 27/28 [00:56<00:02,  0.48it/s, v_num=1y9w]Labels dtype: torch.int64
+Devices dtype: torch.int64
+Epoch 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28/28 [00:56<00:00,  0.50it/s, v_num=1y9w]
+Devices dtype: torch.int64 0%|                                                                                                                                     | 0/116 [00:00<?, ?it/s]
+                                                                                                                                                                                           Labels dtype: torch.int64
+Devices dtype: torch.int64 1%|█                                                                                                                            | 1/116 [00:00<00:13,  8.76it/s]
+                                                                                                                                                                                           Labels dtype: torch.int64
+Devices dtype: torch.int64 2%|██▏                                                                                                                          | 2/116 [00:00<00:19,  5.91it/s]
+Devices dtype: torch.int64 3%|███▏                                                                                                                         | 3/116 [00:01<01:12,  1.57it/s]
+Devices dtype: torch.int64 3%|████▎                                                                                                                        | 4/116 [00:03<01:44,  1.07it/s]
+Devices dtype: torch.int64 4%|█████▍                                                                                                                       | 5/116 [00:05<01:58,  0.94it/s]
+Devices dtype: torch.int64 5%|██████▍                                                                                                                      | 6/116 [00:07<02:11,  0.84it/s]
+Devices dtype: torch.int64 6%|███████▌                                                                                                                     | 7/116 [00:08<02:18,  0.79it/s]
+Devices dtype: torch.int64 7%|████████▌                                                                                                                    | 8/116 [00:10<02:25,  0.74it/s]
+Devices dtype: torch.int64 8%|█████████▋                                                                                                                   | 9/116 [00:13<02:41,  0.66it/s]
+Devices dtype: torch.int64 9%|██████████▋                                                                                                                 | 10/116 [00:15<02:42,  0.65it/s]
+Devices dtype: torch.int64 9%|███████████▊                                                                                                                | 11/116 [00:17<02:44,  0.64it/s]
+Devices dtype: torch.int6410%|████████████▊                                                                                                               | 12/116 [00:19<02:45,  0.63it/s]
+Devices dtype: torch.int6411%|█████████████▉                                                                                                              | 13/116 [00:21<02:48,  0.61it/s]
+                                                                                                                                                                                           Labels dtype: torch.int64
+Devices dtype: torch.int6412%|██████████████▉                                                                                                             | 14/116 [00:22<02:47,  0.61it/s]
+                                                                                                                                                                                           Labels dtype: torch.int64
+Devices dtype: torch.int6413%|████████████████                                                                                                            | 15/116 [00:24<02:44,  0.61it/s]
+Validation DataLoader 0:  14%|█████████████████                                                                                                           | 16/116 [00:26<02:43,  0.61it/s]
+Devices dtype: torch.int6414%|█████████████████                                                                                                           | 16/116 [00:26<02:43,  0.61it/s]
+Validation DataLoader 0:  15%|██████████████████▏                                                                                                         | 17/116 [00:27<02:40,  0.62it/s]

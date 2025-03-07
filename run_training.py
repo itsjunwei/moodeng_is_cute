@@ -17,6 +17,7 @@ from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
 from helpers.init import worker_init_fn
 from helpers.output_dim import get_model_output_dim
 from models.baseline import get_model
+from models.testmodel_1 import AcousticSceneClassifier
 from helpers.utils import mixstyle
 from helpers import nessi
 
@@ -65,6 +66,8 @@ class PLModule(pl.LightningModule):
                                channels_multiplier=config.channels_multiplier,
                                expansion_rate=config.expansion_rate
                                )
+
+        # self.model = AcousticSceneClassifier(num_classes=config.n_classes, device_embedding_dim=4)
         
         # For fusing device features, you need to know the output feature dimension of self.model.
         # Call the function from output_dim.py
@@ -103,36 +106,48 @@ class PLModule(pl.LightningModule):
         :param x: batch of raw audio signals (waveforms)
         :return: log mel spectrogram
         """
+        # If input is [batch, time, channel], transpose to [batch, channel, time]
+        if x.ndim == 3 and x.shape[-1] == 1:
+            x = x.transpose(1, 2)
+        # If mixstyle unsqueezes to [batch, channel, time, 1], squeeze the last dimension
+        elif x.ndim == 4 and x.shape[-1] == 1:
+            x = x.squeeze(-1)
         x = x.contiguous()  # Ensure tensor is stored in a contiguous block of memory
         x = self.mel(x)
         if self.training:
             x = self.mel_augment(x)
         x = (x + 1e-5).log()
+        # print(f"Log Mel Spectrogram Shape: {x.shape}")
         return x
+    
     
     def device_forward(self, device_id):
         """
         Convert device ID into embeddings.
         """
-        idxs = torch.tensor([self.device_id_to_idx[self.device_ids[d.item()]] 
-                            if isinstance(d.item(), int) and d.item() < len(self.device_ids) 
-                            else self.device_id_to_idx[d]
-                            for d in device_id], device=self.device)
-        return self.device_embedding(idxs)
+        # Ensure device_id is a tensor of type torch.long on the same device as the model
+        device_id = device_id.to(dtype=torch.long, device=self.device)
+        return self.device_embedding(device_id)
 
     def forward(self, x, device_id):
+        # # Forward pass through the baseline model
+        # """
+        # :param x: batch of raw audio signals (waveforms)
+        # :return: final model predictions
+        # """
+        # x = self.mel_forward(x)
+        # x = self.model(x)
+        # return x
+        
+        # Forward pass through the baseline model with device embeddings
         """
         :param x: batch of raw audio signals (waveforms)
         :param device_id: batch of device ids
         :return: final model predictions
         """
-        # x = self.mel_forward(x)
-        # x = self.model(x)
-        # return x
-        
         mel_spec = self.mel_forward(x) # Process the audio into log mel spectrograms
         # print("mel_spec shape:", mel_spec.shape)
-        mel_features = self.model(mel_spec) # Get mel features from the baseline model
+        mel_features = self.model(mel_spec, device_id) # Get mel features from the baseline model
         # print("mel_features shape:", mel_features.shape)
         device_features = self.device_forward(device_id) # Process the device id input
         # print("device_features shape:", device_features.shape)
@@ -141,6 +156,17 @@ class PLModule(pl.LightningModule):
         logits = self.classifier(combined_features) # Pass the concatenated features through the classifier to get logits
         # print("logits shape:", logits.shape)
         return logits   
+    
+        # # Forward pass through testmodel_1 with device embeddings    
+        # """
+        # :param x: batch of raw audio signals (waveforms)
+        # :param device_id: batch of device ids
+        # :return: final model predictions
+        # """
+        # mel_spec = self.mel_forward(x)
+        # logits = self.model(mel_spec, device_id)  # Pass both inputs
+        # return logits
+    
 
     def configure_optimizers(self):
         """
@@ -162,37 +188,7 @@ class PLModule(pl.LightningModule):
             "frequency": 1
         }
         return [optimizer], [lr_scheduler_config]
-
-    # def plot_accuracy_comparison(self, accuracy_no_device, accuracy_with_device):
-    #     """
-    #     Plots a comparison of model accuracy with and without device embeddings.
-    #     """
-    #     categories = ['Seen Devices', 'Unseen Devices']
-    #     x = np.arange(len(categories))  # Label locations
-    #     width = 0.35  # Width of the bars
-
-    #     fig, ax = plt.subplots(figsize=(8, 5))
-    #     rects1 = ax.bar(x - width/2, accuracy_no_device, width, label='Without Device Embeddings')
-    #     rects2 = ax.bar(x + width/2, accuracy_with_device, width, label='With Device Embeddings')
-
-    #     # Labels, title, and legend
-    #     ax.set_ylabel('Accuracy (%)')
-    #     ax.set_title('Model Accuracy Comparison: With vs Without Device Embeddings')
-    #     ax.set_xticks(x)
-    #     ax.set_xticklabels(categories)
-    #     ax.legend()
-
-    #     # Show values on bars
-    #     for rects in [rects1, rects2]:
-    #         for rect in rects:
-    #             height = rect.get_height()
-    #             ax.annotate(f'{height}%', 
-    #                         xy=(rect.get_x() + rect.get_width() / 2, height),
-    #                         xytext=(0, 3),  # Offset above bar
-    #                         textcoords="offset points",
-    #                         ha='center', va='bottom')
-
-    #     plt.show()    
+      
 
     def training_step(self, train_batch, batch_idx):
         """
@@ -201,14 +197,21 @@ class PLModule(pl.LightningModule):
         :return: loss to update model parameters
         """
         x, files, labels, devices, cities = train_batch
+        # print(f"x shape before mixstyle: {x.shape}")  # Debugging
         labels = labels.type(torch.LongTensor)
         labels = labels.to(self.device)
+        devices = devices.to(torch.long)
+        # print("Labels dtype:", labels.dtype)
+        # print("Devices dtype:", devices.dtype)
         # x = self.mel_forward(x)  # we convert the raw audio signals into log mel spectrograms
 
-        # if self.config.mixstyle_p > 0:
-        #     # frequency mixstyle
-        #     x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
+        if self.config.mixstyle_p > 0:
+            # frequency mixstyle
+            if x.dim() == 3:  # Convert [batch, 1, time] -> [batch, 1, height, width]
+                x = x.unsqueeze(-1)  # Add a width dimension, making it [256, 1, 44100, 1]
+            x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
         # y_hat = self.model(x, devices)
+        devices = devices.to(torch.long)  # Ensure dtype is correct
         y_hat = self.forward(x, devices)  # Passing devices into forward method
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
         loss = samples_loss.mean()
@@ -223,10 +226,13 @@ class PLModule(pl.LightningModule):
 
     def validation_step(self, val_batch, batch_idx):
         x, files, labels, devices, cities = val_batch
-
+        devices = devices.to(torch.long)  # Ensure dtype is correct
         y_hat = self.forward(x, devices)
         labels = labels.type(torch.LongTensor)
         labels = labels.to(self.device)
+        devices = devices.to(torch.long)
+        # print("Labels dtype:", labels.dtype)
+        # print("Devices dtype:", devices.dtype)
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
 
         # for computing accuracy
@@ -308,16 +314,19 @@ class PLModule(pl.LightningModule):
         x, files, labels, devices, cities = test_batch
         labels = labels.type(torch.LongTensor)
         labels = labels.to(self.device)
+        devices = devices.to(torch.long)
+        # print("Labels dtype:", labels.dtype)
+        # print("Devices dtype:", devices.dtype)
 
         # maximum memory allowance for parameters: 128 KB
         # baseline has 61148 parameters -> we can afford 16-bit precision
         # since 61148 * 16 bit ~ 122 kB
 
         # # assure fp16
-        self.model.half()
-        x = self.mel_forward(x)
-        x = x.half()
-        y_hat = self.model(x, devices)
+        # self.model.half()
+        # x = self.mel_forward(x)
+        # x = x.half()
+        y_hat = self.forward(x, devices)
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
 
         # for computing accuracy
@@ -351,6 +360,7 @@ class PLModule(pl.LightningModule):
         self.test_step_outputs.append(results)
 
     def on_test_epoch_end(self):
+        print("Test epoch ended; computing metrics...")
         # convert a list of dicts to a flattened dict
         outputs = {k: [] for k in self.test_step_outputs[0]}
         for step_output in self.test_step_outputs:
@@ -398,11 +408,11 @@ class PLModule(pl.LightningModule):
         x, files, devices = eval_batch
 
         # assure fp16
-        self.model.half()
+        # self.model.half()
 
-        x = self.mel_forward(x)
-        x = x.half()
-        y_hat = self.model(x, devices)
+        # x = self.mel_forward(x)
+        # x = x.half()
+        y_hat = self.forward(x, devices)
 
         return files, y_hat
 
@@ -426,6 +436,13 @@ def train(config):
                           num_workers=config.num_workers,
                           batch_size=config.batch_size,
                           shuffle=True)
+    
+    # Get the first batch from the DataLoader
+    first_batch = next(iter(train_dl))
+    x, files, labels, devices, cities = first_batch
+
+    print("Devices in the first batch:")
+    print(devices)
 
     test_dl = DataLoader(dataset=get_test_set(),
                          worker_init_fn=worker_init_fn,
@@ -621,7 +638,7 @@ if __name__ == '__main__':
     parser.add_argument('--expansion_rate', type=float, default=2.1)
 
     # training
-    parser.add_argument('--n_epochs', type=int, default=3)
+    parser.add_argument('--n_epochs', type=int, default=2)
     parser.add_argument('--batch_size', type=int, default=256)
     parser.add_argument('--mixstyle_p', type=float, default=0.4)  # frequency mixstyle
     parser.add_argument('--mixstyle_alpha', type=float, default=0.3)
