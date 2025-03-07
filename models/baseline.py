@@ -149,7 +149,6 @@ class Network(nn.Module):
 
         # **Classifier that fuses extracted features with device embeddings**
         self.classifier = nn.Sequential(
-            # nn.Linear(544, 128),
             nn.Linear(512 + embed_dim, 128),  # Concatenate features and device embeddings
             nn.ReLU(),
             nn.Linear(128, n_classes)
@@ -222,31 +221,18 @@ class Network(nn.Module):
 
     def forward(self, x, device_id):
         x = self._forward_conv(x)
-        # x = self.feed_forward(x)
+
         x = self.feature_extractor(x)
         features = x.squeeze(2).squeeze(2)  # Flatten
-        # print(f"Features shape: {features.shape}")  # Debugging
 
-        # Ensure device_id is a tensor and has correct dtype
-        if isinstance(device_id, list):
-            device_id = torch.tensor(device_id, dtype=torch.long, device=features.device)
-        else:
-            device_id = device_id.to(torch.long).to(features.device)
-        # print(f"Device ID shape: {device_id.shape}, dtype: {device_id.dtype}")  # Debugging
-        assert device_id.dtype == torch.long, "device_id must be a long tensor"
-        
         # Get device embeddings
         device_features = self.device_embedding(device_id)
-        # print(f"Device features shape: {device_features.shape}")  # Debugging
 
         # Concatenate extracted features with device embeddings
         combined_features = torch.cat((features, device_features), dim=1)
-        # print(f"Combined features shape: {combined_features.shape}")  # Debugging
 
         # Final classification
-        # print(f"Classifier Input Shape: {combined_features.shape}")
         logits = self.classifier(combined_features)
-        # logits = x.squeeze(2).squeeze(2)
         return logits
 
 
@@ -282,3 +268,16 @@ def get_model(n_classes=10, in_channels=1, base_channels=32, channels_multiplier
 
     m = Network(model_config)
     return m
+
+
+# if __name__ == "__main__":
+#     model = get_model()
+#     input_feature_shape = (1, 1, )
+#     x = torch.rand((input_feature_shape), device=torch.device("cpu"), requires_grad=True)
+#     device_id = 
+#     y = model(x)
+    
+#     import torchinfo
+#     model_profile = torchinfo.summary(model, input_size=input_feature_shape)
+#     print('MACC:\t \t %.3f' %  (model_profile.total_mult_adds/1e9), 'G')
+#     print('Memory:\t \t %.3f' %  (model_profile.total_params/1e6), 'M\n')
