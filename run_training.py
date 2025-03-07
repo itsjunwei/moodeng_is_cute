@@ -90,14 +90,15 @@ class PLModule(pl.LightningModule):
         return x
 
 
-    def forward(self, x, device_id):
+    def forward(self, x, device_id, apply_mel=True):
         # Forward pass through the baseline model with device embeddings
         """
         :param x: batch of raw audio signals (waveforms)
         :param device_id: batch of device ids
         :return: final model predictions
         """
-        x = self.mel_forward(x) # Process the audio into log mel spectrograms
+        if apply_mel:
+            x = self.mel_forward(x) # Process the audio into log mel spectrograms
         x = self.model(x, device_id) # Input MelSpec + Device_ID into the model, get output
         return x   
 
@@ -138,9 +139,10 @@ class PLModule(pl.LightningModule):
             devices = devices.squeeze()
 
         if self.config.mixstyle_p > 0:
+            x = self.mel_forward(x)
             x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
 
-        y_hat = self.forward(x, devices)  # Passing devices into forward method
+        y_hat = self.forward(x, devices, apply_mel=False)  # Passing devices into forward method
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
         loss = F.cross_entropy(y_hat, labels, reduction="mean")
