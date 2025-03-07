@@ -6,18 +6,14 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 import argparse
 import torch.nn.functional as F
-import matplotlib.pyplot as plt
-import numpy as np
 import transformers
 import wandb
 import json
-import os
 
 from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
 from helpers.init import worker_init_fn
 from helpers.output_dim import get_model_output_dim
 from models.baseline import get_model
-from models.testmodel_1 import AcousticSceneClassifier
 from helpers.utils import mixstyle
 from helpers import nessi
 
@@ -75,11 +71,11 @@ class PLModule(pl.LightningModule):
                               's1': "seen", 's2': "seen", 's3': "seen",
                               's4': "unseen", 's5': "unseen", 's6': "unseen"}
         
-        # Create a mapping from device id string to index
-        self.device_id_to_idx = {d: i for i, d in enumerate(self.device_ids)}
-        # Device embedding layer
-        embed_dim = 32  # you can choose this dimension as needed
-        self.device_embedding = nn.Embedding(len(self.device_ids), embed_dim)
+        # # Create a mapping from device id string to index
+        # self.device_id_to_idx = {d: i for i, d in enumerate(self.device_ids)}
+        # # Device embedding layer
+        # embed_dim = 32  # you can choose this dimension as needed
+        # self.device_embedding = nn.Embedding(len(self.device_ids), embed_dim)
 
         # pl 2 containers:
         self.training_step_outputs = []
@@ -102,7 +98,7 @@ class PLModule(pl.LightningModule):
         if self.training:
             x = self.mel_augment(x)
         x = (x + 1e-5).log()
-        # print(f"Log Mel Spectrogram Shape: {x.shape}")
+        print(f"Log Mel Spectrogram Shape: {x.shape}")
         return x
 
 
@@ -149,6 +145,9 @@ class PLModule(pl.LightningModule):
         x, files, labels, devices, cities = train_batch
         labels = labels.type(torch.LongTensor).to(self.device)
         devices = devices.to(torch.long)
+        
+        if devices.ndim > 1:
+            devices = devices.squeeze()
 
         if self.config.mixstyle_p > 0:
             # frequency mixstyle
@@ -575,7 +574,7 @@ if __name__ == '__main__':
     parser.add_argument('--expansion_rate', type=float, default=2.1)
 
     # training
-    parser.add_argument('--n_epochs', type=int, default=2)
+    parser.add_argument('--n_epochs', type=int, default=150)
     parser.add_argument('--batch_size', type=int, default=256)
     parser.add_argument('--mixstyle_p', type=float, default=0.4)  # frequency mixstyle
     parser.add_argument('--mixstyle_alpha', type=float, default=0.3)

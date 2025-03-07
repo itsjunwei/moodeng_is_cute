@@ -221,19 +221,23 @@ class Network(nn.Module):
 
     def forward(self, x, device_id):
         x = self._forward_conv(x)
-
+        print("After forward conv, ", x.shape)
         x = self.feature_extractor(x)
-        features = x.squeeze(2).squeeze(2)  # Flatten
+        print("After feat ext, ", x.shape)
+        features = x.squeeze(2).squeeze(2)  # Flatten the spatial dims [B, 512]
+        print("After squeeze, ", features.shape)
         
         # Ensure device_id is 1D: [B]
         if device_id.ndim > 1:
             device_id = device_id.squeeze()
 
         # Get device embeddings
-        device_features = self.device_embedding(device_id)
+        device_features = self.device_embedding(device_id) # [B, embed_dim]
+        print("Device features, ", device_features.shape)
 
         # Concatenate extracted features with device embeddings
-        combined_features = torch.cat((features, device_features), dim=1)
+        combined_features = torch.cat((features, device_features), dim=1)  # [B, 512+embed_dim]
+        print("Device features, ", combined_features.shape)
 
         # Final classification
         logits = self.classifier(combined_features)
@@ -278,10 +282,7 @@ if __name__ == "__main__":
     model = get_model()
     input_feature_shape = (1, 1, 256, 65)
     x = torch.rand((input_feature_shape), device=torch.device("cpu"), requires_grad=True)
-    device_id = 1
+    device_id = torch.rand((1), device=torch.device("cpu"), requires_grad=True)
+    device_id = device_id.to(torch.long)
     y = model(x, device_id)
     print("Output shape : {}, {}".format(y, y.shape))
-    import torchinfo
-    model_profile = torchinfo.summary(model, input_size=input_feature_shape)
-    print('MACC:\t \t %.3f' %  (model_profile.total_mult_adds/1e9), 'G')
-    print('Memory:\t \t %.3f' %  (model_profile.total_params/1e6), 'M\n')
