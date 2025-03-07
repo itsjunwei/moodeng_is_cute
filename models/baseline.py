@@ -136,12 +136,18 @@ class Network(nn.Module):
                                      )
             self.stages.add_module(f"s{stage_id + 1}", stage)
 
-        # Final feature extraction layers
-        self.feature_extractor = nn.Sequential(
-            nn.Conv2d(channels_per_stage[-1], 512, kernel_size=1, stride=1, padding=0, bias=False),
-            nn.BatchNorm2d(512),
-            nn.AdaptiveAvgPool2d((1, 1))
-        )
+        # # Final feature extraction layers
+        # self.feature_extractor = nn.Sequential(
+        #     nn.Conv2d(channels_per_stage[-1], 512, kernel_size=1, stride=1, padding=0, bias=False),
+        #     nn.BatchNorm2d(512),
+        #     nn.AdaptiveAvgPool2d((1, 1))
+        # )
+        
+        # Feature extraction: global average pooling after stages
+        self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
+        
+        # Determine feature vector dimension (channels from last stage)
+        feature_dim = channels_per_stage[-1]
 
         
         # **Device Embedding Layer**
@@ -149,7 +155,7 @@ class Network(nn.Module):
 
         # **Classifier that fuses extracted features with device embeddings**
         self.classifier = nn.Sequential(
-            nn.Linear(512 + embed_dim, 128),  # Concatenate features and device embeddings
+            nn.Linear(feature_dim + embed_dim, 128),  # Concatenate features and device embeddings
             nn.ReLU(),
             nn.Linear(128, n_classes)
         )
@@ -221,19 +227,19 @@ class Network(nn.Module):
 
     def forward(self, x, device_id):
         x = self._forward_conv(x)
-
-        x = self.feature_extractor(x)
-        features = x.squeeze(2).squeeze(2)  # Flatten
-        
-        # Ensure device_id is 1D: [B]
-        if device_id.ndim > 1:
-            device_id = device_id.squeeze()
+        print("After forward conv, ", x.shape)
+        x = self.global_pool(x)  # Shape: [B, feature_dim, 1, 1]
+        print("After feat ext, ", x.shape)
+        audio_features = x.view(x.size(0), -1)  # Flatten to [B, feature_dim]
+        print("After view, ", audio_features.shape)
 
         # Get device embeddings
-        device_features = self.device_embedding(device_id)
+        device_features = self.device_embedding(device_id) # [B, embed_dim]
+        print("Device features, ", device_features.shape)
 
         # Concatenate extracted features with device embeddings
-        combined_features = torch.cat((features, device_features), dim=1)
+        combined_features = torch.cat((audio_features, device_features), dim=1)  # [B, 512+embed_dim]
+        print("Device features, ", combined_features.shape)
 
         # Final classification
         logits = self.classifier(combined_features)
@@ -278,10 +284,7 @@ if __name__ == "__main__":
     model = get_model()
     input_feature_shape = (1, 1, 256, 65)
     x = torch.rand((input_feature_shape), device=torch.device("cpu"), requires_grad=True)
-    device_id = 1
+    device_id = torch.rand((1), device=torch.device("cpu"), requires_grad=True)
+    device_id = device_id.to(torch.long)
     y = model(x, device_id)
     print("Output shape : {}, {}".format(y, y.shape))
-    import torchinfo
-    model_profile = torchinfo.summary(model, input_size=input_feature_shape)
-    print('MACC:\t \t %.3f' %  (model_profile.total_mult_adds/1e9), 'G')
-    print('Memory:\t \t %.3f' %  (model_profile.total_params/1e6), 'M\n')

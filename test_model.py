@@ -136,12 +136,18 @@ class Network(nn.Module):
                                      )
             self.stages.add_module(f"s{stage_id + 1}", stage)
 
-        # Final feature extraction layers
-        self.feature_extractor = nn.Sequential(
-            nn.Conv2d(channels_per_stage[-1], 512, kernel_size=1, stride=1, padding=0, bias=False),
-            nn.BatchNorm2d(512),
-            nn.AdaptiveAvgPool2d((1, 1))
-        )
+        # # Final feature extraction layers
+        # self.feature_extractor = nn.Sequential(
+        #     nn.Conv2d(channels_per_stage[-1], 512, kernel_size=1, stride=1, padding=0, bias=False),
+        #     nn.BatchNorm2d(512),
+        #     nn.AdaptiveAvgPool2d((1, 1))
+        # )
+        
+        # Feature extraction: global average pooling after stages
+        self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
+        
+        # Determine feature vector dimension (channels from last stage)
+        feature_dim = channels_per_stage[-1]
 
         
         # **Device Embedding Layer**
@@ -149,7 +155,7 @@ class Network(nn.Module):
 
         # **Classifier that fuses extracted features with device embeddings**
         self.classifier = nn.Sequential(
-            nn.Linear(512 + embed_dim, 128),  # Concatenate features and device embeddings
+            nn.Linear(feature_dim + embed_dim, 128),  # Concatenate features and device embeddings
             nn.ReLU(),
             nn.Linear(128, n_classes)
         )
@@ -222,21 +228,17 @@ class Network(nn.Module):
     def forward(self, x, device_id):
         x = self._forward_conv(x)
         print("After forward conv, ", x.shape)
-        x = self.feature_extractor(x)
+        x = self.global_pool(x)  # Shape: [B, feature_dim, 1, 1]
         print("After feat ext, ", x.shape)
-        features = x.squeeze(2).squeeze(2)  # Flatten the spatial dims [B, 512]
-        print("After squeeze, ", features.shape)
-        
-        # Ensure device_id is 1D: [B]
-        if device_id.ndim > 1:
-            device_id = device_id.squeeze()
+        audio_features = x.view(x.size(0), -1)  # Flatten to [B, feature_dim]
+        print("After view, ", audio_features.shape)
 
         # Get device embeddings
         device_features = self.device_embedding(device_id) # [B, embed_dim]
         print("Device features, ", device_features.shape)
 
         # Concatenate extracted features with device embeddings
-        combined_features = torch.cat((features, device_features), dim=1)  # [B, 512+embed_dim]
+        combined_features = torch.cat((audio_features, device_features), dim=1)  # [B, 512+embed_dim]
         print("Device features, ", combined_features.shape)
 
         # Final classification
