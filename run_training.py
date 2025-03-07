@@ -370,7 +370,7 @@ def train(config):
                                                   "the given subsets."
     roll_samples = config.orig_sample_rate * config.roll_sec
     train_dl = DataLoader(dataset=get_training_set(config.subset, roll=roll_samples),
-                          worker_init_fn=worker_init_fn,
+                        #   worker_init_fn=worker_init_fn,
                           num_workers=config.num_workers,
                           batch_size=config.batch_size,
                           shuffle=True)
@@ -382,7 +382,7 @@ def train(config):
     print("Devices in the first batch:", devices)
 
     test_dl = DataLoader(dataset=get_test_set(),
-                         worker_init_fn=worker_init_fn,
+                        #  worker_init_fn=worker_init_fn,
                          num_workers=config.num_workers,
                          batch_size=config.batch_size)
 
@@ -443,7 +443,7 @@ def validate(config):
                                                   "the given subsets."
 
     val_dl = DataLoader(dataset=get_test_set(),
-                         worker_init_fn=worker_init_fn,
+                        #  worker_init_fn=worker_init_fn,
                          num_workers=config.num_workers,
                          batch_size=config.batch_size)
 
@@ -491,7 +491,7 @@ def evaluate(config):
 
     # evaluate lightning module on development-test split
     test_dl = DataLoader(dataset=get_test_set(),
-                         worker_init_fn=worker_init_fn,
+                        #  worker_init_fn=worker_init_fn,
                          num_workers=config.num_workers,
                          batch_size=config.batch_size)
 
@@ -518,7 +518,7 @@ def evaluate(config):
 
     # generate predictions on evaluation set
     eval_dl = DataLoader(dataset=get_eval_set(),
-                         worker_init_fn=worker_init_fn,
+                        #  worker_init_fn=worker_init_fn,
                          num_workers=config.num_workers,
                          batch_size=config.batch_size)
 
