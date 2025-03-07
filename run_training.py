@@ -98,6 +98,8 @@ class PLModule(pl.LightningModule):
         if self.training:
             x = self.mel_augment(x)
         x = (x + 1e-5).log()
+        if torch.isnan(x).any():
+            raise ValueError("NaNs detected in log mel spectrogram")
         return x
 
 
@@ -155,6 +157,8 @@ class PLModule(pl.LightningModule):
             x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
 
         y_hat = self.forward(x, devices)  # Passing devices into forward method
+        if torch.isnan(y_hat).any():
+            raise ValueError("NaNs detected in model outputs")
         loss = F.cross_entropy(y_hat, labels, reduction="mean")
         # loss = samples_loss.mean()
 

@@ -227,19 +227,14 @@ class Network(nn.Module):
 
     def forward(self, x, device_id):
         x = self._forward_conv(x)
-        print("After forward conv, ", x.shape)
         x = self.global_pool(x)  # Shape: [B, feature_dim, 1, 1]
-        print("After feat ext, ", x.shape)
         audio_features = x.view(x.size(0), -1)  # Flatten to [B, feature_dim]
-        print("After view, ", audio_features.shape)
 
         # Get device embeddings
         device_features = self.device_embedding(device_id) # [B, embed_dim]
-        print("Device features, ", device_features.shape)
 
         # Concatenate extracted features with device embeddings
         combined_features = torch.cat((audio_features, device_features), dim=1)  # [B, 512+embed_dim]
-        print("Device features, ", combined_features.shape)
 
         # Final classification
         logits = self.classifier(combined_features)
