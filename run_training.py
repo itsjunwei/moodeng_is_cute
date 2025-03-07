@@ -160,7 +160,7 @@ class PLModule(pl.LightningModule):
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
-        self.log("train/loss", loss.detach().cpu())
+        self.log("train/loss", loss.detach().cpu(), prog_bar=True)
         return loss
 
     def on_train_epoch_end(self):
