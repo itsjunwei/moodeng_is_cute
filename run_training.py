@@ -155,8 +155,8 @@ class PLModule(pl.LightningModule):
             x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
 
         y_hat = self.forward(x, devices)  # Passing devices into forward method
-        samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
-        loss = samples_loss.mean()
+        loss = F.cross_entropy(y_hat, labels, reduction="mean")
+        # loss = samples_loss.mean()
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
