@@ -70,12 +70,6 @@ class PLModule(pl.LightningModule):
         self.device_groups = {'a': "real", 'b': "real", 'c': "real",
                               's1': "seen", 's2': "seen", 's3': "seen",
                               's4': "unseen", 's5': "unseen", 's6': "unseen"}
-        
-        # # Create a mapping from device id string to index
-        # self.device_id_to_idx = {d: i for i, d in enumerate(self.device_ids)}
-        # # Device embedding layer
-        # embed_dim = 32  # you can choose this dimension as needed
-        # self.device_embedding = nn.Embedding(len(self.device_ids), embed_dim)
 
         # pl 2 containers:
         self.training_step_outputs = []
@@ -87,13 +81,6 @@ class PLModule(pl.LightningModule):
         :param x: batch of raw audio signals (waveforms)
         :return: log mel spectrogram
         """
-        # If input is [batch, time, channel], transpose to [batch, channel, time]
-        if x.ndim == 3 and x.shape[-1] == 1:
-            x = x.transpose(1, 2)
-        # If mixstyle unsqueezes to [batch, channel, time, 1], squeeze the last dimension
-        elif x.ndim == 4 and x.shape[-1] == 1:
-            x = x.squeeze(-1)
-        x = x.contiguous()  # Ensure tensor is stored in a contiguous block of memory
         x = self.mel(x)
         if self.training:
             x = self.mel_augment(x)
@@ -111,8 +98,8 @@ class PLModule(pl.LightningModule):
         :return: final model predictions
         """
         x = self.mel_forward(x) # Process the audio into log mel spectrograms
-        x_out = self.model(x, device_id) # Input MelSpec + Device_ID into the model, get output
-        return x_out   
+        x = self.model(x, device_id) # Input MelSpec + Device_ID into the model, get output
+        return x   
 
 
     def configure_optimizers(self):
@@ -151,16 +138,12 @@ class PLModule(pl.LightningModule):
             devices = devices.squeeze()
 
         if self.config.mixstyle_p > 0:
-            # frequency mixstyle
-            if x.dim() == 3:  # Convert [batch, 1, time] -> [batch, 1, height, width]
-                x = x.unsqueeze(-1)  # Add a width dimension, making it [256, 1, 44100, 1]
             x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
 
         y_hat = self.forward(x, devices)  # Passing devices into forward method
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
         loss = F.cross_entropy(y_hat, labels, reduction="mean")
-        # loss = samples_loss.mean()
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
@@ -367,6 +350,18 @@ def train(config):
         name=config.experiment_name
     )
 
+    from pytorch_lightning.callbacks import ModelCheckpoint
+
+    # Create a checkpoint callback to monitor validation accuracy
+    checkpoint_callback = ModelCheckpoint(
+        monitor="val/acc",  # Make sure your on_validation_epoch_end logs "val/acc"
+        mode="max",         # "max" because higher accuracy is better
+        save_top_k=1,       # Save only the best model
+        verbose=True,
+        filename="{epoch}-{val/acc:.2f}"  # Optional: customize the filename
+    )
+
+
     # train dataloader
     assert config.subset in {100, 50, 25, 10, 5}, "Specify an integer value in: {100, 50, 25, 10, 5} to use one of " \
                                                   "the given subsets."
@@ -407,13 +402,13 @@ def train(config):
                          accelerator='gpu',
                          devices=1,
                          precision=config.precision,
-                         callbacks=[pl.callbacks.ModelCheckpoint(save_last=True)])
+                         callbacks=[checkpoint_callback])
     # start training and validation for the specified number of epochs
     trainer.fit(pl_module, train_dl, test_dl)
 
     # final test step
     # here: use the validation split
-    trainer.test(ckpt_path='last', dataloaders=test_dl)
+    trainer.test(checkpoint_callback.best_model_path, dataloaders=test_dl)
 
     wandb.finish()
 
