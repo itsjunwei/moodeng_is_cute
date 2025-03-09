@@ -140,7 +140,7 @@ class Network(nn.Module):
         self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
         
         # Determine feature vector dimension (channels from last stage)
-        feature_dim = channels_per_stage[-1]
+        self.feature_dim = channels_per_stage[-1]
 
         
         # **Device Embedding Layer**
