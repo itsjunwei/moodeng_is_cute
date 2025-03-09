@@ -268,11 +268,11 @@ class PLModule(pl.LightningModule):
         # baseline has 61148 parameters -> we can afford 16-bit precision
         # since 61148 * 16 bit ~ 122 kB
 
-        # # assure fp16
-        # self.model.half()
-        # x = self.mel_forward(x)
-        # x = x.half()
-        y_hat = self.forward(x, devices)
+        # assure fp16
+        self.model.half()
+        x = self.mel_forward(x)
+        x = x.half()
+        y_hat = self.forward(x, devices, apply_mel=False)
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
 
         # for computing accuracy
@@ -354,11 +354,11 @@ class PLModule(pl.LightningModule):
         x, files, devices = eval_batch
 
         # assure fp16
-        # self.model.half()
+        self.model.half()
 
-        # x = self.mel_forward(x)
-        # x = x.half()
-        y_hat = self.forward(x, devices)
+        x = self.mel_forward(x)
+        x = x.half()
+        y_hat = self.forward(x, devices, apply_mel=False)
 
         return files, y_hat
 
