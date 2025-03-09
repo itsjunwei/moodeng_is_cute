@@ -431,7 +431,7 @@ def train(config):
 
     # final test step
     # here: use the validation split
-    trainer.test(checkpoint_callback.best_model_path, dataloaders=test_dl)
+    trainer.test(ckpt_path=checkpoint_callback.best_model_path, dataloaders=test_dl)
 
     wandb.finish()
 
