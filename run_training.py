@@ -142,7 +142,9 @@ class PLModule(pl.LightningModule):
             x = self.mel_forward(x)
             x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
 
-        y_hat = self.forward(x, devices, apply_mel=False)  # Passing devices into forward method
+            y_hat = self.forward(x, devices, apply_mel=False)  # Passing devices into forward method
+        else:
+            y_hat = self.forward(x, devices, apply_mel=True) # Did not convert to melspec because no mixstyle
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
         loss = F.cross_entropy(y_hat, labels, reduction="mean")
