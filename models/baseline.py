@@ -166,13 +166,19 @@ class Network(nn.Module):
         #     nn.Linear(128, n_classes)
         # )
 
-        # Lightweight convolutional classifier that fuses audio features and device context
+        # # Lightweight convolutional classifier that fuses audio features and device context
+        # self.conv_classifier = nn.Sequential(
+        #     nn.Conv2d(self.feature_dim + embed_dim, 128, kernel_size=1, bias=False),
+        #     nn.BatchNorm2d(128),
+        #     nn.LeakyReLU(),
+        #     nn.Dropout(0.2),
+        #     nn.Conv2d(128, n_classes, kernel_size=1)
+        # )
+
+        # Even more lightweight convolutional classifier that fuses audio features and device context
         self.conv_classifier = nn.Sequential(
-            nn.Conv2d(self.feature_dim + embed_dim, 128, kernel_size=1, bias=False),
-            nn.BatchNorm2d(128),
-            nn.LeakyReLU(),
-            nn.Dropout(0.2),
-            nn.Conv2d(128, n_classes, kernel_size=1)
+            nn.Conv2d(self.feature_dim + embed_dim, n_classes, kernel_size=1, bias=False),
+            nn.BatchNorm2d(n_classes)
         )
 
         self.apply(initialize_weights)
