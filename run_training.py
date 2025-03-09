@@ -153,7 +153,28 @@ class PLModule(pl.LightningModule):
         return loss
 
     def on_train_epoch_end(self):
-        pass
+        """
+        The device embedding layer is defined as an nn.Embedding(9, embed_dim), 
+        meaning there are nine rows (one for each possible device). 
+        During training, only rows 0–5 get updated. 
+        Without intervention, rows 6–8 remain at their initial random values. 
+        By computing the mean of the updated embeddings for 0–5 
+        and assigning that mean to rows 6–8 at the end of each epoch, 
+        you ensure that these “missing” devices are given a representative embedding. 
+        This regularizes the model for unseen devices and helps it generalize better 
+        when these IDs occur during validation or testing.
+        """
+        # Update unseen device embeddings (6,7,8) to be the average of seen device embeddings (0-5)
+        with torch.no_grad():
+            # Get embeddings for seen device IDs (assumed to be 0-5)
+            seen_indices = torch.tensor([0, 1, 2, 3, 4, 5], device=self.device)
+            seen_embeddings = self.model.device_embedding(seen_indices)  # shape: [6, embed_dim]
+            avg_seen = seen_embeddings.mean(dim=0, keepdim=True)  # shape: [1, embed_dim]
+            
+            # Update the embeddings for unseen device IDs
+            for idx in [6, 7, 8]:
+                self.model.device_embedding.weight.data[idx] = avg_seen.squeeze(0)
+
 
     def validation_step(self, val_batch, batch_idx):
         x, files, labels, devices, cities = val_batch
