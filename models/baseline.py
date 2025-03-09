@@ -154,24 +154,24 @@ class Network(nn.Module):
         # )
 
         # Improved classifier with extra capacity, normalization, and dropout:
-        self.classifier = nn.Sequential(
-            nn.Linear(feature_dim + embed_dim, 256),
-            nn.BatchNorm1d(256),
-            nn.LeakyReLU(),
-            nn.Dropout(0.2),
-            nn.Linear(256, 128),
-            nn.BatchNorm1d(128),
-            nn.LeakyReLU(),
-            nn.Dropout(0.2),
-            nn.Linear(128, n_classes)
-        )
+        # self.classifier = nn.Sequential(
+        #     nn.Linear(feature_dim + embed_dim, 256),
+        #     nn.BatchNorm1d(256),
+        #     nn.LeakyReLU(),
+        #     nn.Dropout(0.2),
+        #     nn.Linear(256, 128),
+        #     nn.BatchNorm1d(128),
+        #     nn.LeakyReLU(),
+        #     nn.Dropout(0.2),
+        #     nn.Linear(128, n_classes)
+        # )
 
-        # Lightweight convolutional classifier that fuses audio features and device context:
+        # Lightweight convolutional classifier that fuses audio features and device context
         self.conv_classifier = nn.Sequential(
             nn.Conv2d(self.feature_dim + embed_dim, 128, kernel_size=1, bias=False),
             nn.BatchNorm2d(128),
-            nn.ReLU(),
-            nn.Dropout(0.3),
+            nn.LeakyReLU(),
+            nn.Dropout(0.2),
             nn.Conv2d(128, n_classes, kernel_size=1)
         )
 
@@ -223,41 +223,41 @@ class Network(nn.Module):
         x = self.stages(x)
         return x
 
-    def forward(self, x, device_id):
-        x = self._forward_conv(x)
-        x = self.global_pool(x)  # Shape: [B, feature_dim, 1, 1]
-        audio_features = x.view(x.size(0), -1)  # Flatten to [B, feature_dim]
-
-        # Get device embeddings
-        device_features = self.device_embedding(device_id) # [B, embed_dim]
-
-        # Concatenate extracted features with device embeddings
-        combined_features = torch.cat((audio_features, device_features), dim=1)  # [B, 512+embed_dim]
-
-        # Final classification
-        logits = self.classifier(combined_features)
-        return logits
-
-    # # using convolutional forward step instead (to test)
     # def forward(self, x, device_id):
-    #     # Extract convolutional features (maintain spatial dimensions)
-    #     x = self._forward_conv(x)  # Shape: [B, feature_dim, H, W]
-    #     B, C, H, W = x.size()
+    #     x = self._forward_conv(x)
+    #     x = self.global_pool(x)  # Shape: [B, feature_dim, 1, 1]
+    #     audio_features = x.view(x.size(0), -1)  # Flatten to [B, feature_dim]
 
-    #     # Get device embeddings: shape [B, embed_dim]
-    #     device_features = self.device_embedding(device_id)
-    #     # Expand device embeddings spatially to [B, embed_dim, H, W]
-    #     device_features = device_features.unsqueeze(-1).unsqueeze(-1).expand(-1, -1, H, W)
+    #     # Get device embeddings
+    #     device_features = self.device_embedding(device_id) # [B, embed_dim]
 
-    #     # Concatenate along channel dimension: [B, feature_dim + embed_dim, H, W]
-    #     x_fused = torch.cat((x, device_features), dim=1)
+    #     # Concatenate extracted features with device embeddings
+    #     combined_features = torch.cat((audio_features, device_features), dim=1)  # [B, 512+embed_dim]
 
-    #     # Apply the convolutional classifier
-    #     logits_map = self.conv_classifier(x_fused)  # Shape: [B, n_classes, H, W]
-
-    #     # Pool spatially to produce final logits: [B, n_classes]
-    #     logits = self.global_pool(logits_map).view(B, -1)
+    #     # Final classification
+    #     logits = self.classifier(combined_features)
     #     return logits
+
+    # using convolutional forward step instead (to test)
+    def forward(self, x, device_id):
+        # Extract convolutional features (maintain spatial dimensions)
+        x = self._forward_conv(x)  # Shape: [B, feature_dim, H, W]
+        B, C, H, W = x.size()
+
+        # Get device embeddings: shape [B, embed_dim]
+        device_features = self.device_embedding(device_id)
+        # Expand device embeddings spatially to [B, embed_dim, H, W]
+        device_features = device_features.unsqueeze(-1).unsqueeze(-1).expand(-1, -1, H, W)
+
+        # Concatenate along channel dimension: [B, feature_dim + embed_dim, H, W]
+        x_fused = torch.cat((x, device_features), dim=1)
+
+        # Apply the convolutional classifier
+        logits_map = self.conv_classifier(x_fused)  # Shape: [B, n_classes, H, W]
+
+        # Pool spatially to produce final logits: [B, n_classes]
+        logits = self.global_pool(logits_map).view(B, -1)
+        return logits
 
 
 def get_model(n_classes=10, in_channels=1, base_channels=32, channels_multiplier=1.8, expansion_rate=2.1,
