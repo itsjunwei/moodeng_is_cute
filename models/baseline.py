@@ -135,13 +135,6 @@ class Network(nn.Module):
                                      expansion_rate=expansion_rate
                                      )
             self.stages.add_module(f"s{stage_id + 1}", stage)
-
-        # # Final feature extraction layers
-        # self.feature_extractor = nn.Sequential(
-        #     nn.Conv2d(channels_per_stage[-1], 512, kernel_size=1, stride=1, padding=0, bias=False),
-        #     nn.BatchNorm2d(512),
-        #     nn.AdaptiveAvgPool2d((1, 1))
-        # )
         
         # Feature extraction: global average pooling after stages
         self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
@@ -153,29 +146,25 @@ class Network(nn.Module):
         # **Device Embedding Layer**
         self.device_embedding = nn.Embedding(9, embed_dim)  # Assuming 9 device IDs
 
-        # **Classifier that fuses extracted features with device embeddings**
+        # # **Classifier that fuses extracted features with device embeddings**
+        # self.classifier = nn.Sequential(
+        #     nn.Linear(feature_dim + embed_dim, 128),  # Concatenate features and device embeddings
+        #     nn.ReLU(),
+        #     nn.Linear(128, n_classes)
+        # )
+
+        # Improved classifier with extra capacity, normalization, and dropout:
         self.classifier = nn.Sequential(
-            nn.Linear(feature_dim + embed_dim, 128),  # Concatenate features and device embeddings
-            nn.ReLU(),
+            nn.Linear(feature_dim + embed_dim, 256),
+            nn.BatchNorm1d(256),
+            nn.LeakyReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(256, 128),
+            nn.BatchNorm1d(128),
+            nn.LeakyReLU(),
+            nn.Dropout(0.2),
             nn.Linear(128, n_classes)
         )
-
-        # ff_list = []
-        # ff_list += [nn.Conv2d(
-        #     channels_per_stage[-1],
-        #     n_classes,
-        #     kernel_size=(1, 1),
-        #     stride=(1, 1),
-        #     padding=0,
-        #     bias=False),
-        #     nn.BatchNorm2d(n_classes),
-        # ]
-
-        # ff_list.append(nn.AdaptiveAvgPool2d((1, 1)))
-
-        # self.feed_forward = nn.Sequential(
-        #     *ff_list
-        # )
 
         self.apply(initialize_weights)
 
