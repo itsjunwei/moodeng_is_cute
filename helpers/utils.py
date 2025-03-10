@@ -274,10 +274,10 @@ class RandomShiftUpDownNp(DataAugmentNumpyBase):
         B = x.shape[0]
 
         for i in range(B):
-            sample = output[i:i+1]  # retain batch-dim (shape: (1, F, T))
+            sample = output[i]  # retain batch-dim (shape: (1, F, T))
 
             if np.random.rand() < self.p:
-                output[i] = sample[0]
+                output[i] = sample
             else:
                 n_features, n_timesteps = sample.shape
                 if self.freq_shift_range is None:
