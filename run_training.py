@@ -98,7 +98,7 @@ class PLModule(pl.LightningModule):
         """
         x = self.mel(x)
         if self.training:
-            if not self.config.no_aug:
+            if self.config.aug:
                 # Remove the channel dimension -> [B, 256, 65]
                 x = x.squeeze(1)
                 # Convert tensor to numpy array
@@ -645,7 +645,7 @@ if __name__ == '__main__':
     parser.add_argument('--mixstyle_alpha', type=float, default=0.3)
     parser.add_argument('--weight_decay', type=float, default=0.0001)
     parser.add_argument('--roll_sec', type=int, default=0.1)  # roll waveform over time
-    parser.add_argument('--no_aug', action='store_true')  # Do not apply augmentations
+    parser.add_argument('--aug', action='store_true')  # Apply augmentations
 
     # peak learning rate (in cosinge schedule)
     parser.add_argument('--lr', type=float, default=0.005)

@@ -277,7 +277,7 @@ class RandomShiftUpDownNp(DataAugmentNumpyBase):
     """
     This data augmentation random shift the spectrogram up or down.
     """
-    def __init__(self, always_apply=False, p=0.5, freq_shift_range: int = None, direction: str = None, mode='reflect',
+    def __init__(self, always_apply=True, p=0.5, freq_shift_range: int = None, direction: str = None, mode='reflect',
                  n_last_channels: int = 0):
         super().__init__(always_apply, p)
         self.freq_shift_range = freq_shift_range
