@@ -76,6 +76,10 @@ class PLModule(pl.LightningModule):
         self.device_groups = {'a': "real", 'b': "real", 'c': "real",
                               's1': "seen", 's2': "seen", 's3': "seen",
                               's4': "unseen", 's5': "unseen", 's6': "unseen"}
+        
+        # Device weights for balancing the skewed distribution of devices
+        self.device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
+        print("Device weights: ", self.device_weights)
 
         # pl 2 containers:
         self.training_step_outputs = []
@@ -160,7 +164,23 @@ class PLModule(pl.LightningModule):
             y_hat = self.forward(x, devices, apply_mel=True) # Did not convert to melspec because no mixstyle
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
-        loss = F.cross_entropy(y_hat, labels, reduction="mean")
+        
+        # # Previous simple average loss
+        # loss = F.cross_entropy(y_hat, labels, reduction="mean")
+
+        # Update with new device weighted loss
+        # Compute un-reduced loss (per-sample loss)
+        losses = F.cross_entropy(y_hat, labels, reduction="none")
+        
+        # Assume self.config.device_weights is a list of weights for each device index (length 9)
+        # For instance, if device 0 is over-represented, its weight might be lower.
+        device_weights = torch.tensor(self.config.device_weights, device=self.device, dtype=losses.dtype)
+        
+        # Get weight for each sample using the device index
+        sample_weights = device_weights[devices]  # devices is a tensor of indices
+        weighted_loss = losses * sample_weights
+        
+        loss = weighted_loss.mean()
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
