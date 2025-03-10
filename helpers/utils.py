@@ -277,7 +277,7 @@ class RandomShiftUpDownNp(DataAugmentNumpyBase):
             sample = output[i]  # retain batch-dim (shape: (1, F, T))
 
             if np.random.rand() < self.p:
-                output[i] = sample
+                pass
             else:
                 n_features, n_timesteps = sample.shape
                 if self.freq_shift_range is None:
@@ -289,9 +289,9 @@ class RandomShiftUpDownNp(DataAugmentNumpyBase):
                     direction = self.direction
                 new_spec = sample.copy()
                 if direction == 'up':
-                    new_spec = np.pad(new_spec, ((shift_len, 0), (0, 0)), mode=self.mode)[:, 0:n_features]
+                    new_spec = np.pad(new_spec, ((shift_len, 0), (0, 0)), mode=self.mode)[0:n_features, :]
                 else:
-                    new_spec = np.pad(new_spec, ((0, shift_len), (0, 0)), mode=self.mode)[:, shift_len:]
+                    new_spec = np.pad(new_spec, ((0, shift_len), (0, 0)), mode=self.mode)[shift_len:, :]
 
                 output[i] = new_spec
         
