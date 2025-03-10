@@ -41,21 +41,11 @@ class PLModule(pl.LightningModule):
             f_max=config.f_max
         )
 
-        # freqm = torchaudio.transforms.FrequencyMasking(config.freqm, 
-        #                                                iid_masks=True)
-        # timem = torchaudio.transforms.TimeMasking(config.timem, 
-        #                                           iid_masks=True)
-
         self.mel = torch.nn.Sequential(
             resample,
             mel
         )
 
-        # self.mel_augment = torch.nn.Sequential(
-        #     freqm,
-        #     timem
-        # )
-        
         n_timebins = int(config.sample_rate / config.hop_length + 1)
         
         self.mel_augment = transforms.Compose([
@@ -83,8 +73,8 @@ class PLModule(pl.LightningModule):
         self.device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
         print("Device weights: ", self.device_weights)
         
-        # self.loss_weight_log_avg = nn.Parameter(torch.tensor(0.0))       # log weight for avg_loss;      exp(0)    ~=1.0
-        # self.loss_weight_log_weighted = nn.Parameter(torch.tensor(-2.3)) # log weight for weighted_loss; exp(-2.3) ~=0.1
+        self.loss_weight_log_avg = nn.Parameter(torch.tensor(0.0))       # log weight for avg_loss;      exp(0)    ~=1.0
+        self.loss_weight_log_weighted = nn.Parameter(torch.tensor(-0.693)) # log weight for weighted_loss; exp(-0.693) ~=0.5
         
         self.loss_weight_log_avg = 0.5
         self.loss_weight_log_weighted = 0.5
@@ -186,17 +176,22 @@ class PLModule(pl.LightningModule):
         weighted_loss = losses * sample_weights
 
         # Compute learnable weights (exponentiate to ensure positivity)
-        # weight_avg = torch.exp(self.loss_weight_log_avg)
-        # weight_weighted = torch.exp(self.loss_weight_log_weighted)
+        weight_avg = torch.exp(self.loss_weight_log_avg)
+        weight_weighted = torch.exp(self.loss_weight_log_weighted)
         
         # Combine the losses with learnable weights
-        loss = 0.5 * weighted_loss.mean() + 0.5 * avg_loss
+        loss = weight_avg * weighted_loss.mean() + weight_weighted * avg_loss
+        
+        # # Combine the losses with equal weighting
+        # loss = 0.5 * weighted_loss.mean() + 0.5 * avg_loss
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
         self.log("train/loss", loss.detach().cpu(), prog_bar=True)
-        # self.log("loss_weight_avg", weight_avg.detach().cpu(), prog_bar=True)
-        # self.log("loss_weight_weighted", weight_weighted.detach().cpu(), prog_bar=True)
+        
+        # To track the learnable loss weights
+        self.log("loss_weight_avg", weight_avg.detach().cpu(), prog_bar=True)
+        self.log("loss_weight_weighted", weight_weighted.detach().cpu(), prog_bar=True)
         return loss
 
     def on_train_epoch_end(self):

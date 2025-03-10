@@ -6,6 +6,7 @@ import torch
 import torchaudio
 from torch.hub import download_url_to_file
 import numpy as np
+import torch.nn.functional as F
 
 dataset_dir = r"./data/TAU-urban-acoustic-scenes-2022-mobile-development"
 assert dataset_dir is not None, "Specify 'TAU Urban Acoustic Scenes 2022 Mobile dataset' location in variable " \
@@ -99,22 +100,21 @@ class AugmentDataset(TorchDataset):
     A dataset that randomly applies one of the following augmentations to a waveform:
       1. Roll the waveform (time shift)
       2. Add white Gaussian noise
-      3. Pitch shift
     Default parameters are chosen for acoustic scene classification:
       - shift_range: 4410 samples (~0.1 sec at 44.1 kHz)
       - noise_std: 0.005 (small perturbation)
-      - pitch_shift_range: (-2, 2) semitones (mild pitch changes)
     """
     def __init__(self, dataset: TorchDataset, 
                  shift_range: int = 4410, 
                  noise_std: float = 0.005,
                  sample_rate: int = 44100, 
-                 axis: int = 1):
+                 axis: int = 1,
+                 speed_low: float = 0.9,
+                 speed_high: float = 1.1):
         """
         @param dataset: The original dataset.
         @param shift_range: Maximum absolute shift (in samples) for rolling the waveform.
         @param noise_std: Standard deviation for white Gaussian noise.
-        @param pitch_shift_range: Tuple specifying the min and max semitone shift.
         @param sample_rate: The sample rate of the audio.
         @param axis: The axis along which to roll the waveform (typically 1 for (channels, samples)).
         """
@@ -123,11 +123,43 @@ class AugmentDataset(TorchDataset):
         self.noise_std = noise_std
         self.sample_rate = sample_rate
         self.axis = axis
+        self.speed_low = speed_low
+        self.speed_high = speed_high
+
+    def speed_perturb(self, x: torch.Tensor, speed_factor: float, final_length: int) -> torch.Tensor:
+        """
+        Applies speed perturbation by resampling the waveform.
+        After resampling, the waveform is cropped or padded to final_length.
+        
+        @param x: Input waveform tensor of shape (channels, samples)
+        @param speed_factor: The speed factor to apply (e.g. 0.9 for slowing down, 1.1 for speeding up)
+        @param final_length: Desired output length (number of samples)
+        @return: Speed-perturbed waveform of shape (channels, final_length)
+        """
+        channels, orig_length = x.shape
+        # Calculate the new length after applying the speed factor.
+        new_length = int(orig_length / speed_factor)
+        
+        # Resample the waveform using linear interpolation.
+        # Input needs to be 3D: (batch=1, channels, time)
+        x_unsq = x.unsqueeze(0)  # shape: (1, channels, orig_length)
+        x_resampled = F.interpolate(x_unsq, size=new_length, mode='linear', align_corners=False)
+        x_resampled = x_resampled.squeeze(0)  # shape: (channels, new_length)
+        
+        # If the resampled signal is shorter than final_length, pad at the end.
+        if new_length < final_length:
+            pad_amount = final_length - new_length
+            x_out = F.pad(x_resampled, (0, pad_amount))
+        else:
+            # If longer, crop to final_length.
+            x_out = x_resampled[:, :final_length]
+            
+        return x_out
 
     def __getitem__(self, index):
         x, file, label, device, city = self.dataset[index]
         # Randomly choose one augmentation
-        aug_choice = np.random.choice(['roll', 'noise'])
+        aug_choice = np.random.choice(['roll', 'noise', 'speed'])
         
         if aug_choice == 'roll':
             sf = int(np.random.randint(-self.shift_range, self.shift_range + 1))
@@ -135,6 +167,13 @@ class AugmentDataset(TorchDataset):
         elif aug_choice == 'noise':
             noise = torch.randn_like(x) * self.noise_std
             x_aug = x + noise
+        elif aug_choice == 'speed':
+            # Choose a random speed factor within the specified range.
+            speed_factor = np.random.uniform(self.speed_low, self.speed_high)
+            x_aug = self.speed_perturb(x, speed_factor, final_length=self.sample_rate)
+        else:
+            # If none chosen (should not happen), return original.
+            x_aug = x
         return x_aug, file, label, device, city
 
 
