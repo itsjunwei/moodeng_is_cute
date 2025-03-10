@@ -88,9 +88,10 @@ class PLModule(pl.LightningModule):
         :return: log mel spectrogram
         """
         x = self.mel(x)
-        print("Mel spec shape: ", x.shape)
         if self.training:
+            x = x.squeeze(1)
             x = self.mel_augment(x)
+            x = x.unsqueeze(1)
         x = (x + 1e-5).log()
         if torch.isnan(x).any():
             raise ValueError("NaNs detected in log mel spectrogram")
