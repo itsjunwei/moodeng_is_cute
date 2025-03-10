@@ -80,6 +80,9 @@ class PLModule(pl.LightningModule):
         # Device weights for balancing the skewed distribution of devices
         self.device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
         print("Device weights: ", self.device_weights)
+        
+        self.loss_weight_log_avg = nn.Parameter(torch.tensor(0.0))       # log weight for avg_loss;      exp(0)    ~=1.0
+        self.loss_weight_log_weighted = nn.Parameter(torch.tensor(-2.3)) # log weight for weighted_loss; exp(-2.3) ~=0.1
 
         # pl 2 containers:
         self.training_step_outputs = []
@@ -166,26 +169,28 @@ class PLModule(pl.LightningModule):
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
         
-        # Previous simple average loss
+        # Compute the standard average cross entropy loss
         avg_loss = F.cross_entropy(y_hat, labels, reduction="mean")
 
-        # Update with new device weighted loss
-        # Compute un-reduced loss (per-sample loss)
+        # Compute the device-weighted loss (per-sample loss)
         losses = F.cross_entropy(y_hat, labels, reduction="none")
-        
-        # Assume self.config.device_weights is a list of weights for each device index (length 9)
-        # For instance, if device 0 is over-represented, its weight might be lower.
+        # Assume self.device_weights is a list (or tensor) of weights for each device index (length 9)
         device_weights = torch.tensor(self.device_weights, device=self.device, dtype=losses.dtype)
-        
-        # Get weight for each sample using the device index
         sample_weights = device_weights[devices]  # devices is a tensor of indices
         weighted_loss = losses * sample_weights
+
+        # Compute learnable weights (exponentiate to ensure positivity)
+        weight_avg = torch.exp(self.loss_weight_log_avg)
+        weight_weighted = torch.exp(self.loss_weight_log_weighted)
         
-        loss = weighted_loss.mean() + avg_loss
+        # Combine the losses with learnable weights
+        loss = weight_weighted * weighted_loss.mean() + weight_avg * avg_loss
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
         self.log("train/loss", loss.detach().cpu(), prog_bar=True)
+        self.log("loss_weight_avg", weight_avg.detach().cpu(), prog_bar=True)
+        self.log("loss_weight_weighted", weight_weighted.detach().cpu(), prog_bar=True)
         return loss
 
     def on_train_epoch_end(self):
