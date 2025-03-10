@@ -73,11 +73,13 @@ class PLModule(pl.LightningModule):
         self.device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
         print("Device weights: ", self.device_weights)
         
+        # If want to use learnable loss weights
         self.loss_weight_log_avg = nn.Parameter(torch.tensor(0.0))       # log weight for avg_loss;      exp(0)    ~=1.0
         self.loss_weight_log_weighted = nn.Parameter(torch.tensor(-0.693)) # log weight for weighted_loss; exp(-0.693) ~=0.5
         
-        self.loss_weight_log_avg = 0.5
-        self.loss_weight_log_weighted = 0.5
+        # If want to use hard coded loss weights
+        # self.loss_weight_log_avg = 0.5
+        # self.loss_weight_log_weighted = 0.5
 
         # pl 2 containers:
         self.training_step_outputs = []
