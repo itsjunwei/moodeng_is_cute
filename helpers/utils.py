@@ -152,13 +152,13 @@ class SpecAugmentNp(DataAugmentNumpyBase):
             dur = np.random.randint(1, time_max_width, 1)[0]
             start_idx = np.random.randint(0, n_frames - dur, 1)[0]
             random_value = np.random.uniform(min_value, max_value, 1)
-            new_spec[start_idx:start_idx + dur, :] = random_value
+            new_spec[:, start_idx:start_idx + dur] = random_value
 
         for i in np.arange(self.n_freq_stripes):
             dur = np.random.randint(1, freq_max_width, 1)[0]
             start_idx = np.random.randint(0, n_freqs - dur, 1)[0]
             random_value = np.random.uniform(min_value, max_value, 1)
-            new_spec[:, start_idx:start_idx + dur] = random_value
+            new_spec[start_idx:start_idx + dur, :] = random_value
 
         return new_spec
 
