@@ -100,13 +100,14 @@ class PLModule(pl.LightningModule):
         if self.training:
             if self.config.aug:
                 # Remove the channel dimension -> [B, 256, 65]
-                x = x.squeeze(1)
+                x = x.squeeze(1) # Batch, Freq, Time
                 # Convert tensor to numpy array
                 x_np = x.detach().cpu().numpy()
                 # Apply the augmentations
                 x_aug = self.mel_augment(x_np)
                 # Convert back to torch tensor and restore the channel dimension
-                x = torch.from_numpy(x_aug).to(x.device).type_as(x).unsqueeze(1)
+                x = torch.from_numpy(x_aug).to(x.device).type_as(x).unsqueeze(1) # Batch, Channel (1), Freq, Time
+                print("Unsqueezed, ", x.shape)
         x = (x + 1e-5).log()
         if torch.isnan(x).any():
             raise ValueError("NaNs detected in log mel spectrogram")
