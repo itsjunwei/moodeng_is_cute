@@ -135,47 +135,51 @@ class Network(nn.Module):
                                      expansion_rate=expansion_rate
                                      )
             self.stages.add_module(f"s{stage_id + 1}", stage)
-
-        # # Final feature extraction layers
-        # self.feature_extractor = nn.Sequential(
-        #     nn.Conv2d(channels_per_stage[-1], 512, kernel_size=1, stride=1, padding=0, bias=False),
-        #     nn.BatchNorm2d(512),
-        #     nn.AdaptiveAvgPool2d((1, 1))
-        # )
         
         # Feature extraction: global average pooling after stages
         self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
         
         # Determine feature vector dimension (channels from last stage)
-        feature_dim = channels_per_stage[-1]
+        self.feature_dim = channels_per_stage[-1]
 
         
         # **Device Embedding Layer**
         self.device_embedding = nn.Embedding(9, embed_dim)  # Assuming 9 device IDs
 
-        # **Classifier that fuses extracted features with device embeddings**
-        self.classifier = nn.Sequential(
-            nn.Linear(feature_dim + embed_dim, 128),  # Concatenate features and device embeddings
-            nn.ReLU(),
-            nn.Linear(128, n_classes)
-        )
-
-        # ff_list = []
-        # ff_list += [nn.Conv2d(
-        #     channels_per_stage[-1],
-        #     n_classes,
-        #     kernel_size=(1, 1),
-        #     stride=(1, 1),
-        #     padding=0,
-        #     bias=False),
-        #     nn.BatchNorm2d(n_classes),
-        # ]
-
-        # ff_list.append(nn.AdaptiveAvgPool2d((1, 1)))
-
-        # self.feed_forward = nn.Sequential(
-        #     *ff_list
+        # # **Classifier that fuses extracted features with device embeddings**
+        # self.classifier = nn.Sequential(
+        #     nn.Linear(feature_dim + embed_dim, 128),  # Concatenate features and device embeddings
+        #     nn.ReLU(),
+        #     nn.Linear(128, n_classes)
         # )
+
+        # Improved classifier with extra capacity, normalization, and dropout:
+        # self.classifier = nn.Sequential(
+        #     nn.Linear(feature_dim + embed_dim, 256),
+        #     nn.BatchNorm1d(256),
+        #     nn.LeakyReLU(),
+        #     nn.Dropout(0.2),
+        #     nn.Linear(256, 128),
+        #     nn.BatchNorm1d(128),
+        #     nn.LeakyReLU(),
+        #     nn.Dropout(0.2),
+        #     nn.Linear(128, n_classes)
+        # )
+
+        # # Lightweight convolutional classifier that fuses audio features and device context
+        # self.conv_classifier = nn.Sequential(
+        #     nn.Conv2d(self.feature_dim + embed_dim, 128, kernel_size=1, bias=False),
+        #     nn.BatchNorm2d(128),
+        #     nn.LeakyReLU(),
+        #     nn.Dropout(0.2),
+        #     nn.Conv2d(128, n_classes, kernel_size=1)
+        # )
+
+        # Even more lightweight convolutional classifier that fuses audio features and device context
+        self.conv_classifier = nn.Sequential(
+            nn.Conv2d(self.feature_dim + embed_dim, n_classes, kernel_size=1, bias=False),
+            nn.BatchNorm2d(n_classes)
+        )
 
         self.apply(initialize_weights)
 
@@ -225,24 +229,40 @@ class Network(nn.Module):
         x = self.stages(x)
         return x
 
+    # def forward(self, x, device_id):
+    #     x = self._forward_conv(x)
+    #     x = self.global_pool(x)  # Shape: [B, feature_dim, 1, 1]
+    #     audio_features = x.view(x.size(0), -1)  # Flatten to [B, feature_dim]
+
+    #     # Get device embeddings
+    #     device_features = self.device_embedding(device_id) # [B, embed_dim]
+
+    #     # Concatenate extracted features with device embeddings
+    #     combined_features = torch.cat((audio_features, device_features), dim=1)  # [B, 512+embed_dim]
+
+    #     # Final classification
+    #     logits = self.classifier(combined_features)
+    #     return logits
+
+    # using convolutional forward step instead (to test)
     def forward(self, x, device_id):
-        x = self._forward_conv(x)
-        print("After forward conv, ", x.shape)
-        x = self.global_pool(x)  # Shape: [B, feature_dim, 1, 1]
-        print("After feat ext, ", x.shape)
-        audio_features = x.view(x.size(0), -1)  # Flatten to [B, feature_dim]
-        print("After view, ", audio_features.shape)
+        # Extract convolutional features (maintain spatial dimensions)
+        x = self._forward_conv(x)  # Shape: [B, feature_dim, H, W]
+        B, C, H, W = x.size()
 
-        # Get device embeddings
-        device_features = self.device_embedding(device_id) # [B, embed_dim]
-        print("Device features, ", device_features.shape)
+        # Get device embeddings: shape [B, embed_dim]
+        device_features = self.device_embedding(device_id)
+        # Expand device embeddings spatially to [B, embed_dim, H, W]
+        device_features = device_features.unsqueeze(-1).unsqueeze(-1).expand(-1, -1, H, W)
 
-        # Concatenate extracted features with device embeddings
-        combined_features = torch.cat((audio_features, device_features), dim=1)  # [B, 512+embed_dim]
-        print("Device features, ", combined_features.shape)
+        # Concatenate along channel dimension: [B, feature_dim + embed_dim, H, W]
+        x_fused = torch.cat((x, device_features), dim=1)
 
-        # Final classification
-        logits = self.classifier(combined_features)
+        # Apply the convolutional classifier
+        logits_map = self.conv_classifier(x_fused)  # Shape: [B, n_classes, H, W]
+
+        # Pool spatially to produce final logits: [B, n_classes]
+        logits = self.global_pool(logits_map).view(B, -1)
         return logits
 
 
@@ -283,8 +303,12 @@ def get_model(n_classes=10, in_channels=1, base_channels=32, channels_multiplier
 if __name__ == "__main__":
     model = get_model()
     input_feature_shape = (1, 1, 256, 65)
+    
+    import helpers.nessi as nessi
+    macs, params = nessi.get_torch_size(model, input_size=input_feature_shape)
+    
     x = torch.rand((input_feature_shape), device=torch.device("cpu"), requires_grad=True)
     device_id = torch.rand((1), device=torch.device("cpu"), requires_grad=True)
     device_id = device_id.to(torch.long)
     y = model(x, device_id)
-    print("Output shape : {}, {}".format(y, y.shape))
+    print("Output shape", y.shape)

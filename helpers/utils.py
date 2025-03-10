@@ -181,8 +181,6 @@ class RandomCutoutHoleNp(DataAugmentNumpyBase):
         """
         super().__init__(always_apply, p)
         self.n_max_holes = n_max_holes
-        self.max_h_size = np.max((max_h_size, 2))
-        self.max_w_size = np.max((max_w_size, 8))
         self.filled_value = filled_value
 
     def apply(self, x: np.ndarray):
@@ -200,6 +198,9 @@ class RandomCutoutHoleNp(DataAugmentNumpyBase):
         # Get a random number of cutout holes
         n_cutout_holes = np.random.randint(1, self.n_max_holes, 1)[0]
 
+        self.max_w_size = int(0.03 * img_w)
+        self.max_h_size = int(0.03 * img_h)
+
         for ihole in np.arange(n_cutout_holes):
             w = np.random.randint(1, self.max_w_size, 1)[0] # For frequency bins
             h = np.random.randint(1, self.max_h_size, 1)[0] # For time bins
@@ -212,7 +213,7 @@ class RandomCutoutHoleNp(DataAugmentNumpyBase):
             else:
                 filled_value = self.filled_value
 
-            # Fill spec with the value
+            # Fill hole with the value
             new_spec[top:top + h, left:left + w] = filled_value
 
         return new_spec
@@ -222,8 +223,7 @@ class CompositeCutout(DataAugmentNumpyBase):
     """
     This data augmentation combine Random cutout, specaugment, cutout hole.
     """
-    def __init__(self, always_apply: bool = False, p: float = 0.5, image_aspect_ratio: float = 1,
-                 n_zero_channels: int = None, is_filled_last_channels: bool = True):
+    def __init__(self, always_apply: bool = False, p: float = 0.5, image_aspect_ratio: float = 1):
         """
         :param n_zero_channels: if given, these last n_zero_channels will be filled in zeros instead of random values
         :param is_filled_last_channels: if False, does not cutout n_zero_channels
@@ -258,7 +258,7 @@ class CompositeCutout(DataAugmentNumpyBase):
 
 class RandomShiftUpDownNp(DataAugmentNumpyBase):
     """
-    This data augmentation random shift the spectrogram up or down.
+    This data augmentation randomly shifts the spectrogram up or down.
     """
     def __init__(self, always_apply=True, p=0.5, freq_shift_range: int = None, direction: str = None, mode='reflect',
                  n_last_channels: int = 0):
