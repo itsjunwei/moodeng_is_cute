@@ -14,8 +14,9 @@ from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
 from helpers.init import worker_init_fn
 from helpers.output_dim import get_model_output_dim
 from models.baseline import get_model
-from helpers.utils import mixstyle
+from helpers.utils import *
 from helpers import nessi
+from torchvision import transforms
 
 
 class PLModule(pl.LightningModule):
@@ -50,10 +51,15 @@ class PLModule(pl.LightningModule):
             mel
         )
 
-        self.mel_augment = torch.nn.Sequential(
-            freqm,
-            timem
-        )
+        # self.mel_augment = torch.nn.Sequential(
+        #     freqm,
+        #     timem
+        # )
+        
+        self.mel_augment = transforms.Compose([
+                RandomShiftUpDownNp(),
+                CompositeCutout(image_aspect_ratio=(65/256)) # Hardcoded n_timesteps / n_features
+            ])
 
         # the baseline model
         self.model = get_model(n_classes=config.n_classes,
@@ -158,10 +164,10 @@ class PLModule(pl.LightningModule):
         """
         The device embedding layer is defined as an nn.Embedding(9, embed_dim), 
         meaning there are nine rows (one for each possible device). 
-        During training, only rows 0–5 get updated. 
-        Without intervention, rows 6–8 remain at their initial random values. 
-        By computing the mean of the updated embeddings for 0–5 
-        and assigning that mean to rows 6–8 at the end of each epoch, 
+        During training, only rows 0-5 get updated. 
+        Without intervention, rows 6-8 remain at their initial random values. 
+        By computing the mean of the updated embeddings for 0-5 
+        and assigning that mean to rows 6-8 at the end of each epoch, 
         you ensure that these “missing” devices are given a representative embedding. 
         This regularizes the model for unseen devices and helps it generalize better 
         when these IDs occur during validation or testing.
@@ -422,7 +428,7 @@ def train(config):
     # create the pytorch lightening trainer by specifying the number of epochs to train, the logger,
     # on which kind of device(s) to train and possible callbacks
     trainer = pl.Trainer(max_epochs=config.n_epochs,
-                         check_val_every_n_epoch=5,
+                         check_val_every_n_epoch=2, # Run validation every n epochs
                          logger=wandb_logger,
                          accelerator='gpu',
                          devices=1,
