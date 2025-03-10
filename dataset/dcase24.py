@@ -94,6 +94,65 @@ class RollDataset(TorchDataset):
         return len(self.dataset)
 
 
+class AugmentDataset(TorchDataset):
+    """
+    A dataset that randomly applies one of the following augmentations to a waveform:
+      1. Roll the waveform (time shift)
+      2. Add white Gaussian noise
+      3. Pitch shift
+    Default parameters are chosen for acoustic scene classification:
+      - shift_range: 4410 samples (~0.1 sec at 44.1 kHz)
+      - noise_std: 0.005 (small perturbation)
+      - pitch_shift_range: (-2, 2) semitones (mild pitch changes)
+    """
+    def __init__(self, dataset: TorchDataset, 
+                 shift_range: int = 4410, 
+                 noise_std: float = 0.005,
+                 pitch_shift_range: tuple = (-2, 2), 
+                 sample_rate: int = 44100, 
+                 axis: int = 1):
+        """
+        @param dataset: The original dataset.
+        @param shift_range: Maximum absolute shift (in samples) for rolling the waveform.
+        @param noise_std: Standard deviation for white Gaussian noise.
+        @param pitch_shift_range: Tuple specifying the min and max semitone shift.
+        @param sample_rate: The sample rate of the audio.
+        @param axis: The axis along which to roll the waveform (typically 1 for (channels, samples)).
+        """
+        self.dataset = dataset
+        self.shift_range = shift_range
+        self.noise_std = noise_std
+        self.pitch_shift_range = pitch_shift_range
+        self.sample_rate = sample_rate
+        self.axis = axis
+
+    def __getitem__(self, index):
+        # Retrieve sample from the underlying dataset.
+        x, file, label, device, city = self.dataset[index]
+        # Randomly select one augmentation.
+        aug_choice = np.random.choice(['roll', 'noise', 'pitch'])
+        
+        if aug_choice == 'roll':
+            # Randomly choose a shift between -shift_range and +shift_range samples.
+            sf = int(np.random.randint(-self.shift_range, self.shift_range + 1))
+            x_aug = x.roll(sf, dims=self.axis)
+            
+        elif aug_choice == 'noise':
+            # Generate white Gaussian noise and add it to the waveform.
+            noise = torch.randn_like(x) * self.noise_std
+            x_aug = x + noise
+            
+        elif aug_choice == 'pitch':
+            # Randomly select a pitch shift (in semitones) within the specified range.
+            n_steps = np.random.uniform(self.pitch_shift_range[0], self.pitch_shift_range[1])
+            x_aug = torchaudio.functional.pitch_shift(x, self.sample_rate, n_steps)
+        
+        return x_aug, file, label, device, city
+
+    def __len__(self):
+        return len(self.dataset)
+
+
 def get_training_set(split=100, roll=False):
     assert str(split) in ("5", "10", "25", "50", "100"), "Parameters 'split' must be in [5, 10, 25, 50, 100]"
     os.makedirs(dataset_config['split_path'], exist_ok=True)
@@ -106,7 +165,8 @@ def get_training_set(split=100, roll=False):
         download_url_to_file(subset_csv_url, subset_split_file)
     ds = get_base_training_set(dataset_config['meta_csv'], subset_split_file)
     if roll:
-        ds = RollDataset(ds, shift_range=roll)
+        # ds = RollDataset(ds, shift_range=roll)
+        ds = AugmentDataset(ds)
     return ds
 
 

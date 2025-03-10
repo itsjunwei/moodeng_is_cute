@@ -93,14 +93,15 @@ class PLModule(pl.LightningModule):
         """
         x = self.mel(x)
         if self.training:
-            # Remove the channel dimension -> [B, 256, 65]
-            x = x.squeeze(1)
-            # Convert tensor to numpy array
-            x_np = x.detach().cpu().numpy()
-            # Apply the augmentations
-            x_aug = self.mel_augment(x_np)
-            # Convert back to torch tensor and restore the channel dimension
-            x = torch.from_numpy(x_aug).to(x.device).type_as(x).unsqueeze(1)
+            if not self.config.no_aug:
+                # Remove the channel dimension -> [B, 256, 65]
+                x = x.squeeze(1)
+                # Convert tensor to numpy array
+                x_np = x.detach().cpu().numpy()
+                # Apply the augmentations
+                x_aug = self.mel_augment(x_np)
+                # Convert back to torch tensor and restore the channel dimension
+                x = torch.from_numpy(x_aug).to(x.device).type_as(x).unsqueeze(1)
         x = (x + 1e-5).log()
         if torch.isnan(x).any():
             raise ValueError("NaNs detected in log mel spectrogram")
@@ -165,8 +166,8 @@ class PLModule(pl.LightningModule):
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
         
-        # # Previous simple average loss
-        # loss = F.cross_entropy(y_hat, labels, reduction="mean")
+        # Previous simple average loss
+        avg_loss = F.cross_entropy(y_hat, labels, reduction="mean")
 
         # Update with new device weighted loss
         # Compute un-reduced loss (per-sample loss)
@@ -180,7 +181,7 @@ class PLModule(pl.LightningModule):
         sample_weights = device_weights[devices]  # devices is a tensor of indices
         weighted_loss = losses * sample_weights
         
-        loss = weighted_loss.mean()
+        loss = weighted_loss.mean() + avg_loss
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
@@ -637,6 +638,7 @@ if __name__ == '__main__':
     parser.add_argument('--mixstyle_alpha', type=float, default=0.3)
     parser.add_argument('--weight_decay', type=float, default=0.0001)
     parser.add_argument('--roll_sec', type=int, default=0.1)  # roll waveform over time
+    parser.add_argument('--no_aug', action='store_true')  # Do not apply augmentations
 
     # peak learning rate (in cosinge schedule)
     parser.add_argument('--lr', type=float, default=0.005)
