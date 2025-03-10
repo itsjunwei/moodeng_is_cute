@@ -2,3 +2,4 @@
 /__pycache__
 /wandb
 *.pyc
+/DCASE24_Task1
