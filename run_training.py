@@ -174,7 +174,7 @@ class PLModule(pl.LightningModule):
         
         # Assume self.config.device_weights is a list of weights for each device index (length 9)
         # For instance, if device 0 is over-represented, its weight might be lower.
-        device_weights = torch.tensor(self.config.device_weights, device=self.device, dtype=losses.dtype)
+        device_weights = torch.tensor(self.device_weights, device=self.device, dtype=losses.dtype)
         
         # Get weight for each sample using the device index
         sample_weights = device_weights[devices]  # devices is a tensor of indices
@@ -620,7 +620,7 @@ if __name__ == '__main__':
     # dataset
     # subset in {100, 50, 25, 10, 5}
     parser.add_argument('--orig_sample_rate', type=int, default=44100)
-    parser.add_argument('--subset', type=int, default=100)
+    parser.add_argument('--subset', type=int, default=5) # Lazy to keep adding into arguments
 
     # model
     parser.add_argument('--n_classes', type=int, default=10)  # classification model with 'n_classes' output neurons
