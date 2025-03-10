@@ -396,7 +396,7 @@ def train(config):
         mode="max",         # "max" because higher accuracy is better
         save_top_k=1,       # Save only the best model
         verbose=True,
-        filename="{epoch}-{val/acc:.2f}"  # Optional: customize the filename
+        filename="{epoch}-{val/acc:.3f}"  # Optional: customize the filename
     )
 
 
