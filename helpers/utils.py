@@ -198,8 +198,8 @@ class RandomCutoutHoleNp(DataAugmentNumpyBase):
         # Get a random number of cutout holes
         n_cutout_holes = np.random.randint(1, self.n_max_holes, 1)[0]
 
-        self.max_w_size = int(0.03 * img_w)
-        self.max_h_size = int(0.03 * img_h)
+        self.max_w_size = int(0.04 * img_w)
+        self.max_h_size = int(0.04 * img_h)
 
         for ihole in np.arange(n_cutout_holes):
             w = np.random.randint(1, self.max_w_size, 1)[0] # For frequency bins
