@@ -41,10 +41,10 @@ class PLModule(pl.LightningModule):
             f_max=config.f_max
         )
 
-        freqm = torchaudio.transforms.FrequencyMasking(config.freqm, 
-                                                       iid_masks=True)
-        timem = torchaudio.transforms.TimeMasking(config.timem, 
-                                                  iid_masks=True)
+        # freqm = torchaudio.transforms.FrequencyMasking(config.freqm, 
+        #                                                iid_masks=True)
+        # timem = torchaudio.transforms.TimeMasking(config.timem, 
+        #                                           iid_masks=True)
 
         self.mel = torch.nn.Sequential(
             resample,
@@ -88,6 +88,7 @@ class PLModule(pl.LightningModule):
         :return: log mel spectrogram
         """
         x = self.mel(x)
+        print("Mel spec shape: ", x.shape)
         if self.training:
             x = self.mel_augment(x)
         x = (x + 1e-5).log()
