@@ -94,7 +94,6 @@ class PLModule(pl.LightningModule):
             # Convert tensor to numpy array
             x_np = x.detach().cpu().numpy()
             # Apply the augmentation sample by sample
-            # Note: if your augmentation expects a 2D array per sample, iterate over the batch.
             augmented = np.stack([self.mel_augment(sample) for sample in x_np], axis=0)
             # Convert back to torch tensor and restore the channel dimension
             x = torch.from_numpy(augmented).to(x.device).type_as(x).unsqueeze(1)
