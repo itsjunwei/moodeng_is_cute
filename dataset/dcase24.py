@@ -108,7 +108,6 @@ class AugmentDataset(TorchDataset):
     def __init__(self, dataset: TorchDataset, 
                  shift_range: int = 4410, 
                  noise_std: float = 0.005,
-                 pitch_shift_range: tuple = (-2, 2), 
                  sample_rate: int = 44100, 
                  axis: int = 1):
         """
@@ -122,32 +121,22 @@ class AugmentDataset(TorchDataset):
         self.dataset = dataset
         self.shift_range = shift_range
         self.noise_std = noise_std
-        self.pitch_shift_range = pitch_shift_range
         self.sample_rate = sample_rate
         self.axis = axis
 
     def __getitem__(self, index):
-        # Retrieve sample from the underlying dataset.
         x, file, label, device, city = self.dataset[index]
-        # Randomly select one augmentation.
-        aug_choice = np.random.choice(['roll', 'noise', 'pitch'])
+        # Randomly choose one augmentation
+        aug_choice = np.random.choice(['roll', 'noise'])
         
         if aug_choice == 'roll':
-            # Randomly choose a shift between -shift_range and +shift_range samples.
             sf = int(np.random.randint(-self.shift_range, self.shift_range + 1))
             x_aug = x.roll(sf, dims=self.axis)
-            
         elif aug_choice == 'noise':
-            # Generate white Gaussian noise and add it to the waveform.
             noise = torch.randn_like(x) * self.noise_std
             x_aug = x + noise
-            
-        elif aug_choice == 'pitch':
-            # Randomly select a pitch shift (in semitones) within the specified range.
-            n_steps = np.random.uniform(self.pitch_shift_range[0], self.pitch_shift_range[1])
-            x_aug = torchaudio.functional.pitch_shift(x, self.sample_rate, n_steps)
-        
         return x_aug, file, label, device, city
+
 
     def __len__(self):
         return len(self.dataset)
