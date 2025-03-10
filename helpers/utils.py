@@ -292,7 +292,8 @@ class RandomShiftUpDownNp(DataAugmentNumpyBase):
             if np.random.rand() < self.p:
                 return x
             else:
-                n_channels, n_timesteps, n_features = x.shape
+                n_channels, n_features, n_timesteps = x.shape
+                print("X: {}".format(x.shape))
                 if self.freq_shift_range is None:
                     self.freq_shift_range = int(n_features * 0.08)
                 shift_len = np.random.randint(1, self.freq_shift_range, 1)[0]
