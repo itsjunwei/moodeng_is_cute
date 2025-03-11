@@ -77,8 +77,8 @@ class PLModule(pl.LightningModule):
         print("Device weights: ", self.device_weights)
         
         # If want to use learnable loss weights
-        self.loss_weight_log_avg = nn.Parameter(torch.tensor(0.0))       # log weight for avg_loss;      exp(0)    ~=1.0
-        self.loss_weight_log_weighted = nn.Parameter(torch.tensor(-0.693)) # log weight for weighted_loss; exp(-0.693) ~=0.5
+        # After softmax, this should yield [0.75, 0.25] to match the dimensionality of CNN features to Device Embeddings
+        self.loss_logits = nn.Parameter(torch.tensor([0.0, -1.0986])) 
         
         # If want to use hard coded loss weights
         # self.loss_weight_log_avg = 0.5
@@ -180,12 +180,11 @@ class PLModule(pl.LightningModule):
         sample_weights = device_weights[devices]  # devices is a tensor of indices
         weighted_loss = losses * sample_weights
 
-        # Compute learnable weights (exponentiate to ensure positivity)
-        weight_avg = torch.exp(self.loss_weight_log_avg)
-        weight_weighted = torch.exp(self.loss_weight_log_weighted)
+        # Compute normalized, learnable weights using softmax
+        weights = torch.softmax(self.loss_logits, dim=0)
         
         # Combine the losses with learnable weights
-        loss = weight_avg * weighted_loss.mean() + weight_weighted * avg_loss
+        loss = weights[0] * avg_loss + weights[1] * weighted_loss.mean() 
         
         # # Combine the losses with equal weighting
         # loss = 0.5 * weighted_loss.mean() + 0.5 * avg_loss
@@ -195,8 +194,8 @@ class PLModule(pl.LightningModule):
         self.log("train/loss", loss.detach().cpu(), prog_bar=True)
         
         # To track the learnable loss weights
-        self.log("loss_weight_avg", weight_avg.detach().cpu(), prog_bar=True)
-        self.log("loss_weight_weighted", weight_weighted.detach().cpu(), prog_bar=True)
+        self.log("CE_Weight", weights[0].detach().cpu(), prog_bar=True)
+        self.log("Device_Weight", weights[1].detach().cpu(), prog_bar=True)
         return loss
 
     def on_train_epoch_end(self):
