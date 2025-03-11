@@ -410,6 +410,7 @@ class PLModule(pl.LightningModule):
         logs["macro_avg_acc"] = torch.mean(torch.stack([logs["acc." + l] for l in self.label_ids]))
         # prefix with 'test' for logging
         self.log_dict({"test/" + k: logs[k] for k in logs})
+        print("FINAL MACRO AVG ACC : {}".format(logs["macro_avg_acc"]))
         self.test_step_outputs.clear()
 
     def predict_step(self, eval_batch, batch_idx, dataloader_idx=0):
@@ -482,7 +483,7 @@ def train(config):
     # create the pytorch lightening trainer by specifying the number of epochs to train, the logger,
     # on which kind of device(s) to train and possible callbacks
     trainer = pl.Trainer(max_epochs=config.n_epochs,
-                         check_val_every_n_epoch=2, # Run validation every n epochs
+                         check_val_every_n_epoch=1, # Run validation every n epochs
                          logger=wandb_logger,
                          accelerator='gpu',
                          devices=1,
