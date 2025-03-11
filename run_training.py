@@ -13,7 +13,7 @@ import json
 from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
 from helpers.init import worker_init_fn
 from helpers.output_dim import get_model_output_dim
-from models.baseline import get_model
+from models.baseline import get_model, TestCNN
 from helpers.utils import *
 from helpers import nessi
 from torchvision import transforms
@@ -49,17 +49,20 @@ class PLModule(pl.LightningModule):
         n_timebins = int(config.sample_rate / config.hop_length + 1)
         
         self.mel_augment = transforms.Compose([
-                RandomShiftUpDownNp(),
+                # RandomShiftUpDownNp(),
                 CompositeCutout(image_aspect_ratio=(n_timebins/config.n_mels)) # Hardcoded n_timesteps / n_features
             ])
 
         # the baseline model
-        self.model = get_model(n_classes=config.n_classes,
-                               in_channels=config.in_channels,
-                               base_channels=config.base_channels,
-                               channels_multiplier=config.channels_multiplier,
-                               expansion_rate=config.expansion_rate
-                               )
+        if config.model == "baseline":
+            self.model = get_model(n_classes=config.n_classes,
+                                in_channels=config.in_channels,
+                                base_channels=config.base_channels,
+                                channels_multiplier=config.channels_multiplier,
+                                expansion_rate=config.expansion_rate
+                                )
+        else:
+            self.model = TestCNN(num_classes=config.n_classes)
 
         self.device_ids = ['a', 'b', 'c', 's1', 's2', 's3', 's4', 's5', 's6']
         self.label_ids = ['airport', 'bus', 'metro', 'metro_station', 'park', 'public_square', 'shopping_mall',
@@ -638,6 +641,7 @@ if __name__ == '__main__':
     parser.add_argument('--base_channels', type=int, default=32)
     parser.add_argument('--channels_multiplier', type=float, default=1.8)
     parser.add_argument('--expansion_rate', type=float, default=2.1)
+    parser.add_argument('--model', type=str, default='baseline') # Determine the type of model to be used
 
     # training
     parser.add_argument('--n_epochs', type=int, default=150)
