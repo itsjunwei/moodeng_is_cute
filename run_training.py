@@ -45,6 +45,9 @@ class PLModule(pl.LightningModule):
             resample,
             mel
         )
+        
+        if config.aug:
+            print("Using self augmentations!")
 
         n_timebins = int(config.sample_rate / config.hop_length + 1)
         
