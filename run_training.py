@@ -411,6 +411,7 @@ class PLModule(pl.LightningModule):
         # prefix with 'test' for logging
         self.log_dict({"test/" + k: logs[k] for k in logs})
         print("FINAL MACRO AVG ACC : {}".format(logs["macro_avg_acc"]))
+        print("FINAL DEVICE WEIGHTS: ", self.device_weight_logits)
         self.test_step_outputs.clear()
 
     def predict_step(self, eval_batch, batch_idx, dataloader_idx=0):
