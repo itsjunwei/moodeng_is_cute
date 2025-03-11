@@ -193,8 +193,8 @@ def get_training_set(split=100, roll=False):
         download_url_to_file(subset_csv_url, subset_split_file)
     ds = get_base_training_set(dataset_config['meta_csv'], subset_split_file)
     if roll:
-        # ds = RollDataset(ds, shift_range=roll)
-        ds = AugmentDataset(ds)
+        ds = RollDataset(ds, shift_range=roll)
+        # ds = AugmentDataset(ds)
     return ds
 
 

@@ -73,12 +73,16 @@ class PLModule(pl.LightningModule):
                               's4': "unseen", 's5': "unseen", 's6': "unseen"}
         
         # Device weights for balancing the skewed distribution of devices
-        self.device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
-        print("Device weights: ", self.device_weights)
+        self.init_device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
+        # Initialize logits as the log of the fixed weights.
+        import math
+        self.device_weight_logits = nn.Parameter(
+            torch.tensor([math.log(w) for w in self.init_device_weights], dtype=torch.float)
+        )
+        print("Device weights: ", self.device_weight_logits)
         
         # If want to use learnable loss weights
-        # After softmax, this should yield [0.75, 0.25] to match the dimensionality of CNN features to Device Embeddings
-        self.loss_logits = nn.Parameter(torch.tensor([0.0, -1.0986])) 
+        self.loss_logits = nn.Parameter(torch.tensor([0.5, 0.5])) # Just want equal weights
         
         # If want to use hard coded loss weights
         # self.loss_weight_log_avg = 0.5
@@ -175,8 +179,17 @@ class PLModule(pl.LightningModule):
 
         # Compute the device-weighted loss (per-sample loss)
         losses = F.cross_entropy(y_hat, labels, reduction="none")
-        # Assume self.device_weights is a list (or tensor) of weights for each device index (length 9)
-        device_weights = torch.tensor(self.device_weights, device=self.device, dtype=losses.dtype)
+        
+        # === Learnable Device Weights with Sum-to-1 Constraint ===
+        # Get the learnable logits for seen devices (indices 0-5)
+        logits_seen = self.device_weight_logits  # shape: (6,)
+        # Create fixed logits for unseen devices (indices 6-8); fixed at 0 (i.e. weight 1 before normalization)
+        logits_unseen = torch.zeros(3, device=logits_seen.device, dtype=logits_seen.dtype)
+        # Combine to form a full logits vector for all 9 devices
+        logits_full = torch.cat([logits_seen, logits_unseen], dim=0)  # shape: (9,)
+        # Apply softmax to obtain normalized device weights (summing to 1)
+        device_weights = torch.softmax(logits_full, dim=0)
+        # Now, for each sample, index the appropriate weight via its device index:
         sample_weights = device_weights[devices]  # devices is a tensor of indices
         weighted_loss = losses * sample_weights
 
