@@ -195,12 +195,13 @@ class PLModule(pl.LightningModule):
         # Now, for each sample, index the appropriate weight via its device index:
         sample_weights = device_weights[devices]  # devices is a tensor of indices
         weighted_loss = losses * sample_weights
+        loss = weighted_loss.mean()
 
-        # Compute normalized, learnable weights using softmax
-        weights = torch.softmax(self.loss_logits, dim=0)
+        # # Compute normalized, learnable weights using softmax
+        # weights = torch.softmax(self.loss_logits, dim=0)
         
-        # Combine the losses with learnable weights
-        loss = weights[0] * avg_loss + weights[1] * weighted_loss.mean() 
+        # # Combine the losses with learnable weights
+        # loss = weights[0] * avg_loss + weights[1] * weighted_loss.mean() 
         
         # # Combine the losses with equal weighting
         # loss = 0.5 * weighted_loss.mean() + 0.5 * avg_loss
@@ -209,9 +210,9 @@ class PLModule(pl.LightningModule):
         self.log("epoch", self.current_epoch)
         self.log("train/loss", loss.detach().cpu(), prog_bar=True)
         
-        # To track the learnable loss weights
-        self.log("CE_Weight", weights[0].detach().cpu(), prog_bar=True)
-        self.log("Device_Weight", weights[1].detach().cpu(), prog_bar=True)
+        # # To track the learnable loss weights
+        # self.log("CE_Weight", weights[0].detach().cpu(), prog_bar=True)
+        # self.log("Device_Weight", weights[1].detach().cpu(), prog_bar=True)
         return loss
 
     def on_train_epoch_end(self):
