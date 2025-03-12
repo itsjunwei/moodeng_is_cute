@@ -9,10 +9,9 @@ import torch.nn.functional as F
 import transformers
 import wandb
 import json
+import math
 
 from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
-from helpers.init import worker_init_fn
-from helpers.output_dim import get_model_output_dim
 from models.baseline import get_model, TestCNN
 from helpers.utils import *
 from helpers import nessi
@@ -46,15 +45,14 @@ class PLModule(pl.LightningModule):
             mel
         )
         
-        if config.aug:
-            print("Using self augmentations!")
+        self.augmentations = []
+        if self.config.freqshift:
+            self.augmentations.append(RandomShiftUpDownNp())
+        if self.config.cutout:
+            self.augmentations.append(CompositeCutout(image_aspect_ratio=(int(config.sample_rate / config.hop_length + 1)/config.n_mels)))
+        print("Using Freqshift :{}\nUsing Cutout :{}".format(self.config.freqshift, self.config.cutout))
 
-        n_timebins = int(config.sample_rate / config.hop_length + 1)
-        
-        self.mel_augment = transforms.Compose([
-                RandomShiftUpDownNp(),
-                CompositeCutout(image_aspect_ratio=(n_timebins/config.n_mels)) # Hardcoded n_timesteps / n_features
-            ])
+        self.mel_augment = transforms.Compose(self.augmentations)
 
         # the baseline model
         if config.model == "baseline":
@@ -74,22 +72,26 @@ class PLModule(pl.LightningModule):
         self.device_groups = {'a': "real", 'b': "real", 'c': "real",
                               's1': "seen", 's2': "seen", 's3': "seen",
                               's4': "unseen", 's5': "unseen", 's6': "unseen"}
-        
+
         # Device weights for balancing the skewed distribution of devices
         self.init_device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
-        # Initialize logits as the log of the fixed weights.
-        import math
-        self.device_weight_logits = nn.Parameter(
-            torch.tensor([math.log(w) for w in self.init_device_weights], dtype=torch.float)
-        )
+
+        # If learnable, register as parameters; otherwise, register as fixed buffers.
+        if config.learn_device:
+            self.device_weight_logits = nn.Parameter(
+                torch.tensor([math.log(w) for w in self.init_device_weights], dtype=torch.float)
+            )
+        else:
+            self.register_buffer("device_weight_logits",
+                                 torch.tensor([math.log(w) for w in self.init_device_weights], dtype=torch.float))
         print("Device weights: ", self.device_weight_logits)
-        
-        # If want to use learnable loss weights
-        self.loss_logits = nn.Parameter(torch.tensor([0.5, 0.5])) # Just want equal weights
-        
-        # If want to use hard coded loss weights
-        # self.loss_weight_log_avg = 0.5
-        # self.loss_weight_log_weighted = 0.5
+
+        # Loss weights: if learnable, use a parameter; else, fix to equal weights.
+        if config.learn_loss:
+            self.loss_logits = nn.Parameter(torch.tensor([0.5, 0.5], dtype=torch.float))
+        else:
+            self.register_buffer("loss_logits", torch.tensor([0.5, 0.5], dtype=torch.float))
+        print("Learnable Device Weights: {}\nLearnable Loss Weights:{}".format(self.config.learn_device, self.config.learn_loss))
 
         # pl 2 containers:
         self.training_step_outputs = []
@@ -103,7 +105,7 @@ class PLModule(pl.LightningModule):
         """
         x = self.mel(x)
         if self.training:
-            if self.config.aug:
+            if len(self.augmentations):
                 # Remove the channel dimension -> [B, 256, 65]
                 x = x.squeeze(1) # Batch, Freq, Time
                 # Convert tensor to numpy array
@@ -112,7 +114,6 @@ class PLModule(pl.LightningModule):
                 x_aug = self.mel_augment(x_np)
                 # Convert back to torch tensor and restore the channel dimension
                 x = torch.from_numpy(x_aug).to(x.device).type_as(x).unsqueeze(1) # Batch, Channel (1), Freq, Time
-
         x = (x + 1e-5).log()
         if torch.isnan(x).any():
             raise ValueError("NaNs detected in log mel spectrogram")
@@ -163,56 +164,46 @@ class PLModule(pl.LightningModule):
         x, files, labels, devices, cities = train_batch
         labels = labels.type(torch.LongTensor).to(self.device)
         devices = devices.to(torch.long)
-        
         if devices.ndim > 1:
             devices = devices.squeeze()
 
         if self.config.mixstyle_p > 0:
             x = self.mel_forward(x)
             x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
-
             y_hat = self.forward(x, devices, apply_mel=False)  # Passing devices into forward method
         else:
             y_hat = self.forward(x, devices, apply_mel=True) # Did not convert to melspec because no mixstyle
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
-        
+
         # Compute the standard average cross entropy loss
         avg_loss = F.cross_entropy(y_hat, labels, reduction="mean")
-
         # Compute the device-weighted loss (per-sample loss)
         losses = F.cross_entropy(y_hat, labels, reduction="none")
-        
-        # === Learnable Device Weights with Sum-to-1 Constraint ===
-        # Get the learnable logits for seen devices (indices 0-5)
-        logits_seen = self.device_weight_logits  # shape: (6,)
-        # Create fixed logits for unseen devices (indices 6-8); fixed at 0 (i.e. weight 1 before normalization)
-        logits_unseen = torch.zeros(3, device=logits_seen.device, dtype=logits_seen.dtype)
-        # Combine to form a full logits vector for all 9 devices
-        logits_full = torch.cat([logits_seen, logits_unseen], dim=0)  # shape: (9,)
-        # Apply softmax to obtain normalized device weights (summing to 1)
-        device_weights = torch.softmax(logits_full, dim=0)
-        # Now, for each sample, index the appropriate weight via its device index:
-        sample_weights = device_weights[devices]  # devices is a tensor of indices
-        weighted_loss = losses * sample_weights
-        loss = weighted_loss.mean()
 
-        # # Compute normalized, learnable weights using softmax
-        # weights = torch.softmax(self.loss_logits, dim=0)
-        
-        # # Combine the losses with learnable weights
-        # loss = weights[0] * avg_loss + weights[1] * weighted_loss.mean() 
-        
-        # # Combine the losses with equal weighting
-        # loss = 0.5 * weighted_loss.mean() + 0.5 * avg_loss
+        # === Learnable Device Weights with Sum-to-1 Constraint ===
+        # For seen devices (indices 0-5), use the device_weight_logits (learnable or fixed as per config)
+        logits_seen = self.device_weight_logits[:6]  # shape: (6,)
+        # For unseen devices (indices 6-8), fix logits to 0 (i.e. weight 1 before normalization)
+        logits_unseen = torch.zeros(3, device=logits_seen.device, dtype=logits_seen.dtype)
+        logits_full = torch.cat([logits_seen, logits_unseen], dim=0)  # shape: (9,)
+        device_weights = torch.softmax(logits_full, dim=0) # Apply softmax to obtain normalized device weights (summing to 1)
+        sample_weights = device_weights[devices]  # Now, for each sample, index the appropriate weight via its device index
+        weighted_loss = losses * sample_weights
+        # ============================================================
+
+        # Combine losses: either use learnable loss weights or default to equal weighting.
+        if self.config.learn_loss:
+            weights = torch.softmax(self.loss_logits, dim=0)
+            loss = weights[0] * avg_loss + weights[1] * weighted_loss.mean()
+            self.log("loss_weight_avg", weights[0].detach().cpu(), prog_bar=True)
+            self.log("loss_weight_device", weights[1].detach().cpu(), prog_bar=True)
+        else:
+            loss = 0.5 * avg_loss + 0.5 * weighted_loss.mean()
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
         self.log("train/loss", loss.detach().cpu(), prog_bar=True)
-        
-        # # To track the learnable loss weights
-        # self.log("CE_Weight", weights[0].detach().cpu(), prog_bar=True)
-        # self.log("Device_Weight", weights[1].detach().cpu(), prog_bar=True)
         return loss
 
     def on_train_epoch_end(self):
@@ -459,12 +450,6 @@ def train(config):
                           num_workers=config.num_workers,
                           batch_size=config.batch_size,
                           shuffle=True)
-    
-    # Get the first batch from the DataLoader
-    first_batch = next(iter(train_dl))
-    x, files, labels, devices, cities = first_batch
-
-    print("Devices in the first batch:", devices)
 
     test_dl = DataLoader(dataset=get_test_set(),
                         #  worker_init_fn=worker_init_fn,
@@ -684,6 +669,12 @@ if __name__ == '__main__':
     parser.add_argument('--timem', type=int, default=0)  # mask up to 'timem' spectrogram frames
     parser.add_argument('--f_min', type=int, default=0)  # mel bins are created for freqs. between 'f_min' and 'f_max'
     parser.add_argument('--f_max', type=int, default=None)
+
+    # New flags to enable learnable parameters
+    parser.add_argument('--learn_device', action='store_true',
+                        help="Make device weights learnable (otherwise, they remain fixed).")
+    parser.add_argument('--learn_loss', action='store_true',
+                        help="Make loss weights learnable (otherwise, they are fixed at equal weights).")
 
     args = parser.parse_args()
     # validate(args)
