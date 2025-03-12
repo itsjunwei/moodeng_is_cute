@@ -52,7 +52,7 @@ class PLModule(pl.LightningModule):
         n_timebins = int(config.sample_rate / config.hop_length + 1)
         
         self.mel_augment = transforms.Compose([
-                RandomShiftUpDownNp(),
+                # RandomShiftUpDownNp(),
                 CompositeCutout(image_aspect_ratio=(n_timebins/config.n_mels)) # Hardcoded n_timesteps / n_features
             ])
 
