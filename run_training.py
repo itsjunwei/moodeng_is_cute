@@ -114,6 +114,7 @@ class PLModule(pl.LightningModule):
                 x_aug = self.mel_augment(x_np)
                 # Convert back to torch tensor and restore the channel dimension
                 x = torch.from_numpy(x_aug).to(x.device).type_as(x).unsqueeze(1) # Batch, Channel (1), Freq, Time
+                print("Augmented!")
         x = (x + 1e-5).log()
         if torch.isnan(x).any():
             raise ValueError("NaNs detected in log mel spectrogram")
@@ -653,7 +654,8 @@ if __name__ == '__main__':
     parser.add_argument('--mixstyle_alpha', type=float, default=0.3)
     parser.add_argument('--weight_decay', type=float, default=0.0001)
     parser.add_argument('--roll_sec', type=int, default=0.1)  # roll waveform over time
-    parser.add_argument('--aug', action='store_true')  # Apply augmentations
+    parser.add_argument('--freqshift', action='store_true')  # Apply Freqshift
+    parser.add_argument('--cutout', action='store_true')  # Apply Cutout
 
     # peak learning rate (in cosinge schedule)
     parser.add_argument('--lr', type=float, default=0.005)
