@@ -199,7 +199,12 @@ class PLModule(pl.LightningModule):
             self.log("loss_weight_avg", weights[0].detach().cpu(), prog_bar=True)
             self.log("loss_weight_device", weights[1].detach().cpu(), prog_bar=True)
         else:
-            loss = 0.5 * avg_loss + 0.5 * weighted_loss.mean()
+            if self.config.only_avg:
+                loss = avg_loss
+            elif self.config.only_dev:
+                loss = weighted_loss.mean()
+            else:
+                loss = 0.5 * avg_loss + 0.5 * weighted_loss.mean()
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
@@ -659,6 +664,8 @@ if __name__ == '__main__':
     # peak learning rate (in cosinge schedule)
     parser.add_argument('--lr', type=float, default=0.005)
     parser.add_argument('--warmup_steps', type=int, default=2000)
+    parser.add_argument('--only_avg', action='store_true')  # Only Averaged Cross Entropy
+    parser.add_argument('--only_dev', action='store_true')  # Only Device-weighted Cross Entropy
 
     # preprocessing
     parser.add_argument('--sample_rate', type=int, default=32000)
