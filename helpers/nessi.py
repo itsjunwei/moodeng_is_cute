@@ -14,7 +14,7 @@ MAX_MACS = 30_000_000
 #     model_profile = torchinfo.summary(model, input_size=input_size)
 #     return model_profile.total_mult_adds, model_profile.total_params
 
-def get_torch_size(model, input_size):
+def get_torch_size(model, input_size, use_device=True):
     """
     Computes the total multiply-add operations (MACs) and total parameters for the model
     using torchinfo.summary.
@@ -42,7 +42,10 @@ def get_torch_size(model, input_size):
     dummy_device_id = torch.zeros(batch_size, dtype=torch.long)
     
     # Use the input_data argument to pass both inputs.
-    model_profile = torchinfo.summary(model, input_data=(dummy_x, dummy_device_id))
+    if use_device:
+        model_profile = torchinfo.summary(model, input_data=(dummy_x, dummy_device_id))
+    else:
+        model_profile = torchinfo.summary(model, input_data=dummy_x)
     return model_profile.total_mult_adds, model_profile.total_params
 
 

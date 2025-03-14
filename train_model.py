@@ -12,7 +12,7 @@ import json
 import math
 
 from dataset.dcase24 import get_training_set, get_test_set, get_eval_set
-from models.baseline import get_model, TestCNN
+from models.baseline_old import get_model
 from helpers.utils import *
 from helpers import nessi
 from torchvision import transforms
@@ -55,15 +55,13 @@ class PLModule(pl.LightningModule):
         self.mel_augment = transforms.Compose(self.augmentations)
 
         # the baseline model
-        if config.model == "baseline":
-            self.model = get_model(n_classes=config.n_classes,
+        self.model = get_model(n_classes=config.n_classes,
                                 in_channels=config.in_channels,
                                 base_channels=config.base_channels,
                                 channels_multiplier=config.channels_multiplier,
                                 expansion_rate=config.expansion_rate
                                 )
-        else:
-            self.model = TestCNN(num_classes=config.n_classes)
+
 
         self.device_ids = ['a', 'b', 'c', 's1', 's2', 's3', 's4', 's5', 's6']
         self.label_ids = ['airport', 'bus', 'metro', 'metro_station', 'park', 'public_square', 'shopping_mall',
@@ -72,26 +70,6 @@ class PLModule(pl.LightningModule):
         self.device_groups = {'a': "real", 'b': "real", 'c': "real",
                               's1': "seen", 's2': "seen", 's3': "seen",
                               's4': "unseen", 's5': "unseen", 's6': "unseen"}
-
-        # Device weights for balancing the skewed distribution of devices
-        self.init_device_weights = [0.0883, 1.1821, 1.1821, 1.1821, 1.1821, 1.1821, 1.0, 1.0, 1.0]
-
-        # If learnable, register as parameters; otherwise, register as fixed buffers.
-        if config.learn_device:
-            self.device_weight_logits = nn.Parameter(
-                torch.tensor([math.log(w) for w in self.init_device_weights], dtype=torch.float)
-            )
-        else:
-            self.register_buffer("device_weight_logits",
-                                 torch.tensor([math.log(w) for w in self.init_device_weights], dtype=torch.float))
-        print("Device weights: ", self.device_weight_logits)
-
-        # Loss weights: if learnable, use a parameter; else, fix to equal weights.
-        if config.learn_loss:
-            self.loss_logits = nn.Parameter(torch.tensor([0.5, 0.5], dtype=torch.float))
-        else:
-            self.register_buffer("loss_logits", torch.tensor([0.5, 0.5], dtype=torch.float))
-        print("Learnable Device Weights: {}\nLearnable Loss Weights:{}".format(self.config.learn_device, self.config.learn_loss))
 
         # pl 2 containers:
         self.training_step_outputs = []
@@ -119,7 +97,7 @@ class PLModule(pl.LightningModule):
         return x
 
 
-    def forward(self, x, device_id, apply_mel=True):
+    def forward(self, x, apply_mel=True):
         # Forward pass through the baseline model with device embeddings
         """
         :param x: batch of raw audio signals (waveforms)
@@ -128,8 +106,8 @@ class PLModule(pl.LightningModule):
         """
         if apply_mel:
             x = self.mel_forward(x) # Process the audio into log mel spectrograms
-        x = self.model(x, device_id) # Input MelSpec + Device_ID into the model, get output
-        return x   
+        x = self.model(x) # Input MelSpec + Device_ID into the model, get output
+        return x
 
 
     def configure_optimizers(self):
@@ -162,50 +140,18 @@ class PLModule(pl.LightningModule):
         """
         x, files, labels, devices, cities = train_batch
         labels = labels.type(torch.LongTensor).to(self.device)
-        devices = devices.to(torch.long)
-        if devices.ndim > 1:
-            devices = devices.squeeze()
 
         if self.config.mixstyle_p > 0:
             x = self.mel_forward(x)
             x = mixstyle(x, self.config.mixstyle_p, self.config.mixstyle_alpha)
-            y_hat = self.forward(x, devices, apply_mel=False)  # Passing devices into forward method
+            y_hat = self.forward(x, apply_mel=False)  # Passing devices into forward method
         else:
-            y_hat = self.forward(x, devices, apply_mel=True) # Did not convert to melspec because no mixstyle
+            y_hat = self.forward(x, apply_mel=True) # Did not convert to melspec because no mixstyle
         if torch.isnan(y_hat).any():
             raise ValueError("NaNs detected in model outputs")
 
-        # Compute the standard average cross entropy loss
-        avg_loss = F.cross_entropy(y_hat, labels, reduction="mean")
         # Compute the device-weighted loss (per-sample loss)
-        losses = F.cross_entropy(y_hat, labels, reduction="none")
-
-        # === Learnable Device Weights with Sum-to-1 Constraint ===
-        # For seen devices (indices 0-5), use the device_weight_logits (learnable or fixed as per config)
-        logits_seen = self.device_weight_logits[:6]  # shape: (6,)
-        # For unseen devices (indices 6-8), fix logits to 0 (i.e. weight 1 before normalization)
-        logits_unseen = torch.zeros(3, device=logits_seen.device, dtype=logits_seen.dtype)
-        logits_full = torch.cat([logits_seen, logits_unseen], dim=0)  # shape: (9,)
-        device_weights = torch.softmax(logits_full, dim=0) # Apply softmax to obtain normalized device weights (summing to 1)
-        sample_weights = device_weights[devices]  # Now, for each sample, index the appropriate weight via its device index
-        weighted_loss = losses * sample_weights
-        # ============================================================
-
-        # Combine losses: either use learnable loss weights or default to equal weighting.
-        if self.config.learn_loss:
-            weights = torch.softmax(self.loss_logits, dim=0)
-            loss = weights[0] * avg_loss + weights[1] * weighted_loss.mean()
-            self.log("loss_weight_avg", weights[0].detach().cpu(), prog_bar=True)
-            self.log("loss_weight_device", weights[1].detach().cpu(), prog_bar=True)
-        else:
-            if self.config.only_avg:
-                loss = avg_loss
-            elif self.config.only_dev:
-                loss = weighted_loss.mean()
-            else:
-                self.log("avg_loss", avg_loss.detach().cpu(), prog_bar=True)
-                self.log("dev_loss", weighted_loss.mean().detach().cpu(), prog_bar=True)
-                loss = avg_loss + weighted_loss.mean()
+        loss = F.cross_entropy(y_hat, labels, reduction="mean")
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
@@ -213,33 +159,12 @@ class PLModule(pl.LightningModule):
         return loss
 
     def on_train_epoch_end(self):
-        """
-        The device embedding layer is defined as an nn.Embedding(9, embed_dim), 
-        meaning there are nine rows (one for each possible device). 
-        During training, only rows 0-5 get updated. 
-        Without intervention, rows 6-8 remain at their initial random values. 
-        By computing the mean of the updated embeddings for 0-5 
-        and assigning that mean to rows 6-8 at the end of each epoch, 
-        you ensure that these “missing” devices are given a representative embedding. 
-        This regularizes the model for unseen devices and helps it generalize better 
-        when these IDs occur during validation or testing.
-        """
-        # Update unseen device embeddings (6,7,8) to be the average of seen device embeddings (0-5)
-        with torch.no_grad():
-            # Get embeddings for seen device IDs (assumed to be 0-5)
-            seen_indices = torch.tensor([0, 1, 2, 3, 4, 5], device=self.device)
-            seen_embeddings = self.model.device_embedding(seen_indices)  # shape: [6, embed_dim]
-            avg_seen = seen_embeddings.mean(dim=0, keepdim=True)  # shape: [1, embed_dim]
-            
-            # Update the embeddings for unseen device IDs
-            for idx in [6, 7, 8]:
-                self.model.device_embedding.weight.data[idx] = avg_seen.squeeze(0)
+        pass
 
 
     def validation_step(self, val_batch, batch_idx):
         x, files, labels, devices, cities = val_batch
-        devices = devices.to(torch.long)  # Ensure dtype is correct
-        y_hat = self.forward(x, devices)
+        y_hat = self.forward(x)
         labels = labels.type(torch.LongTensor).to(self.device)
 
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
@@ -322,7 +247,6 @@ class PLModule(pl.LightningModule):
     def test_step(self, test_batch, batch_idx):
         x, files, labels, devices, cities = test_batch
         labels = labels.type(torch.LongTensor).to(self.device)
-        devices = devices.to(torch.long)
 
         # maximum memory allowance for parameters: 128 KB
         # baseline has 61148 parameters -> we can afford 16-bit precision
@@ -332,7 +256,7 @@ class PLModule(pl.LightningModule):
         self.model.half()
         x = self.mel_forward(x)
         x = x.half()
-        y_hat = self.forward(x, devices, apply_mel=False)
+        y_hat = self.forward(x, apply_mel=False)
         samples_loss = F.cross_entropy(y_hat, labels, reduction="none")
 
         # for computing accuracy
@@ -408,8 +332,6 @@ class PLModule(pl.LightningModule):
         logs["macro_avg_acc"] = torch.mean(torch.stack([logs["acc." + l] for l in self.label_ids]))
         # prefix with 'test' for logging
         self.log_dict({"test/" + k: logs[k] for k in logs})
-        print("FINAL MACRO AVG ACC : {}".format(logs["macro_avg_acc"]))
-        print("FINAL DEVICE WEIGHTS: ", self.device_weight_logits)
         self.test_step_outputs.clear()
 
     def predict_step(self, eval_batch, batch_idx, dataloader_idx=0):
@@ -420,7 +342,7 @@ class PLModule(pl.LightningModule):
 
         x = self.mel_forward(x)
         x = x.half()
-        y_hat = self.forward(x, devices, apply_mel=False)
+        y_hat = self.forward(x, apply_mel=False)
 
         return files, y_hat
 
@@ -446,19 +368,16 @@ def train(config):
         filename="{epoch}-{val/acc:.3f}"  # Optional: customize the filename
     )
 
-
     # train dataloader
     assert config.subset in {100, 50, 25, 10, 5}, "Specify an integer value in: {100, 50, 25, 10, 5} to use one of " \
                                                   "the given subsets."
     roll_samples = config.orig_sample_rate * config.roll_sec
     train_dl = DataLoader(dataset=get_training_set(config.subset, roll=roll_samples),
-                        #   worker_init_fn=worker_init_fn,
                           num_workers=config.num_workers,
                           batch_size=config.batch_size,
                           shuffle=True)
 
     test_dl = DataLoader(dataset=get_test_set(),
-                        #  worker_init_fn=worker_init_fn,
                          num_workers=config.num_workers,
                          batch_size=config.batch_size)
 
@@ -468,7 +387,7 @@ def train(config):
     # get model complexity from nessi and log results to wandb
     sample = next(iter(test_dl))[0][0].unsqueeze(0)
     shape = pl_module.mel_forward(sample).size()
-    macs, params = nessi.get_torch_size(pl_module.model, input_size=shape)
+    macs, params = nessi.get_torch_size(pl_module.model, input_size=shape, use_device=False)
     # log MACs and number of parameters for our model
     wandb_logger.experiment.config['MACs'] = macs
     wandb_logger.experiment.config['Parameters'] = params
@@ -495,10 +414,6 @@ def train(config):
 def validate(config):
 
     import os
-    from sklearn import preprocessing
-    import pandas as pd
-    import torch.nn.functional as F
-    from dataset.dcase24 import dataset_config
     # logging is done using wandb
     wandb_logger = WandbLogger(
         project=config.project_name,
@@ -527,7 +442,6 @@ def validate(config):
     # create pytorch lightening module
     pl_module = PLModule(config)
     pl_module = PLModule.load_from_checkpoint(ckpt_file, config=config)
-
 
     # create the pytorch lightening trainer by specifying the number of epochs to train, the logger,
     # on which kind of device(s) to train and possible callbacks
@@ -630,7 +544,7 @@ if __name__ == '__main__':
 
     # general
     parser.add_argument('--project_name', type=str, default="DCASE24_Task1")
-    parser.add_argument('--experiment_name', type=str, default="Baseline")
+    parser.add_argument('--experiment_name', type=str, default="Baseline_2024")
     parser.add_argument('--num_workers', type=int, default=0)  # number of workers for dataloaders
     parser.add_argument('--precision', type=str, default="32")
 
@@ -665,8 +579,6 @@ if __name__ == '__main__':
     # peak learning rate (in cosinge schedule)
     parser.add_argument('--lr', type=float, default=0.005)
     parser.add_argument('--warmup_steps', type=int, default=2000)
-    parser.add_argument('--only_avg', action='store_true')  # Only Averaged Cross Entropy
-    parser.add_argument('--only_dev', action='store_true')  # Only Device-weighted Cross Entropy
 
     # preprocessing
     parser.add_argument('--sample_rate', type=int, default=32000)
@@ -678,12 +590,6 @@ if __name__ == '__main__':
     parser.add_argument('--timem', type=int, default=0)  # mask up to 'timem' spectrogram frames
     parser.add_argument('--f_min', type=int, default=0)  # mel bins are created for freqs. between 'f_min' and 'f_max'
     parser.add_argument('--f_max', type=int, default=None)
-
-    # New flags to enable learnable parameters
-    parser.add_argument('--learn_device', action='store_true',
-                        help="Make device weights learnable (otherwise, they remain fixed).")
-    parser.add_argument('--learn_loss', action='store_true',
-                        help="Make loss weights learnable (otherwise, they are fixed at equal weights).")
 
     args = parser.parse_args()
     # validate(args)
