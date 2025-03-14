@@ -204,7 +204,7 @@ class PLModule(pl.LightningModule):
             elif self.config.only_dev:
                 loss = weighted_loss.mean()
             else:
-                loss = 0.5 * avg_loss + 0.5 * weighted_loss.mean()
+                loss = avg_loss + 0.2 * weighted_loss.mean()
 
         self.log("lr", self.trainer.optimizers[0].param_groups[0]['lr'])
         self.log("epoch", self.current_epoch)
